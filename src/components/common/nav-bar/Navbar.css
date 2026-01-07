@@ -115,6 +115,57 @@
     box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
 }
 
+.lang-button {
+    background: rgba(22, 27, 34, 0.6);
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 0 1rem;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.lang-button svg {
+    color: #8b949e;
+    transition: all 0.3s ease;
+}
+
+.lang-button:hover {
+    background: rgba(88, 166, 255, 0.1);
+    border-color: #58a6ff;
+    color: #58a6ff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(88, 166, 255, 0.15);
+}
+
+.lang-button:hover svg {
+    color: #58a6ff;
+    transform: rotate(15deg);
+}
+
+.lang-button:active {
+    transform: scale(0.95);
+}
+
+.navbar-actions .lang-button {
+    animation: fadeInRight 0.8s ease-out;
+}
+
 @keyframes slideDown {
     from {
         transform: translateY(-100%);

@@ -48,9 +48,9 @@ const Navbar = () => {
                 </ul>
 
                 <div className="navbar-actions">
-                    <button onClick={toggleLanguage} className="lang-button">
-                        <Globe size={20} />
-                        <span>{i18n.language.toUpperCase()}</span>
+                    <button onClick={toggleLanguage} className="lang-button" aria-label="Change language">
+                        <Globe size={18} />
+                        <span className="lang-text">{i18n.language.toUpperCase()}</span>
                     </button>
                     <button className="icon-button" aria-label="Toggle theme">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
