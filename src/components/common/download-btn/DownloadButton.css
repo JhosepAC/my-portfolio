@@ -1,0 +1,47 @@
+
+.btn-cv {
+    padding: 0.9rem 2.5rem;
+    background: transparent;
+    color: #c9d1d9;
+    border: 2px solid #30363d;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-cv:hover::before {
+    left: 100%;
+}
+
+.btn-cv:hover {
+    border-color: #58a6ff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(88, 166, 255, 0.3);
+}
+
+.btn-icon {
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-cv:hover .btn-icon {
+    transform: translateY(-2px);
+    color: #58a6ff;
+}

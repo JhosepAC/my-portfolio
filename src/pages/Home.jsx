@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import SocialButton from '../components/common/social-btn/SocialButton';
+import DownloadButton from '../components/common/download-btn/DownloadButton';
 import '../styles/Home.css';
 
 const Home = () => {
@@ -41,9 +42,7 @@ const Home = () => {
                     </div>
 
                     <div className="hero-actions">
-                        <a href="#cv" className="btn-cv">
-                            CV
-                        </a>
+                        <DownloadButton label="CV" />
                         <SocialButton
                             icon="github"
                             url="https://github.com/JhosepAC"
