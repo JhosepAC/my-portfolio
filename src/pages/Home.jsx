@@ -46,12 +46,12 @@ const Home = () => {
                         </a>
                         <SocialButton
                             icon="github"
-                            url="https://github.com/jhosepargomedo"
+                            url="https://github.com/JhosepAC"
                             ariaLabel="GitHub"
                         />
                         <SocialButton
                             icon="linkedin"
-                            url="https://linkedin.com/in/jhosepargomedo"
+                            url="https://linkedin.com/in/jhosep-ac"
                             ariaLabel="LinkedIn"
                         />
                     </div>

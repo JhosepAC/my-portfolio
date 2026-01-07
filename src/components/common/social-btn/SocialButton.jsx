@@ -24,7 +24,7 @@ const SocialButton = ({ icon, url, ariaLabel }) => {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="social-button"
+            className={`social-button ${icon}`}
             aria-label={ariaLabel}
         >
             {renderIcon()}
