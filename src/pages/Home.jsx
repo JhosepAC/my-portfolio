@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import SocialButton from '../components/common/social-btn/SocialButton';
 import DownloadButton from '../components/common/download-btn/DownloadButton';
 import '../styles/Home.css';
 
 const Home = () => {
     const splineRef = useRef(null);
+    const { t } = useTranslation();
 
     useEffect(() => {
 
@@ -28,17 +30,17 @@ const Home = () => {
                 <div className="hero-content">
                     <div className="status-badge">
                         <span className="status-dot"></span>
-                        <span className="status-text">DISPONIBLE</span>
+                        <span className="status-text">{t('hero.status')}</span>
                     </div>
 
                     <h1 className="hero-title">
-                        <span className="title-line">Mi nombre es</span>
+                        <span className="title-line">{t('hero.greeting')}</span>
                         <span className="title-name">Jhosep Argomedo</span>
                     </h1>
 
                     <div className="hero-subtitle">
-                        <p className="subtitle-line">Estudiante de Ingeniería de Software - UPC</p>
-                        <p className="subtitle-line">Desarrollador Web</p>
+                        <p className="subtitle-line">{t('hero.subtitle1')}</p>
+                        <p className="subtitle-line">{t('hero.subtitle2')}</p>
                     </div>
 
                     <div className="hero-actions">

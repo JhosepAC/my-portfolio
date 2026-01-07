@@ -1,8 +1,17 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Globe } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const { i18n } = useTranslation(); // for language change
+    const { t } = useTranslation(); // for translations
+
+    const toggleLanguage = () => {
+        const newLang = i18n.language === 'es' ? 'en' : 'es';
+        i18n.changeLanguage(newLang);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,29 +31,26 @@ const Navbar = () => {
 
                 <ul className="navbar-menu">
                     <li className="navbar-item">
-                        <a href="#home" className="navbar-link">Home</a>
+                        <a href="#home" className="navbar-link">{t('nav.home')}</a>
                     </li>
                     <li className="navbar-item">
-                        <a href="#skills" className="navbar-link">Skills</a>
+                        <a href="#skills" className="navbar-link">{t('nav.skills')}</a>
                     </li>
                     <li className="navbar-item">
-                        <a href="#projects" className="navbar-link">Projects</a>
+                        <a href="#projects" className="navbar-link">{t('nav.projects')}</a>
                     </li>
                     <li className="navbar-item">
-                        <a href="#education" className="navbar-link">Education</a>
+                        <a href="#education" className="navbar-link">{t('nav.education')}</a>
                     </li>
                     <li className="navbar-item">
-                        <a href="#contact" className="navbar-link">Contact me</a>
+                        <a href="#contact" className="navbar-link">{t('nav.contact-me')}</a>
                     </li>
                 </ul>
 
                 <div className="navbar-actions">
-                    <button className="icon-button" aria-label="Change language">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="2" y1="12" x2="22" y2="12"/>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                        </svg>
+                    <button onClick={toggleLanguage} className="lang-button">
+                        <Globe size={20} />
+                        <span>{i18n.language.toUpperCase()}</span>
                     </button>
                     <button className="icon-button" aria-label="Toggle theme">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

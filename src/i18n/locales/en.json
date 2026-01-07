@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "education": "Education",
+    "contact-me": "Contact me"
+  },
+  "hero": {
+    "status": "AVAILABLE",
+    "greeting": "My name is",
+    "subtitle1": "Software Engineering Student - UPC",
+    "subtitle2": "Web Developer"
+  }
+}

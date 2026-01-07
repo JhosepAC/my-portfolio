@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "education": "Educación",
+    "contact-me": "Contáctame"
+  },
+  "hero": {
+    "status": "DISPONIBLE",
+    "greeting": "Mi nombre es",
+    "subtitle1": "Estudiante de Ingeniería de Software - UPC",
+    "subtitle2": "Desarrollador Web"
+  }
+}
