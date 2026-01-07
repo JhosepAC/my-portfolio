@@ -1,81 +1,74 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { useEffect, useRef } from 'react';
+import SocialButton from '../components/common/social-btn/SocialButton';
+import '../styles/Home.css';
 
 const Home = () => {
-    const containerStyle = {
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '0 20px',
-        backgroundColor: '#0a0a0c',
-        color: '#f8fafc'
-    };
+    const splineRef = useRef(null);
 
-    const badgeStyle = {
-        fontSize: '0.75rem',
-        textTransform: 'uppercase',
-        letterSpacing: '0.3rem',
-        color: '#c1101a',
-        marginBottom: '1rem',
-        opacity: 0.8
-    };
+    useEffect(() => {
 
-    const titleStyle = {
-        fontSize: 'clamp(2.5rem, 10vw, 5rem)',
-        fontWeight: '800',
-        margin: '0',
-        letterSpacing: '-0.03em',
-        lineHeight: '1'
-    };
-
-    const socialContainerStyle = {
-        marginTop: '2.5rem',
-        display: 'flex',
-        gap: '2.5rem',
-    };
-
-    const iconStyle = {
-        fontSize: '1.8rem',
-        color: '#f8fafc',
-        transition: 'all 0.3s ease',
-        cursor: 'pointer'
-    };
+    }, []);
 
     return (
-        <main style={containerStyle} className="fade-in">
-            <span style={badgeStyle}>Próximamente</span>
-            <h1 style={titleStyle}>Jhosep Argomedo</h1>
-
-            <div style={socialContainerStyle}>
-                <a
-                    href="https://github.com/JhosepAC"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="GitHub"
-                >
-                    <FontAwesomeIcon
-                        icon={faGithub}
-                        style={iconStyle}
-                        className="social-icon social-icon-github"
-                    />
-                </a>
-                <a
-                    href="https://instagram.com/jh_slin"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Instagram"
-                >
-                    <FontAwesomeIcon
-                        icon={faInstagram}
-                        style={iconStyle}
-                        className="social-icon social-icon-instagram"
-                    />
-                </a>
+        <div className="home-container">
+            {/* Animated background particles */}
+            <div className="particles">
+                {[...Array(50)].map((_, i) => (
+                    <div key={i} className="particle" style={{
+                        left: `${Math.random() * 100}%`,
+                        top: `${Math.random() * 100}%`,
+                        animationDelay: `${Math.random() * 5}s`,
+                        animationDuration: `${5 + Math.random() * 10}s`
+                    }}></div>
+                ))}
             </div>
-        </main>
+
+            <div className="hero-section">
+                <div className="hero-content">
+                    <div className="status-badge">
+                        <span className="status-dot"></span>
+                        <span className="status-text">DISPONIBLE</span>
+                    </div>
+
+                    <h1 className="hero-title">
+                        <span className="title-line">Mi nombre es</span>
+                        <span className="title-name">Jhosep Argomedo</span>
+                    </h1>
+
+                    <div className="hero-subtitle">
+                        <p className="subtitle-line">Estudiante de Ingeniería de Software - UPC</p>
+                        <p className="subtitle-line">Desarrollador Web</p>
+                    </div>
+
+                    <div className="hero-actions">
+                        <a href="#cv" className="btn-cv">
+                            CV
+                        </a>
+                        <SocialButton
+                            icon="github"
+                            url="https://github.com/jhosepargomedo"
+                            ariaLabel="GitHub"
+                        />
+                        <SocialButton
+                            icon="linkedin"
+                            url="https://linkedin.com/in/jhosepargomedo"
+                            ariaLabel="LinkedIn"
+                        />
+                    </div>
+
+                    {/* Decorative elements */}
+                    <div className="glow-orb glow-orb-1"></div>
+                    <div className="glow-orb glow-orb-2"></div>
+                </div>
+
+                <div className="hero-visual">
+                    <div className="spline-container" ref={splineRef}>
+                        <spline-viewer url="https://prod.spline.design/j2WcXrE2Kwhzaclj/scene.splinecode"></spline-viewer>
+                    </div>
+                    <div className="visual-glow"></div>
+                </div>
+            </div>
+        </div>
     );
 };
 
