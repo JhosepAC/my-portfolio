@@ -11,5 +11,15 @@
     "greeting": "Mi nombre es",
     "subtitle1": "Estudiante de Ingeniería de Software - UPC",
     "subtitle2": "Desarrollador Web"
+  },
+  "skills": {
+    "title": "HABILIDADES",
+    "filters": {
+      "all": "Todos",
+      "languages": "Lenguajes",
+      "databases": "Base de Datos",
+      "frameworks": "Frameworks",
+      "tools": "Herramientas"
+    }
   }
 }

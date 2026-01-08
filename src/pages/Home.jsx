@@ -3,13 +3,40 @@ import { useTranslation } from 'react-i18next';
 import SocialButton from '../components/common/social-btn/SocialButton';
 import DownloadButton from '../components/common/download-btn/DownloadButton';
 import '../styles/Home.css';
+import SkillsSection from "../components/skills/SkillsSection.jsx";
 
 const Home = () => {
     const splineRef = useRef(null);
     const { t } = useTranslation();
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
+    useEffect(() => {
+        const handleSmoothScroll = (e) => {
+            e.preventDefault();
+            const targetId = e.currentTarget.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        };
+
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+            link.addEventListener('click', handleSmoothScroll);
+        });
+
+        return () => {
+            links.forEach(link => {
+                link.removeEventListener('click', handleSmoothScroll);
+            });
+        };
     }, []);
 
     return (
@@ -69,6 +96,8 @@ const Home = () => {
                     <div className="visual-glow"></div>
                 </div>
             </div>
+
+            <SkillsSection />
         </div>
     );
 };
