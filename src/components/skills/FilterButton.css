@@ -1,0 +1,88 @@
+.filter-button {
+    position: relative;
+    padding: 0.8rem 1.8rem;
+    background: rgba(22, 27, 34, 0.6);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    color: #8b949e;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.filter-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(88, 166, 255, 0.15);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.filter-button:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.filter-button:hover {
+    border-color: #58a6ff;
+    color: #c9d1d9;
+    transform: translateY(-2px);
+}
+
+.filter-button.active {
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.2), rgba(125, 140, 255, 0.2));
+    border-color: #58a6ff;
+    color: #58a6ff;
+    box-shadow: 0 4px 20px rgba(88, 166, 255, 0.3);
+}
+
+.filter-button.active::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(135deg, #58a6ff, #7d8cff);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.filter-indicator {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background: linear-gradient(90deg, #58a6ff, #7d8cff);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.6);
+    animation: pulse-indicator 2s ease-in-out infinite;
+}
+
+@keyframes pulse-indicator {
+    0%, 100% {
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateX(-50%) scaleX(0.8);
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-button {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.85rem;
+    }
+}
