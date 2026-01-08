@@ -47,17 +47,6 @@
     animation: expandWidth 1s ease-out 0.5s backwards;
 }
 
-.title-line {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 200px;
-    height: 2px;
-    background: linear-gradient(90deg, #58a6ff, transparent);
-    transform: translateY(-50%);
-    animation: expandLine 1s ease-out 0.8s backwards;
-}
-
 @keyframes expandLine {
     from {
         width: 0;

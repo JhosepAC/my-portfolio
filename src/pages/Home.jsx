@@ -53,7 +53,7 @@ const Home = () => {
                 ))}
             </div>
 
-            <div className="hero-section">
+            <section id="home" className="hero-section">
                 <div className="hero-content">
                     <div className="status-badge">
                         <span className="status-dot"></span>
@@ -95,7 +95,7 @@ const Home = () => {
                     </div>
                     <div className="visual-glow"></div>
                 </div>
-            </div>
+            </section>
 
             <SkillsSection />
         </div>

@@ -74,7 +74,6 @@ const SkillsSection = () => {
                     <h2 className="section-title">
                         <span className="title-accent">{t('skills.title')}</span>
                     </h2>
-                    <div className="title-line"></div>
                 </div>
 
                 <div className="filters-container">
