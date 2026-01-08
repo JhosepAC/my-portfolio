@@ -91,7 +91,14 @@ const Home = () => {
 
                 <div className="hero-visual">
                     <div className="spline-container" ref={splineRef}>
-                        <spline-viewer url="https://prod.spline.design/j2WcXrE2Kwhzaclj/scene.splinecode"></spline-viewer>
+                        <spline-viewer
+                            loading-anim-type="spinner-small-dark"
+                            url="https://prod.spline.design/7ZNE2gWre9KI23Tp/scene.splinecode"
+                            events-target="global"
+                            interactivity="none"
+                            hint
+                            loading-anim-type="spinner-small-dark"
+                        ></spline-viewer>
                     </div>
                     <div className="visual-glow"></div>
                 </div>
