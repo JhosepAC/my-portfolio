@@ -5,6 +5,7 @@ import cvFile from '../../../assets/docs/JHOSEP_JAMIL-ARGOMEDO_CAMACHO-CV.pdf';
 
 const DownloadButton = ({ label = "CV", fileName = "JHOSEP_ARGOMEDO-CV.pdf" }) => {
 
+    // Function to handle the download action
     const handleDownload = () => {
         const link = document.createElement('a');
         link.href = cvFile;
@@ -14,6 +15,7 @@ const DownloadButton = ({ label = "CV", fileName = "JHOSEP_ARGOMEDO-CV.pdf" }) =
         document.body.removeChild(link);
     };
 
+    // Render the download button
     return (
         <button
             className="btn-cv"
