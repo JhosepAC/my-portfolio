@@ -20,7 +20,18 @@
       "databases": "Base de Datos",
       "frameworks": "Frameworks",
       "tools": "Herramientas",
-      "others": "Otros"
-    }
+      "others": "Otros",
+      "softskills": "Habilidades Blandas"
+    },
+    "softskillsList": {
+      "communication": "Comunicación",
+      "teamwork": "Trabajo en Equipo",
+      "problemSolving": "Resolución de Problemas",
+      "adaptability": "Adaptabilidad",
+      "timeManagement": "Gestión del Tiempo",
+      "creativity": "Creatividad"
+    },
+    "showMore": "Mostrar Más",
+    "showLess": "Mostrar Menos"
   }
 }

@@ -1,5 +1,8 @@
-const SkillIcon = ({ name, color }) => {
-    const iconClass = {
+import { Icon } from '@iconify/react';
+
+const SkillIcon = ({ name, color, iconType = 'devicon' }) => {
+
+    const deviconClass = {
         css: 'devicon-css3-plain',
         javascript: 'devicon-javascript-plain',
         flutter: 'devicon-flutter-plain',
@@ -21,17 +24,27 @@ const SkillIcon = ({ name, color }) => {
         mongodb: 'devicon-mongodb-plain',
         webstorm: 'devicon-webstorm-plain',
         androidstudio: 'devicon-androidstudio-plain',
-        react : 'devicon-react-plain',
+        react: 'devicon-react-plain',
         rider: 'devicon-rider-plain',
         html: 'devicon-html5-plain',
         git: 'devicon-git-plain',
     };
 
+    if (iconType === 'iconify') {
+        return (
+            <Icon
+                icon={name}
+                className="skill-icon"
+                style={{ color, fontSize: '2.5rem' }}
+            />
+        );
+    }
+
     return (
         <i
-            className={`${iconClass[name] || 'devicon-devicon-plain'} skill-icon`}
-            style={{ color: color, fontSize: '2.5rem' }}
-        ></i>
+            className={`${deviconClass[name] || 'devicon-devicon-plain'} skill-icon`}
+            style={{ color, fontSize: '2.5rem' }}
+        />
     );
 };
 

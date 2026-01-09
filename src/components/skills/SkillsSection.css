@@ -117,6 +117,32 @@
     animation-delay: 6s;
 }
 
+.skills-show-more {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.skills-show-more-btn {
+    background: rgba(22, 27, 34, 0.6);
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 0.7rem 1.8rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.skills-show-more-btn:hover {
+    color: #58a6ff;
+    border-color: #58a6ff;
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.25);
+    transform: translateY(-2px);
+}
+
 @keyframes float-orb {
     0%, 100% {
         transform: translate(0, 0) scale(1);

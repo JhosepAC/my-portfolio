@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import {useState} from 'react';
+import { useTranslation } from 'react-i18next';
 import SkillIcon from './SkillIcon';
 import './SkillCard.css';
 
-const SkillCard = ({ skill, index }) => {
+const SkillCard = ({skill, index}) => {
     const [isHovered, setIsHovered] = useState(false);
+    const { t } = useTranslation();
 
     const colorWithAlpha = (color, alpha) => {
         // Convert hex to rgba
@@ -25,7 +27,11 @@ const SkillCard = ({ skill, index }) => {
             }}
         >
             <div className="skill-icon-wrapper">
-                <SkillIcon name={skill.icon} color={skill.color} />
+                <SkillIcon
+                    name={skill.icon}
+                    color={skill.color}
+                    iconType={skill.iconType}
+                />
             </div>
             <span className="skill-name">{skill.name}</span>
         </div>

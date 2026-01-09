@@ -20,7 +20,18 @@
       "databases": "Databases",
       "frameworks": "Frameworks",
       "tools": "Tools",
-        "others": "Others"
-    }
+      "others": "Others",
+      "softskills": "Soft Skills"
+    },
+    "softskillsList": {
+      "communication": "Communication",
+      "teamwork": "Teamwork",
+      "problemSolving": "Problem Solving",
+      "adaptability": "Adaptability",
+      "timeManagement": "Time Management",
+      "creativity": "Creativity"
+    },
+    "showMore": "Show More",
+    "showLess": "Show Less"
   }
 }

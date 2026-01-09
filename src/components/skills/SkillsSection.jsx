@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
 import {useTranslation} from 'react-i18next';
 import SkillCard from './SkillCard';
 import FilterButton from './FilterButton';
@@ -7,6 +7,12 @@ import './SkillsSection.css';
 const SkillsSection = () => {
     const {t} = useTranslation();
     const [activeFilter, setActiveFilter] = useState('all');
+    const [showAll, setShowAll] = useState(false);
+    const INITIAL_VISIBLE = 20;
+
+    useEffect(() => {
+        setShowAll(false);
+    }, [activeFilter]);
 
     const skills = {
         languages: [
@@ -42,8 +48,63 @@ const SkillsSection = () => {
             { name: 'Rider', icon: 'rider', color: '#781919' },
         ],
         others: [
-            { name: 'Scrum', icon: 'scrum', color: '#f15a24' },
-        ]
+            {
+                name: 'Scrum',
+                icon: 'simple-icons:scrumalliance',
+                iconType: 'iconify',
+                color: '#f15a24'
+            },
+            {
+                name: 'User Stories',
+                icon: 'mdi:clipboard-text-outline',
+                iconType: 'iconify',
+                color: '#4caf50'
+            },
+            {
+                name: 'Agile',
+                icon: 'mdi:sync',
+                iconType: 'iconify',
+                color: '#2196f3'
+            }
+        ],
+        softskills: [
+            {
+                name: t('skills.softskillsList.communication'),
+                icon: 'mdi:chat-outline',
+                iconType: 'iconify',
+                color: '#ff9800'
+            },
+            {
+                name: t('skills.softskillsList.teamwork'),
+                icon: 'mdi:account-group-outline',
+                iconType: 'iconify',
+                color: '#9c27b0'
+            },
+            {
+                name: t('skills.softskillsList.adaptability'),
+                icon: 'mdi:brain',
+                iconType: 'iconify',
+                color: '#03a9f4'
+            },
+            {
+                name: t('skills.softskillsList.problemSolving'),
+                icon: 'mdi:puzzle-outline',
+                iconType: 'iconify',
+                color: '#4caf50'
+            },
+            {
+                name: t('skills.softskillsList.timeManagement'),
+                icon: 'mdi:clock-outline',
+                iconType: 'iconify',
+                color: '#0f858f'
+            },
+            {
+                name: t('skills.softskillsList.creativity'),
+                icon: 'mdi:lightbulb-outline',
+                iconType: 'iconify',
+                color: '#e91e63'
+            },
+        ],
     };
 
     const filters = [
@@ -53,11 +114,16 @@ const SkillsSection = () => {
         {id: 'frameworks', label: t('skills.filters.frameworks')},
         {id: 'tools', label: t('skills.filters.tools')},
         {id: 'others', label: t('skills.filters.others')},
+        {id: 'softskills', label: t('skills.filters.softskills')},
     ];
 
     const getFilteredSkills = () => {
+        const allSkills = Object.values(skills).flat();
+
         if (activeFilter === 'all') {
-            return Object.values(skills).flat();
+            return showAll
+                ? allSkills
+                : allSkills.slice(0, INITIAL_VISIBLE);
         }
 
         return skills[activeFilter] || [];
@@ -80,7 +146,10 @@ const SkillsSection = () => {
                             key={filter.id}
                             label={filter.label}
                             isActive={activeFilter === filter.id}
-                            onClick={() => setActiveFilter(filter.id)}
+                            onClick={() => {
+                                setActiveFilter(filter.id);
+                                setShowAll(false);
+                            }}
                         />
                     ))}
                 </div>
@@ -94,6 +163,19 @@ const SkillsSection = () => {
                         />
                     ))}
                 </div>
+
+                {activeFilter === 'all' && (
+                    <div className="skills-show-more">
+                        <button
+                            className="skills-show-more-btn"
+                            onClick={() => setShowAll(prev => !prev)}
+                        >
+                            {showAll
+                                ? t('skills.showLess')
+                                : t('skills.showMore')}
+                        </button>
+                    </div>
+                )}
             </div>
 
             {/* Background decorative elements */}
