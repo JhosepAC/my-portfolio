@@ -1,68 +1,56 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import {useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import SkillCard from './SkillCard';
 import FilterButton from './FilterButton';
 import './SkillsSection.css';
 
 const SkillsSection = () => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const [activeFilter, setActiveFilter] = useState('all');
 
     const skills = {
         languages: [
-            { name: 'CSS3', icon: 'css', color: '#2965f1' },
             { name: 'JavaScript', icon: 'javascript', color: '#f7df1e' },
             { name: 'Python', icon: 'python', color: '#3776ab' },
             { name: 'C', icon: 'c', color: '#a8b9cc' },
             { name: 'C++', icon: 'cpp', color: '#00599c' },
-            { name: 'Java', icon: 'java', color: '#007396' },
+            { name: 'HTML5', icon: 'html', color: '#e34f26' },
+            { name: 'CSS3', icon: 'css', color: '#2965f1' },
+        ],
+        databases: [
             { name: 'MySQL', icon: 'mysql', color: '#4479a1' },
-            { name: 'Azure', icon: 'azure', color: '#0078d4' }
+            { name: 'MongoDB', icon: 'mongodb', color: '#47a248' }
         ],
         frameworks: [
             { name: 'Vue', icon: 'vue', color: '#42b883' },
-            { name: 'GitHub', icon: 'github', color: '#ffffff' },
             { name: 'Figma', icon: 'figma', color: '#a259ff' },
-            { name: 'VS Code', icon: 'vscode', color: '#007acc' },
-            { name: 'Visual Studio', icon: 'visualstudio', color: '#5c2d91' },
-            { name: 'Headless UI', icon: 'headlessui', color: '#66e3ff' }
+            { name: 'Tailwind', icon: 'headlessui', color: '#66e3ff' }
         ],
         tools: [
+            { name: 'GitHub', icon: 'github', color: '#ffffff' },
+            { name: 'Git', icon: 'git', color: '#f05032' },
             { name: 'Linux', icon: 'linux', color: '#fcc624' },
-            { name: 'MongoDB', icon: 'mongodb', color: '#47a248' },
+            { name: 'Azure', icon: 'azure', color: '#0078d4' },
             { name: 'WebStorm', icon: 'webstorm', color: '#00cdd7' },
-            { name: 'HTML5', icon: 'html', color: '#e34f26' },
-            { name: 'Git', icon: 'git', color: '#f05032' }
+            { name: 'VS Code', icon: 'vscode', color: '#007acc' },
+            { name: 'Visual Studio', icon: 'visualstudio', color: '#5c2d91' },
         ]
     };
 
     const filters = [
-        { id: 'all', label: t('skills.filters.all') },
-        { id: 'languages', label: t('skills.filters.languages') },
-        { id: 'databases', label: t('skills.filters.databases') },
-        { id: 'frameworks', label: t('skills.filters.frameworks') },
-        { id: 'tools', label: t('skills.filters.tools') }
+        {id: 'all', label: t('skills.filters.all')},
+        {id: 'languages', label: t('skills.filters.languages')},
+        {id: 'databases', label: t('skills.filters.databases')},
+        {id: 'frameworks', label: t('skills.filters.frameworks')},
+        {id: 'tools', label: t('skills.filters.tools')}
     ];
 
     const getFilteredSkills = () => {
         if (activeFilter === 'all') {
-            return [...skills.languages, ...skills.frameworks, ...skills.tools];
+            return Object.values(skills).flat();
         }
-        if (activeFilter === 'languages') {
-            return skills.languages.filter(s => !['MySQL', 'Azure'].includes(s.name));
-        }
-        if (activeFilter === 'databases') {
-            return skills.languages.filter(s => ['MySQL'].includes(s.name))
-                .concat(skills.tools.filter(s => ['MongoDB'].includes(s.name)));
-        }
-        if (activeFilter === 'frameworks') {
-            return skills.frameworks;
-        }
-        if (activeFilter === 'tools') {
-            return skills.tools.filter(s => !['MongoDB'].includes(s.name))
-                .concat(skills.languages.filter(s => ['Azure'].includes(s.name)));
-        }
-        return [];
+
+        return skills[activeFilter] || [];
     };
 
     const filteredSkills = getFilteredSkills();
