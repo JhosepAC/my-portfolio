@@ -1,29 +1,26 @@
 import React from 'react';
 import { FileText } from 'lucide-react';
+import { ASSETS } from '../../../utils/constants';
+import { downloadFile } from '../../../utils/helpers';
 import './DownloadButton.css';
-import cvFile from '../../../assets/docs/JHOSEP_JAMIL-ARGOMEDO_CAMACHO-CV.pdf';
 
-const DownloadButton = ({ label = "CV", fileName = "JHOSEP_ARGOMEDO-CV.pdf" }) => {
+const DownloadButton = ({
+                            label = "CV",
+                            fileUrl = ASSETS.CV_PATH,
+                            fileName = ASSETS.CV_NAME
+                        }) => {
 
-    // Function to handle the download action
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.href = cvFile;
-        link.download = fileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
+    const handleDownload = () => downloadFile(fileUrl, fileName);
 
-    // Render the download button
     return (
         <button
+            type="button"
             className="btn-cv"
             onClick={handleDownload}
             aria-label={`Descargar ${label}`}
         >
             <FileText size={18} className="btn-icon" />
-            {label}
+            <span>{label}</span>
         </button>
     );
 };
