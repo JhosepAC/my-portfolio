@@ -2,11 +2,14 @@ const SkillIcon = ({ name, color }) => {
     const iconClass = {
         css: 'devicon-css3-plain',
         javascript: 'devicon-javascript-plain',
+        flutter: 'devicon-flutter-plain',
         python: 'devicon-python-plain',
-        c: 'devicon-c-plain',
+        csharp: 'devicon-csharp-plain',
         cpp: 'devicon-cplusplus-plain',
         java: 'devicon-java-plain',
         mysql: 'devicon-mysql-plain',
+        mariadb: 'devicon-mariadb-plain',
+        sqlserver: 'devicon-microsoftsqlserver-plain',
         azure: 'devicon-azure-plain',
         vue: 'devicon-vuejs-plain',
         github: 'devicon-github-original',
@@ -17,8 +20,11 @@ const SkillIcon = ({ name, color }) => {
         linux: 'devicon-linux-plain',
         mongodb: 'devicon-mongodb-plain',
         webstorm: 'devicon-webstorm-plain',
+        androidstudio: 'devicon-androidstudio-plain',
+        react : 'devicon-react-plain',
+        rider: 'devicon-rider-plain',
         html: 'devicon-html5-plain',
-        git: 'devicon-git-plain'
+        git: 'devicon-git-plain',
     };
 
     return (

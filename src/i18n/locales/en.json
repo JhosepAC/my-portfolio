@@ -19,7 +19,8 @@
       "languages": "Languages",
       "databases": "Databases",
       "frameworks": "Frameworks",
-      "tools": "Tools"
+      "tools": "Tools",
+        "others": "Others"
     }
   }
 }
