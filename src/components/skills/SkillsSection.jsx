@@ -21,8 +21,8 @@ const SkillsSection = () => {
         ],
         frameworks: [
             { name: 'Vue', icon: 'vue', color: '#42b883' },
-            { name: 'GitHub', icon: 'github', color: '#181717' },
-            { name: 'Figma', icon: 'figma', color: '#f24e1e' },
+            { name: 'GitHub', icon: 'github', color: '#ffffff' },
+            { name: 'Figma', icon: 'figma', color: '#a259ff' },
             { name: 'VS Code', icon: 'vscode', color: '#007acc' },
             { name: 'Visual Studio', icon: 'visualstudio', color: '#5c2d91' },
             { name: 'Headless UI', icon: 'headlessui', color: '#66e3ff' }

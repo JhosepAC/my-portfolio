@@ -24,7 +24,7 @@ const SkillIcon = ({ name, color }) => {
     return (
         <i
             className={`${iconClass[name] || 'devicon-devicon-plain'} skill-icon`}
-            style={{ color: color }}
+            style={{ color: color, fontSize: '2.5rem' }}
         ></i>
     );
 };
