@@ -5,7 +5,7 @@ import SkillCard from './SkillCard';
 import FilterButton from './FilterButton';
 import './SkillsSection.css';
 
-const INITIAL_VISIBLE = 20;
+const INITIAL_VISIBLE = 16;
 
 const SkillsSection = () => {
     const {t} = useTranslation();
