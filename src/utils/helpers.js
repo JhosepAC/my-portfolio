@@ -11,3 +11,13 @@ export const downloadFile = (url, fileName) => {
     link.click();
     document.body.removeChild(link);
 };
+
+/**
+ * Converts a hex color to rgba with specific alpha
+ */
+export const hexToRgba = (hex, alpha) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};

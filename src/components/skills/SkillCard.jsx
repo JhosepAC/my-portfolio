@@ -1,31 +1,17 @@
-import {useState} from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 import SkillIcon from './SkillIcon';
+import {hexToRgba} from '../../utils/helpers';
 import './SkillCard.css';
 
 const SkillCard = ({skill, index}) => {
-    const [isHovered, setIsHovered] = useState(false);
-    const { t } = useTranslation();
-
-    const colorWithAlpha = (color, alpha) => {
-        // Convert hex to rgba
-        const r = parseInt(color.slice(1, 3), 16);
-        const g = parseInt(color.slice(3, 5), 16);
-        const b = parseInt(color.slice(5, 7), 16);
-        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    const cardStyles = {
+        '--skill-color': skill.color,
+        '--skill-color-shadow': hexToRgba(skill.color, 0.4),
+        animationDelay: `${index * 0.05}s`
     };
 
     return (
-        <div
-            className="skill-card"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            style={{
-                '--skill-color': skill.color,
-                '--skill-color-shadow': colorWithAlpha(skill.color, 0.4),
-                animationDelay: `${index * 0.05}s`
-            }}
-        >
+        <div className="skill-card" style={cardStyles}>
             <div className="skill-icon-wrapper">
                 <SkillIcon
                     name={skill.icon}

@@ -6,11 +6,11 @@ export const ASSETS = {
 };
 
 export const NAV_LINKS = [
-    { id: 'home', key: 'nav.home' },
-    { id: 'skills', key: 'nav.skills' },
-    { id: 'projects', key: 'nav.projects' },
-    { id: 'education', key: 'nav.education' },
-    { id: 'contact', key: 'nav.contact-me' },
+    {id: 'home', key: 'nav.home'},
+    {id: 'skills', key: 'nav.skills'},
+    {id: 'projects', key: 'nav.projects'},
+    {id: 'education', key: 'nav.education'},
+    {id: 'contact', key: 'nav.contact-me'},
 ];
 
 export const SOCIAL_ICONS = {
@@ -19,6 +19,54 @@ export const SOCIAL_ICONS = {
 };
 
 export const SOCIAL_LINKS = [
-    { id: 'github', name: 'GitHub', url: 'https://github.com/JhosepAC' },
-    { id: 'linkedin', name: 'LinkedIn', url: 'https://linkedin.com/in/jhosep-ac' }
+    {id: 'github', name: 'GitHub', url: 'https://github.com/JhosepAC'},
+    {id: 'linkedin', name: 'LinkedIn', url: 'https://linkedin.com/in/jhosep-ac'}
 ];
+
+export const SKILLS_DATA = {
+    languages: [
+        {name: 'JavaScript', icon: 'javascript', color: '#f7df1e'},
+        {name: 'Python', icon: 'python', color: '#3776ab'},
+        {name: 'Flutter', icon: 'flutter', color: '#02569b'},
+        {name: 'C#', icon: 'csharp', color: '#239120'},
+        {name: 'C++', icon: 'cpp', color: '#00599c'},
+        {name: 'HTML5', icon: 'html', color: '#e34f26'},
+        {name: 'CSS3', icon: 'css', color: '#2965f1'},
+    ],
+    databases: [
+        {name: 'MySQL', icon: 'mysql', color: '#4479a1'},
+        {name: 'MariaDB', icon: 'mariadb', color: '#00526a'},
+        {name: 'SQL Server', icon: 'sqlserver', color: '#cc2927'},
+        {name: 'MongoDB', icon: 'mongodb', color: '#47a248'},
+    ],
+    frameworks: [
+        {name: 'Vue', icon: 'vue', color: '#42b883'},
+        {name: 'React', icon: 'react', color: '#61dafb'},
+        {name: 'Tailwind', icon: 'headlessui', color: '#66e3ff'}
+    ],
+    tools: [
+        {name: 'GitHub', icon: 'github', color: '#ffffff'},
+        {name: 'Git', icon: 'git', color: '#f05032'},
+        {name: 'Linux', icon: 'linux', color: '#fcc624'},
+        {name: 'Azure', icon: 'azure', color: '#0078d4'},
+        {name: 'Android Studio', icon: 'androidstudio', color: '#3ddc84'},
+        {name: 'Figma', icon: 'figma', color: '#a259ff'},
+        {name: 'WebStorm', icon: 'webstorm', color: '#00cdd7'},
+        {name: 'VS Code', icon: 'vscode', color: '#007acc'},
+        {name: 'Visual Studio', icon: 'visualstudio', color: '#5c2d91'},
+        {name: 'Rider', icon: 'rider', color: '#781919'},
+    ],
+    others: [
+        {name: 'Scrum', icon: 'simple-icons:scrumalliance', iconType: 'iconify', color: '#f15a24'},
+        {name: 'User Stories', icon: 'mdi:clipboard-text-outline', iconType: 'iconify', color: '#4caf50'},
+        {name: 'Agile', icon: 'mdi:sync', iconType: 'iconify', color: '#2196f3'}
+    ],
+    softskills: [
+        {id: 'communication', icon: 'mdi:chat-processing-outline', iconType: 'iconify', color: '#00d2ff'},
+        {id: 'teamwork', icon: 'mdi:account-group-outline', iconType: 'iconify', color: '#ff9a9e'},
+        {id: 'problemSolving', icon: 'mdi:lightbulb-on-outline', iconType: 'iconify', color: '#f6d365'},
+        {id: 'adaptability', icon: 'mdi:cached', iconType: 'iconify', color: '#a1c4fd'},
+        {id: 'timeManagement', icon: 'mdi:clock-outline', iconType: 'iconify', color: '#d4fc79'},
+        {id: 'creativity', icon: 'mdi:palette-outline', iconType: 'iconify', color: '#84fab0'}
+    ]
+};
