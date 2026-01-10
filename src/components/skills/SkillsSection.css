@@ -1,8 +1,6 @@
 .skills-section {
     position: relative;
     padding: 6rem 3rem;
-    background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
-    overflow: hidden;
 }
 
 .skills-container {
