@@ -34,6 +34,55 @@
     "showMore": "Mostrar Más",
     "showLess": "Mostrar Menos"
   },
+  "contact": {
+    "badge": "¡Trabajemos juntos!",
+    "title": "¿Tienes un proyecto en mente?",
+    "titleHighlight": "Conversemos",
+    "subtitle": "Estoy disponible para nuevos proyectos y colaboraciones. No dudes en contactarme y trabajar juntos en algo increíble.",
+    "email": {
+      "title": "Correo Electrónico",
+      "description": "Respondo en menos de 24 horas",
+      "action": "Enviar Email"
+    },
+    "phone": {
+      "title": "Teléfono",
+      "description": "Lun a Vie de 9am a 6pm",
+      "action": "Llamar Ahora"
+    },
+    "location": {
+      "title": "Ubicación",
+      "description": "Lima, Perú - GMT-5",
+      "action": "Ver en Mapa"
+    },
+    "social": {
+      "title": "Encuéntrame en redes sociales"
+    },
+    "availability": {
+      "label": "Tiempo de respuesta",
+      "value": "Usualmente dentro de 24 horas"
+    },
+    "form": {
+      "title": "Envíame un mensaje",
+      "description": "Completa el formulario y me pondré en contacto contigo lo antes posible.",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "submit": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado exitosamente! Te responderé pronto.",
+      "error": "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.",
+      "errors": {
+        "nameRequired": "El nombre es requerido",
+        "nameMin": "El nombre debe tener al menos 2 caracteres",
+        "emailRequired": "El correo electrónico es requerido",
+        "emailInvalid": "Por favor, ingresa un correo válido",
+        "subjectRequired": "El asunto es requerido",
+        "messageRequired": "El mensaje es requerido",
+        "messageMin": "El mensaje debe tener al menos 10 caracteres"
+      }
+    }
+  },
   "footer": {
     "tagline": "Desarrollador web apasionado por crear experiencias digitales excepcionales. Transformando ideas en código limpio y funcional.",
     "available": "Disponible",

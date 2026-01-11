@@ -34,6 +34,55 @@
     "showMore": "Show More",
     "showLess": "Show Less"
   },
+  "contact": {
+    "badge": "Let's work together!",
+    "title": "Have a project in mind?",
+    "titleHighlight": "Let's talk",
+    "subtitle": "I'm available for new projects and collaborations. Feel free to reach out and let's work together on something amazing.",
+    "email": {
+      "title": "Email",
+      "description": "I respond within 24 hours",
+      "action": "Send Email"
+    },
+    "phone": {
+      "title": "Phone",
+      "description": "Mon to Fri from 9am to 6pm",
+      "action": "Call Now"
+    },
+    "location": {
+      "title": "Location",
+      "description": "Lima, Peru - GMT-5",
+      "action": "View on Map"
+    },
+    "social": {
+      "title": "Find me on social media"
+    },
+    "availability": {
+      "label": "Response time",
+      "value": "Usually within 24 hours"
+    },
+    "form": {
+      "title": "Send me a message",
+      "description": "Fill out the form and I'll get back to you as soon as possible.",
+      "name": "Full name",
+      "email": "Email address",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! I'll respond soon.",
+      "error": "There was an error sending the message. Please try again.",
+      "errors": {
+        "nameRequired": "Name is required",
+        "nameMin": "Name must be at least 2 characters",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email",
+        "subjectRequired": "Subject is required",
+        "messageRequired": "Message is required",
+        "messageMin": "Message must be at least 10 characters"
+      }
+    }
+  },
   "footer": {
     "tagline": "Web developer passionate about creating exceptional digital experiences. Transforming ideas into clean and functional code.",
     "available": "Available",
