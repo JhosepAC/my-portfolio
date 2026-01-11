@@ -33,5 +33,21 @@
     },
     "showMore": "Mostrar Más",
     "showLess": "Mostrar Menos"
+  },
+  "footer": {
+    "tagline": "Desarrollador web apasionado por crear experiencias digitales excepcionales. Transformando ideas en código limpio y funcional.",
+    "available": "Disponible",
+    "navigation": "Navegación",
+    "quickLinks": "Enlaces Rápidos",
+    "contact": "Contacto",
+    "resume": "Currículum",
+    "blog": "Blog",
+    "testimonials": "Testimonios",
+    "email": "Email",
+    "location": "Ubicación",
+    "phone": "Teléfono",
+    "rights": "Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "in": "en"
   }
 }
