@@ -3,7 +3,6 @@
     background: linear-gradient(180deg, #0d1117 0%, #000000 100%);
     padding: 5rem 0 2rem;
     overflow: hidden;
-    margin-top: 8rem;
 }
 
 .footer-bg {
@@ -358,7 +357,6 @@
 @media (max-width: 768px) {
     .footer {
         padding: 3rem 0 2rem;
-        margin-top: 4rem;
     }
 
     .footer-container {

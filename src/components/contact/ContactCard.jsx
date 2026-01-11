@@ -1,10 +1,11 @@
 import {memo, useCallback, useState} from 'react';
+import PropTypes from 'prop-types';
 import './ContactCard.css';
-import { CONTACT_ICONS } from "../../utils/Icons.jsx";
+import {CONTACT_ICONS} from "../../utils/Icons.jsx";
 
-const ActionButton = ({onClick, href, title, icon, className = ""}) => {
+const ActionButton = memo(({onClick, href, title, icon, className = ""}) => {
     const commonProps = {
-        className: `action-btn-mini ${className}`, title: title,
+        className: `action-btn-mini ${className}`, title, 'aria-label': title
     };
 
     if (href) {
@@ -16,19 +17,25 @@ const ActionButton = ({onClick, href, title, icon, className = ""}) => {
     return (<button onClick={onClick} {...commonProps} type="button">
             {icon}
         </button>);
-};
+});
+
+ActionButton.displayName = 'ActionButton';
 
 const ContactCard = ({method, index}) => {
     const [isCopied, setIsCopied] = useState(false);
+
     const {id, color, icon, title, value, action} = method;
 
     const handleCopy = useCallback(async (e) => {
         e.preventDefault();
+        if (!value) return;
+
         try {
             await navigator.clipboard.writeText(value);
             setIsCopied(true);
             setTimeout(() => setIsCopied(false), 2000);
         } catch {
+            // Handle error if needed
         }
     }, [value]);
 
@@ -47,7 +54,7 @@ const ContactCard = ({method, index}) => {
             <div className="card-info-mini">
                 <span className="card-label-mini">{title}</span>
                 <a
-                    href={action.href}
+                    href={action?.href}
                     className="card-value-mini"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -65,12 +72,25 @@ const ContactCard = ({method, index}) => {
                     />)}
 
                 <ActionButton
-                    href={action.href}
+                    href={action?.href}
                     title="Open link"
                     icon={CONTACT_ICONS.EXTERNAL_LINK}
                 />
             </div>
         </div>);
+};
+
+ContactCard.propTypes = {
+    method: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        color: PropTypes.string,
+        icon: PropTypes.node,
+        title: PropTypes.string,
+        value: PropTypes.string,
+        action: PropTypes.shape({
+            href: PropTypes.string
+        })
+    }).isRequired, index: PropTypes.number.isRequired
 };
 
 export default memo(ContactCard);

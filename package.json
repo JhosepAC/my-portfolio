@@ -17,6 +17,7 @@
     "framer-motion": "^12.24.10",
     "i18next": "^25.7.3",
     "lucide-react": "^0.562.0",
+    "prop-types": "^15.8.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-i18next": "^16.5.1",
