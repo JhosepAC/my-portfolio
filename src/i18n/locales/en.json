@@ -36,16 +36,16 @@
   },
   "footer": {
     "tagline": "Web developer passionate about creating exceptional digital experiences. Transforming ideas into clean and functional code.",
-    "available": "Available for projects",
+    "available": "Available",
     "navigation": "Navigation",
     "quickLinks": "Quick Links",
     "contact": "Contact",
     "resume": "Resume",
-    "blog": "Blog",
-    "testimonials": "Testimonials",
-    "email": "Email",
-    "location": "Location",
-    "phone": "Phone",
+    "contactLabels": {
+        "email": "Email",
+        "location": "Location",
+        "phone": "Phone"
+    },
     "rights": "All rights reserved.",
     "madeWith": "Made with",
     "in": "in"

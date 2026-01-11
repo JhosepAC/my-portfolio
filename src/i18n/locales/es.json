@@ -41,11 +41,11 @@
     "quickLinks": "Enlaces Rápidos",
     "contact": "Contacto",
     "resume": "Currículum",
-    "blog": "Blog",
-    "testimonials": "Testimonios",
-    "email": "Email",
-    "location": "Ubicación",
-    "phone": "Teléfono",
+    "contactLabels": {
+        "email": "Correo Electrónico",
+        "location": "Ubicación",
+        "phone": "Teléfono"
+    },
     "rights": "Todos los derechos reservados.",
     "madeWith": "Hecho con",
     "in": "en"
