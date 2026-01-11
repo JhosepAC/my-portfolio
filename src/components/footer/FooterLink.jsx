@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import './FooterLink.css';
 
-const FooterLink = ({ href, label, delay = 0 }) => {
+const FooterLink = ({href, label, delay = 0}) => {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleClick = (e) => {
@@ -9,19 +9,18 @@ const FooterLink = ({ href, label, delay = 0 }) => {
             e.preventDefault();
             const element = document.querySelector(href);
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                element.scrollIntoView({behavior: 'smooth', block: 'start'});
             }
         }
     };
 
-    return (
-        <a
+    return (<a
             href={href}
             className="footer-link"
             onClick={handleClick}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            style={{ animationDelay: `${delay}s` }}
+            style={{animationDelay: `${delay}s`}}
         >
       <span className="footer-link-icon">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -30,8 +29,7 @@ const FooterLink = ({ href, label, delay = 0 }) => {
       </span>
             <span className="footer-link-text">{label}</span>
             {isHovered && <span className="footer-link-underline"></span>}
-        </a>
-    );
+        </a>);
 };
 
 export default FooterLink;

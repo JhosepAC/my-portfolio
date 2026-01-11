@@ -1,99 +1,38 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, {useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {Icon} from '@iconify/react';
+import {CONTACT_DATA} from '../../utils/constants';
 import './ContactInfo.css';
 
 const ContactInfo = () => {
-    const { t } = useTranslation();
-    const [copiedItem, setCopiedItem] = useState(null);
+    const {t} = useTranslation();
+    const [copiedId, setCopiedId] = useState(null);
 
-    const contactItems = [
-        {
-            id: 'email',
-            icon: (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                </svg>
-            ),
-            value: 'jhosepjamil@gmail.com',
-            href: 'mailto:jhosepjamil@gmail.com',
-            label: t('footer.email')
-        },
-        {
-            id: 'location',
-            icon: (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                </svg>
-            ),
-            value: 'Lima, Perú',
-            label: t('footer.location')
-        },
-        {
-            id: 'phone',
-            icon: (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-            ),
-            value: '+51 987 654 321',
-            href: 'tel:+51987654321',
-            label: t('footer.phone')
-        }
-    ];
-
-    const handleCopy = async (value, id) => {
-        try {
-            await navigator.clipboard.writeText(value);
-            setCopiedItem(id);
-            setTimeout(() => setCopiedItem(null), 2000);
-        } catch (err) {
-            console.error('Failed to copy:', err);
-        }
+    const handleCopy = (text, id) => {
+        navigator.clipboard.writeText(text);
+        setCopiedId(id);
+        setTimeout(() => setCopiedId(null), 2000);
     };
 
-    return (
-        <div className="contact-info">
-            {contactItems.map((item, index) => (
-                <div
-                    key={item.id}
-                    className="contact-item"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                >
+    return (<div className="contact-info">
+            {CONTACT_DATA.map((item) => (<div key={item.id} className="contact-item">
                     <div className="contact-item-icon">
-                        {item.icon}
+                        <Icon icon={item.icon} width="20"/>
                     </div>
                     <div className="contact-item-content">
-                        <span className="contact-item-label">{item.label}</span>
-                        {item.href ? (
-                            <a href={item.href} className="contact-item-value">
-                                {item.value}
-                            </a>
-                        ) : (
-                            <span className="contact-item-value">{item.value}</span>
-                        )}
+                        <span className="contact-item-label">{t(`footer.contactLabels.${item.id}`)}</span>
+                        {item.href ? (<a href={item.href} className="contact-item-value">{item.value}</a>) : (
+                            <span className="contact-item-value">{item.value}</span>)}
                     </div>
                     <button
                         className="contact-item-copy"
                         onClick={() => handleCopy(item.value, item.id)}
-                        aria-label="Copy to clipboard"
+                        title={t('footer.copy')}
                     >
-                        {copiedItem === item.id ? (
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        ) : (
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                            </svg>
-                        )}
+                        <Icon icon={copiedId === item.id ? "mdi:check" : "mdi:content-copy"}/>
                     </button>
-                </div>
-            ))}
-        </div>
-    );
+                </div>))}
+        </div>);
 };
 
 export default ContactInfo;

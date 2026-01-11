@@ -30,8 +30,7 @@ const Home = () => {
 
                 if (targetElement) {
                     targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                        behavior: 'smooth', block: 'start'
                     });
                 }
             }
@@ -49,13 +48,11 @@ const Home = () => {
         };
     }, []);
 
-    return (
-        <>
+    return (<>
             <div className="home-container">
                 {/* Background Particles - Abstracted logic */}
                 <div className="particles" aria-hidden="true">
-                    {[...Array(30)].map((_, i) => (
-                        <div
+                    {[...Array(30)].map((_, i) => (<div
                             key={`particle-${i}`}
                             className="particle"
                             style={{
@@ -64,8 +61,7 @@ const Home = () => {
                                 animationDelay: `${Math.random() * 5}s`,
                                 animationDuration: `${10 + Math.random() * 10}s`
                             }}
-                        />
-                    ))}
+                        />))}
                 </div>
 
                 <section id="home" className="hero-section">
@@ -92,14 +88,13 @@ const Home = () => {
                             <DownloadButton label="CV"/>
 
                             {/* Dynamic Social Buttons using constants */}
-                            {SOCIAL_LINKS.map((link) => (
+                            {SOCIAL_LINKS.filter(link => ['github', 'linkedin'].includes(link.id)).map((link) => (
                                 <SocialButton
                                     key={link.id}
                                     icon={link.id}
                                     url={link.url}
                                     ariaLabel={link.name}
-                                />
-                            ))}
+                                />))}
                         </div>
 
                         {/* Decorative elements */}
@@ -124,8 +119,7 @@ const Home = () => {
                 <SkillsSection/>
             </div>
             <Footer/>
-        </>
-    );
+        </>);
 };
 
 export default Home;
