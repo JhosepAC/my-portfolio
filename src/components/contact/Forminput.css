@@ -1,0 +1,90 @@
+.form-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #c9d1d9;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.form-required {
+    color: #f85149;
+}
+
+.form-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-input-icon {
+    position: absolute;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    color: #8b949e;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.form-input-container.focused .form-input-icon,
+.form-input-container.filled .form-input-icon {
+    color: #58a6ff;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: rgba(13, 17, 23, 0.6);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    color: #c9d1d9;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    outline: none;
+    overflow: hidden;
+}
+
+.form-input::placeholder {
+    color: #6e7681;
+}
+
+.form-input:focus {
+    background: rgba(13, 17, 23, 0.8);
+    border-color: #58a6ff;
+}
+
+.form-input-wrapper.has-error .form-input {
+    border-color: #f85149;
+}
+
+.form-input-wrapper.has-error .form-input-icon {
+    color: #f85149;
+}
+
+.form-error {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #f85149;
+    font-size: 0.85rem;
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
