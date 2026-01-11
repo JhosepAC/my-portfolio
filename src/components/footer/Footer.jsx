@@ -1,7 +1,8 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Icon} from '@iconify/react';
-import {NAV_LINKS} from '../../utils/constants';
+import {ASSETS, NAV_LINKS} from '../../utils/constants';
+import { downloadFile } from '../../utils/helpers';
 import FooterLink from './FooterLink';
 import SocialLinks from './SocialLinks';
 import ContactInfo from './ContactInfo';
@@ -12,7 +13,19 @@ const Footer = () => {
     const {t} = useTranslation();
     const currentYear = new Date().getFullYear();
 
-    const quickLinks = [{id: 'resume', label: t('footer.resume'), href: '/cv'},];
+    const handleDownloadCV = (e) => {
+        e.preventDefault();
+        downloadFile(ASSETS.CV_PATH, ASSETS.CV_NAME);
+    };
+
+    const quickLinks = [
+        {
+            id: 'resume',
+            label: t('footer.resume'),
+            onClick: handleDownloadCV,
+            href: '#'
+        },
+    ];
 
     return (<footer className="footer">
             <div className="footer-bg">
@@ -56,6 +69,7 @@ const Footer = () => {
                                     href={link.href}
                                     label={link.label}
                                     delay={index * 0.05}
+                                    onClick={link.onClick}
                                 />))}
                         </nav>
                     </div>
