@@ -1,6 +1,6 @@
 import {memo, useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import FormInput from './FormInput';
+import FormInput from './FormInput.jsx';
 import FormTextarea from './FormTextarea';
 import {CONTACT_CONFIG} from "../../utils/constants.js";
 import {FORM_ICONS} from "../../utils/Icons.jsx";
