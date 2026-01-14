@@ -34,6 +34,77 @@
     "showMore": "Mostrar Más",
     "showLess": "Mostrar Menos"
   },
+  "education": {
+    "badge": "Formación Académica",
+    "title": "Educación &",
+    "titleHighlight": "Certificaciones",
+    "subtitle": "Mi trayectoria académica y de formación continua en ingeniería de software, seguridad y tecnologías modernas.",
+    "status": {
+      "ongoing": "En Curso",
+      "completed": "Completado"
+    },
+    "skills": "Habilidades",
+    "viewCertificate": "Ver Certificado",
+    "items": {
+      "ubiobio-2025": {
+        "description": "Programa especializado en el Ciclo de Vida del Desarrollo de Software Seguro (SSDLC), enfocado en la integración de prácticas de seguridad desde el análisis de requisitos hasta el despliegue y mantenimiento, aplicando principios de DevSecOps.",
+        "skills": [
+          "DevSecOps",
+          "Seguridad de Software",
+          "SSDLC",
+          "Gestión de Riesgos",
+          "Buenas Prácticas de Seguridad"
+        ]
+      },
+      "mongodb-udemy-2024": {
+        "description": "Curso completo sobre MongoDB orientado al diseño, consulta y optimización de bases de datos NoSQL, cubriendo desde conceptos fundamentales hasta operaciones avanzadas y modelado de datos.",
+        "skills": [
+          "MongoDB",
+          "NoSQL",
+          "Modelado de Datos",
+          "Consultas Avanzadas",
+          "Optimización de Bases de Datos"
+        ]
+      },
+      "mongodb-intro-2024": {
+        "description": "Curso introductorio que proporciona los fundamentos de MongoDB, incluyendo estructura de documentos, colecciones, consultas básicas y conceptos esenciales de bases de datos NoSQL.",
+        "skills": [
+          "MongoDB Básico",
+          "NoSQL",
+          "CRUD",
+          "Bases de Datos"
+        ]
+      },
+      "scrum-2024": {
+        "description": "Certificación en fundamentos de Scrum enfocada en metodologías ágiles, roles, eventos y artefactos, orientada a la gestión eficiente de proyectos de desarrollo de software.",
+        "skills": [
+          "Scrum",
+          "Metodologías Ágiles",
+          "Gestión de Proyectos",
+          "Trabajo en Equipo"
+        ]
+      },
+      "upc-2023": {
+        "description": "Carrera universitaria de Ingeniería de Software orientada al diseño, desarrollo y mantenimiento de soluciones tecnológicas, con énfasis en arquitectura de software, desarrollo backend y aplicaciones móviles.",
+        "skills": [
+          "Ingeniería de Software",
+          "Arquitectura de Software",
+          "Backend",
+          "Desarrollo Móvil",
+          "Bases de Datos"
+        ]
+      },
+      "hacking-2022": {
+        "description": "Curso de Hacking Ético enfocado en la identificación de vulnerabilidades, pruebas de penetración y fundamentos de ciberseguridad, aplicando técnicas ofensivas con enfoque defensivo.",
+        "skills": [
+          "Hacking Ético",
+          "Ciberseguridad",
+          "Pentesting",
+          "Análisis de Vulnerabilidades"
+        ]
+      }
+    }
+  },
   "contact": {
     "badge": "¡Trabajemos juntos!",
     "title": "¿Tienes un proyecto en mente?",

@@ -34,6 +34,77 @@
     "showMore": "Show More",
     "showLess": "Show Less"
   },
+  "education": {
+    "badge": "Academic Background",
+    "title": "Education &",
+    "titleHighlight": "Certifications",
+    "subtitle": "My academic journey and continuous training in software engineering, security, and modern technologies.",
+    "status": {
+      "ongoing": "Ongoing",
+      "completed": "Completed"
+    },
+    "skills": "Skills",
+    "viewCertificate": "View Certificate",
+    "items": {
+      "ubiobio-2025": {
+        "description": "Specialized program in the Secure Software Development Life Cycle (SSDLC), focused on integrating security practices from requirements analysis to deployment and maintenance, applying DevSecOps principles.",
+        "skills": [
+          "DevSecOps",
+          "Software Security",
+          "SSDLC",
+          "Risk Management",
+          "Security Best Practices"
+        ]
+      },
+      "mongodb-udemy-2024": {
+        "description": "Comprehensive MongoDB course focused on designing, querying, and optimizing NoSQL databases, covering fundamentals through advanced operations and data modeling.",
+        "skills": [
+          "MongoDB",
+          "NoSQL",
+          "Data Modeling",
+          "Advanced Queries",
+          "Database Optimization"
+        ]
+      },
+      "mongodb-intro-2024": {
+        "description": "Introductory course providing MongoDB fundamentals, including document structure, collections, basic queries, and essential NoSQL database concepts.",
+        "skills": [
+          "MongoDB Basics",
+          "NoSQL",
+          "CRUD",
+          "Databases"
+        ]
+      },
+      "scrum-2024": {
+        "description": "Certification in Scrum fundamentals focused on agile methodologies, roles, events, and artifacts, aimed at efficient software development project management.",
+        "skills": [
+          "Scrum",
+          "Agile Methodologies",
+          "Project Management",
+          "Teamwork"
+        ]
+      },
+      "upc-2023": {
+        "description": "Software Engineering degree focused on the design, development, and maintenance of technological solutions, with emphasis on software architecture, backend development, and mobile applications.",
+        "skills": [
+          "Software Engineering",
+          "Software Architecture",
+          "Backend",
+          "Mobile Development",
+          "Databases"
+        ]
+      },
+      "hacking-2022": {
+        "description": "Ethical Hacking course focused on vulnerability identification, penetration testing, and cybersecurity fundamentals, applying offensive techniques with a defensive mindset.",
+        "skills": [
+          "Ethical Hacking",
+          "Cybersecurity",
+          "Penetration Testing",
+          "Vulnerability Analysis"
+        ]
+      }
+    }
+  },
   "contact": {
     "badge": "Let's work together!",
     "title": "Have a project in mind?",
