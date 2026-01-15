@@ -1,7 +1,7 @@
 import {SiCplusplus, SiCss3, SiFlutter, SiGit, SiHtml5, SiJavascript, SiKotlin, SiVuedotjs} from 'react-icons/si';
-import ecoCropImg from '../../assets/projects/green_sprout_innovations-ecocrop.png';
-import skillShareImg from '../../assets/projects/thinkup-skillshare.png';
-import bookifyImg from '../../assets/projects/bookify-livria.png';
+import ecoCropImg from '../assets/projects/green_sprout_innovations-ecocrop.png';
+import skillShareImg from '../assets/projects/thinkup-skillshare.png';
+import bookifyImg from '../assets/projects/bookify-livria.png';
 
 export const PROJECTS_DATA = [{
     id: 1,
