@@ -8,6 +8,7 @@ import '../styles/Home.css';
 import Footer from "../components/footer/Footer.jsx";
 import ContactSection from "../components/contact/ContactSection.jsx";
 import EducationSection from "../components/education/EducationSection.jsx";
+import ProjectsSection from "../components/projects/ProjectsSection.jsx";
 
 /**
  * Home Page Component
@@ -119,6 +120,8 @@ const Home = () => {
             </section>
 
             <SkillsSection/>
+
+            <ProjectsSection/>
 
             <EducationSection/>
 
