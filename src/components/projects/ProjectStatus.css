@@ -25,7 +25,7 @@
     50% { opacity: 0.5; transform: scale(1.2); }
 }
 
-.status-indicator .status-text {
+.project-status .status-text {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     font-weight: 700;
