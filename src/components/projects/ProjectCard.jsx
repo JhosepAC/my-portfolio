@@ -1,9 +1,11 @@
+import {useTranslation} from 'react-i18next';
 import ProjectStatus from './ProjectStatus';
 import TechStack from './TechStack';
 import ProjectActions from './ProjectActions';
 import './ProjectCard.css'
 
 const ProjectCard = ({ project, index, activeIndex, isAnimating }) => {
+    const { t } = useTranslation();
     const offset = index - activeIndex;
     const isActive = index === activeIndex;
 
@@ -16,7 +18,7 @@ const ProjectCard = ({ project, index, activeIndex, isAnimating }) => {
 
     return (
         <article className={`project-card ${isActive ? 'active' : ''} ${isAnimating ? 'animating' : ''}`} style={cardStyles}>
-            <ProjectStatus status={project.status} />
+            <ProjectStatus status={project.statusKey} text={project.statusText} />
 
             <div className="project-image">
                 <img src={project.image} alt={project.title} loading="lazy" />
@@ -27,7 +29,7 @@ const ProjectCard = ({ project, index, activeIndex, isAnimating }) => {
                 <div className="info-header">
                     <h3 className="project-title">{project.title}</h3>
                     <div className="project-number">
-                        <span className="number-label">PROJECT</span>
+                        <span className="number-label">{t('projects.numberLabel')}</span>
                         <span className="number-value">#{String(project.id).padStart(2, '0')}</span>
                     </div>
                 </div>

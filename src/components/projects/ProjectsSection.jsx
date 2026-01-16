@@ -1,10 +1,21 @@
-import { useState, useEffect, useCallback } from 'react';
+import {useState, useEffect, useCallback, useMemo} from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import ProjectCard from './ProjectCard';
 import { PROJECTS_DATA } from '../../data/projectsData.jsx';
 import './ProjectsSection.css';
+import {useTranslation} from 'react-i18next';
 
 const ProjectsSection = () => {
+    const {t} = useTranslation();
+
+    const translatedProjects = useMemo(() => {
+        return PROJECTS_DATA.map(project => ({
+            ...project,
+            description: t(`projects.items.${project.labelTranslate}.description`),
+            statusText: t(`projects.items.${project.labelTranslate}.status`)
+        }));
+    }, [t]);
+
     const [activeIndex, setActiveIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
 
@@ -39,8 +50,8 @@ const ProjectsSection = () => {
                         <span className="decorator-dot" />
                     </div>
                     <div className="header-content">
-                        <h2 className="section-title">Proyectos Destacados</h2>
-                        <p className="section-subtitle">Explorando los límites del desarrollo moderno</p>
+                        <h2 className="section-title">{t('projects.title')}</h2>
+                        <p className="section-subtitle">{t('projects.subtitle')}</p>
                     </div>
                 </header>
 
@@ -59,7 +70,7 @@ const ProjectsSection = () => {
                     </nav>
 
                     <div className="cards-stack">
-                        {PROJECTS_DATA.map((project, index) => (
+                        {translatedProjects.map((project, index) => (
                             <ProjectCard
                                 key={project.id}
                                 project={project}
@@ -71,7 +82,7 @@ const ProjectsSection = () => {
                     </div>
 
                     <div className="progress-indicators">
-                        {PROJECTS_DATA.map((_, index) => (
+                        {translatedProjects.map((_, index) => (
                             <button
                                 key={index}
                                 className={`indicator ${index === activeIndex ? 'active' : ''}`}
