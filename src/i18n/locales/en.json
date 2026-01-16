@@ -34,6 +34,28 @@
     "showMore": "Show More",
     "showLess": "Show Less"
   },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Exploring the boundaries of modern development",
+    "numberLabel": "PROJECT",
+    "technologiesLabel": "Technologies Used",
+    "seeCode": "Source Code",
+    "seeLive": "View Demo",
+    "items": {
+      "ecocrop": {
+        "description": "Landing page that presents and communicates the features, goals, and benefits of EcoCrop as a digital solution for pest control and sustainable agriculture.",
+        "status": "ACTIVE"
+      },
+      "skillshare": {
+        "description": "Educational social networking application that connects students with similar academic interests, enabling study group creation, real-time collaboration, and resource sharing to enhance collaborative learning.",
+        "status": "PRODUCTION"
+      },
+      "livria": {
+        "description": "Digital bookstore that allows users to purchase physical books, ebooks, and audiobooks, integrating a reader community where users can interact, chat, and share recommendations.",
+        "status": "ACTIVE"
+      }
+    }
+  },
   "education": {
     "badge": "Academic Background",
     "title": "Education &",

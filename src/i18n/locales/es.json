@@ -34,6 +34,28 @@
     "showMore": "Mostrar Más",
     "showLess": "Mostrar Menos"
   },
+  "projects": {
+    "title": "Proyectos destacados",
+    "subtitle": "Explorando los límites del desarrollo moderno",
+    "numberLabel": "PROYECTO",
+    "technologiesLabel": "Tecnologías Utilizadas",
+    "seeCode": "Código Fuente",
+    "seeLive": "Ver Demo",
+    "items": {
+      "ecocrop": {
+        "description": "Landing page que presenta y comunica las funcionalidades, objetivos y beneficios de EcoCrop como solución digital para el control de plagas y la agricultura sostenible.",
+        "status": "ACTIVO"
+      },
+      "skillshare": {
+        "description": "Aplicación de red social educativa que conecta estudiantes con intereses académicos similares, facilitando la creación de grupos de estudio, la colaboración en tiempo real y el intercambio de recursos para potenciar el aprendizaje colaborativo.",
+        "status": "PRODUCCIÓN"
+      },
+      "livria": {
+        "description": "Tienda digital de libros que permite comprar ejemplares físicos, ebooks y audiolibros, integrando una comunidad de lectores donde los usuarios pueden interactuar, chatear y compartir recomendaciones.",
+        "status": "ACTIVO"
+      }
+    }
+  },
   "education": {
     "badge": "Formación Académica",
     "title": "Educación &",
