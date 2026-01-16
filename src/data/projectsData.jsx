@@ -5,8 +5,8 @@ import bookifyImg from '../assets/projects/bookify-livria.png';
 
 export const PROJECTS_DATA = [{
     id: 1,
+    statusKey: 'active',
     title: 'Green Sprout Innovations - EcoCrop',
-    description: 'Landing page que presenta y comunica las funcionalidades, objetivos y beneficios de EcoCrop como solución digital para el control de plagas y la agricultura sostenible.',
     image: ecoCropImg,
     technologies: [
         {name: 'HTML5', icon: <SiHtml5/>, color: '#E34F26'},
@@ -15,10 +15,11 @@ export const PROJECTS_DATA = [{
         {name: 'Git', icon: <SiGit/>, color: '#F05032'},],
     github: 'https://github.com/GreenSprout-Innovations/greensprout-innovations.github.io',
     live: 'https://greensprout-innovations.github.io/',
-    status: ''
+    labelTranslate: 'ecocrop'
 }, {
     id: 2,
-    title: 'ThinkUp SkillShare',
+    statusKey: 'production',
+    title: 'ThinkUp - SkillShare',
     description: 'Aplicación de red social educativa que conecta estudiantes con intereses académicos similares, facilitando la creación de grupos de estudio, la colaboración en tiempo real y el intercambio de recursos para potenciar el aprendizaje colaborativo.',
     image: skillShareImg,
     technologies: [
@@ -28,9 +29,10 @@ export const PROJECTS_DATA = [{
         {name: 'Git', icon: <SiGit/>, color: '#F05032'},],
     github: 'https://github.com/orgs/ThinkUp-SkillShare/repositories',
     live: 'https://appdistribution.firebase.dev/i/2bb66c756dd609c3',
-    status: ''
+    labelTranslate: 'skillshare'
 }, {
     id: 3,
+    statusKey: 'active',
     title: 'Bookify - Livria',
     description: 'Tienda digital de libros que permite comprar ejemplares físicos, ebooks y audiolibros, integrando una comunidad de lectores donde los usuarios pueden interactuar, chatear y compartir recomendaciones.',
     image: bookifyImg,
@@ -40,5 +42,5 @@ export const PROJECTS_DATA = [{
         {name: 'Git', icon: <SiGit/>, color: '#F05032'},],
     github: 'https://github.com/Bookify-Livria/livria-web-app',
     live: 'https://livria.netlify.app/',
-    status: ''
+    labelTranslate: 'livria'
 }];
