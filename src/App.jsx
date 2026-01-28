@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/common/nav-bar/Navbar';
 import Home from './pages/Home';
@@ -7,6 +8,13 @@ import './App.css';
 
 function App() {
     const isLoading = useLoading();
+
+    useEffect(() => {
+        if (window.location.hash) {
+            window.history.replaceState(null, '', window.location.pathname);
+        }
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <Router>
