@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 
 export const useLoading = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(() => document.readyState !== 'complete');
 
     useEffect(() => {
+        if (document.readyState === 'complete') return;
+
         const handleLoad = () => {
-            setTimeout(() => setIsLoading(false), 500);
+            requestAnimationFrame(() => {
+                setIsLoading(false);
+            });
         };
 
-        if (document.readyState === 'complete') {
-            handleLoad();
-        } else {
-            window.addEventListener('load', handleLoad);
-            return () => window.removeEventListener('load', handleLoad);
-        }
+        window.addEventListener('load', handleLoad);
+
+        return () => window.removeEventListener('load', handleLoad);
     }, []);
 
     return isLoading;

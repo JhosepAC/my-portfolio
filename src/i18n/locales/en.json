@@ -1,4 +1,7 @@
 {
+  "loader": {
+    "message": "LOADING RESOURCES..."
+  },
   "nav": {
     "home": "Home",
     "skills": "Skills",

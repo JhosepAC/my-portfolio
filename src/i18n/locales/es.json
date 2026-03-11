@@ -1,4 +1,7 @@
 {
+  "loader": {
+    "message": "CARGANDO RECURSOS..."
+  },
   "nav": {
     "home": "Inicio",
     "skills": "Habilidades",
