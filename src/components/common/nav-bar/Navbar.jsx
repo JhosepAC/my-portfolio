@@ -63,9 +63,11 @@ const Navbar = ({ theme, toggleTheme }) => {
                         <span className="lang-text">{i18n.language.toUpperCase()}</span>
                     </button>
 
+                    {/*
                     <button onClick={toggleTheme} className="icon-button" aria-label="Theme">
                         {theme === 'dark' ? <Sun size={20}/> : <Moon size={20}/>}
                     </button>
+                    */}
 
                     <button className="menu-toggle" onClick={toggleMenu} aria-label="Menu">
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
