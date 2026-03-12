@@ -5,11 +5,15 @@ import { useScroll } from '../../../hooks/useScroll';
 import logo from '../../../assets/logo/elephant-logo.svg';
 import { NAV_LINKS } from "../../../utils/constants.js";
 import './Navbar.css';
+import { useActiveSection } from '../../../hooks/useActiveSection';
 
 const Navbar = ({ theme, toggleTheme }) => {
     const scrolled = useScroll(20);
     const { i18n, t } = useTranslation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const sectionIds = NAV_LINKS.map(link => link.id);
+    const activeSection = useActiveSection(sectionIds);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
@@ -41,7 +45,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                         <li key={id} className="navbar-item">
                             <a
                                 href={`#${id}`}
-                                className="navbar-link"
+                                className={`navbar-link ${activeSection === id ? 'active' : ''}`}
                                 onClick={closeMenu}
                             >
                                 {t(key)}
