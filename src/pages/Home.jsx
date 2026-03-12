@@ -21,6 +21,15 @@ const Home = () => {
     // Reset scroll on mount
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        const timer = setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'instant'
+            });
+        }, 50);
+
+        return () => clearTimeout(timer);
     }, []);
 
     useEffect(() => {
