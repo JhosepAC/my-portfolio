@@ -244,7 +244,13 @@
     border-top: 1px solid #30363d;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1135px) {
+    .navbar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
     .navbar {
         width: 100%;
     }
