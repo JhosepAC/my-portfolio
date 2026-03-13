@@ -16,15 +16,11 @@ const DEVICON_MAP = {
     vue: 'devicon-vuejs-plain',
     github: 'devicon-github-original',
     figma: 'devicon-figma-plain',
-    vscode: 'devicon-vscode-plain',
-    visualstudio: 'devicon-visualstudio-plain',
     headlessui: 'devicon-tailwindcss-plain',
     linux: 'devicon-linux-plain',
     mongodb: 'devicon-mongodb-plain',
-    webstorm: 'devicon-webstorm-plain',
     androidstudio: 'devicon-androidstudio-plain',
     react: 'devicon-react-plain',
-    rider: 'devicon-rider-plain',
     html: 'devicon-html5-plain',
     git: 'devicon-git-plain'
 };
