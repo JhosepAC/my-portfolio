@@ -19,7 +19,8 @@ const Navbar = ({ theme, toggleTheme }) => {
     const closeMenu = () => setIsMenuOpen(false);
 
     const toggleLanguage = () => {
-        const newLang = i18n.language === 'es' ? 'en' : 'es';
+        const currentLang = i18n.language.split('-')[0];
+        const newLang = currentLang === 'es' ? 'en' : 'es';
         i18n.changeLanguage(newLang);
     };
 
