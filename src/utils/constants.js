@@ -48,10 +48,6 @@ export const SKILLS_DATA = {
         name: 'Azure', icon: 'azure', color: '#0078d4'
     }, {name: 'Android Studio', icon: 'androidstudio', color: '#3ddc84'}, {
         name: 'Figma', icon: 'figma', color: '#a259ff'
-    }, {name: 'WebStorm', icon: 'webstorm', color: '#00cdd7'}, {
-        name: 'VS Code', icon: 'vscode', color: '#007acc'
-    }, {name: 'Visual Studio', icon: 'visualstudio', color: '#5c2d91'}, {
-        name: 'Rider', icon: 'rider', color: '#781919'
     },],
     others: [{
         name: 'Scrum', icon: 'simple-icons:scrumalliance', iconType: 'iconify', color: '#f15a24'
@@ -81,75 +77,68 @@ export const CONTACT_CONFIG = {
     FORMSPREE_ENDPOINT: import.meta.env.VITE_FORMSPREE_ENDPOINT,
 };
 
-export const EDUCATION_DATA = [
-    {
-        id: 'ubiobio-2025',
-        year: '2025',
-        date: '28/02/2025',
-        title: 'Ciclo de Vida del Desarrollo de Software Seguro',
-        institution: 'Universidad del BíoBío',
-        location: 'Chile - Perú',
-        type: 'university',
-        status: 'completed',
-        iconType: 'university',
-        certificate: 'https://certificate.url/ubiobio',
-        color: '#f97316'
-    },
-    {
-        id: 'mongodb-udemy-2024',
-        year: '2024',
-        date: '08/11/2024',
-        title: 'Curso: Guía completa MongoDB',
-        institution: 'Udemy',
-        type: 'course',
-        status: 'completed',
-        iconType: 'course',
-        color: '#10b981'
-    },
-    {
-        id: 'mongodb-intro-2024',
-        year: '2024',
-        date: '10/06/2024',
-        title: 'Curso: Introduction to MongoDB',
-        institution: 'learn.mongodb.com',
-        type: 'course',
-        status: 'completed',
-        iconType: 'course',
-        color: '#10b981'
-    },
-    {
-        id: 'scrum-2024',
-        year: '2024',
-        date: '29/04/2024',
-        title: 'Curso: Scrum Fundamentals Certified',
-        institution: 'SCRUMstudy',
-        type: 'certification',
-        status: 'completed',
-        iconType: 'certificate',
-        color: '#3b82f6'
-    },
-    {
-        id: 'upc-2023',
-        year: '2023',
-        date: '13/03/2023',
-        title: 'Ingeniería de Software',
-        institution: 'Universidad Peruana de Ciencias Aplicadas',
-        location: 'Lima, Perú',
-        type: 'university',
-        status: 'ongoing',
-        iconType: 'university',
-        color: '#8b5cf6',
-        endDate: 'Actualidad'
-    },
-    {
-        id: 'hacking-2022',
-        year: '2022',
-        date: '14/08/2022',
-        title: 'Curso: Hacking Ético',
-        institution: 'Escuela Americana de Innovación',
-        type: 'course',
-        status: 'completed',
-        iconType: 'shield',
-        color: '#ef4444'
-    }
-];
+export const EDUCATION_DATA = [{
+    id: 'ubiobio-2025',
+    year: '2025',
+    date: '28/02/2025',
+    title: 'Ciclo de Vida del Desarrollo de Software Seguro',
+    institution: 'Universidad del BíoBío',
+    location: 'Chile - Perú',
+    type: 'university',
+    status: 'completed',
+    iconType: 'university',
+    certificate: 'https://certificate.url/ubiobio',
+    color: '#f97316'
+}, {
+    id: 'mongodb-udemy-2024',
+    year: '2024',
+    date: '08/11/2024',
+    title: 'Curso: Guía completa MongoDB',
+    institution: 'Udemy',
+    type: 'course',
+    status: 'completed',
+    iconType: 'course',
+    color: '#10b981'
+}, {
+    id: 'mongodb-intro-2024',
+    year: '2024',
+    date: '10/06/2024',
+    title: 'Curso: Introduction to MongoDB',
+    institution: 'learn.mongodb.com',
+    type: 'course',
+    status: 'completed',
+    iconType: 'course',
+    color: '#10b981'
+}, {
+    id: 'scrum-2024',
+    year: '2024',
+    date: '29/04/2024',
+    title: 'Curso: Scrum Fundamentals Certified',
+    institution: 'SCRUMstudy',
+    type: 'certification',
+    status: 'completed',
+    iconType: 'certificate',
+    color: '#3b82f6'
+}, {
+    id: 'upc-2023',
+    year: '2023',
+    date: '13/03/2023',
+    title: 'Ingeniería de Software',
+    institution: 'Universidad Peruana de Ciencias Aplicadas',
+    location: 'Lima, Perú',
+    type: 'university',
+    status: 'ongoing',
+    iconType: 'university',
+    color: '#8b5cf6',
+    endDate: 'Actualidad'
+}, {
+    id: 'hacking-2022',
+    year: '2022',
+    date: '14/08/2022',
+    title: 'Curso: Hacking Ético',
+    institution: 'Escuela Americana de Innovación',
+    type: 'course',
+    status: 'completed',
+    iconType: 'shield',
+    color: '#ef4444'
+}];
