@@ -1,0 +1,100 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    padding: 20px;
+    animation: fadeInModal 0.3s ease;
+}
+
+.modal-content {
+    background-color: #0d1117;
+    width: 100%;
+    max-width: 1000px;
+    height: 90vh;
+    border-radius: 12px;
+    border: 1px solid #30363d;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    padding: 1rem 1.5rem;
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #e6edf3;
+    font-weight: 600;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.action-btn, .close-btn {
+    background: transparent;
+    border: none;
+    color: #8b949e;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.action-btn:hover, .close-btn:hover {
+    background-color: #30363d;
+    color: #58a6ff;
+}
+
+.close-btn:hover {
+    color: #f85149;
+}
+
+.modal-body {
+    flex: 1;
+    background-color: #0d1117;
+    position: relative;
+}
+
+.modal-body iframe {
+    border: none;
+    display: block;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 0;
+    }
+
+    .modal-content {
+        height: 100vh;
+        border-radius: 0;
+    }
+}
