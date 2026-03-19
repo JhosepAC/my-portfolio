@@ -1,5 +1,6 @@
 import cvFile from '../assets/docs/JHOSEP_JAMIL-ARGOMEDO_CAMACHO-CV.pdf';
-import certificatePdf from '../assets/docs/CERT-CICLO_DE_VIDA_DEL_DESARROLLO_DE_SOFTWARE_SEGURO.pdf';
+import certificateSDLC from '../assets/docs/CERT-CICLO_DE_VIDA_DEL_DESARROLLO_DE_SOFTWARE_SEGURO.pdf';
+import certificateSCRUM from '../assets/docs/CERT-SCRUM_FUNDAMENTALS.pdf';
 
 export const ASSETS = {
     CV_PATH: cvFile, CV_NAME: 'JHOSEP_ARGOMEDO-CV.pdf'
@@ -88,7 +89,7 @@ export const EDUCATION_DATA = [{
     type: 'university',
     status: 'completed',
     iconType: 'university',
-    certificate: certificatePdf,
+    certificate: certificateSDLC,
     color: '#f97316'
 }, {
     id: 'mongodb-udemy-2024',
@@ -119,6 +120,7 @@ export const EDUCATION_DATA = [{
     type: 'certification',
     status: 'completed',
     iconType: 'certificate',
+    certificate: certificateSCRUM,
     color: '#3b82f6'
 }, {
     id: 'upc-2023',
