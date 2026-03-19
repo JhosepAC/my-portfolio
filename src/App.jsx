@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/common/nav-bar/Navbar';
 import Home from './pages/Home';
@@ -8,6 +8,19 @@ import './App.css';
 
 function App() {
     const isLoading = useLoading();
+
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem('theme') || 'dark';
+    });
+
+    const toggleTheme = () => {
+        setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
+    };
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     useEffect(() => {
         if (window.location.hash) {
@@ -22,7 +35,7 @@ function App() {
                 {isLoading && <Loader />}
 
                 <div className={`app-content ${isLoading ? 'is-loading' : 'is-ready'}`}>
-                    <Navbar />
+                    <Navbar theme={theme} toggleTheme={toggleTheme} />
                     <Routes>
                         <Route path="/" element={<Home />} />
 

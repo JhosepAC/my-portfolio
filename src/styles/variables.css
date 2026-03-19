@@ -1,0 +1,10 @@
+:root {
+    --bg-main: #0d1117;
+    --links: #c9d1d9;
+}
+
+[data-theme='light'] {
+    --bg-main: #F4F4F2;
+    --bg-secondary: #495464;
+    --links: #555;
+}
