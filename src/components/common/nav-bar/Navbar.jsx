@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Moon, Sun, Menu, X } from 'lucide-react';
 import { useScroll } from '../../../hooks/useScroll';
-import logo from '../../../assets/logo/elephant-logo.svg';
+import logoDark from '../../../assets/logo/elephant-logo.svg';
+import logoLight from '../../../assets/logo/elephant-logo-dark.svg';
 import { NAV_LINKS } from "../../../utils/constants.js";
 import './Navbar.css';
 import { useActiveSection } from '../../../hooks/useActiveSection';
@@ -36,7 +37,11 @@ const Navbar = ({ theme, toggleTheme }) => {
         <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
             <div className="navbar-container">
                 <div className="navbar-logo">
-                    <img src={logo} alt="Jhosep Logo" className="logo-image" />
+                    <img
+                        src={theme === 'dark' ? logoDark : logoLight}
+                        alt="Jhosep Logo"
+                        className="logo-image"
+                    />
                 </div>
 
                 {isMenuOpen && <div className="menu-overlay" onClick={closeMenu} />}

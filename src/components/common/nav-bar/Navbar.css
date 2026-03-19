@@ -73,7 +73,7 @@
 }
 
 .navbar-link.active {
-    color: #58a6ff;
+    color: var(--links-active);
 }
 
 .navbar-link.active::after {
@@ -87,12 +87,12 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #58a6ff, #7d8cff);
+    background: linear-gradient(90deg, var(--links-bg1-gradrient), var(--links-bg2-gradrient));
     transition: width 0.3s ease;
 }
 
 .navbar-link:hover {
-    color: #58a6ff;
+    color: var(--links-hover);
 }
 
 .navbar-link:hover::after {
@@ -106,9 +106,9 @@
 }
 
 .icon-button {
-    background: transparent;
-    border: 1px solid #30363d;
-    color: #c9d1d9;
+    background: var(--bg-btn);
+    border: 1px solid var(--border-main);
+    color: var(--btn-text);
     width: 40px;
     height: 40px;
     border-radius: 8px;
@@ -120,16 +120,16 @@
 }
 
 .icon-button:hover {
-    background: rgba(88, 166, 255, 0.1);
-    border-color: #58a6ff;
+    background: var(--bg-btn);
+    border-color: var(--border-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
+    box-shadow: 0 4px 12px var(--btn-boxshadow);
 }
 
 .lang-button {
-    background: rgba(22, 27, 34, 0.6);
-    border: 1px solid #30363d;
-    color: #c9d1d9;
+    background: var(--bg-btn);
+    border: 1px solid var(--border-main);
+    color: var(--btn-text);
     padding: 0 1rem;
     height: 40px;
     border-radius: 8px;
@@ -152,20 +152,19 @@
 }
 
 .lang-button svg {
-    color: #8b949e;
+    color: var(--btn-text);
     transition: all 0.3s ease;
 }
 
 .lang-button:hover {
-    background: rgba(88, 166, 255, 0.1);
-    border-color: #58a6ff;
-    color: #58a6ff;
+    border-color: var(--border-hover);
+    color: var(--btn-text);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(88, 166, 255, 0.15);
+    box-shadow: 0 5px 15px var(--btn-boxshadow);
 }
 
 .lang-button:hover svg {
-    color: #58a6ff;
+    color: var(--btn-text);
     transform: rotate(15deg);
 }
 

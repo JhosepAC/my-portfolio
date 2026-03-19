@@ -1,10 +1,35 @@
 :root {
     --bg-main: #0d1117;
+
+    --border-main: #30363d;
+    --border-hover: #58a6ff;
+
+    --bg-btn: #161B2299;
+    --btn-text: #c9d1d9;
+    --btn-boxshadow: #58A6FF33;
+
     --links: #c9d1d9;
+    --links-hover: #58a6ff;
+    --links-active: #58a6ff;
+    --links-bg1-gradrient: #58a6ff;
+    --links-bg2-gradrient: #7d8cff;
 }
 
 [data-theme='light'] {
     --bg-main: #F4F4F2;
     --bg-secondary: #495464;
-    --links: #555;
+
+    /* BORDER */
+    --border-main: #b8b8b8;
+    --border-hover: #7e7e7e;
+
+    --bg-btn: #E8E8E8;
+    --btn-text: #666;
+    --btn-boxshadow: rgba(156, 156, 156, 0.4);
+
+    --links: #444;
+    --links-hover: #053d80;
+    --links-active: #053d80;
+    --links-bg1-gradrient: #053d80;
+    --links-bg2-gradrient: #053d80;
 }
