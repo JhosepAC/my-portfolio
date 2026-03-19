@@ -3,10 +3,12 @@ import {useTranslation} from 'react-i18next';
 import {EDUCATION_ICONS, TIMELINE_ICONS} from '../../utils/Icons';
 import StatusBadge from './StatusBadge';
 import './TimelineItem.css';
+import CertificateModal from "./CertificateModal.jsx";
 
 const TimelineItem = ({item, index}) => {
     const {t} = useTranslation();
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const mainIcon = EDUCATION_ICONS[item.iconType.toUpperCase()] || EDUCATION_ICONS.COURSE;
 
@@ -75,15 +77,29 @@ const TimelineItem = ({item, index}) => {
                         </div>
                     </div>
 
-                    {item.certificate && (<a
-                        href={item.certificate}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="certificate-button"
-                    >
-                        {TIMELINE_ICONS.CERT_FILE}
-                        <span>{t('education.viewCertificate')}</span>
-                    </a>)}
+                    {item.status === 'completed' && item.certificate && (
+                        <>
+                            <button
+                                type="button"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setIsModalOpen(true);
+                                }}
+                                className="certificate-button"
+                            >
+                                {TIMELINE_ICONS.CERT_FILE}
+                                <span>{t('education.viewCertificate')}</span>
+                            </button>
+
+                            <CertificateModal
+                                isOpen={isModalOpen}
+                                onClose={() => setIsModalOpen(false)}
+                                certificateUrl={item.certificate}
+                                title={item.title || item.degree}
+                            />
+                        </>
+                    )}
+
                 </div>
             </div>
         </div>

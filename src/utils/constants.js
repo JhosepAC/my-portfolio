@@ -1,4 +1,5 @@
 import cvFile from '../assets/docs/JHOSEP_JAMIL-ARGOMEDO_CAMACHO-CV.pdf';
+import certificatePdf from '../assets/docs/CERT-CICLO_DE_VIDA_DEL_DESARROLLO_DE_SOFTWARE_SEGURO.pdf';
 
 export const ASSETS = {
     CV_PATH: cvFile, CV_NAME: 'JHOSEP_ARGOMEDO-CV.pdf'
@@ -87,7 +88,7 @@ export const EDUCATION_DATA = [{
     type: 'university',
     status: 'completed',
     iconType: 'university',
-    certificate: 'https://certificate.url/ubiobio',
+    certificate: certificatePdf,
     color: '#f97316'
 }, {
     id: 'mongodb-udemy-2024',
