@@ -320,6 +320,10 @@
         justify-content: center;
     }
 
+    .hero-visual{
+        display: none;
+    }
+
     .spline-container spline-viewer {
         width: 70vw;
         height: 70vh;
