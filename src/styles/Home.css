@@ -295,6 +295,11 @@
     .hero-visual {
         height: 400px;
     }
+
+    .spline-container spline-viewer {
+        width: 80vw;
+        height: 80vh;
+    }
 }
 
 @media (max-width: 768px) {
@@ -313,5 +318,10 @@
     .hero-actions {
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .spline-container spline-viewer {
+        width: 70vw;
+        height: 70vh;
     }
 }
