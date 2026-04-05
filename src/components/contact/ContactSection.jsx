@@ -50,7 +50,6 @@ const ContactSection = () => {
 
     return (<section id="contact" className="contact-section">
         <div className="contact-bg">
-            <div className="contact-grid"></div>
             <div className="contact-orb contact-orb-1"></div>
             <div className="contact-orb contact-orb-2"></div>
             <div className="contact-orb contact-orb-3"></div>

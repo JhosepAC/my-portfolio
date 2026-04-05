@@ -12,25 +12,6 @@
     pointer-events: none;
 }
 
-.footer-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-            linear-gradient(to right, rgba(88, 166, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(88, 166, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: grid-flow 20s linear infinite;
-}
-
-@keyframes grid-flow {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(50px);
-    }
-}
-
 .footer-orb {
     position: absolute;
     border-radius: 50%;

@@ -4,6 +4,7 @@ import Navbar from './components/common/nav-bar/Navbar';
 import Home from './pages/Home';
 import Loader from './components/common/loader/Loader.jsx';
 import GlobalParticles from './components/common/particles/GlobalParticles';
+import GlobalGrid from './components/common/grid/GlobalGrid';
 import { useLoading } from './hooks/useLoading';
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
     return (
         <Router>
             <div className="App">
+                <GlobalGrid />
                 <GlobalParticles />
                 {isLoading && <Loader />}
 

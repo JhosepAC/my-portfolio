@@ -1,6 +1,7 @@
 .skills-section {
     position: relative;
     padding: 6rem 3rem;
+    background: var(--bg-primary);
 }
 
 .skills-container {

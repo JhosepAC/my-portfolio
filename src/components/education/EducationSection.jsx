@@ -20,7 +20,6 @@ const EducationSection = () => {
 
     return (<section id="education" className="education-section">
         <div className="education-bg">
-            <div className="education-grid"></div>
             <div className="education-orb education-orb-1"></div>
             <div className="education-orb education-orb-2"></div>
         </div>
