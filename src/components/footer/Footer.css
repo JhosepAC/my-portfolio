@@ -1,7 +1,7 @@
 .footer {
     position: relative;
-    background: linear-gradient(180deg, #0d1117 0%, #000000 100%);
-    padding: 5rem 0 2rem;
+    background: linear-gradient(#010202);
+    padding: 10rem 0 2rem;
     overflow: hidden;
 }
 
