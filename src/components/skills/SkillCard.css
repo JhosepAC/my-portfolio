@@ -10,9 +10,10 @@
     justify-content: center;
     gap: 1rem;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     overflow: hidden;
     animation: fadeInScale 0.6s ease-out backwards;
+    will-change: transform;
 }
 
 .skill-card::before {
@@ -35,8 +36,8 @@
     inset: -50%;
     background: radial-gradient(circle, var(--skill-color, #58a6ff) 0%, transparent 70%);
     opacity: 0;
-    transition: opacity 0.4s ease;
-    filter: blur(30px);
+    transition: opacity 0.2s ease;
+    filter: blur(15px);
     z-index: -1;
 }
 
@@ -73,12 +74,12 @@
 .skill-icon {
     display: block;
     color: var(--skill-color, #c9d1d9);
-    filter: drop-shadow(0 0 8px var(--skill-color-shadow, rgba(88, 166, 255, 0.3)));
-    transition: filter 0.4s ease;
+    filter: drop-shadow(0 0 4px var(--skill-color-shadow, rgba(88, 166, 255, 0.3)));
+    transition: filter 0.2s ease;
 }
 
 .skill-card:hover .skill-icon {
-    filter: drop-shadow(0 0 20px var(--skill-color-shadow, rgba(88, 166, 255, 0.6)));
+    filter: drop-shadow(0 0 10px var(--skill-color-shadow, rgba(88, 166, 255, 0.6)));
 }
 
 .skill-name {
@@ -106,15 +107,39 @@
 
 @media (max-width: 768px) {
     .skill-card {
-        padding: 1.5rem;
+        padding: 0.75rem;
+        border-radius: 12px;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .skill-card::before,
+    .skill-card::after {
+        display: none;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-4px) scale(1.02);
     }
 
     .skill-icon-wrapper {
-        width: 60px;
-        height: 60px;
+        height: 50px;
+    }
+
+    .skill-icon-wrapper svg,
+    .skill-icon-wrapper img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .skill-icon-wrapper::after {
+        display: none;
+    }
+
+    .skill-card:hover .skill-icon-wrapper {
+        transform: scale(1.05);
     }
 
     .skill-name {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 }

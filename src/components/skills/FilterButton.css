@@ -82,7 +82,10 @@
 
 @media (max-width: 768px) {
     .filter-button {
-        padding: 0.7rem 1.4rem;
-        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        border-radius: 8px;
+        backdrop-filter: blur(5px);
     }
 }
