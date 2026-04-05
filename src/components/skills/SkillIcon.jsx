@@ -26,7 +26,7 @@ const DEVICON_MAP = {
 };
 
 const SkillIcon = ({name, color, iconType = 'devicon'}) => {
-    const iconStyle = {color, fontSize: '2.5rem'};
+    const iconStyle = {color, fontSize: '2.5rem', lineHeight: 1};
 
     if (iconType === 'iconify') {
         return <Icon icon={name} className="skill-icon" style={iconStyle}/>;
