@@ -18,25 +18,11 @@ const EducationSection = () => {
         };
     }), [t]);
 
-    const backgroundParticles = useMemo(() => ([...Array(20)].map((_, i) => (<div
-        key={i}
-        className="education-particle"
-        style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 5}s`,
-            animationDuration: `${5 + Math.random() * 10}s`
-        }}
-    />))), []);
-
     return (<section id="education" className="education-section">
         <div className="education-bg">
             <div className="education-grid"></div>
             <div className="education-orb education-orb-1"></div>
             <div className="education-orb education-orb-2"></div>
-            <div className="education-particles">
-                {backgroundParticles}
-            </div>
         </div>
 
         <div className="education-container">

@@ -34,3 +34,51 @@ code {
   width: 100%;
   min-height: 100vh;
 }
+
+/* ============================================
+   GLOBAL ANIMATED PARTICLES (Performance Optimized)
+   Generated once and reused across all sections
+   ============================================ */
+.global-particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.global-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(88, 166, 255, 0.5);
+  border-radius: 50%;
+  animation: global-float linear infinite;
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+  will-change: transform, opacity;
+}
+
+@keyframes global-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .global-particle {
+    width: 1px;
+    height: 1px;
+    box-shadow: 0 0 6px rgba(88, 166, 255, 0.4);
+  }
+}

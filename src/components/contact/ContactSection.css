@@ -77,38 +77,6 @@
     }
 }
 
-.contact-particles {
-    position: absolute;
-    inset: 0;
-}
-
-.contact-particle {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: rgba(88, 166, 255, 0.6);
-    border-radius: 50%;
-    animation: float-particle linear infinite;
-    box-shadow: 0 0 12px rgba(88, 166, 255, 0.6);
-}
-
-@keyframes float-particle {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) translateX(60px);
-        opacity: 0;
-    }
-}
-
 .contact-container {
     max-width: 1400px;
     margin: 0 auto;

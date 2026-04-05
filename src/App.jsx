@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navbar from './components/common/nav-bar/Navbar';
 import Home from './pages/Home';
 import Loader from './components/common/loader/Loader.jsx';
+import GlobalParticles from './components/common/particles/GlobalParticles';
 import { useLoading } from './hooks/useLoading';
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
     return (
         <Router>
             <div className="App">
+                <GlobalParticles />
                 {isLoading && <Loader />}
 
                 <div className={`app-content ${isLoading ? 'is-loading' : 'is-ready'}`}>

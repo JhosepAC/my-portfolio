@@ -48,26 +48,12 @@ const ContactSection = () => {
         </svg>)
     }], [t]);
 
-    const backgroundParticles = useMemo(() => ([...Array(30)].map((_, i) => (<div
-        key={i}
-        className="contact-particle"
-        style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 5}s`,
-            animationDuration: `${5 + Math.random() * 10}s`
-        }}
-    ></div>))), []);
-
     return (<section id="contact" className="contact-section">
         <div className="contact-bg">
             <div className="contact-grid"></div>
             <div className="contact-orb contact-orb-1"></div>
             <div className="contact-orb contact-orb-2"></div>
             <div className="contact-orb contact-orb-3"></div>
-            <div className="contact-particles">
-                {backgroundParticles}
-            </div>
         </div>
 
         <div className="contact-container">

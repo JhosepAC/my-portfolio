@@ -65,38 +65,6 @@
     }
 }
 
-.education-particles {
-    position: absolute;
-    inset: 0;
-}
-
-.education-particle {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: rgba(139, 92, 246, 0.6);
-    border-radius: 50%;
-    animation: float-particle-edu linear infinite;
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
-}
-
-@keyframes float-particle-edu {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) translateX(40px);
-        opacity: 0;
-    }
-}
-
 .education-container {
     max-width: 1200px;
     margin: 0 auto;

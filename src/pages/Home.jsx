@@ -62,20 +62,6 @@ const Home = () => {
 
     return (<>
         <div className="home-container">
-            {/*  Animated background particles */}
-            <div className="particles" aria-hidden="true">
-                {[...Array(30)].map((_, i) => (<div
-                    key={`particle-${i}`}
-                    className="particle"
-                    style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                        animationDelay: `${Math.random() * 5}s`,
-                        animationDuration: `${10 + Math.random() * 10}s`
-                    }}
-                />))}
-            </div>
-
             <section id="home" className="hero-section">
                 <div className="hero-content">
                     {/* Availability Badge */}
