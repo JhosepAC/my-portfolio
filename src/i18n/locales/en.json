@@ -44,6 +44,8 @@
     "technologiesLabel": "Technologies Used",
     "seeCode": "Source Code",
     "seeLive": "View Demo",
+    "showMore": "View More",
+    "showLess": "Show Less",
     "items": {
       "ecocrop": {
         "description": "Landing page that presents and communicates the features, goals, and benefits of EcoCrop as a digital solution for pest control and sustainable agriculture.",

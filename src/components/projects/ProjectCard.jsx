@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import ProjectStatus from './ProjectStatus';
 import TechStack from './TechStack';
@@ -6,6 +7,7 @@ import './ProjectCard.css'
 
 const ProjectCard = ({ project, index, activeIndex, isAnimating }) => {
     const { t } = useTranslation();
+    const [isMobileExpanded, setIsMobileExpanded] = useState(false);
     const offset = index - activeIndex;
     const isActive = index === activeIndex;
 
@@ -16,8 +18,16 @@ const ProjectCard = ({ project, index, activeIndex, isAnimating }) => {
         filter: isActive ? 'none' : 'brightness(0.5) blur(2px)'
     };
 
+    const handleViewMore = (e) => {
+        e.stopPropagation();
+        setIsMobileExpanded(!isMobileExpanded);
+    };
+
     return (
-        <article className={`project-card ${isActive ? 'active' : ''} ${isAnimating ? 'animating' : ''}`} style={cardStyles}>
+        <article 
+            className={`project-card ${isActive ? 'active' : ''} ${isAnimating ? 'animating' : ''} ${isMobileExpanded ? 'mobile-expanded' : ''}`} 
+            style={cardStyles}
+        >
             <ProjectStatus status={project.statusKey} text={project.statusText} />
 
             <div className="project-image">
@@ -36,8 +46,17 @@ const ProjectCard = ({ project, index, activeIndex, isAnimating }) => {
 
                 <p className="project-description">{project.description}</p>
 
-                <TechStack technologies={project.technologies} />
-                <ProjectActions github={project.github} live={project.live} />
+                <div className="project-tech-stack">
+                    <TechStack technologies={project.technologies} />
+                </div>
+
+                <ProjectActions className="project-actions-card" github={project.github} live={project.live} />
+
+                <div className="mobile-view-more">
+                    <button className="mobile-view-more-btn" onClick={handleViewMore}>
+                        {isMobileExpanded ? t('projects.showLess') : t('projects.showMore')}
+                    </button>
+                </div>
             </div>
         </article>
     );

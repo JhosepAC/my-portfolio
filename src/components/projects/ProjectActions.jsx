@@ -3,10 +3,10 @@ import {useTranslation} from 'react-i18next';
 import {FaExternalLinkAlt, FaGithub} from 'react-icons/fa';
 import './ProjectActions.css'
 
-const ProjectActions = ({github, live}) => {
+const ProjectActions = ({github, live, className = ''}) => {
     const {t} = useTranslation();
 
-    return (<div className="project-actions">
+    return (<div className={`project-actions ${className}`}>
             <a
                 href={github}
                 target="_blank"

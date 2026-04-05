@@ -44,6 +44,8 @@
     "technologiesLabel": "Tecnologías Utilizadas",
     "seeCode": "Código Fuente",
     "seeLive": "Ver Demo",
+    "showMore": "Ver Más",
+    "showLess": "Ver Menos",
     "items": {
       "ecocrop": {
         "description": "Landing page que presenta y comunica las funcionalidades, objetivos y beneficios de EcoCrop como solución digital para el control de plagas y la agricultura sostenible.",
