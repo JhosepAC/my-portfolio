@@ -3,6 +3,7 @@ import {useTranslation} from 'react-i18next';
 import TimelineItem from './TimelineItem';
 import {EDUCATION_DATA} from "../../utils/constants.js";
 import {EDUCATION_ICONS} from "../../utils/Icons.jsx";
+import SectionOrbs from '../common/orbs/SectionOrbs';
 import './EducationSection.css';
 
 const EducationSection = () => {
@@ -19,11 +20,7 @@ const EducationSection = () => {
     }), [t]);
 
     return (<section id="education" className="education-section">
-        <div className="education-bg">
-            <div className="education-orb education-orb-1"></div>
-            <div className="education-orb education-orb-2"></div>
-        </div>
-
+        <SectionOrbs sectionId="education" />
         <div className="education-container">
             <div className="education-header">
                 <div className="education-badge">

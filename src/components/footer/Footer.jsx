@@ -28,12 +28,6 @@ const Footer = () => {
     ];
 
     return (<footer className="footer">
-            <div className="footer-bg">
-                <div className="footer-orb footer-orb-1"></div>
-                <div className="footer-orb footer-orb-2"></div>
-                <div className="footer-orb footer-orb-3"></div>
-            </div>
-
             <div className="footer-container">
                 <div className="footer-content">
                     <div className="footer-brand">

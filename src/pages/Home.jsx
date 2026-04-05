@@ -4,6 +4,7 @@ import {SOCIAL_LINKS} from '../utils/constants';
 import SocialButton from '../components/common/social-btn/SocialButton';
 import DownloadButton from '../components/common/download-btn/DownloadButton';
 import SkillsSection from "../components/skills/SkillsSection.jsx";
+import SectionOrbs from "../components/common/orbs/SectionOrbs.jsx";
 import '../styles/Home.css';
 import Footer from "../components/footer/Footer.jsx";
 import ContactSection from "../components/contact/ContactSection.jsx";
@@ -63,6 +64,7 @@ const Home = () => {
     return (<>
         <div className="home-container">
             <section id="home" className="hero-section">
+                <SectionOrbs sectionId="home" />
                 <div className="hero-content">
                     {/* Availability Badge */}
                     <div className="status-badge">
@@ -94,10 +96,6 @@ const Home = () => {
                                 ariaLabel={link.name}
                             />))}
                     </div>
-
-                    {/* Decorative elements */}
-                    <div className="glow-orb glow-orb-1" aria-hidden="true"/>
-                    <div className="glow-orb glow-orb-2" aria-hidden="true"/>
                 </div>
 
                 {/* 3D Visual Section */}

@@ -2,6 +2,7 @@ import {useState, useEffect, useCallback, useMemo} from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import ProjectCard from './ProjectCard';
 import { PROJECTS_DATA } from '../../data/projectsData.jsx';
+import SectionOrbs from '../common/orbs/SectionOrbs';
 import './ProjectsSection.css';
 import {useTranslation} from 'react-i18next';
 
@@ -43,6 +44,7 @@ const ProjectsSection = () => {
 
     return (
         <section id="projects" className="projects-section">
+            <SectionOrbs sectionId="projects" />
             <div className="projects-container">
                 <header className="projects-header">
                     <div className="header-decorator">

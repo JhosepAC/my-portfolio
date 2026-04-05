@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Loader from './components/common/loader/Loader.jsx';
 import GlobalParticles from './components/common/particles/GlobalParticles';
 import GlobalGrid from './components/common/grid/GlobalGrid';
+import GlobalOrbs from './components/common/orbs/GlobalOrbs';
 import { useLoading } from './hooks/useLoading';
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
         <Router>
             <div className="App">
                 <GlobalGrid />
+                <GlobalOrbs />
                 <GlobalParticles />
                 {isLoading && <Loader />}
 

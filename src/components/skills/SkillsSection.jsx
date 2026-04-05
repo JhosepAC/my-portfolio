@@ -3,6 +3,7 @@ import {useTranslation} from 'react-i18next';
 import {SKILLS_DATA} from '../../utils/constants.js';
 import SkillCard from './SkillCard';
 import FilterButton from './FilterButton';
+import SectionOrbs from '../common/orbs/SectionOrbs';
 import './SkillsSection.css';
 
 const INITIAL_VISIBLE = 16;
@@ -47,6 +48,7 @@ const SkillsSection = () => {
 
     return (
         <section id="skills" className="skills-section">
+            <SectionOrbs sectionId="skills" />
             <div className="skills-container">
                 <header className="section-header">
                     <h2 className="section-title">
@@ -86,9 +88,6 @@ const SkillsSection = () => {
                     </div>
                 )}
             </div>
-
-            <div className="skills-bg-orb skills-bg-orb-1" aria-hidden="true"/>
-            <div className="skills-bg-orb skills-bg-orb-2" aria-hidden="true"/>
         </section>
     );
 };

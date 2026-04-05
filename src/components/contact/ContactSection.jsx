@@ -4,6 +4,7 @@ import ContactForm from './ContactForm';
 import ContactCard from './ContactCard';
 import SocialContact from './SocialContact';
 import {CONTACT_DATA} from "../../utils/constants.js";
+import SectionOrbs from '../common/orbs/SectionOrbs';
 import './ContactSection.css';
 
 const ContactSection = () => {
@@ -49,12 +50,7 @@ const ContactSection = () => {
     }], [t]);
 
     return (<section id="contact" className="contact-section">
-        <div className="contact-bg">
-            <div className="contact-orb contact-orb-1"></div>
-            <div className="contact-orb contact-orb-2"></div>
-            <div className="contact-orb contact-orb-3"></div>
-        </div>
-
+        <SectionOrbs sectionId="contact" />
         <div className="contact-container">
             <div className="contact-header">
                 <div className="contact-badge">
