@@ -23,7 +23,7 @@
 .education-orb-1 {
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.4), transparent);
+    background: radial-gradient(circle, rgba(94, 159, 192, 0.3), transparent);
     top: -150px;
     right: -100px;
 }
@@ -31,7 +31,7 @@
 .education-orb-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent);
+    background: radial-gradient(circle, rgba(126, 184, 216, 0.25), transparent);
     bottom: -150px;
     left: -100px;
     animation-delay: 10s;
@@ -68,7 +68,7 @@
     background: rgba(22, 27, 34, 0.8);
     border: 1px solid #30363d;
     border-radius: 25px;
-    color: #8b5cf6;
+    color: #7eb8d8;
     margin-bottom: 2rem;
     backdrop-filter: blur(10px);
     animation: fadeInScale 0.8s ease-out 0.2s backwards;
@@ -101,21 +101,13 @@
 
 .education-title-gradient {
     display: block;
-    background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #10b981 100%);
+    background: linear-gradient(135deg, #5a9fc0 0%, #7eb8d8 50%, #94c5d8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradient-shift-edu 3s ease infinite;
 }
 
-@keyframes gradient-shift-edu {
-    0%, 100% {
-        filter: hue-rotate(0deg);
-    }
-    50% {
-        filter: hue-rotate(20deg);
-    }
-}
+
 
 .education-subtitle {
     font-size: 1.2rem;
@@ -139,8 +131,8 @@
     width: 2px;
     background: linear-gradient(180deg,
     transparent,
-    rgba(139, 92, 246, 0.3) 10%,
-    rgba(139, 92, 246, 0.3) 90%,
+    rgba(126, 184, 216, 0.4) 10%,
+    rgba(126, 184, 216, 0.4) 90%,
     transparent
     );
     transform: translateX(-50%);
@@ -149,10 +141,10 @@
 
 @keyframes timeline-glow {
     0%, 100% {
-        box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+        box-shadow: 0 0 10px rgba(126, 184, 216, 0.3);
     }
     50% {
-        box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+        box-shadow: 0 0 20px rgba(126, 184, 216, 0.5);
     }
 }
 

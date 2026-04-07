@@ -76,11 +76,11 @@
 .title-name {
     font-size: 4rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #58a6ff 0%, #7d8cff 50%, #c792ff 100%);
+    background: linear-gradient(135deg, #c5d8e8 0%, #7eb8d8 50%, #5a9fc0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: fadeInUp 0.8s ease-out 0.4s backwards, gradient-shift 3s ease infinite;
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
     line-height: 1.2;
     letter-spacing: -2px;
 }
@@ -133,7 +133,7 @@
 .glow-orb-1 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(88, 166, 255, 0.4), transparent);
+    background: radial-gradient(circle, rgba(94, 159, 192, 0.35), transparent);
     top: -100px;
     left: -100px;
 }
@@ -141,7 +141,7 @@
 .glow-orb-2 {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(125, 140, 255, 0.3), transparent);
+    background: radial-gradient(circle, rgba(126, 184, 216, 0.25), transparent);
     bottom: -50px;
     left: 100px;
     animation-delay: 2s;
@@ -183,14 +183,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    filter: drop-shadow(0 20px 60px rgba(88, 166, 255, 0.3));
+    filter: drop-shadow(0 20px 60px rgba(94, 159, 192, 0.25));
 }
 
 .visual-glow {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(88, 166, 255, 0.2), transparent 70%);
+    background: radial-gradient(circle, rgba(94, 159, 192, 0.18), transparent 70%);
     border-radius: 50%;
     filter: blur(60px);
     animation: pulse-glow 3s ease-in-out infinite;

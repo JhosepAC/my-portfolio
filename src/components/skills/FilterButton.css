@@ -21,7 +21,7 @@
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(88, 166, 255, 0.15);
+    background: rgba(126, 184, 216, 0.12);
     transform: translate(-50%, -50%);
     transition: width 0.4s ease, height 0.4s ease;
 }
@@ -32,16 +32,16 @@
 }
 
 .filter-button:hover {
-    border-color: #58a6ff;
+    border-color: #5a9fc0;
     color: #c9d1d9;
     transform: translateY(-2px);
 }
 
 .filter-button.active {
-    background: linear-gradient(135deg, rgba(88, 166, 255, 0.2), rgba(125, 140, 255, 0.2));
-    border-color: #58a6ff;
-    color: #58a6ff;
-    box-shadow: 0 4px 20px rgba(88, 166, 255, 0.3);
+    background: linear-gradient(135deg, rgba(94, 159, 192, 0.2), rgba(126, 184, 216, 0.2));
+    border-color: #5a9fc0;
+    color: #5a9fc0;
+    box-shadow: 0 4px 20px rgba(94, 159, 192, 0.2);
 }
 
 .filter-button.active::after {
@@ -50,7 +50,7 @@
     inset: 0;
     border-radius: 12px;
     padding: 1px;
-    background: linear-gradient(135deg, #58a6ff, #7d8cff);
+    background: linear-gradient(135deg, #5a9fc0, #7eb8d8);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -63,9 +63,9 @@
     transform: translateX(-50%);
     width: 20px;
     height: 3px;
-    background: linear-gradient(90deg, #58a6ff, #7d8cff);
+    background: linear-gradient(90deg, #5a9fc0, #7eb8d8);
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(88, 166, 255, 0.6);
+    box-shadow: 0 0 10px rgba(126, 184, 216, 0.5);
     animation: pulse-indicator 2s ease-in-out infinite;
 }
 

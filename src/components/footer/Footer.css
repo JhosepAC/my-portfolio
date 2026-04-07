@@ -23,7 +23,7 @@
 .footer-orb-1 {
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(88, 166, 255, 0.4), transparent);
+    background: radial-gradient(circle, rgba(94, 159, 192, 0.3), transparent);
     top: -200px;
     left: -100px;
 }
@@ -31,7 +31,7 @@
 .footer-orb-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(125, 140, 255, 0.3), transparent);
+    background: radial-gradient(circle, rgba(126, 184, 216, 0.25), transparent);
     bottom: -150px;
     right: -100px;
     animation-delay: 5s;
@@ -40,7 +40,7 @@
 .footer-orb-3 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(199, 146, 255, 0.3), transparent);
+    background: radial-gradient(circle, rgba(197, 216, 232, 0.2), transparent);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -89,7 +89,7 @@
 .footer-logo-img {
     width: 50px;
     height: 50px;
-    filter: drop-shadow(0 0 15px rgba(88, 166, 255, 0.4));
+    filter: drop-shadow(0 0 15px rgba(94, 159, 192, 0.3));
     transition: transform 0.3s ease;
 }
 
@@ -100,7 +100,7 @@
 .footer-logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #58a6ff, #7d8cff);
+    background: linear-gradient(135deg, #c5d8e8, #7eb8d8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -171,7 +171,7 @@
     left: 0;
     width: 30px;
     height: 2px;
-    background: linear-gradient(90deg, #58a6ff, transparent);
+    background: linear-gradient(90deg, #5a9fc0, transparent);
     border-radius: 2px;
 }
 
@@ -191,9 +191,9 @@
     background: linear-gradient(
             90deg,
             transparent,
-            rgba(88, 166, 255, 0.3) 30%,
-            rgba(125, 140, 255, 0.3) 50%,
-            rgba(199, 146, 255, 0.3) 70%,
+            rgba(94, 159, 192, 0.25) 30%,
+            rgba(126, 184, 216, 0.25) 50%,
+            rgba(197, 216, 232, 0.25) 70%,
             transparent
     );
     animation: shimmer 3s ease-in-out infinite;
@@ -277,10 +277,10 @@
 }
 
 .scroll-to-top:hover {
-    background: rgba(88, 166, 255, 0.2);
-    border-color: #58a6ff;
+    background: rgba(94, 159, 192, 0.12);
+    border-color: #5a9fc0;
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(88, 166, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(94, 159, 192, 0.2);
 }
 
 .scroll-to-top svg {

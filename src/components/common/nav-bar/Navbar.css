@@ -73,7 +73,7 @@
 }
 
 .navbar-link.active {
-    color: #58a6ff;
+    color: #5a9fc0;
 }
 
 .navbar-link.active::after {
@@ -87,12 +87,12 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #58a6ff, #7d8cff);
+    background: linear-gradient(90deg, #5a9fc0, #7eb8d8);
     transition: width 0.3s ease;
 }
 
 .navbar-link:hover {
-    color: #58a6ff;
+    color: #5a9fc0;
 }
 
 .navbar-link:hover::after {
@@ -120,10 +120,10 @@
 }
 
 .icon-button:hover {
-    background: rgba(88, 166, 255, 0.1);
-    border-color: #58a6ff;
+    background: rgba(94, 159, 192, 0.1);
+    border-color: #5a9fc0;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(94, 159, 192, 0.15);
 }
 
 .lang-button {
@@ -157,15 +157,15 @@
 }
 
 .lang-button:hover {
-    background: rgba(88, 166, 255, 0.1);
-    border-color: #58a6ff;
-    color: #58a6ff;
+    background: rgba(94, 159, 192, 0.1);
+    border-color: #5a9fc0;
+    color: #5a9fc0;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(88, 166, 255, 0.15);
+    box-shadow: 0 5px 15px rgba(94, 159, 192, 0.12);
 }
 
 .lang-button:hover svg {
-    color: #58a6ff;
+    color: #5a9fc0;
     transform: rotate(15deg);
 }
 
