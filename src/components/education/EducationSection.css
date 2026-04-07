@@ -101,7 +101,7 @@
 
 .education-title-gradient {
     display: block;
-    background: linear-gradient(135deg, #5a9fc0 0%, #7eb8d8 50%, #94c5d8 100%);
+    background: linear-gradient(135deg, #7eb8d8 0%, #5a9fc0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
