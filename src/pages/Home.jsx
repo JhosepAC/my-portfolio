@@ -102,7 +102,7 @@ const Home = () => {
                 <div className="hero-visual">
                     <div className="spline-container" ref={splineRef}>
                         <spline-viewer
-                            url="https://prod.spline.design/nZNAujIpobE0ZTeM/scene.splinecode"
+                            url="https://prod.spline.design/NvFVxXcBftaSeYsL/scene.splinecode"
                             events-target="global"
                             interactivity="none"
                             loading-anim-type="spinner-small-dark"
