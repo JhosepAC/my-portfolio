@@ -81,7 +81,6 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
-    line-height: 1.2;
     letter-spacing: -2px;
 }
 
@@ -261,8 +260,9 @@
     }
 
     .spline-container spline-viewer {
-        width: 80vw;
+        width: 150vw;
         height: 80vh;
+        transform: translate(-50%, -50%) scale(.49);
     }
 }
 
