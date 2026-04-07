@@ -32,16 +32,16 @@
 .decorator-line {
     width: 80px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+    background: linear-gradient(90deg, transparent, #5a9fc0, transparent);
     animation: pulse-line 2s infinite;
 }
 
 .decorator-dot {
     width: 8px;
     height: 8px;
-    background: #3b82f6;
+    background: #5a9fc0;
     border-radius: 50%;
-    box-shadow: 0 0 10px #3b82f6;
+    box-shadow: 0 0 10px #5a9fc0;
     animation: pulse-dot 2s infinite;
 }
 
@@ -51,8 +51,8 @@
 }
 
 @keyframes pulse-dot {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 10px #3b82f6; }
-    50% { transform: scale(1.2); box-shadow: 0 0 20px #3b82f6; }
+    0%, 100% { transform: scale(1); box-shadow: 0 0 10px #5a9fc0; }
+    50% { transform: scale(1.2); box-shadow: 0 0 20px #5a9fc0; }
 }
 
 .header-content {
@@ -62,7 +62,7 @@
 .section-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
-    background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+    background: linear-gradient(135deg, #c5d8e8 0%, #7eb8d8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -103,7 +103,7 @@
     height: 50px;
     border-radius: 50%;
     background: rgba(30, 41, 59, 0.8);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(94, 159, 192, 0.3);
     color: #94a3b8;
     display: flex;
     align-items: center;
@@ -114,11 +114,11 @@
 }
 
 .nav-button:hover:not(:disabled) {
-    background: rgba(59, 130, 246, 0.2);
-    border-color: #3b82f6;
+    background: rgba(94, 159, 192, 0.15);
+    border-color: #5a9fc0;
     color: #fff;
     transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 20px rgba(94, 159, 192, 0.3);
 }
 
 .nav-button:disabled {
@@ -170,7 +170,7 @@
 }
 
 .indicator.active {
-    background: rgba(59, 130, 246, 0.3);
+    background: rgba(94, 159, 192, 0.3);
 }
 
 .indicator-fill {
@@ -179,7 +179,7 @@
     left: 0;
     height: 100%;
     width: 0;
-    background: #3b82f6;
+    background: #5a9fc0;
     transition: width 0.3s ease;
 }
 
@@ -226,7 +226,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    background: linear-gradient(90deg, #5a9fc0, #7eb8d8);
     transition: width 0.4s ease;
 }
 

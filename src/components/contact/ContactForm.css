@@ -99,10 +99,10 @@
     justify-content: center;
     gap: 0.8rem;
     padding: 1.2rem 2rem;
-    background: linear-gradient(135deg, rgba(88, 166, 255, 0.2), rgba(125, 140, 255, 0.2));
-    border: 1px solid #58a6ff;
+    background: linear-gradient(135deg, rgba(94, 159, 192, 0.15), rgba(126, 184, 216, 0.15));
+    border: 1px solid #5a9fc0;
     border-radius: 12px;
-    color: #58a6ff;
+    color: #5a9fc0;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -115,7 +115,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(126, 184, 216, 0.25), transparent);
     transform: translateX(-100%);
     transition: transform 0.6s ease;
 }
@@ -125,9 +125,9 @@
 }
 
 .form-submit-btn:hover:not(:disabled) {
-    background: linear-gradient(135deg, rgba(88, 166, 255, 0.3), rgba(125, 140, 255, 0.3));
+    background: linear-gradient(135deg, rgba(94, 159, 192, 0.25), rgba(126, 184, 216, 0.25));
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(88, 166, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(94, 159, 192, 0.3);
 }
 
 .form-submit-btn:active:not(:disabled) {
@@ -142,8 +142,8 @@
 .submit-spinner {
     width: 18px;
     height: 18px;
-    border: 2px solid rgba(88, 166, 255, 0.3);
-    border-top-color: #58a6ff;
+    border: 2px solid rgba(94, 159, 192, 0.3);
+    border-top-color: #5a9fc0;
     border-radius: 50%;
     animation: spin 0.6s linear infinite;
 }

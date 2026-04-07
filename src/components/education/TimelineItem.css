@@ -30,7 +30,7 @@
     align-items: center;
     font-size: 3rem;
     font-weight: 700;
-    color: rgba(139, 92, 246, 0.2);
+    color: rgba(94, 159, 192, 0.2);
     font-family: 'Courier New', monospace;
     letter-spacing: -2px;
 }
@@ -49,10 +49,10 @@
 .dot-inner {
     width: 20px;
     height: 20px;
-    background: var(--item-color, #8b5cf6);
+    background: var(--item-color, #5a9fc0);
     border-radius: 50%;
     border: 3px solid #0d1117;
-    box-shadow: 0 0 20px var(--item-color, rgba(139, 92, 246, 0.6));
+    box-shadow: 0 0 20px var(--item-color, rgba(94, 159, 192, 0.6));
     transition: all 0.4s ease;
 }
 
@@ -60,7 +60,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background: var(--item-color, #8b5cf6);
+    background: var(--item-color, #5a9fc0);
     border-radius: 50%;
     opacity: 0.3;
     animation: pulse-dot 2s ease-out infinite;
@@ -79,7 +79,7 @@
 
 .timeline-item:hover .dot-inner {
     transform: scale(1.3);
-    box-shadow: 0 0 30px var(--item-color, rgba(139, 92, 246, 0.8));
+    box-shadow: 0 0 30px var(--item-color, rgba(94, 159, 192, 0.8));
 }
 
 .timeline-card {
@@ -98,7 +98,7 @@
     inset: 0;
     border-radius: 16px;
     padding: 1px;
-    background: linear-gradient(135deg, var(--item-color, #8b5cf6) 0%, transparent 50%, var(--item-color, #8b5cf6) 100%);
+    background: linear-gradient(135deg, var(--item-color, #5a9fc0) 0%, transparent 50%, var(--item-color, #5a9fc0) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -109,9 +109,9 @@
 
 .timeline-card:hover {
     transform: translateY(-5px);
-    border-color: var(--item-color, #8b5cf6);
+    border-color: var(--item-color, #5a9fc0);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
-    0 0 30px var(--item-color, rgba(139, 92, 246, 0.3));
+    0 0 30px var(--item-color, rgba(94, 159, 192, 0.25));
 }
 
 .timeline-card:hover::before {
@@ -119,8 +119,8 @@
 }
 
 .timeline-item-important .timeline-card {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.05));
-    border: 2px solid var(--item-color, #8b5cf6);
+    background: linear-gradient(135deg, rgba(94, 159, 192, 0.1), rgba(126, 184, 216, 0.05));
+    border: 2px solid var(--item-color, #5a9fc0);
 }
 
 .timeline-item-important .dot-inner {
@@ -131,10 +131,10 @@
 
 @keyframes pulse-important {
     0%, 100% {
-        box-shadow: 0 0 20px var(--item-color, rgba(139, 92, 246, 0.6));
+        box-shadow: 0 0 20px var(--item-color, rgba(94, 159, 192, 0.6));
     }
     50% {
-        box-shadow: 0 0 40px var(--item-color, rgba(139, 92, 246, 1));
+        box-shadow: 0 0 40px var(--item-color, rgba(94, 159, 192, 1));
     }
 }
 
@@ -153,10 +153,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(94, 159, 192, 0.1);
+    border: 1px solid rgba(94, 159, 192, 0.2);
     border-radius: 12px;
-    color: var(--item-color, #8b5cf6);
+    color: var(--item-color, #5a9fc0);
     transition: all 0.4s ease;
 }
 
@@ -166,10 +166,10 @@
 }
 
 .timeline-card:hover .card-icon {
-    background: rgba(139, 92, 246, 0.2);
-    border-color: var(--item-color, #8b5cf6);
+    background: rgba(94, 159, 192, 0.2);
+    border-color: var(--item-color, #5a9fc0);
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 20px var(--item-color, rgba(139, 92, 246, 0.4));
+    box-shadow: 0 0 20px var(--item-color, rgba(94, 159, 192, 0.35));
 }
 
 .card-info {
@@ -228,9 +228,9 @@
 }
 
 .status-completed {
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    color: #3b82f6;
+    background: rgba(94, 159, 192, 0.1);
+    border: 1px solid rgba(94, 159, 192, 0.3);
+    color: #5a9fc0;
 }
 
 .status-completed svg {
@@ -248,7 +248,7 @@
 }
 
 .institution-name {
-    color: var(--item-color, #8b5cf6);
+    color: var(--item-color, #5a9fc0);
     font-weight: 600;
 }
 
@@ -288,10 +288,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(94, 159, 192, 0.1);
+    border: 1px solid rgba(94, 159, 192, 0.2);
     border-radius: 8px;
-    color: var(--item-color, #8b5cf6);
+    color: var(--item-color, #5a9fc0);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -307,8 +307,8 @@
 }
 
 .expand-button:hover {
-    background: rgba(139, 92, 246, 0.2);
-    border-color: var(--item-color, #8b5cf6);
+    background: rgba(94, 159, 192, 0.2);
+    border-color: var(--item-color, #5a9fc0);
     transform: scale(1.1);
 }
 
@@ -364,18 +364,18 @@
 
 .skill-tag {
     padding: 0.4rem 0.9rem;
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(94, 159, 192, 0.1);
+    border: 1px solid rgba(94, 159, 192, 0.2);
     border-radius: 8px;
-    color: var(--item-color, #8b5cf6);
+    color: var(--item-color, #5a9fc0);
     font-size: 0.85rem;
     font-weight: 500;
     transition: all 0.3s ease;
 }
 
 .skill-tag:hover {
-    background: rgba(139, 92, 246, 0.2);
-    border-color: var(--item-color, #8b5cf6);
+    background: rgba(94, 159, 192, 0.2);
+    border-color: var(--item-color, #5a9fc0);
     transform: translateY(-2px);
 }
 
@@ -384,10 +384,10 @@
     align-items: center;
     gap: 0.6rem;
     padding: 0.8rem 1.5rem;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
-    border: 1px solid var(--item-color, #8b5cf6);
+    background: linear-gradient(135deg, rgba(94, 159, 192, 0.15), rgba(126, 184, 216, 0.15));
+    border: 1px solid var(--item-color, #5a9fc0);
     border-radius: 10px;
-    color: var(--item-color, #8b5cf6);
+    color: var(--item-color, #5a9fc0);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -395,9 +395,9 @@
 }
 
 .certificate-button:hover {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3));
+    background: linear-gradient(135deg, rgba(94, 159, 192, 0.25), rgba(126, 184, 216, 0.25));
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px var(--item-color, rgba(139, 92, 246, 0.4));
+    box-shadow: 0 6px 20px var(--item-color, rgba(94, 159, 192, 0.3));
 }
 
 @keyframes fadeInTimeline {
