@@ -7,7 +7,6 @@ const DEVICON_MAP = {
     flutter: 'devicon-flutter-plain',
     python: 'devicon-python-plain',
     csharp: 'devicon-csharp-plain',
-    cpp: 'devicon-cplusplus-plain',
     java: 'devicon-java-plain',
     mysql: 'devicon-mysql-plain',
     mariadb: 'devicon-mariadb-plain',

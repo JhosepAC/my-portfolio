@@ -33,7 +33,7 @@ export const SKILLS_DATA = {
         name: 'Python', icon: 'python', color: '#3776ab'
     }, {name: 'Flutter', icon: 'flutter', color: '#02569b'}, {
         name: 'C#', icon: 'csharp', color: '#239120'
-    }, {name: 'C++', icon: 'cpp', color: '#00599c'}, {name: 'HTML5', icon: 'html', color: '#e34f26'}, {
+    }, {name: 'HTML5', icon: 'html', color: '#e34f26'}, {
         name: 'CSS3', icon: 'css', color: '#2965f1'
     },],
     databases: [{name: 'MySQL', icon: 'mysql', color: '#4479a1'}, {
