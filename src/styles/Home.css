@@ -176,18 +176,18 @@
 
 .spline-container spline-viewer {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 130vh;
+    height: 130vh;
     top: 50%;
     left: 50%;
-    transform: translate(-45%, -50%) scale(.6);
-    filter: drop-shadow(0 20px 60px rgba(94, 159, 192, 0.25));
+    transform: translate(-45%, -48%) scale(.6);
+    filter: drop-shadow(0 20px 60px rgba(94, 159, 192, 0.15));
 }
 
 .visual-glow {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     background: radial-gradient(circle, rgba(94, 159, 192, 0.18), transparent 70%);
     border-radius: 50%;
     filter: blur(60px);
