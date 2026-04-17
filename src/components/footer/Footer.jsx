@@ -83,11 +83,6 @@ const Footer = () => {
                             © {currentYear} Jhosep Argomedo. {t('footer.rights')}
                         </p>
                         <SocialLinks/>
-                        <div className="footer-meta">
-                            <span className="footer-meta-item">
-                                {t('footer.madeWith')} <span className="footer-heart">❤️</span> {t('footer.in')}
-                            </span>
-                        </div>
                     </div>
                 </div>
 

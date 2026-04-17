@@ -225,25 +225,6 @@
     font-size: 0.9rem;
 }
 
-.footer-meta {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.footer-meta-item {
-    color: #8b949e;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.footer-heart {
-    color: #f85149;
-    animation: heartbeat 1.5s ease-in-out infinite;
-}
-
 @keyframes heartbeat {
     0%, 100% {
         transform: scale(1);
