@@ -1,6 +1,7 @@
 import {useEffect, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import {SOCIAL_LINKS} from '../utils/constants';
+import SplineVisual from '../components/common/SplineVisual';
 import SocialButton from '../components/common/social-btn/SocialButton';
 import DownloadButton from '../components/common/download-btn/DownloadButton';
 import SkillsSection from "../components/skills/SkillsSection.jsx";
@@ -100,13 +101,8 @@ const Home = () => {
 
                 {/* 3D Visual Section */}
                 <div className="hero-visual">
-                    <div className="spline-container" ref={splineRef}>
-                        <spline-viewer
-                            url="https://prod.spline.design/NvFVxXcBftaSeYsL/scene.splinecode"
-                            events-target="global"
-                            interactivity="none"
-                            loading-anim-type="spinner-small-dark"
-                        />
+                    <div className="spline-container">
+                        <SplineVisual />
                     </div>
                     <div className="visual-glow" aria-hidden="true"/>
                 </div>
