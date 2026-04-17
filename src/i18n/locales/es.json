@@ -10,10 +10,10 @@
     "contact-me": "Contáctame"
   },
   "hero": {
-    "status": "DISPONIBLE",
+    "status": "DISPONIBLE PARA OPORTUNIDADES",
     "greeting": "Mi nombre es",
     "subtitle1": "Estudiante de Ingeniería de Software - UPC",
-    "subtitle2": "Desarrollador Web"
+    "subtitle2": "Desarrollador Web, Desarrollador Móvil"
   },
   "skills": {
     "title": "Habilidades",
@@ -182,8 +182,8 @@
     }
   },
   "footer": {
-    "tagline": "Desarrollador web apasionado por crear experiencias digitales excepcionales. Transformando ideas en código limpio y funcional.",
-    "available": "Disponible",
+    "tagline": "Desarrollador web y móvil apasionado por crear experiencias digitales excepcionales. Transformando ideas en código limpio y funcional.",
+    "available": "Disponible para oportunidades",
     "navigation": "Navegación",
     "quickLinks": "Enlaces Rápidos",
     "contact": "Contacto",
