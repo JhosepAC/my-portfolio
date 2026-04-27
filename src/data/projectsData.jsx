@@ -1,11 +1,27 @@
-import {SiCplusplus, SiCss3, SiFlutter, SiGit, SiHtml5, SiJavascript, SiKotlin, SiVuedotjs} from 'react-icons/si';
+import {
+    SiCplusplus,
+    SiCss3,
+    SiFlutter,
+    SiGit,
+    SiHtml5,
+    SiJavascript,
+    SiKotlin,
+    SiReact,
+    SiVuedotjs,
+    SiTypescript,
+    SiNextdotjs,
+    SiTailwindcss,
+} from 'react-icons/si';
 import ecoCropImg from '../assets/projects/green_sprout_innovations-ecocrop.png';
 import skillShareImg from '../assets/projects/thinkup-skillshare.png';
 import bookifyImg from '../assets/projects/bookify-livria.png';
+import fymImg from '../assets/projects/fym.png';
+import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
+import React from "react";
 
 export const PROJECTS_DATA = [{
     id: 1,
-    statusKey: 'active',
+    statusKey: 'production',
     title: 'Green Sprout Innovations - EcoCrop',
     image: ecoCropImg,
     technologies: [
@@ -20,7 +36,6 @@ export const PROJECTS_DATA = [{
     id: 2,
     statusKey: 'production',
     title: 'ThinkUp - SkillShare',
-    description: 'Aplicación de red social educativa que conecta estudiantes con intereses académicos similares, facilitando la creación de grupos de estudio, la colaboración en tiempo real y el intercambio de recursos para potenciar el aprendizaje colaborativo.',
     image: skillShareImg,
     technologies: [
         {name: 'Flutter', icon: <SiFlutter/>, color: '#02569B'}, {
@@ -34,7 +49,6 @@ export const PROJECTS_DATA = [{
     id: 3,
     statusKey: 'active',
     title: 'Bookify - Livria',
-    description: 'Tienda digital de libros que permite comprar ejemplares físicos, ebooks y audiolibros, integrando una comunidad de lectores donde los usuarios pueden interactuar, chatear y compartir recomendaciones.',
     image: bookifyImg,
     technologies: [
         {name: 'Vue.js', icon: <SiVuedotjs/>, color: '#4FC08D'}, {
@@ -43,4 +57,24 @@ export const PROJECTS_DATA = [{
     github: 'https://github.com/Bookify-Livria/livria-web-app',
     live: 'https://livria.netlify.app/',
     labelTranslate: 'livria'
+}, {
+    id:  4,
+    statusKey: 'production',
+    title: 'FyM - Find Your Movie',
+    image: fymImg,
+    technologies: [
+        {name: 'Next.js', icon: <SiNextdotjs/>, color: '#000000'},
+        {name: 'React', icon: <SiReact/>, color: '#0095D5'},
+        {name: 'TypeScript', icon: <SiTypescript/>, color: '#239120'},
+        {name: 'Tailwind CSS', icon: <SiTailwindcss/>, color: '#38B2AC'},
+        {
+            name: 'TMDB API',
+            icon: <img src={tmdbLogo} alt="TMDB" style={{ width: '20px', height: '20px' }} />,
+            color: '#79caac'
+        },
+        {name: 'Git', icon: <SiGit/>, color: '#F05032'},
+    ],
+    github: 'https://github.com/JhosepAC/fym',
+    live: 'https://fym-jac.vercel.app/',
+    labelTranslate: 'fym'
 }];

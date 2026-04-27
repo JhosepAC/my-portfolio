@@ -49,7 +49,7 @@
     "items": {
       "ecocrop": {
         "description": "Landing page that presents and communicates the features, goals, and benefits of EcoCrop as a digital solution for pest control and sustainable agriculture.",
-        "status": "ACTIVE"
+        "status": "PRODUCTION"
       },
       "skillshare": {
         "description": "Educational social networking application that connects students with similar academic interests, enabling study group creation, real-time collaboration, and resource sharing to enhance collaborative learning.",
@@ -58,6 +58,10 @@
       "livria": {
         "description": "Digital bookstore that allows users to purchase physical books, ebooks, and audiobooks, integrating a reader community where users can interact, chat, and share recommendations.",
         "status": "ACTIVE"
+      },
+      "fym": {
+        "description": "Web application for exploring a catalog of movies and TV series. Details, trailers, cast information, scenes, distributors, and much more.",
+        "status": "PRODUCTION"
       }
     }
   },
