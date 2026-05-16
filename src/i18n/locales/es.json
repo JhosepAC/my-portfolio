@@ -10,10 +10,10 @@
     "contact-me": "Contáctame"
   },
   "hero": {
-    "status": "DISPONIBLE",
+    "status": "DISPONIBLE PARA OPORTUNIDADES",
     "greeting": "Mi nombre es",
     "subtitle1": "Estudiante de Ingeniería de Software - UPC",
-    "subtitle2": "Desarrollador Web"
+    "subtitle2": "Desarrollador Web, Desarrollador Móvil"
   },
   "skills": {
     "title": "Habilidades",
@@ -44,12 +44,24 @@
     "technologiesLabel": "Tecnologías Utilizadas",
     "seeCode": "Código Fuente",
     "seeLive": "Ver Demo",
+    "allFilter": "Todos",
+    "techFilter": "Tecnologías",
+    "filterCat": {
+        "web": "Web",
+        "mobile": "Mobile"
+    },
+    "noResults": "No se encontraron proyectos con ese filtro",
     "showMore": "Ver Más",
     "showLess": "Ver Menos",
+    "placeholder": {
+        "title": "Más proyectos en camino",
+        "text": "Estoy trabajando en nuevos proyectos que serán añadidos próximamente.",
+        "badge": "EN DESARROLLO"
+    },
     "items": {
       "ecocrop": {
         "description": "Landing page que presenta y comunica las funcionalidades, objetivos y beneficios de EcoCrop como solución digital para el control de plagas y la agricultura sostenible.",
-        "status": "ACTIVO"
+        "status": "PRODUCCIÓN"
       },
       "skillshare": {
         "description": "Aplicación de red social educativa que conecta estudiantes con intereses académicos similares, facilitando la creación de grupos de estudio, la colaboración en tiempo real y el intercambio de recursos para potenciar el aprendizaje colaborativo.",
@@ -58,6 +70,10 @@
       "livria": {
         "description": "Tienda digital de libros que permite comprar ejemplares físicos, ebooks y audiolibros, integrando una comunidad de lectores donde los usuarios pueden interactuar, chatear y compartir recomendaciones.",
         "status": "ACTIVO"
+      },
+      "fym": {
+        "description": "Aplicación web para explorar un catálogo de películas y series de televisión. Detalles, tráileres, información del reparto, escenas, distribuidores y mucho más.",
+        "status": "PRODUCCIÓN"
       }
     }
   },
@@ -182,8 +198,8 @@
     }
   },
   "footer": {
-    "tagline": "Desarrollador web apasionado por crear experiencias digitales excepcionales. Transformando ideas en código limpio y funcional.",
-    "available": "Disponible",
+    "tagline": "Desarrollador web y móvil apasionado por crear experiencias digitales excepcionales. Transformando ideas en código limpio y funcional.",
+    "available": "Disponible para oportunidades",
     "navigation": "Navegación",
     "quickLinks": "Enlaces Rápidos",
     "contact": "Contacto",
@@ -193,8 +209,6 @@
         "location": "Ubicación",
         "phone": "Teléfono"
     },
-    "rights": "Todos los derechos reservados.",
-    "madeWith": "Hecho con",
-    "in": "en Perú"
+    "rights": "Todos los derechos reservados."
   }
 }

@@ -10,10 +10,10 @@
     "contact-me": "Contact me"
   },
   "hero": {
-    "status": "AVAILABLE",
+    "status": "AVAILABLE FOR OPPORTUNITIES",
     "greeting": "My name is",
     "subtitle1": "Software Engineering Student - UPC",
-    "subtitle2": "Web Developer"
+    "subtitle2": "Web Developer, Mobile Developer"
   },
   "skills": {
     "title": "Skills",
@@ -44,12 +44,24 @@
     "technologiesLabel": "Technologies Used",
     "seeCode": "Source Code",
     "seeLive": "View Demo",
+    "allFilter": "All",
+    "techFilter": "Technologies",
+    "filterCat": {
+        "web": "Web",
+        "mobile": "Mobile"
+    },
+    "noResults": "No projects found matching this filter",
     "showMore": "View More",
     "showLess": "Show Less",
+    "placeholder": {
+        "title": "More projects on the way",
+        "text": "I'm working on new projects that will be added soon.",
+        "badge": "IN DEVELOPMENT"
+    },
     "items": {
       "ecocrop": {
         "description": "Landing page that presents and communicates the features, goals, and benefits of EcoCrop as a digital solution for pest control and sustainable agriculture.",
-        "status": "ACTIVE"
+        "status": "PRODUCTION"
       },
       "skillshare": {
         "description": "Educational social networking application that connects students with similar academic interests, enabling study group creation, real-time collaboration, and resource sharing to enhance collaborative learning.",
@@ -58,6 +70,10 @@
       "livria": {
         "description": "Digital bookstore that allows users to purchase physical books, ebooks, and audiobooks, integrating a reader community where users can interact, chat, and share recommendations.",
         "status": "ACTIVE"
+      },
+      "fym": {
+        "description": "Web application for exploring a catalog of movies and TV series. Details, trailers, cast information, scenes, distributors, and much more.",
+        "status": "PRODUCTION"
       }
     }
   },
@@ -182,8 +198,8 @@
     }
   },
   "footer": {
-    "tagline": "Web developer passionate about creating exceptional digital experiences. Transforming ideas into clean and functional code.",
-    "available": "Available",
+    "tagline": "Web and mobile developer passionate about creating exceptional digital experiences. Transforming ideas into clean, functional code.",
+    "available": "Available for opportunities",
     "navigation": "Navigation",
     "quickLinks": "Quick Links",
     "contact": "Contact",
@@ -193,8 +209,6 @@
         "location": "Location",
         "phone": "Phone"
     },
-    "rights": "All rights reserved.",
-    "madeWith": "Made with",
-    "in": "in Peru"
+    "rights": "All rights reserved."
   }
 }
