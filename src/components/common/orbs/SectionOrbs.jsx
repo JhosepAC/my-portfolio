@@ -39,6 +39,7 @@ const SectionOrbs = ({ sectionId }) => {
     const containerRef = useRef(null);
     const rafRef = useRef(null);
     const targetPos = useRef({ x: 0, y: 0 });
+    const currentPosRef = useRef({ x: 0, y: 0 });
 
     const orbs = sectionOrbsData[sectionId] || [];
 
@@ -74,10 +75,19 @@ const SectionOrbs = ({ sectionId }) => {
         if (!isVisible) return;
 
         const animate = () => {
-            setMousePosition(prev => ({
-                x: prev.x + (targetPos.current.x - prev.x) * 0.05,
-                y: prev.y + (targetPos.current.y - prev.y) * 0.05
-            }));
+            const dx = targetPos.current.x - currentPosRef.current.x;
+            const dy = targetPos.current.y - currentPosRef.current.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > 0.5) {
+                currentPosRef.current.x += dx * 0.05;
+                currentPosRef.current.y += dy * 0.05;
+                setMousePosition({
+                    x: currentPosRef.current.x,
+                    y: currentPosRef.current.y
+                });
+            }
+
             rafRef.current = requestAnimationFrame(animate);
         };
 
@@ -106,8 +116,7 @@ const SectionOrbs = ({ sectionId }) => {
                 overflow: 'hidden',
                 pointerEvents: 'none',
                 zIndex: 1,
-                transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-                transition: 'transform 0.3s ease-out'
+                transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`
             }}
         >
             {orbs.map((orb, index) => (
