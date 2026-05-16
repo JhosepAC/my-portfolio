@@ -21,6 +21,7 @@ import React from "react";
 
 export const PROJECTS_DATA = [{
     id: 1,
+    category: 'web',
     statusKey: 'production',
     title: 'Green Sprout Innovations - EcoCrop',
     image: ecoCropImg,
@@ -34,6 +35,7 @@ export const PROJECTS_DATA = [{
     labelTranslate: 'ecocrop'
 }, {
     id: 2,
+    category: 'mobile',
     statusKey: 'production',
     title: 'ThinkUp - SkillShare',
     image: skillShareImg,
@@ -47,6 +49,7 @@ export const PROJECTS_DATA = [{
     labelTranslate: 'skillshare'
 }, {
     id: 3,
+    category: 'web',
     statusKey: 'active',
     title: 'Bookify - Livria',
     image: bookifyImg,
@@ -59,6 +62,7 @@ export const PROJECTS_DATA = [{
     labelTranslate: 'livria'
 }, {
     id:  4,
+    category: 'web',
     statusKey: 'production',
     title: 'FyM - Find Your Movie',
     image: fymImg,

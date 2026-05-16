@@ -44,8 +44,20 @@
     "technologiesLabel": "Tecnologías Utilizadas",
     "seeCode": "Código Fuente",
     "seeLive": "Ver Demo",
+    "allFilter": "Todos",
+    "techFilter": "Tecnologías",
+    "filterCat": {
+        "web": "Web",
+        "mobile": "Mobile"
+    },
+    "noResults": "No se encontraron proyectos con ese filtro",
     "showMore": "Ver Más",
     "showLess": "Ver Menos",
+    "placeholder": {
+        "title": "Más proyectos en camino",
+        "text": "Estoy trabajando en nuevos proyectos que serán añadidos próximamente.",
+        "badge": "EN DESARROLLO"
+    },
     "items": {
       "ecocrop": {
         "description": "Landing page que presenta y comunica las funcionalidades, objetivos y beneficios de EcoCrop como solución digital para el control de plagas y la agricultura sostenible.",
