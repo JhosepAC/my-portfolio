@@ -1,13 +1,15 @@
-import {useState, useEffect, useCallback, useMemo} from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import ProjectCard from './ProjectCard';
 import { PROJECTS_DATA } from '../../data/projectsData.jsx';
 import SectionOrbs from '../common/orbs/SectionOrbs';
 import './ProjectsSection.css';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const ProjectsSection = () => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
+    const [activeFilter, setActiveFilter] = useState('all');
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     const translatedProjects = useMemo(() => {
         return PROJECTS_DATA.map(project => ({
@@ -17,30 +19,48 @@ const ProjectsSection = () => {
         }));
     }, [t]);
 
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
+    const categories = useMemo(() => {
+        const catSet = new Set(PROJECTS_DATA.map(p => p.category));
+        return ['all', ...Array.from(catSet)];
+    }, []);
 
-    const handleNavigation = useCallback((direction) => {
-        if (isAnimating) return;
-        setIsAnimating(true);
+    const techOptions = useMemo(() => {
+        const techSet = new Set();
+        PROJECTS_DATA.forEach(p => p.technologies.forEach(t => techSet.add(t.name)));
+        return Array.from(techSet);
+    }, []);
 
-        if (direction === 'next') {
-            setActiveIndex((prev) => (prev + 1) % PROJECTS_DATA.length);
-        } else {
-            setActiveIndex((prev) => (prev - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length);
+    const isTechActive = !categories.includes(activeFilter) && activeFilter !== 'all';
+
+    const filteredProjects = useMemo(() => {
+        if (activeFilter === 'all') return translatedProjects;
+        if (categories.includes(activeFilter)) {
+            return translatedProjects.filter(p => p.category === activeFilter);
         }
+        return translatedProjects.filter(p =>
+            p.technologies.some(t => t.name === activeFilter)
+        );
+    }, [activeFilter, translatedProjects, categories]);
 
-        setTimeout(() => setIsAnimating(false), 500);
-    }, [isAnimating]);
+    const handleCategoryClick = (cat) => {
+        setActiveFilter(cat);
+        setIsDropdownOpen(false);
+    };
+
+    const handleTechSelect = (tech) => {
+        setActiveFilter(tech);
+        setIsDropdownOpen(false);
+    };
 
     useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (e.key === 'ArrowLeft') handleNavigation('prev');
-            if (e.key === 'ArrowRight') handleNavigation('next');
+        const handleClickOutside = (e) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+                setIsDropdownOpen(false);
+            }
         };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [handleNavigation]);
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     return (
         <section id="projects" className="projects-section">
@@ -57,42 +77,72 @@ const ProjectsSection = () => {
                     </div>
                 </header>
 
-                <div className="projects-showcase">
-                    <div className="showcase-glow" style={{
-                        background: `radial-gradient(circle at center, ${PROJECTS_DATA[activeIndex].technologies[0].color}15 0%, transparent 70%)`
-                    }} />
-
-                    <nav className="nav-controls">
-                        <button className="nav-button nav-prev" onClick={() => handleNavigation('prev')} disabled={isAnimating}>
-                            <FaChevronLeft />
+                <div className="filter-bar" role="group" aria-label="Filter projects">
+                    {categories.map(cat => (
+                        <button
+                            key={cat}
+                            className={`filter-btn ${activeFilter === cat ? 'active' : ''}`}
+                            onClick={() => handleCategoryClick(cat)}
+                            aria-pressed={activeFilter === cat}
+                        >
+                            {cat === 'all' ? t('projects.allFilter') : t(`projects.filterCat.${cat}`)}
                         </button>
-                        <button className="nav-button nav-next" onClick={() => handleNavigation('next')} disabled={isAnimating}>
-                            <FaChevronRight />
+                    ))}
+
+                    <div className="filter-dropdown" ref={dropdownRef}>
+                        <button
+                            className={`filter-btn dropdown-toggle ${isTechActive ? 'active' : ''}`}
+                            onClick={() => setIsDropdownOpen(prev => !prev)}
+                            aria-haspopup="true"
+                            aria-expanded={isDropdownOpen}
+                        >
+                            {isTechActive ? activeFilter : t('projects.techFilter')}
+                            <svg className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
                         </button>
-                    </nav>
 
-                    <div className="cards-stack">
-                        {translatedProjects.map((project, index) => (
-                            <ProjectCard
-                                key={project.id}
-                                project={project}
-                                index={index}
-                                activeIndex={activeIndex}
-                                isAnimating={isAnimating}
-                            />
-                        ))}
-                    </div>
-
-                    <div className="progress-indicators">
-                        {translatedProjects.map((_, index) => (
-                            <button
-                                key={index}
-                                className={`indicator ${index === activeIndex ? 'active' : ''}`}
-                                onClick={() => !isAnimating && setActiveIndex(index)}
-                            />
-                        ))}
+                        {isDropdownOpen && (
+                            <div className="dropdown-menu" role="menu">
+                                {techOptions.map(tech => (
+                                    <button
+                                        key={tech}
+                                        className={`dropdown-item ${activeFilter === tech ? 'active' : ''}`}
+                                        onClick={() => handleTechSelect(tech)}
+                                        role="menuitem"
+                                    >
+                                        {tech}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
+
+                <div className="projects-grid" role="list">
+                    {filteredProjects.map((project, index) => (
+                        <ProjectCard key={project.id} project={project} index={index} />
+                    ))}
+
+                    <article className="project-card placeholder" role="listitem">
+                        <div className="placeholder-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 className="placeholder-title">{t('projects.placeholder.title')}</h3>
+                        <p className="placeholder-text">{t('projects.placeholder.text')}</p>
+                        <span className="placeholder-badge">{t('projects.placeholder.badge')}</span>
+                    </article>
+                </div>
+
+                {filteredProjects.length === 0 && (
+                    <div className="no-results">
+                        <p>{t('projects.noResults')}</p>
+                    </div>
+                )}
             </div>
         </section>
     );

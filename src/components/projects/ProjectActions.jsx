@@ -22,7 +22,7 @@ const ProjectActions = ({github, live, className = ''}) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="action-button button-primary"
-                aria-label="{t('projects.seeLive')}"
+                aria-label={t('projects.seeLive')}
             >
                 <FaExternalLinkAlt/>
                 <span>{t('projects.seeLive')}</span>
