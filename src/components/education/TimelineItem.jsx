@@ -1,26 +1,27 @@
-import {memo, useState} from 'react';
+import {memo, useState, lazy, Suspense} from 'react';
 import {useTranslation} from 'react-i18next';
 import {EDUCATION_ICONS, TIMELINE_ICONS} from '../../utils/Icons';
 import StatusBadge from './StatusBadge';
 import './TimelineItem.css';
-import CertificateModal from "./CertificateModal.jsx";
 
-const TimelineItem = ({item, index}) => {
+const CertificateModal = lazy(() => import("./CertificateModal.jsx"));
+
+const TimelineItem = ({item, index, isExpanded, onToggle, isVisible}) => {
     const {t} = useTranslation();
-    const [isExpanded, setIsExpanded] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const mainIcon = EDUCATION_ICONS[item.iconType.toUpperCase()] || EDUCATION_ICONS.COURSE;
 
     const toggleExpand = (e) => {
         e.stopPropagation();
-        setIsExpanded(!isExpanded);
+        onToggle(item.id);
     };
 
     return (<div
-        className={`timeline-item ${item.type === 'university' ? 'timeline-item-important' : ''} ${isExpanded ? 'expanded' : ''}`}
+        className={`timeline-item ${item.type === 'university' ? 'timeline-item-important' : ''} ${isExpanded ? 'expanded' : ''} ${isVisible ? 'animate' : ''}`}
         style={{
-            '--item-color': item.color, animationDelay: `${index * 0.15}s`
+            '--item-color': item.color,
+            '--animation-delay': `${index * 0.15}s`
         }}
     >
         <div className="timeline-year"><span>{item.year}</span></div>
@@ -67,39 +68,51 @@ const TimelineItem = ({item, index}) => {
             </div>
 
             <div className="card-expanded">
-                <div className="expanded-content">
-                    <p className="expanded-description">{item.description}</p>
+                <div className="expanded-wrapper">
+                    <div className="expanded-content">
+                        <p className="expanded-description">{item.description}</p>
 
-                    <div className="expanded-skills">
-                        <span className="skills-label">{t('education.skills')}:</span>
-                        <div className="skills-list">
-                            {item.skills.map((skill, idx) => (<span key={idx} className="skill-tag">{skill}</span>))}
+                        <div className="expanded-skills">
+                            <span className="skills-label">{t('education.skills')}:</span>
+                            <div className="skills-list">
+                                {item.skills.map((skill, idx) => (<span key={idx} className="skill-tag">{skill}</span>))}
+                            </div>
                         </div>
+
+                        {item.status === 'completed' && item.certificate && (
+                            <div className="certificate-wrapper">
+                                <button
+                                    type="button"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setIsModalOpen(true);
+                                    }}
+                                    className="certificate-button"
+                                >
+                                    {TIMELINE_ICONS.CERT_FILE}
+                                    <span>{t('education.viewCertificate')}</span>
+                                </button>
+
+                                <div className="certificate-preview">
+                                    <iframe
+                                        src={`${item.certificate}#page=1&view=FitH&toolbar=0&navpanes=0`}
+                                        title={item.title}
+                                        loading="lazy"
+                                    />
+                                </div>
+
+                                <Suspense fallback={null}>
+                                    <CertificateModal
+                                        isOpen={isModalOpen}
+                                        onClose={() => setIsModalOpen(false)}
+                                        certificateUrl={item.certificate}
+                                        title={item.title || item.degree}
+                                    />
+                                </Suspense>
+                            </div>
+                        )}
+
                     </div>
-
-                    {item.status === 'completed' && item.certificate && (
-                        <>
-                            <button
-                                type="button"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    setIsModalOpen(true);
-                                }}
-                                className="certificate-button"
-                            >
-                                {TIMELINE_ICONS.CERT_FILE}
-                                <span>{t('education.viewCertificate')}</span>
-                            </button>
-
-                            <CertificateModal
-                                isOpen={isModalOpen}
-                                onClose={() => setIsModalOpen(false)}
-                                certificateUrl={item.certificate}
-                                title={item.title || item.degree}
-                            />
-                        </>
-                    )}
-
                 </div>
             </div>
         </div>
