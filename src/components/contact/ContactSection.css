@@ -293,4 +293,30 @@
     .contact-content {
         gap: 2.5rem;
     }
+
+    .contact-availability {
+        padding: 1rem;
+    }
+
+    .availability-content {
+        gap: 0.8rem;
+    }
+
+    .availability-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .availability-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .availability-label {
+        font-size: 0.75rem;
+    }
+
+    .availability-value {
+        font-size: 0.9rem;
+    }
 }
