@@ -2,8 +2,8 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr 60px 1fr;
-    gap: 2rem;
-    margin-bottom: 4rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .timeline-item.animate {
@@ -45,7 +45,7 @@
     align-items: center;
     justify-content: center;
     align-self: start;
-    margin-top: 2rem;
+    margin-top: 1.2rem;
     z-index: 2;
 }
 
@@ -142,30 +142,30 @@
 }
 
 .card-header {
-    padding: 1.8rem;
+    padding: 1rem;
     cursor: pointer;
     display: grid;
     grid-template-columns: auto 1fr auto;
-    gap: 1.2rem;
+    gap: 0.8rem;
     align-items: start;
 }
 
 .card-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(94, 159, 192, 0.1);
     border: 1px solid rgba(94, 159, 192, 0.2);
-    border-radius: 12px;
+    border-radius: 10px;
     color: var(--item-color, #5a9fc0);
     transition: all 0.4s ease;
 }
 
 .card-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
 }
 
 .timeline-card:hover .card-icon {
@@ -178,18 +178,18 @@
 .card-info {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.4rem;
 }
 
 .card-top {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.6rem;
     flex-wrap: wrap;
 }
 
 .card-title {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #c9d1d9;
     margin: 0;
@@ -244,8 +244,8 @@
 .card-institution {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    font-size: 0.95rem;
+    gap: 0.4rem;
+    font-size: 0.85rem;
     color: #8b949e;
     flex-wrap: wrap;
 }
@@ -273,7 +273,7 @@
 .card-meta {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 0.8rem;
     flex-wrap: wrap;
     font-size: 0.85rem;
     color: #6e7681;
@@ -286,8 +286,8 @@
 }
 
 .expand-button {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -331,7 +331,7 @@
 }
 
 .expanded-content {
-    padding: 0 1.8rem 1.2rem;
+    padding: 0 1rem 0.8rem;
     animation: fadeIn 0.4s ease-out;
 }
 
@@ -347,12 +347,12 @@
 .expanded-description {
     color: #8b949e;
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     font-size: 0.9rem;
 }
 
 .expanded-skills {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
 }
 
 .skills-label {
@@ -360,7 +360,7 @@
     font-size: 0.85rem;
     font-weight: 600;
     color: #c9d1d9;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -372,7 +372,7 @@
 }
 
 .skill-tag {
-    padding: 0.4rem 0.9rem;
+    padding: 0.3rem 0.7rem;
     background: rgba(94, 159, 192, 0.1);
     border: 1px solid rgba(94, 159, 192, 0.2);
     border-radius: 8px;
@@ -397,7 +397,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 0.7rem 1.2rem;
+    padding: 0.5rem 1rem;
     background: linear-gradient(135deg, rgba(94, 159, 192, 0.15), rgba(126, 184, 216, 0.15));
     border: 1px solid var(--item-color, #5a9fc0);
     border-radius: 10px;
@@ -513,36 +513,77 @@
 
 @media (max-width: 768px) {
     .timeline-item {
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
     }
 
     .card-header {
-        padding: 1.3rem;
+        padding: 0.7rem;
         grid-template-columns: auto 1fr;
-        gap: 1rem;
+        gap: 0.5rem;
     }
 
     .card-icon {
-        width: 44px;
-        height: 44px;
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
     }
 
     .card-icon svg {
-        width: 20px;
-        height: 20px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .card-info {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.2rem;
+    }
+
+    .card-top {
+        width: 100%;
+        gap: 0.3rem;
+    }
+
+    .status-badge {
+        display: none;
     }
 
     .expand-button {
         grid-column: 1 / -1;
         justify-self: center;
-        margin-top: 0.5rem;
+        margin-top: 0.2rem;
+        width: 24px;
+        height: 24px;
+    }
+
+    .expand-button svg {
+        width: 14px;
+        height: 14px;
     }
 
     .expanded-content {
-        padding: 0 1.3rem 1rem;
+        padding: 0 0.7rem 0.6rem;
     }
 
     .card-title {
-        font-size: 1.1rem;
+        font-size: 0.85rem;
+    }
+
+    .card-institution {
+        font-size: 0.8rem;
+        gap: 0.3rem;
+    }
+
+    .card-meta {
+        font-size: 0.75rem;
+    }
+
+    .skills-list {
+        gap: 0.3rem;
+    }
+
+    .skill-tag {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.75rem;
     }
 }
