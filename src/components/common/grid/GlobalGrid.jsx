@@ -65,8 +65,8 @@ const GlobalGrid = () => {
                     pointerEvents: 'none',
                     zIndex: 1,
                     backgroundImage: `
-                        linear-gradient(rgba(88, 166, 255, 0.15) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(88, 166, 255, 0.15) 1px, transparent 1px)
+                        linear-gradient(rgba(90, 159, 192, 0.15) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(90, 159, 192, 0.15) 1px, transparent 1px)
                     `,
                     backgroundSize: '80px 80px',
                     transform: `translate(${gridOffsetX}px, ${gridOffsetY}px)`,
@@ -81,12 +81,12 @@ const GlobalGrid = () => {
                 style={{
                     position: 'fixed',
                     pointerEvents: 'none',
-                    zIndex: 2,
+                    zIndex: 99999,
                     width: '40px',
                     height: '40px',
                     borderRadius: '50%',
-                    border: '1px solid rgba(88, 166, 255, 0.6)',
-                    boxShadow: '0 0 10px rgba(88, 166, 255, 0.3), inset 0 0 10px rgba(88, 166, 255, 0.1)',
+                    border: '1px solid rgba(90, 159, 192, 0.6)',
+                    boxShadow: '0 0 10px rgba(90, 159, 192, 0.3), inset 0 0 10px rgba(90, 159, 192, 0.1)',
                     transform: `translate(${glowX - 20}px, ${glowY - 20}px)`,
                     transition: 'transform 0.08s ease-out',
                     opacity: isHovering ? 1 : 0
@@ -99,12 +99,12 @@ const GlobalGrid = () => {
                 style={{
                     position: 'fixed',
                     pointerEvents: 'none',
-                    zIndex: 3,
+                    zIndex: 99999,
                     width: '6px',
                     height: '6px',
                     borderRadius: '50%',
-                    background: 'rgba(88, 166, 255, 1)',
-                    boxShadow: '0 0 15px rgba(88, 166, 255, 1), 0 0 30px rgba(88, 166, 255, 0.6)',
+                    background: 'rgba(90, 159, 192, 1)',
+                    boxShadow: '0 0 15px rgba(90, 159, 192, 1), 0 0 30px rgba(90, 159, 192, 0.6)',
                     transform: `translate(${glowX - 3}px, ${glowY - 3}px)`,
                     transition: 'transform 0.05s ease-out',
                     opacity: isHovering ? 1 : 0
