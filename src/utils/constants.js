@@ -121,7 +121,7 @@ export const EDUCATION_DATA = [{
     status: 'completed',
     iconType: 'certificate',
     certificate: certificateSCRUM,
-    color: '#3b82f6'
+    color: '#5a9fc0'
 }, {
     id: 'upc-2023',
     year: '2023',

@@ -26,7 +26,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--social-color, #58a6ff);
+    background: var(--social-color, #5a9fc0);
     opacity: 0;
     transition: opacity 0.4s ease;
     border-radius: 12px;
@@ -36,7 +36,7 @@
     content: '';
     position: absolute;
     inset: -50%;
-    background: radial-gradient(circle, var(--social-color, #58a6ff), transparent 70%);
+    background: radial-gradient(circle, var(--social-color, #5a9fc0), transparent 70%);
     opacity: 0;
     transition: opacity 0.4s ease;
     filter: blur(20px);
@@ -44,10 +44,10 @@
 
 .social-link:hover {
     transform: translateY(-5px) scale(1.05);
-    border-color: var(--social-color, #58a6ff);
+    border-color: var(--social-color, #5a9fc0);
     box-shadow:
             0 10px 30px rgba(0, 0, 0, 0.3),
-            0 0 20px var(--social-color, rgba(88, 166, 255, 0.4));
+            0 0 20px var(--social-color, rgba(90, 159, 192, 0.4));
 }
 
 .social-link:hover::before {
@@ -69,7 +69,7 @@
 }
 
 .social-link:hover .social-link-icon {
-    color: var(--social-color, #58a6ff);
+    color: var(--social-color, #5a9fc0);
     transform: scale(1.1) rotate(5deg);
 }
 
@@ -80,9 +80,9 @@
     transform: translateX(-50%);
     padding: 0.4rem 0.8rem;
     background: rgba(22, 27, 34, 0.95);
-    border: 1px solid var(--social-color, #58a6ff);
+    border: 1px solid var(--social-color, #5a9fc0);
     border-radius: 6px;
-    color: var(--social-color, #58a6ff);
+    color: var(--social-color, #5a9fc0);
     font-size: 0.75rem;
     font-weight: 600;
     white-space: nowrap;
@@ -99,7 +99,7 @@
     left: 50%;
     transform: translateX(-50%);
     border: 5px solid transparent;
-    border-top-color: var(--social-color, #58a6ff);
+    border-top-color: var(--social-color, #5a9fc0);
 }
 
 @keyframes tooltipFadeIn {

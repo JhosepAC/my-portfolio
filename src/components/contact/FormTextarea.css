@@ -22,7 +22,7 @@
 
 .form-textarea-container.focused .form-textarea-icon,
 .form-textarea-container.filled .form-textarea-icon {
-    color: #58a6ff;
+    color: #5a9fc0;
 }
 
 .form-textarea {
@@ -46,7 +46,7 @@
 
 .form-textarea:focus {
     background: rgba(13, 17, 23, 0.8);
-    border-color: #58a6ff;
+    border-color: #5a9fc0;
 }
 
 .form-textarea-wrapper.has-error .form-textarea {
