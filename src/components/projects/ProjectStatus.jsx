@@ -5,7 +5,7 @@ const ProjectStatus = ({ status, text }) => {
     const getStatusColor = (statusKey) => {
         switch (statusKey) {
             case 'active': return '#10b981';
-            case 'production': return '#3b82f6';
+            case 'production': return '#5a9fc0';
             default: return '#f59e0b';
         }
     };
