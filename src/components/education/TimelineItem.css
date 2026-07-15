@@ -30,7 +30,6 @@
 
 .timeline-year {
     display: flex;
-    align-items: center;
     font-size: 3rem;
     font-weight: 700;
     color: rgba(94, 159, 192, 0.2);
