@@ -4,7 +4,10 @@ export const useLoading = () => {
     const [isLoading, setIsLoading] = useState(() => document.readyState !== 'complete');
 
     useEffect(() => {
-        if (document.readyState === 'complete') return;
+        if (document.readyState === 'complete') {
+            setIsLoading(false);
+            return;
+        }
 
         const handleLoad = () => {
             requestAnimationFrame(() => {

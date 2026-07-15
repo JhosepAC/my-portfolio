@@ -39,16 +39,16 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--social-color, #58a6ff);
+    background: var(--social-color, #5a9fc0);
     opacity: 0;
     transition: opacity 0.4s ease;
 }
 
 .social-contact-link:hover {
     transform: translateY(-2px);
-    border-color: var(--social-color, #58a6ff);
+    border-color: var(--social-color, #5a9fc0);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3),
-    0 0 15px var(--social-color, rgba(88, 166, 255, 0.3));
+    0 0 15px var(--social-color, rgba(90, 159, 192, 0.3));
 }
 
 .social-contact-link:hover::before {
@@ -61,7 +61,7 @@
     justify-content: center;
     width: 34px;
     height: 34px;
-    background: rgba(88, 166, 255, 0.1);
+    background: rgba(90, 159, 192, 0.1);
     border-radius: 8px;
     color: var(--social-color, #8b949e);
     transition: all 0.3s ease;
@@ -76,7 +76,7 @@
 }
 
 .social-contact-link:hover .social-contact-icon {
-    background: rgba(88, 166, 255, 0.2);
+    background: rgba(90, 159, 192, 0.2);
     transform: scale(1.08) rotate(5deg);
 }
 
@@ -90,7 +90,7 @@
 }
 
 .social-contact-link:hover .social-contact-label {
-    color: var(--social-color, #58a6ff);
+    color: var(--social-color, #5a9fc0);
 }
 
 @keyframes fadeInLeft {
@@ -116,7 +116,57 @@
 }
 
 @media (max-width: 768px) {
+    .social-contact {
+        padding: 1rem;
+    }
+
+    .social-contact-title {
+        font-size: 0.85rem;
+        margin-bottom: 0.7rem;
+    }
+
     .social-contact-links {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .social-contact-link {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        animation: fadeInScale 0.6s ease-out backwards;
+    }
+
+    .social-contact-link:hover {
+        transform: none;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+    .social-contact-icon {
+        width: 36px;
+        height: 36px;
+        background: none;
+    }
+
+    .social-contact-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .social-contact-link:hover .social-contact-icon {
+        background: none;
+        transform: scale(1.1);
+    }
+
+    .social-contact-label {
+        display: none;
     }
 }

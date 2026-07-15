@@ -1,6 +1,6 @@
 .education-section {
     position: relative;
-    padding: 8rem 0 6rem;
+    padding: 4rem 0 3rem;
     background: var(--bg-primary);
     overflow: hidden;
 }
@@ -56,8 +56,12 @@
 
 .education-header {
     text-align: center;
-    margin-bottom: 5rem;
-    animation: fadeInUp 0.8s ease-out;
+    margin-bottom: 3rem;
+}
+
+.education-section--visible .education-header {
+    animation: fadeInUp 0.8s ease-out backwards;
+    animation-play-state: running;
 }
 
 .education-badge {
@@ -69,9 +73,13 @@
     border: 1px solid #30363d;
     border-radius: 25px;
     color: #7eb8d8;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     backdrop-filter: blur(10px);
+}
+
+.education-section--visible .education-badge {
     animation: fadeInScale 0.8s ease-out 0.2s backwards;
+    animation-play-state: running;
 }
 
 .education-badge svg {
@@ -90,8 +98,12 @@
     font-size: 4rem;
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.education-section--visible .education-title {
     animation: fadeInUp 0.8s ease-out 0.3s backwards;
+    animation-play-state: running;
 }
 
 .education-title-main {
@@ -115,12 +127,16 @@
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
+}
+
+.education-section--visible .education-subtitle {
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
+    animation-play-state: running;
 }
 
 .education-timeline {
     position: relative;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 .timeline-line {
@@ -170,9 +186,20 @@
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .education-header,
+    .education-badge,
+    .education-title,
+    .education-subtitle {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
+}
+
 @media (max-width: 1024px) {
     .education-section {
-        padding: 6rem 0 4rem;
+        padding: 3rem 0 2rem;
     }
 
     .education-container {
@@ -190,7 +217,7 @@
 
 @media (max-width: 768px) {
     .education-section {
-        padding: 4rem 0 3rem;
+        padding: 2.5rem 0 1.5rem;
     }
 
     .education-container {
@@ -198,7 +225,7 @@
     }
 
     .education-header {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
 
     .education-title {

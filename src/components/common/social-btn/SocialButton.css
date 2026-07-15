@@ -24,7 +24,7 @@
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: var(--accent-blue);
+    background: #5a9fc0;
     opacity: 0.15;
     transform: translate(-50%, -50%);
     transition: width 0.4s ease, height 0.4s ease;
@@ -37,7 +37,7 @@
 
 .social-button:hover {
     transform: translateY(-3px) scale(1.05);
-    color: var(--accent-blue);
+    color: #5a9fc0;
 }
 
 /* Branding specifics */

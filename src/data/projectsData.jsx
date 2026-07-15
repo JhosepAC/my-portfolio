@@ -14,7 +14,6 @@ import {
 } from 'react-icons/si';
 import ecoCropImg from '../assets/projects/green_sprout_innovations-ecocrop.png';
 import skillShareImg from '../assets/projects/thinkup-skillshare.png';
-import bookifyImg from '../assets/projects/bookify-livria.png';
 import fymImg from '../assets/projects/fym.png';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
 import React from "react";
@@ -47,19 +46,6 @@ export const PROJECTS_DATA = [{
     github: 'https://github.com/orgs/ThinkUp-SkillShare/repositories',
     live: 'https://appdistribution.firebase.dev/i/2bb66c756dd609c3',
     labelTranslate: 'skillshare'
-}, {
-    id: 3,
-    category: 'web',
-    statusKey: 'active',
-    title: 'Bookify - Livria',
-    image: bookifyImg,
-    technologies: [
-        {name: 'Vue.js', icon: <SiVuedotjs/>, color: '#4FC08D'}, {
-        name: 'C#', icon: <SiCplusplus/>, color: '#239120'},
-        {name: 'Git', icon: <SiGit/>, color: '#F05032'},],
-    github: 'https://github.com/Bookify-Livria/livria-web-app',
-    live: 'https://livria.netlify.app/',
-    labelTranslate: 'livria'
 }, {
     id:  4,
     category: 'web',
