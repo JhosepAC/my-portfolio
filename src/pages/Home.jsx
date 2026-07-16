@@ -17,7 +17,7 @@ import ProjectsSection from "../components/projects/ProjectsSection.jsx";
  * Main landing page containing the Hero section and Skills.
  */
 const Home = () => {
-    const {t} = useTranslation();
+    const {t, i18n} = useTranslation();
 
     // Reset scroll on mount
     useEffect(() => {
@@ -99,7 +99,7 @@ const Home = () => {
                 </div>
 
                 <div className="hero-visual">
-                    <Terminal />
+                    <Terminal key={i18n.language} />
                 </div>
             </section>
 
