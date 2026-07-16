@@ -164,57 +164,6 @@
     animation: fadeInRight 1s ease-out 0.5s backwards;
 }
 
-/* SPLINE VIEWER STYLES */
-.spline-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: float-3d 6s ease-in-out infinite;
-    z-index: 9999;
-}
-
-.spline-container spline-viewer {
-    position: absolute;
-    width: 130vh;
-    height: 130vh;
-    top: 50%;
-    left: 50%;
-    transform: translate(-45%, -48%) scale(.6);
-    filter: drop-shadow(0 20px 60px rgba(94, 159, 192, 0.15));
-}
-
-.visual-glow {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(94, 159, 192, 0.18), transparent 70%);
-    border-radius: 50%;
-    filter: blur(60px);
-    animation: pulse-glow 3s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes float-3d {
-    0%, 100% {
-        transform: translateY(0) rotateY(0deg);
-    }
-    50% {
-        transform: translateY(-20px) rotateY(5deg);
-    }
-}
-
-@keyframes pulse-glow {
-    0%, 100% {
-        opacity: 0.5;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.8;
-        transform: scale(1.1);
-    }
-}
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -259,11 +208,6 @@
         height: 400px;
     }
 
-    .spline-container spline-viewer {
-        width: 150vw;
-        height: 80vh;
-        transform: translate(-50%, -50%) scale(.49);
-    }
 }
 
 @media (max-width: 768px) {
@@ -284,12 +228,7 @@
         justify-content: center;
     }
 
-    .hero-visual{
+    .hero-visual {
         display: none;
-    }
-
-    .spline-container spline-viewer {
-        width: 70vw;
-        height: 70vh;
     }
 }
