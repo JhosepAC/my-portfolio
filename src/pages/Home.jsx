@@ -1,7 +1,7 @@
-import {useEffect, useRef} from 'react';
+import {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {SOCIAL_LINKS} from '../utils/constants';
-import SplineVisual from '../components/common/SplineVisual';
+import Terminal from '../components/common/Terminal';
 import SocialButton from '../components/common/social-btn/SocialButton';
 import DownloadButton from '../components/common/download-btn/DownloadButton';
 import SkillsSection from "../components/skills/SkillsSection.jsx";
@@ -17,8 +17,7 @@ import ProjectsSection from "../components/projects/ProjectsSection.jsx";
  * Main landing page containing the Hero section and Skills.
  */
 const Home = () => {
-    const splineRef = useRef(null);
-    const {t} = useTranslation();
+    const {t, i18n} = useTranslation();
 
     // Reset scroll on mount
     useEffect(() => {
@@ -99,12 +98,8 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* 3D Visual Section */}
                 <div className="hero-visual">
-                    <div className="spline-container">
-                        <SplineVisual />
-                    </div>
-                    <div className="visual-glow" aria-hidden="true"/>
+                    <Terminal key={i18n.language} />
                 </div>
             </section>
 
