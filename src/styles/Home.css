@@ -120,6 +120,33 @@
     animation: fadeInUp 0.8s ease-out 0.8s backwards;
 }
 
+.hero-actions-secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 2.5rem;
+    background: linear-gradient(135deg, #7eb8d8 0%, #5a9fc0 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(94, 159, 192, 0.4);
+}
+
 .glow-orb {
     position: absolute;
     border-radius: 50%;
@@ -224,7 +251,13 @@
     }
 
     .hero-actions {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .btn-primary {
+        width: 100%;
         justify-content: center;
     }
 

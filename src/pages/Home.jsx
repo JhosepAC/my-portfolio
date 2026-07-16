@@ -85,16 +85,19 @@ const Home = () => {
                     </header>
 
                     <div className="hero-actions">
-                        <DownloadButton label="CV"/>
+                        <a href="#projects" className="btn-primary">{t('nav.projects')}</a>
 
-                        {/* Dynamic Social Buttons using constants */}
-                        {SOCIAL_LINKS.filter(link => ['github', 'linkedin'].includes(link.id)).map((link) => (
-                            <SocialButton
-                                key={link.id}
-                                icon={link.id}
-                                url={link.url}
-                                ariaLabel={link.name}
-                            />))}
+                        <div className="hero-actions-secondary">
+                            <DownloadButton label="CV"/>
+
+                            {SOCIAL_LINKS.filter(link => ['github', 'linkedin'].includes(link.id)).map((link) => (
+                                <SocialButton
+                                    key={link.id}
+                                    icon={link.id}
+                                    url={link.url}
+                                    ariaLabel={link.name}
+                                />))}
+                        </div>
                     </div>
                 </div>
 
