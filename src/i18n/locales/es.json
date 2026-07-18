@@ -10,10 +10,10 @@
     "contact-me": "Contáctame"
   },
   "hero": {
-    "status": "DISPONIBLE PARA OPORTUNIDADES",
+    "status": "Disponible para oportunidades",
     "greeting": "Mi nombre es",
-    "subtitle1": "Estudiante de Ingeniería de Software - UPC",
-    "subtitle2": "Desarrollador Web, Desarrollador Móvil"
+    "subtitle1": "Ingeniero de Software especializado en crear",
+    "subtitle2": "aplicaciones web y móviles intuitivas, eficientes y preparadas para el futuro."
   },
   "skills": {
     "title": "Habilidades",
@@ -196,6 +196,33 @@
         "messageMin": "El mensaje debe tener al menos 10 caracteres"
       }
     }
+  },
+  "terminal": {
+    "loading": {
+      "connecting": "Conectando con {url}...",
+      "tunnel": "Estableciendo túnel de transferencia seguro...",
+      "installing": "Instalando portafolio..."
+    },
+    "success": "¡Instalación completada con éxito!",
+    "header": {
+      "shell": "Jhosep Shell [Versión 2.5.0-Release]",
+      "env": "Entorno virtualizado vinculado a",
+      "tagline": "Sistemas de Información & Software de Alto Rendimiento.",
+      "starting": "Iniciando componentes básicos del sistema..."
+    },
+    "status": "Proyectos activos:\n  - Fym       : Plataforma de streaming y archivos de series (TMDb API).\n  - Portfolio : Landing page de alto rendimiento y diseño minimalista.",
+    "about": "Estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC).",
+    "ls": "Secciones del portafolio:\n  Skills        Competencias técnicas y profesionales\n  Projects      Proyectos destacados\n  Education     Formación académica y certificaciones\n  Contact       Ponte en contacto conmigo",
+    "skills": "Categorías de habilidades:\n  Languages     JavaScript, Python, Java, C++, SQL, Dart\n  Frameworks    React, Node.js, Flutter, Express, Spring Boot\n  Databases     MongoDB, MySQL, PostgreSQL, Firebase\n  Tools         Git, Docker, Linux, Figma, Postman\n  Soft Skills   Comunicación, Trabajo en Equipo, Resolución de Problemas, Adaptabilidad",
+    "projects": "Proyectos destacados:\n  Fym           Plataforma de streaming y archivos para series\n  EcoCrop       Landing page de agricultura sostenible\n  ThinkUp       Red social educativa\n  Livria        Tienda digital de libros\n\nEscribe 'help' para ver comandos disponibles.",
+    "education": "Formación académica:\n  Ingeniería de Software - UPC (2023-presente)\n  Hacking Ético & Ciberseguridad (2022)\n  Fundamentos de Scrum (2024)\n  MongoDB (2024)\n  SSDLC - Universidad del Bio-Bio (2025)\n\nEscribe 'help' para ver comandos disponibles.",
+    "contact": "Ponte en contacto:\n  Email    jhosep.argomedo@example.com\n  Ubicación Lima, Perú (GMT-5)\n  GitHub   https://github.com/JhosepAC\n  LinkedIn /in/jhosep-argomedo",
+    "social": "Redes sociales:\n  GitHub    https://github.com/JhosepAC\n  LinkedIn  https://linkedin.com/in/jhosep-argomedo\n  Twitter   https://twitter.com/jhosep_ac",
+    "uname": "PortfolioOS 2.5.0-release #1 SMP PREEMPT\n visitor@portfolio ~/ \n Arquitectura: React 19 + Vite 7\n Kernel: Estándares Web Modernos, GNU/Linux-ish",
+    "banner": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551          JHOSEP ARGOMEDO - PORTFOLIO v2.5          \u2551\n\u2551        Software Engineering Student @ UPC         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d",
+    "help": "Comandos disponibles:\n  whoami    Muestra mi identidad\n  status    Lista los proyectos actuales\n  about     Información académica\n  age       Fecha de cumpleaños\n  pwd       Muestra el directorio actual\n  ls        Lista las secciones del portafolio\n  skills    Muestra habilidades técnicas\n  projects  Lista proyectos destacados\n  education Muestra formación académica\n  contact   Muestra información de contacto\n  social    Muestra redes sociales\n  repo      URL del repositorio del portafolio\n  version   Muestra la versión del shell\n  uptime    Muestra el tiempo de sesión transcurrido\n  uname     Muestra información del sistema\n  banner    Muestra el banner ASCII\n  sudo      Intenta privilegios de superusuario\n  date      Muestra la fecha y hora actual\n  echo      Imprime un mensaje personalizado (Ej: echo hola)\n  cls/clear Limpia el historial de comandos\n  exit      Cierra el intérprete",
+    "unknown": "'{cmd}' no se reconoce como un comando interno o externo,\nprograma o archivo por lotes ejecutable.\nEscribe 'help' para ver los comandos válidos.",
+    "exit": "Sesión interactiva finalizada. El intérprete se ha cerrado de forma segura.\nPuedes recargar la página para iniciar una nueva sesión."
   },
   "footer": {
     "tagline": "Desarrollador web y móvil apasionado por crear experiencias digitales excepcionales. Transformando ideas en código limpio y funcional.",

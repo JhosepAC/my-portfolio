@@ -1,7 +1,8 @@
-import {useEffect, useRef} from 'react';
+import {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
+import {Rocket, ChevronDown} from 'lucide-react';
 import {SOCIAL_LINKS} from '../utils/constants';
-import SplineVisual from '../components/common/SplineVisual';
+import Terminal from '../components/common/Terminal';
 import SocialButton from '../components/common/social-btn/SocialButton';
 import DownloadButton from '../components/common/download-btn/DownloadButton';
 import SkillsSection from "../components/skills/SkillsSection.jsx";
@@ -17,8 +18,7 @@ import ProjectsSection from "../components/projects/ProjectsSection.jsx";
  * Main landing page containing the Hero section and Skills.
  */
 const Home = () => {
-    const splineRef = useRef(null);
-    const {t} = useTranslation();
+    const {t, i18n} = useTranslation();
 
     // Reset scroll on mount
     useEffect(() => {
@@ -86,26 +86,31 @@ const Home = () => {
                     </header>
 
                     <div className="hero-actions">
-                        <DownloadButton label="CV"/>
+                        <a href="#projects" className="btn-primary">
+                            <Rocket size={18} className="btn-primary-icon" />
+                            {t('nav.projects')}
+                        </a>
 
-                        {/* Dynamic Social Buttons using constants */}
-                        {SOCIAL_LINKS.filter(link => ['github', 'linkedin'].includes(link.id)).map((link) => (
-                            <SocialButton
-                                key={link.id}
-                                icon={link.id}
-                                url={link.url}
-                                ariaLabel={link.name}
-                            />))}
+                        <div className="hero-actions-secondary">
+                            <DownloadButton label="CV"/>
+
+                            {SOCIAL_LINKS.filter(link => ['github', 'linkedin'].includes(link.id)).map((link) => (
+                                <SocialButton
+                                    key={link.id}
+                                    icon={link.id}
+                                    url={link.url}
+                                    ariaLabel={link.name}
+                                />))}
+                        </div>
                     </div>
                 </div>
 
-                {/* 3D Visual Section */}
                 <div className="hero-visual">
-                    <div className="spline-container">
-                        <SplineVisual />
-                    </div>
-                    <div className="visual-glow" aria-hidden="true"/>
+                    <Terminal key={i18n.language} />
                 </div>
+                <a href="#skills" className="scroll-indicator" aria-label="Scroll down">
+                    <ChevronDown size={24} />
+                </a>
             </section>
 
             <SkillsSection/>
