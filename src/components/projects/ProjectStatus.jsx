@@ -4,9 +4,11 @@ import './ProjectStatus.css'
 const ProjectStatus = ({ status, text }) => {
     const getStatusColor = (statusKey) => {
         switch (statusKey) {
-            case 'active': return '#10b981';
-            case 'production': return '#5a9fc0';
-            default: return '#f59e0b';
+            case 'completed': return '#10b981';
+            case 'in_development': return '#f59e0b';
+            case 'maintenance': return '#5a9fc0';
+            case 'private': return '#6b7280';
+            default: return '#6b7280';
         }
     };
 

@@ -34,7 +34,7 @@
 /* ── Image ── */
 .card-image {
     width: 100%;
-    height: 140px;
+    height: 180px;
     overflow: hidden;
     position: relative;
 }
@@ -44,6 +44,7 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    object-position: top;
 }
 
 .project-card:hover .card-image img {
@@ -55,7 +56,7 @@
     padding: 1rem 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.7rem;
     flex: 1;
 }
 
