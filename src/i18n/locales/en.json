@@ -13,7 +13,7 @@
     "status": "Available for opportunities",
     "greeting": "My name is",
     "subtitle1": "Software Engineer specialized in creating",
-    "subtitle2": "intuitive, efficient and future-ready web and mobile applications"
+    "subtitle2": "intuitive, efficient and future-ready web and mobile applications."
   },
   "skills": {
     "title": "Skills",
@@ -206,7 +206,7 @@
     "success": "Installation completed successfully!",
     "header": {
       "shell": "Jhosep Shell [Version 2.5.0-Release]",
-      "env": "Virtualized environment linked to {url}",
+      "env": "Virtualized environment linked to",
       "tagline": "Information Systems & High-Performance Software.",
       "starting": "Starting basic system components..."
     },
