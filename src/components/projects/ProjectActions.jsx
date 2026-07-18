@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 import {Icon} from '@iconify/react';
 import './ProjectActions.css'
 
-const ProjectActions = ({github, live, className = ''}) => {
+const ProjectActions = ({github, live, projectTitle, className = ''}) => {
     const {t} = useTranslation();
 
     return (<div className={`project-actions ${className}`}>
@@ -12,7 +12,7 @@ const ProjectActions = ({github, live, className = ''}) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="action-button button-secondary"
-                aria-label="Ver código en GitHub"
+                aria-label={`${t('projects.seeCode')}: ${projectTitle}`}
             >
                 <Icon icon="simple-icons:github"/>
                 <span>{t('projects.seeCode')}</span>

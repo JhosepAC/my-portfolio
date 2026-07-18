@@ -10,7 +10,7 @@ const ProjectCard = ({ project, index }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-        <article
+        <div
             className={`project-card ${isExpanded ? 'expanded' : ''}`}
             role="listitem"
             style={{ '--card-index': index }}
@@ -32,7 +32,7 @@ const ProjectCard = ({ project, index }) => {
                 </div>
 
                 <div className="card-footer">
-                    <ProjectActions github={project.github} live={project.live} />
+                    <ProjectActions github={project.github} live={project.live} projectTitle={project.title} />
                     <button
                         className="view-more-btn"
                         onClick={() => setIsExpanded(prev => !prev)}
@@ -42,7 +42,7 @@ const ProjectCard = ({ project, index }) => {
                     </button>
                 </div>
             </div>
-        </article>
+        </div>
     );
 };
 

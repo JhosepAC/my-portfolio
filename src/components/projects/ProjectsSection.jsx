@@ -124,7 +124,7 @@ const ProjectsSection = () => {
                         <ProjectCard key={project.id} project={project} index={index} />
                     ))}
 
-                    <article className="project-card placeholder" role="listitem">
+                    <div className="project-card placeholder" role="listitem">
                         <div className="placeholder-icon">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -135,7 +135,7 @@ const ProjectsSection = () => {
                         <h3 className="placeholder-title">{t('projects.placeholder.title')}</h3>
                         <p className="placeholder-text">{t('projects.placeholder.text')}</p>
                         <span className="placeholder-badge">{t('projects.placeholder.badge')}</span>
-                    </article>
+                    </div>
                 </div>
 
                 {filteredProjects.length === 0 && (
