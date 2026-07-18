@@ -150,6 +150,16 @@ const Terminal = () => {
             await typeCommand('whoami', historyContainer);
             await typeCommand('status', historyContainer);
 
+            const hint = document.createElement('div');
+            hint.style.color = '#8b949e';
+            hint.style.fontSize = '13px';
+            hint.style.marginBottom = '14px';
+            hint.style.marginTop = '6px';
+            hint.innerHTML = `Type <span style="color: #58a6ff; font-weight: 600;">help</span> to see all available commands`;
+            historyContainer.appendChild(hint);
+            scrollToBottom();
+            await delay(600);
+
             const activeRow = document.createElement('div');
             activeRow.id = 'terminal-active-row';
             activeRow.style.display = 'flex';
