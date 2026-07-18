@@ -61,19 +61,19 @@
     "items": {
       "ecocrop": {
         "description": "Landing page que presenta y comunica las funcionalidades, objetivos y beneficios de EcoCrop como solución digital para el control de plagas y la agricultura sostenible.",
-        "status": "PRODUCCIÓN"
+        "status": "COMPLETADO"
       },
       "skillshare": {
         "description": "Aplicación de red social educativa que conecta estudiantes con intereses académicos similares, facilitando la creación de grupos de estudio, la colaboración en tiempo real y el intercambio de recursos para potenciar el aprendizaje colaborativo.",
-        "status": "PRODUCCIÓN"
+        "status": "COMPLETADO"
       },
       "livria": {
         "description": "Tienda digital de libros que permite comprar ejemplares físicos, ebooks y audiolibros, integrando una comunidad de lectores donde los usuarios pueden interactuar, chatear y compartir recomendaciones.",
-        "status": "ACTIVO"
+        "status": "EN DESARROLLO"
       },
       "fym": {
         "description": "Aplicación web para explorar un catálogo de películas y series de televisión. Detalles, tráileres, información del reparto, escenas, distribuidores y mucho más.",
-        "status": "PRODUCCIÓN"
+        "status": "COMPLETADO"
       }
     }
   },
