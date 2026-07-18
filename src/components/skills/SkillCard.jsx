@@ -11,7 +11,7 @@ const SkillCard = ({skill, index}) => {
     };
 
     return (
-        <div className="skill-card" style={cardStyles}>
+        <div className="skill-card" style={cardStyles} data-icon={skill.icon}>
             <div className="skill-icon-wrapper">
                 <SkillIcon
                     name={skill.icon}

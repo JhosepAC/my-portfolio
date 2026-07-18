@@ -82,6 +82,14 @@
     filter: drop-shadow(0 0 10px var(--skill-color-shadow, rgba(90, 159, 192, 0.6)));
 }
 
+.skill-card[data-icon="github"] .skill-icon {
+    filter: brightness(0) invert(1) drop-shadow(0 0 4px var(--skill-color-shadow, rgba(90, 159, 192, 0.3)));
+}
+
+.skill-card[data-icon="github"]:hover .skill-icon {
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--skill-color-shadow, rgba(90, 159, 192, 0.6)));
+}
+
 .skill-name {
     font-size: 1rem;
     font-weight: 600;
