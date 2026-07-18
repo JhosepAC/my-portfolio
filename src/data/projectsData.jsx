@@ -1,7 +1,7 @@
 import {Icon} from '@iconify/react';
 // import ecoCropImg from '../assets/projects/green_sprout_innovations-ecocrop.png';
 // import skillShareImg from '../assets/projects/thinkup-skillshare.png';
-import fymImg from '../assets/projects/fym.png';
+import fymImg from '../assets/projects/fym.webp';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
 import skillshareLandingImg from '../assets/projects/thinkup-skillshare-landing_page.webp';
 import React from "react";
