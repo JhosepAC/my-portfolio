@@ -1,5 +1,6 @@
 import {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
+import {Rocket, ChevronDown} from 'lucide-react';
 import {SOCIAL_LINKS} from '../utils/constants';
 import Terminal from '../components/common/Terminal';
 import SocialButton from '../components/common/social-btn/SocialButton';
@@ -85,7 +86,10 @@ const Home = () => {
                     </header>
 
                     <div className="hero-actions">
-                        <a href="#projects" className="btn-primary">{t('nav.projects')}</a>
+                        <a href="#projects" className="btn-primary">
+                            <Rocket size={18} className="btn-primary-icon" />
+                            {t('nav.projects')}
+                        </a>
 
                         <div className="hero-actions-secondary">
                             <DownloadButton label="CV"/>
@@ -104,6 +108,9 @@ const Home = () => {
                 <div className="hero-visual">
                     <Terminal key={i18n.language} />
                 </div>
+                <a href="#skills" className="scroll-indicator" aria-label="Scroll down">
+                    <ChevronDown size={24} />
+                </a>
             </section>
 
             <SkillsSection/>
