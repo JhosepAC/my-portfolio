@@ -71,6 +71,10 @@
         "description": "Digital bookstore that allows users to purchase physical books, ebooks, and audiobooks, integrating a reader community where users can interact, chat, and share recommendations.",
         "status": "IN DEVELOPMENT"
       },
+      "skillshare_landing": {
+        "description": "SkillShare landing page, a digital platform for collaborative learning and academic networking. Built with HTML, CSS, and JavaScript, following web development best practices and version control standards.",
+        "status": "MAINTENANCE"
+      },
       "fym": {
         "description": "Web application for exploring a catalog of movies and TV series. Details, trailers, cast information, scenes, distributors, and much more.",
         "status": "COMPLETED"

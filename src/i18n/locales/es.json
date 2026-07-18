@@ -71,6 +71,10 @@
         "description": "Tienda digital de libros que permite comprar ejemplares físicos, ebooks y audiolibros, integrando una comunidad de lectores donde los usuarios pueden interactuar, chatear y compartir recomendaciones.",
         "status": "EN DESARROLLO"
       },
+      "skillshare_landing": {
+        "description": "Landing page de SkillShare, una plataforma digital de aprendizaje colaborativo y redes académicas. Desarrollada con HTML, CSS y JavaScript, siguiendo buenas prácticas de desarrollo web y estándares de control de versiones.",
+        "status": "EN MANTENIMIENTO"
+      },
       "fym": {
         "description": "Aplicación web para explorar un catálogo de películas y series de televisión. Detalles, tráileres, información del reparto, escenas, distribuidores y mucho más.",
         "status": "COMPLETADO"

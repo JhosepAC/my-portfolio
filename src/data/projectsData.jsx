@@ -3,6 +3,7 @@ import {Icon} from '@iconify/react';
 // import skillShareImg from '../assets/projects/thinkup-skillshare.png';
 import fymImg from '../assets/projects/fym.png';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
+import skillshareLandingImg from '../assets/projects/thinkup-skillshare-landing_page.webp';
 import React from "react";
 
 export const PROJECTS_DATA = [
@@ -36,6 +37,23 @@ export const PROJECTS_DATA = [
 //     live: 'https://appdistribution.firebase.dev/i/2bb66c756dd609c3',
 //     labelTranslate: 'skillshare'
 // },
+{
+    id: 3,
+    category: 'web',
+    statusKey: 'maintenance',
+    title: 'SkillShare - Collaborative Learning Platform',
+    image: skillshareLandingImg,
+    technologies: [
+        {name: 'HTML5', icon: <Icon icon="simple-icons:html5"/>, color: '#E34F26'},
+        {name: 'CSS3', icon: <Icon icon="simple-icons:css3"/>, color: '#2965F1'},
+        {name: 'JavaScript', icon: <Icon icon="simple-icons:javascript"/>, color: '#F7DF1E'},
+        {name: 'Git', icon: <Icon icon="simple-icons:git"/>, color: '#F05032'},
+        {name: 'Figma', icon: <Icon icon="simple-icons:figma"/>, color: '#F24E1E'},
+    ],
+    github: 'https://github.com/ThinkUp-SkillShare/skillshare.github.io',
+    live: 'https://thinkup-skillshare.github.io/skillshare.github.io/',
+    labelTranslate: 'skillshare_landing'
+},
 {
     id:  4,
     category: 'web',
