@@ -1,9 +1,9 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {FaExternalLinkAlt, FaGithub} from 'react-icons/fa';
+import {Icon} from '@iconify/react';
 import './ProjectActions.css'
 
-const ProjectActions = ({github, live, className = ''}) => {
+const ProjectActions = ({github, live, projectTitle, className = ''}) => {
     const {t} = useTranslation();
 
     return (<div className={`project-actions ${className}`}>
@@ -12,9 +12,9 @@ const ProjectActions = ({github, live, className = ''}) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="action-button button-secondary"
-                aria-label="Ver código en GitHub"
+                aria-label={`${t('projects.seeCode')}: ${projectTitle}`}
             >
-                <FaGithub/>
+                <Icon icon="simple-icons:github"/>
                 <span>{t('projects.seeCode')}</span>
             </a>
             <a
@@ -24,7 +24,7 @@ const ProjectActions = ({github, live, className = ''}) => {
                 className="action-button button-primary"
                 aria-label={t('projects.seeLive')}
             >
-                <FaExternalLinkAlt/>
+                <Icon icon="mdi:open-in-new"/>
                 <span>{t('projects.seeLive')}</span>
             </a>
         </div>);

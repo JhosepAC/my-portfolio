@@ -27,14 +27,14 @@ function App() {
                 <GlobalParticles />
                 {isLoading && <Loader />}
 
-                <div className={`app-content ${isLoading ? 'is-loading' : 'is-ready'}`}>
+                <main className={`app-content ${isLoading ? 'is-loading' : 'is-ready'}`}>
                     <Navbar />
                     <Routes>
                         <Route path="/" element={<Home />} />
 
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
-                </div>
+                    </main>
             </div>
         </Router>
     );

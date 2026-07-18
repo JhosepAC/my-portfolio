@@ -1,3 +1,4 @@
+import React from 'react';
 import './TechStack.css';
 import {useTranslation} from 'react-i18next';
 
@@ -15,7 +16,7 @@ const TechStack = ({technologies}) => {
                 className="tech-item"
                 style={{'--tech-color': tech.color}}
             >
-                <span className="tech-icon">{tech.icon}</span>
+                <span className="tech-icon">{React.cloneElement(tech.icon, {'aria-label': tech.name})}</span>
                 <span className="tech-name">{tech.name}</span>
             </div>))}
         </div>
