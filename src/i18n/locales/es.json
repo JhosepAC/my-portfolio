@@ -13,7 +13,7 @@
     "status": "Disponible para oportunidades",
     "greeting": "Mi nombre es",
     "subtitle1": "Ingeniero de Software especializado en crear",
-    "subtitle2": "aplicaciones web y móviles intuitivas, eficientes y preparadas para el futuro"
+    "subtitle2": "aplicaciones web y móviles intuitivas, eficientes y preparadas para el futuro."
   },
   "skills": {
     "title": "Habilidades",
@@ -206,7 +206,7 @@
     "success": "¡Instalación completada con éxito!",
     "header": {
       "shell": "Jhosep Shell [Versión 2.5.0-Release]",
-      "env": "Entorno virtualizado vinculado a {url}",
+      "env": "Entorno virtualizado vinculado a",
       "tagline": "Sistemas de Información & Software de Alto Rendimiento.",
       "starting": "Iniciando componentes básicos del sistema..."
     },
