@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import {FORM_ICONS} from "../../utils/Icons.jsx";
 import './FormInput.css';
 
+const AUTOCOMPLETE_MAP = {
+    name: 'name',
+    email: 'email',
+    subject: 'off',
+    message: 'off',
+};
+
 const FormInput = ({
                        name, type = 'text', label, value, onChange, error, required = false, icon
                    }) => {
@@ -29,7 +36,7 @@ const FormInput = ({
                     onBlur={() => setIsFocused(false)}
                     className="form-input"
                     required={required}
-                    autoComplete={type === 'email' ? 'email' : name}
+                    autoComplete={AUTOCOMPLETE_MAP[name] || 'off'}
                 />
 
                 <div className="form-input-border"></div>

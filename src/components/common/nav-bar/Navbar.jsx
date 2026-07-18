@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, Moon, Sun, Menu, X } from 'lucide-react';
+import { Globe, Menu, X } from 'lucide-react';
 import { useScroll } from '../../../hooks/useScroll';
 import logo from '../../../assets/logo/elephant-logo.svg';
 import { NAV_LINKS } from "../../../utils/constants.js";

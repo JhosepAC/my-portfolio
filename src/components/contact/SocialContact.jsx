@@ -8,7 +8,7 @@ const SocialContact = () => {
     const filteredLinks = SOCIAL_LINKS.filter(link => link.id !== 'email');
 
     return (<div className="social-contact">
-        <h4 className="social-contact-title">{t('contact.social.title')}</h4>
+        <h3 className="social-contact-title">{t('contact.social.title')}</h3>
         <div className="social-contact-links">
             {filteredLinks.map((social, index) => (<a
                 key={social.id}
