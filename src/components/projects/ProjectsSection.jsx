@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import ProjectCard from './ProjectCard';
 import { PROJECTS_DATA } from '../../data/projectsData.jsx';
 import SectionOrbs from '../common/orbs/SectionOrbs';
+import SectionHeader from '../common/section-header/SectionHeader';
 import './ProjectsSection.css';
 import { useTranslation } from 'react-i18next';
 
@@ -66,16 +67,11 @@ const ProjectsSection = () => {
         <section id="projects" className="projects-section">
             <SectionOrbs sectionId="projects" />
             <div className="projects-container">
-                <header className="projects-header">
-                    <div className="header-decorator">
-                        <div className="decorator-line" />
-                        <span className="decorator-dot" />
-                    </div>
-                    <div className="header-content">
-                        <h2 className="section-title">{t('projects.title')}</h2>
-                        <p className="section-subtitle">{t('projects.subtitle')}</p>
-                    </div>
-                </header>
+                <SectionHeader
+                    align="left"
+                    title={t('projects.title')}
+                    subtitle={t('projects.subtitle')}
+                />
 
                 <div className="filter-bar" role="group" aria-label="Filter projects">
                     {categories.map(cat => (

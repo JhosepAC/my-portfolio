@@ -4,6 +4,7 @@ import {SKILLS_DATA} from '../../utils/constants.js';
 import SkillCard from './SkillCard';
 import FilterButton from './FilterButton';
 import SectionOrbs from '../common/orbs/SectionOrbs';
+import SectionHeader from '../common/section-header/SectionHeader';
 import './SkillsSection.css';
 
 const INITIAL_VISIBLE = 16;
@@ -50,11 +51,11 @@ const SkillsSection = () => {
         <section id="skills" className="skills-section">
             <SectionOrbs sectionId="skills" />
             <div className="skills-container">
-                <header className="section-header">
-                    <h2 className="section-title">
-                        <span className="title-accent">{t('skills.title')}</span>
-                    </h2>
-                </header>
+                <SectionHeader
+                    align="left"
+                    title={t('skills.title')}
+                    subtitle={t('skills.subtitle')}
+                />
 
                 <nav className="filters-container" aria-label="Skills filtering">
                     {filters.map((filter) => (

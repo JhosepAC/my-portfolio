@@ -18,6 +18,7 @@
   },
   "skills": {
     "title": "Skills",
+    "subtitle": "Technologies and tools I master to build complete solutions",
     "filters": {
       "all": "All",
       "languages": "Languages",
@@ -84,8 +85,8 @@
   },
   "education": {
     "badge": "Academic Background",
-    "title": "Education &",
-    "titleHighlight": "Certifications",
+    "title": "Certifications",
+    "titleHighlight": "Education &",
     "subtitle": "My academic journey and continuous training in software engineering, security, and modern technologies.",
     "status": {
       "ongoing": "Ongoing",
