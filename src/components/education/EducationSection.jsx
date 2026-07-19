@@ -4,6 +4,7 @@ import TimelineItem from './TimelineItem';
 import {EDUCATION_DATA} from "../../utils/constants.js";
 import {EDUCATION_ICONS} from "../../utils/Icons.jsx";
 import SectionOrbs from '../common/orbs/SectionOrbs';
+import SectionHeader from '../common/section-header/SectionHeader';
 import './EducationSection.css';
 
 const EducationSection = () => {
@@ -49,21 +50,15 @@ const EducationSection = () => {
         >
             <SectionOrbs sectionId="education" />
             <div className="education-container">
-                <div className="education-header">
-                    <div className="education-badge">
-                        {EDUCATION_ICONS.BADGE}
-                        <span className="education-badge-text">{t('education.badge')}</span>
-                    </div>
-
-                    <h2 className="education-title">
-                        <span className="education-title-main">{t('education.title')}</span>
-                        <span className="education-title-gradient">{t('education.titleHighlight')}</span>
-                    </h2>
-
-                    <p className="education-subtitle">
-                        {t('education.subtitle')}
-                    </p>
-                </div>
+                <SectionHeader
+                    align="center"
+                    title={t('education.title')}
+                    titleHighlight={t('education.titleHighlight')}
+                    subtitle={t('education.subtitle')}
+                    badge={{icon: EDUCATION_ICONS.BADGE, text: t('education.badge')}}
+                    highlightFirst
+                    stacked
+                />
 
                 <div className="education-timeline">
                     <div className="timeline-line"></div>

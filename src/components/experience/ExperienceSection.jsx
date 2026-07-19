@@ -3,6 +3,7 @@ import {useTranslation} from 'react-i18next';
 import ExperienceCard from './ExperienceCard';
 import {EXPERIENCE_DATA} from "../../utils/constants.js";
 import SectionOrbs from '../common/orbs/SectionOrbs';
+import SectionHeader from '../common/section-header/SectionHeader';
 import './ExperienceSection.css';
 
 const ExperienceSection = () => {
@@ -43,16 +44,12 @@ const ExperienceSection = () => {
         >
             <SectionOrbs sectionId="experience"/>
             <div className="experience-container">
-                <div className="experience-header">
-                    <h2 className="experience-title">
-                        <span className="experience-title-main">{t('experience.title')} </span>
-                        <span className="experience-title-gradient">{t('experience.titleHighlight')}</span>
-                    </h2>
-
-                    <p className="experience-subtitle">
-                        {t('experience.subtitle')}
-                    </p>
-                </div>
+                <SectionHeader
+                    align="center"
+                    title={t('experience.title')}
+                    titleHighlight={t('experience.titleHighlight')}
+                    subtitle={t('experience.subtitle')}
+                />
 
                 <div className="experience-list">
                     {experienceItems.map((item, index) => (

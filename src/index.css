@@ -10,7 +10,21 @@
   --text-primary: #c9d1d9;
   --text-secondary: #8b949e;
   --accent: #5a9fc0;
+  --accent-light: #7eb8d8;
   --border-color: #30363d;
+
+  --gradient-primary: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+
+  --title-size: 4rem;
+  --title-size-md: 3rem;
+  --title-size-sm: 2.2rem;
+
+  --subtitle-size: 1.2rem;
+  --subtitle-size-sm: 1rem;
+
+  --section-padding: 6rem 0;
+  --section-padding-md: 4rem 0;
+  --section-padding-sm: 3rem 0;
 }
 
 body {
@@ -132,5 +146,30 @@ code {
   .section-orbs-container > div {
     animation: none !important;
     transform: none !important;
+  }
+}
+
+/* ============================================
+   CENTRALIZED KEYFRAMES
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

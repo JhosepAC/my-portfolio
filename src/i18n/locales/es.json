@@ -18,6 +18,7 @@
   },
   "skills": {
     "title": "Habilidades",
+    "subtitle": "Tecnologías y herramientas que domino para construir soluciones completas",
     "filters": {
       "all": "Todos",
       "languages": "Lenguajes",
@@ -84,8 +85,8 @@
   },
   "education": {
     "badge": "Formación Académica",
-    "title": "Educación &",
-    "titleHighlight": "Certificaciones",
+    "title": "Certificaciones",
+    "titleHighlight": "Educación &",
     "subtitle": "Mi trayectoria académica y de formación continua en ingeniería de software, seguridad y tecnologías modernas.",
     "status": {
       "ongoing": "En Curso",
