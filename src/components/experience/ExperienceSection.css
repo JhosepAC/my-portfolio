@@ -1,0 +1,125 @@
+.experience-section {
+    position: relative;
+    padding: 4rem 0 3rem;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+.experience-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.experience-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.experience-section--visible .experience-header {
+    animation: fadeInUp 0.8s ease-out backwards;
+    animation-play-state: running;
+}
+
+.experience-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.experience-section--visible .experience-title {
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    animation-play-state: running;
+}
+
+.experience-title-main {
+    display: inline;
+    color: #c9d1d9;
+}
+
+.experience-title-gradient {
+    display: inline;
+    background: linear-gradient(135deg, #7eb8d8 0%, #5a9fc0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.experience-subtitle {
+    font-size: 1.2rem;
+    color: #8b949e;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.experience-section--visible .experience-subtitle {
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+    animation-play-state: running;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .experience-header,
+    .experience-title,
+    .experience-subtitle {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .experience-section {
+        padding: 3rem 0 2rem;
+    }
+
+    .experience-container {
+        padding: 0 2rem;
+    }
+
+    .experience-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-section {
+        padding: 2.5rem 0 1.5rem;
+    }
+
+    .experience-container {
+        padding: 0 1.5rem;
+    }
+
+    .experience-header {
+        margin-bottom: 2rem;
+    }
+
+    .experience-title {
+        font-size: 2.2rem;
+    }
+
+    .experience-subtitle {
+        font-size: 1rem;
+    }
+}

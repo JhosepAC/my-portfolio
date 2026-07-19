@@ -7,6 +7,7 @@
     "skills": "Skills",
     "projects": "Projects",
     "education": "Education",
+    "experience": "Experience",
     "contact-me": "Contact me"
   },
   "hero": {
@@ -152,6 +153,48 @@
       }
     }
   },
+  "experience": {
+    "badge": "Professional Experience",
+    "title": "Work",
+    "titleHighlight": "Experience",
+    "subtitle": "My professional journey in software development, turning challenges into digital solutions.",
+    "current": "Current",
+    "type": {
+      "fulltime": "Full Time",
+      "freelance": "Freelance",
+      "internship": "Internship",
+      "parttime": "Part Time"
+    },
+    "technologies": "Technologies",
+    "items": {
+      "tec-novedades": {
+        "description": "Development and implementation of web solutions for digital projects, ranging from landing pages to educational platforms and business management systems.",
+        "achievements": [
+          "Developed and implemented landing pages for various digital projects, optimizing user experience and performance",
+          "Designed and developed an educational platform focused on course and academic content presentation",
+          "Developed a landing page for a foreign trade company aimed at client acquisition",
+          "Participated in developing a web application for HR training management",
+          "Designed, administered, and maintained relational databases, performing queries and information optimization",
+          "Developed frontend and backend functionalities, integrating interfaces with services and databases",
+          "Performed maintenance, updates, and bug fixes on existing web applications",
+          "Collaborated with the development team to implement new functionalities",
+          "Participated in testing, debugging, and performance optimization of developed systems"
+        ]
+      },
+      "wya-soluciones": {
+        "description": "Development and maintenance of web applications for business process management, working with modern technologies in a collaborative environment.",
+        "achievements": [
+          "Developed and maintained web applications for business process management",
+          "Implemented functionalities for a management system with sales, purchasing, products, warehouses, and user administration modules",
+          "Developed new features, performed corrective maintenance, and optimized application performance",
+          "Designed, implemented, and maintained databases, ensuring data integrity",
+          "Developed the Human Resources module for a banking sector management system",
+          "Performed frontend, backend, and database integration to ensure proper system operation",
+          "Fixed issues, conducted functionality testing, and collaborated with the team for continuous improvement"
+        ]
+      }
+    }
+  },
   "contact": {
     "badge": "Let's work together!",
     "title": "Have a project in mind?",
@@ -216,15 +259,16 @@
     },
     "status": "Active projects:\n  - Fym       : Streaming and file platform for TV series (TMDb API).\n  - Portfolio : High-performance, minimalist landing page.",
     "about": "Software Engineering student at Universidad Peruana de Ciencias Aplicadas (UPC).",
-    "ls": "Portfolio sections:\n  Skills        Technical and professional competencies\n  Projects      Featured software projects\n  Education     Academic background and certifications\n  Contact       Get in touch with me",
+    "ls": "Portfolio sections:\n  Skills        Technical and professional competencies\n  Projects      Featured software projects\n  Education     Academic background and certifications\n  Experience    Work experience\n  Contact       Get in touch with me",
     "skills": "Skill categories:\n  Languages     JavaScript, Python, Java, C++, SQL, Dart\n  Frameworks    React, Node.js, Flutter, Express, Spring Boot\n  Databases     MongoDB, MySQL, PostgreSQL, Firebase\n  Tools         Git, Docker, Linux, Figma, Postman\n  Soft Skills   Communication, Teamwork, Problem Solving, Adaptability",
     "projects": "Featured projects:\n  Fym           Streaming & file platform for TV series\n  EcoCrop       Sustainable agriculture landing page\n  ThinkUp       Educational social network\n  Livria        Digital bookstore\n\nType 'help' for available commands.",
     "education": "Academic background:\n  Software Engineering - UPC (2023-present)\n  Ethical Hacking & Cybersecurity (2022)\n  Scrum Fundamentals (2024)\n  MongoDB (2024)\n  SSDLC - Universidad del Bio-Bio (2025)\n\nType 'help' for available commands.",
+    "experience": "Work experience:\n  Web Developer - TECNovedades (01/2026-05/2026)\n  Full Stack Developer - WYA Soluciones (05/2026-present)\n\nType 'help' for available commands.",
     "contact": "Get in touch:\n  Email    jhosep.argomedo@example.com\n  Location Lima, Peru (GMT-5)\n  GitHub   https://github.com/JhosepAC\n  LinkedIn /in/jhosep-argomedo",
     "social": "Social links:\n  GitHub    https://github.com/JhosepAC\n  LinkedIn  https://linkedin.com/in/jhosep-argomedo\n  Twitter   https://twitter.com/jhosep_ac",
     "uname": "PortfolioOS 2.5.0-release #1 SMP PREEMPT\n visitor@portfolio ~/ \n Architecture: React 19 + Vite 7\n Kernel: Modern Web Standards, GNU/Linux-ish",
     "banner": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551          JHOSEP ARGOMEDO - PORTFOLIO v2.5          \u2551\n\u2551        Software Engineering Student @ UPC         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d",
-    "help": "Available commands:\n  whoami    Display my identity\n  status    List current projects\n  about     Academic background info\n  age       Birthday date\n  pwd       Show current directory\n  ls        List portfolio sections\n  skills    Show technical skills\n  projects  List featured projects\n  education Show academic background\n  contact   Display contact information\n  social    Show social media links\n  repo      Portfolio repository URL\n  version   Show shell version\n  uptime    Show elapsed session time\n  uname     Display system information\n  banner    Show ASCII art banner\n  sudo      Try superuser privileges\n  date      Show current date and time\n  echo      Print a custom message (e.g., echo hello)\n  cls/clear Clear command history\n  exit      Close the interpreter",
+    "help": "Available commands:\n  whoami    Display my identity\n  status    List current projects\n  about     Academic background info\n  age       Birthday date\n  pwd       Show current directory\n  ls        List portfolio sections\n      skills    Show technical skills\n  projects  List featured projects\n  education Show academic background\n  experience Show work experience\n  contact   Display contact information\n  social    Show social media links\n  repo      Portfolio repository URL\n  version   Show shell version\n  uptime    Show elapsed session time\n  uname     Display system information\n  banner    Show ASCII art banner\n  sudo      Try superuser privileges\n  date      Show current date and time\n  echo      Print a custom message (e.g., echo hello)\n  cls/clear Clear command history\n  exit      Close the interpreter",
     "unknown": "'{cmd}' is not recognized as an internal or external command,\noperable program or batch file.\nType 'help' to see available commands.",
     "exit": "Interactive session ended. The interpreter has been safely closed.\nYou can reload the page to start a new session."
   },

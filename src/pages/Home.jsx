@@ -11,6 +11,7 @@ import '../styles/Home.css';
 import Footer from "../components/footer/Footer.jsx";
 import ContactSection from "../components/contact/ContactSection.jsx";
 import EducationSection from "../components/education/EducationSection.jsx";
+import ExperienceSection from "../components/experience/ExperienceSection.jsx";
 import ProjectsSection from "../components/projects/ProjectsSection.jsx";
 
 /**
@@ -20,18 +21,10 @@ import ProjectsSection from "../components/projects/ProjectsSection.jsx";
 const Home = () => {
     const {t, i18n} = useTranslation();
 
-    // Reset scroll on mount
     useEffect(() => {
-        window.scrollTo(0, 0);
-
-        const timer = setTimeout(() => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'instant'
-            });
-        }, 50);
-
-        return () => clearTimeout(timer);
+        if (!window.location.hash) {
+            window.scrollTo(0, 0);
+        }
     }, []);
 
     useEffect(() => {
@@ -118,6 +111,8 @@ const Home = () => {
             <ProjectsSection/>
 
             <EducationSection/>
+
+            <ExperienceSection/>
 
             <ContactSection/>
         </div>

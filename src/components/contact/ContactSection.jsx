@@ -53,10 +53,6 @@ const ContactSection = () => {
         <SectionOrbs sectionId="contact" />
         <div className="contact-container">
             <div className="contact-header">
-                <div className="contact-badge">
-                    <span className="contact-badge-dot"></span>
-                    <span className="contact-badge-text">{t('contact.badge')}</span>
-                </div>
                 <h2 className="contact-title">
                     <span className="contact-title-main">{t('contact.title')}</span>
                     <span className="contact-title-gradient">{t('contact.titleHighlight')}</span>
