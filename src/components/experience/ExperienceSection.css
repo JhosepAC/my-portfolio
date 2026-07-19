@@ -1,0 +1,44 @@
+.experience-section {
+    position: relative;
+    padding: 4rem 0 3rem;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+.experience-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+@media (max-width: 1024px) {
+    .experience-section {
+        padding: 3rem 0 2rem;
+    }
+
+    .experience-container {
+        padding: 0 2rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .experience-section {
+        padding: 2.5rem 0 1.5rem;
+    }
+
+    .experience-container {
+        padding: 0 1.5rem;
+    }
+
+
+
+}

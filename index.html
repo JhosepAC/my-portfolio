@@ -1,26 +1,128 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-PE">
 <head>
+  <!-- ============================================================
+       ENCODING & VIEWPORT
+  ============================================================= -->
   <meta charset="UTF-8" />
-  <link rel="icon" href="elephant-logo.svg" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Jhosep Argomedo | Portafolio</title>
-  <meta name="title" content="Jhosep Argomedo | Portafolio">
-  <meta name="description" content="Estudiante de Ingeniería de Software en UPC. Especializado en desarrollo multi-plataforma con Flutter, React y soluciones de alto rendimiento.">
+  <!-- ============================================================
+       FAVICON & ICONS
+  ============================================================= -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/web-app-manifest-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/web-app-manifest-512x512.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jhosep-ac.pages.dev/">
-  <meta property="og:title" content="Jhosep Argomedo | Portafolio">
-  <meta property="og:description" content="Explora mis proyectos y experiencia en desarrollo web y móvil. Soluciones minimalistas y eficientes.">
-  <meta property="og:image" content="https://jhosep-ac.pages.dev/og-image.png">
+  <!-- ============================================================
+       SEO
+  ============================================================= -->
+  <title>Jhosep Argomedo | Full Stack Developer & Software Engineer</title>
+  <meta name="description" content="Estudiante de Ingeniería de Software (UPC, Perú) y desarrollador Full Stack. Trabajo con React, Vue, Node.js y Flutter, con foco en aprender nuevas tecnologías." />
+  <meta name="keywords" content="Jhosep Argomedo, Jhosep Argomedo desarrollador, Jhosep Argomedo software engineer, programador full stack, desarrollador full stack, desarrollador web, desarrollador frontend, desarrollador móvil, ingeniero de software Perú, React developer, Vue developer, mobile developer, web developer, freelance developer" />
+  <meta name="author" content="Jhosep Argomedo" />
+  <meta name="application-name" content="Jhosep Argomedo — Portafolio" />
+  <meta name="category" content="Portafolio de desarrollo de software" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="canonical" href="https://jhosep-ac.pages.dev/" />
 
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://jhosep-ac.pages.dev/">
-  <meta property="twitter:title" content="Jhosep Argomedo | Portafolio">
-  <meta property="twitter:description" content="Desarrollador de software enfocado en soluciones de alto rendimiento y diseño minimalista.">
-  <meta property="twitter:image" content="https://jhosep-ac.pages.dev/og-image.png">
-  <link rel="preconnect" href="https://api.iconify.design">
+  <!-- ============================================================
+       THEME
+  ============================================================= -->
+  <meta name="theme-color" content="#0d1117" />
+
+  <!-- ============================================================
+       OPEN GRAPH
+  ============================================================= -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jhosep-ac.pages.dev/" />
+  <meta property="og:site_name" content="Jhosep Argomedo — Portafolio" />
+  <meta property="og:locale" content="es_PE" />
+  <meta property="og:title" content="Jhosep Argomedo | Full Stack Developer & Software Engineer" />
+  <meta property="og:description" content="Descubre el portafolio de Jhosep Argomedo, estudiante de Ingeniería de Software (UPC, Perú) y desarrollador Full Stack. Proyectos web y móviles con React, Vue, Node.js y Flutter." />
+  <meta property="og:image" content="https://jhosep-ac.pages.dev/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Jhosep Argomedo - Portafolio de desarrollo de software" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:secure_url" content="https://jhosep-ac.pages.dev/og-image.png" />
+
+  <!-- ============================================================
+       TWITTER / X CARDS
+  ============================================================= -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://jhosep-ac.pages.dev/" />
+  <meta name="twitter:title" content="Jhosep Argomedo | Full Stack Developer & Software Engineer" />
+  <meta name="twitter:description" content="Estudiante de Ingeniería de Software (UPC, Perú) y desarrollador Full Stack. Proyectos con React, Vue, Node.js y Flutter." />
+  <meta name="twitter:image" content="https://jhosep-ac.pages.dev/og-image.png" />
+  <meta name="twitter:image:alt" content="Jhosep Argomedo - Portafolio de desarrollo de software" />
+  <meta name="twitter:site" content="@jhosep__ac" />
+  <meta name="twitter:creator" content="@jhosep__ac" />
+
+  <!-- ============================================================
+       PERFORMANCE
+  ============================================================= -->
+  <link rel="preconnect" href="https://api.iconify.design" />
+  <link rel="dns-prefetch" href="https://api.iconify.design" />
+
+  <!-- ============================================================
+       SECURITY
+  ============================================================= -->
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- ============================================================
+       STRUCTURED DATA (JSON-LD) — Person + WebSite
+  ============================================================= -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://jhosep-ac.pages.dev/#person",
+          "name": "Jhosep Argomedo",
+          "url": "https://jhosep-ac.pages.dev/",
+          "image": "https://jhosep-ac.pages.dev/og-image.png",
+          "jobTitle": "Estudiante de Ingeniería de Software | Desarrollador Full Stack",
+          "description": "Estudiante de Ingeniería de Software en la UPC (Perú), enfocado en desarrollo web y móvil, con capacidad de adaptación a nuevas tecnologías y herramientas.",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Peruana de Ciencias Aplicadas (UPC)"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "PE"
+          },
+          "knowsAbout": [
+            "React", "Vue.js", "JavaScript", "TypeScript", "Node.js", "Flutter",
+            "HTML5", "CSS3", "Desarrollo Web", "Desarrollo Móvil",
+            "Cloud Computing", "DevOps", "Arquitectura de Software",
+            "Integración de APIs", "Inteligencia Artificial", "Automatización de procesos"
+          ],
+          "sameAs": [
+            "https://github.com/JhosepAC",
+            "https://linkedin.com/in/jhosep-ac/",
+            "https://x.com/jhosep__ac"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://jhosep-ac.pages.dev/#website",
+          "url": "https://jhosep-ac.pages.dev/",
+          "name": "Jhosep Argomedo — Portafolio",
+          "inLanguage": "es-PE",
+          "creator": { "@id": "https://jhosep-ac.pages.dev/#person" },
+          "publisher": { "@id": "https://jhosep-ac.pages.dev/#person" }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
 <div id="root"></div>

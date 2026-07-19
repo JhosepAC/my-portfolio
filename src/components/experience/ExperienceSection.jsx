@@ -1,27 +1,21 @@
 import {memo, useMemo, useState, useEffect, useRef, useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
-import TimelineItem from './TimelineItem';
-import {EDUCATION_DATA} from "../../utils/constants.js";
-import {EDUCATION_ICONS} from "../../utils/Icons.jsx";
+import ExperienceCard from './ExperienceCard';
+import {EXPERIENCE_DATA} from "../../utils/constants.js";
 import SectionOrbs from '../common/orbs/SectionOrbs';
 import SectionHeader from '../common/section-header/SectionHeader';
-import './EducationSection.css';
+import './ExperienceSection.css';
 
-const EducationSection = () => {
+const ExperienceSection = () => {
     const {t} = useTranslation();
     const [expandedId, setExpandedId] = useState(null);
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
 
-    const educationItems = useMemo(() => EDUCATION_DATA.map(item => {
-        const translatedSkills = t(`education.items.${item.id}.skills`, {returnObjects: true});
-
-        return {
-            ...item,
-            description: t(`education.items.${item.id}.description`),
-            skills: Array.isArray(translatedSkills) ? translatedSkills : []
-        };
-    }), [t]);
+    const experienceItems = useMemo(() => EXPERIENCE_DATA.map(item => ({
+        ...item,
+        description: t(`experience.items.${item.id}.description`),
+    })), [t]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -31,7 +25,7 @@ const EducationSection = () => {
                     observer.disconnect();
                 }
             },
-            { threshold: 0.1 }
+            {threshold: 0.1}
         );
 
         if (sectionRef.current) observer.observe(sectionRef.current);
@@ -44,26 +38,22 @@ const EducationSection = () => {
 
     return (
         <section
-            id="education"
+            id="experience"
             ref={sectionRef}
-            className={`education-section ${isVisible ? 'education-section--visible' : ''}`}
+            className={`experience-section ${isVisible ? 'experience-section--visible' : ''}`}
         >
-            <SectionOrbs sectionId="education" />
-            <div className="education-container">
+            <SectionOrbs sectionId="experience"/>
+            <div className="experience-container">
                 <SectionHeader
                     align="center"
-                    title={t('education.title')}
-                    titleHighlight={t('education.titleHighlight')}
-                    subtitle={t('education.subtitle')}
-                    badge={{icon: EDUCATION_ICONS.BADGE, text: t('education.badge')}}
-                    highlightFirst
-                    stacked
+                    title={t('experience.title')}
+                    titleHighlight={t('experience.titleHighlight')}
+                    subtitle={t('experience.subtitle')}
                 />
 
-                <div className="education-timeline">
-                    <div className="timeline-line"></div>
-                    {educationItems.map((item, index) => (
-                        <TimelineItem
+                <div className="experience-list">
+                    {experienceItems.map((item, index) => (
+                        <ExperienceCard
                             key={item.id}
                             item={item}
                             index={index}
@@ -78,4 +68,4 @@ const EducationSection = () => {
     );
 };
 
-export default memo(EducationSection);
+export default memo(ExperienceSection);

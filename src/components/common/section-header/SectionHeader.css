@@ -1,0 +1,111 @@
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header--center {
+    text-align: center;
+}
+
+.section-header--center .section-subtitle {
+    margin: 0 auto;
+}
+
+.section-header--left {
+    text-align: left;
+}
+
+/* ── Badge ── */
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.4rem;
+    background: rgba(22, 27, 34, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    color: var(--accent-light);
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.section-badge svg {
+    width: 20px;
+    height: 20px;
+}
+
+.section-badge-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ── Title ── */
+.section-title {
+    font-size: var(--title-size);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+.section-title-main {
+    color: var(--text-primary);
+}
+
+.section-title-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-header--stacked .section-title-main,
+.section-header--stacked .section-title-gradient {
+    display: block;
+}
+
+.section-header--highlight-first .section-title-gradient + .section-title-main {
+    margin-top: 0.25rem;
+}
+
+/* ── Subtitle ── */
+.section-subtitle {
+    font-size: var(--subtitle-size);
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .section-title {
+        font-size: var(--title-size-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        font-size: var(--title-size-sm);
+    }
+
+    .section-subtitle {
+        font-size: var(--subtitle-size-sm);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .section-badge,
+    .section-title,
+    .section-subtitle {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
+}

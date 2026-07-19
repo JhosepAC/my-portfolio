@@ -54,86 +54,6 @@
     z-index: 2;
 }
 
-.education-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.education-section--visible .education-header {
-    animation: fadeInUp 0.8s ease-out backwards;
-    animation-play-state: running;
-}
-
-.education-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.6rem 1.4rem;
-    background: rgba(22, 27, 34, 0.8);
-    border: 1px solid #30363d;
-    border-radius: 25px;
-    color: #7eb8d8;
-    margin-bottom: 1.5rem;
-    backdrop-filter: blur(10px);
-}
-
-.education-section--visible .education-badge {
-    animation: fadeInScale 0.8s ease-out 0.2s backwards;
-    animation-play-state: running;
-}
-
-.education-badge svg {
-    width: 20px;
-    height: 20px;
-}
-
-.education-badge-text {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.education-title {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-}
-
-.education-section--visible .education-title {
-    animation: fadeInUp 0.8s ease-out 0.3s backwards;
-    animation-play-state: running;
-}
-
-.education-title-main {
-    display: block;
-    color: #c9d1d9;
-}
-
-.education-title-gradient {
-    display: block;
-    background: linear-gradient(135deg, #7eb8d8 0%, #5a9fc0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-
-
-.education-subtitle {
-    font-size: 1.2rem;
-    color: #8b949e;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-.education-section--visible .education-subtitle {
-    animation: fadeInUp 0.8s ease-out 0.4s backwards;
-    animation-play-state: running;
-}
-
 .education-timeline {
     position: relative;
     padding: 1rem 0;
@@ -164,39 +84,6 @@
     }
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .education-header,
-    .education-badge,
-    .education-title,
-    .education-subtitle {
-        animation: none !important;
-        opacity: 1;
-        transform: none;
-    }
-}
-
 @media (max-width: 1024px) {
     .education-section {
         padding: 3rem 0 2rem;
@@ -204,10 +91,6 @@
 
     .education-container {
         padding: 0 2rem;
-    }
-
-    .education-title {
-        font-size: 3rem;
     }
 
     .timeline-line {
@@ -222,18 +105,6 @@
 
     .education-container {
         padding: 0 1.5rem;
-    }
-
-    .education-header {
-        margin-bottom: 2rem;
-    }
-
-    .education-title {
-        font-size: 2.2rem;
-    }
-
-    .education-subtitle {
-        font-size: 1rem;
     }
 
     .timeline-line {

@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Menu, X } from 'lucide-react';
 import { useScroll } from '../../../hooks/useScroll';
-import logo from '../../../assets/logo/elephant-logo.svg';
+import logo from '../../../assets/logo/jhosepac-logo.svg';
 import { NAV_LINKS } from "../../../utils/constants.js";
 import './Navbar.css';
 import { useActiveSection } from '../../../hooks/useActiveSection';
@@ -32,6 +32,49 @@ const Navbar = ({ theme, toggleTheme }) => {
         }
     }, [isMenuOpen]);
 
+    const navbarMenuRef = useRef(null);
+    const linkRefs = useRef({});
+    const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+
+    const updateIndicator = useCallback((targetId) => {
+        const linkEl = linkRefs.current[targetId];
+        const menuEl = navbarMenuRef.current;
+        if (linkEl && menuEl) {
+            const menuRect = menuEl.getBoundingClientRect();
+            const linkRect = linkEl.getBoundingClientRect();
+            setIndicatorStyle({
+                left: linkRect.left - menuRect.left,
+                width: linkRect.width,
+            });
+        }
+    }, []);
+
+    useEffect(() => {
+        if (activeSection) {
+            updateIndicator(activeSection);
+        }
+    }, [activeSection, updateIndicator]);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (activeSection) {
+                updateIndicator(activeSection);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [activeSection, updateIndicator]);
+
+    const handleMouseEnter = (id) => {
+        updateIndicator(id);
+    };
+
+    const handleMouseLeave = () => {
+        if (activeSection) {
+            updateIndicator(activeSection);
+        }
+    };
+
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
             <div className="navbar-container">
@@ -41,13 +84,20 @@ const Navbar = ({ theme, toggleTheme }) => {
 
                 {isMenuOpen && <div className="menu-overlay" onClick={closeMenu} />}
 
-                <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
+                <ul
+                    className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}
+                    ref={navbarMenuRef}
+                    onMouseLeave={handleMouseLeave}
+                >
+                    <div className="navbar-indicator" style={indicatorStyle} />
                     {NAV_LINKS.map(({ id, key }) => (
                         <li key={id} className="navbar-item">
                             <a
+                                ref={(el) => linkRefs.current[id] = el}
                                 href={`#${id}`}
                                 className={`navbar-link ${activeSection === id ? 'active' : ''}`}
                                 onClick={closeMenu}
+                                onMouseEnter={() => handleMouseEnter(id)}
                             >
                                 {t(key)}
                             </a>

@@ -5,6 +5,7 @@ import ContactCard from './ContactCard';
 import SocialContact from './SocialContact';
 import {CONTACT_DATA} from "../../utils/constants.js";
 import SectionOrbs from '../common/orbs/SectionOrbs';
+import SectionHeader from '../common/section-header/SectionHeader';
 import './ContactSection.css';
 
 const ContactSection = () => {
@@ -52,17 +53,13 @@ const ContactSection = () => {
     return (<section id="contact" className="contact-section">
         <SectionOrbs sectionId="contact" />
         <div className="contact-container">
-            <div className="contact-header">
-                <div className="contact-badge">
-                    <span className="contact-badge-dot"></span>
-                    <span className="contact-badge-text">{t('contact.badge')}</span>
-                </div>
-                <h2 className="contact-title">
-                    <span className="contact-title-main">{t('contact.title')}</span>
-                    <span className="contact-title-gradient">{t('contact.titleHighlight')}</span>
-                </h2>
-                <p className="contact-subtitle">{t('contact.subtitle')}</p>
-            </div>
+            <SectionHeader
+                align="center"
+                title={t('contact.title')}
+                titleHighlight={t('contact.titleHighlight')}
+                subtitle={t('contact.subtitle')}
+                stacked
+            />
 
             <div className="contact-content">
                 <div className="contact-left">

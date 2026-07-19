@@ -14,69 +14,6 @@
     z-index: 1;
 }
 
-.projects-header {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    position: relative;
-}
-
-.header-decorator {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 0.6;
-}
-
-.decorator-line {
-    width: 80px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #5a9fc0, transparent);
-    animation: pulse-line 2s infinite;
-}
-
-.decorator-dot {
-    width: 8px;
-    height: 8px;
-    background: #5a9fc0;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #5a9fc0;
-    animation: pulse-dot 2s infinite;
-}
-
-@keyframes pulse-line {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-}
-
-@keyframes pulse-dot {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 10px #5a9fc0; }
-    50% { transform: scale(1.2); box-shadow: 0 0 20px #5a9fc0; }
-}
-
-.header-content {
-    flex: 1;
-}
-
-.section-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    background: linear-gradient(135deg, #c5d8e8 0%, #7eb8d8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
-}
-
-.section-subtitle {
-    font-size: 1.125rem;
-    color: #94a3b8;
-    font-weight: 300;
-    max-width: 600px;
-}
-
 /* ── Filter Bar ── */
 .filter-bar {
     display: flex;
@@ -91,7 +28,7 @@
     border-radius: 999px;
     border: 1px solid rgba(71, 85, 105, 0.4);
     background: transparent;
-    color: #94a3b8;
+    color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.875rem;
@@ -100,12 +37,12 @@
 
 .filter-btn:hover {
     border-color: rgba(94, 159, 192, 0.5);
-    color: #e2e8f0;
+    color: var(--text-primary);
 }
 
 .filter-btn.active {
     background: rgba(94, 159, 192, 0.15);
-    border-color: #5a9fc0;
+    border-color: var(--accent);
     color: #fff;
     box-shadow: 0 0 15px rgba(94, 159, 192, 0.2);
 }
@@ -156,7 +93,7 @@
     border: none;
     border-radius: 8px;
     background: transparent;
-    color: #94a3b8;
+    color: var(--text-secondary);
     cursor: pointer;
     font-size: 0.85rem;
     font-family: inherit;
@@ -167,7 +104,7 @@
 
 .dropdown-item:hover {
     background: rgba(94, 159, 192, 0.1);
-    color: #e2e8f0;
+    color: var(--text-primary);
 }
 
 .dropdown-item.active {
@@ -184,7 +121,7 @@
 
 .no-results {
     text-align: center;
-    color: #64748b;
+    color: var(--text-secondary);
     padding: 4rem 0;
     font-size: 1rem;
     grid-column: 1 / -1;
@@ -213,25 +150,6 @@
         padding: 4rem 1rem;
     }
 
-    .projects-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .decorator-line {
-        width: 50px;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .section-subtitle {
-        font-size: 1rem;
-    }
-
     .filter-bar {
         gap: 0.5rem;
         margin-bottom: 2rem;
@@ -251,10 +169,6 @@
 @media (max-width: 480px) {
     .projects-section {
         padding: 3rem 1rem;
-    }
-
-    .section-title {
-        font-size: 1.75rem;
     }
 
     .filter-btn {

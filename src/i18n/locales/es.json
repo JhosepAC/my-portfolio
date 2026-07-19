@@ -7,6 +7,7 @@
     "skills": "Habilidades",
     "projects": "Proyectos",
     "education": "Educación",
+    "experience": "Experiencia",
     "contact-me": "Contáctame"
   },
   "hero": {
@@ -17,6 +18,7 @@
   },
   "skills": {
     "title": "Habilidades",
+    "subtitle": "Tecnologías y herramientas que domino para construir soluciones completas",
     "filters": {
       "all": "Todos",
       "languages": "Lenguajes",
@@ -83,8 +85,8 @@
   },
   "education": {
     "badge": "Formación Académica",
-    "title": "Educación &",
-    "titleHighlight": "Certificaciones",
+    "title": "Certificaciones",
+    "titleHighlight": "Educación &",
     "subtitle": "Mi trayectoria académica y de formación continua en ingeniería de software, seguridad y tecnologías modernas.",
     "status": {
       "ongoing": "En Curso",
@@ -148,6 +150,48 @@
           "Ciberseguridad",
           "Pentesting",
           "Análisis de Vulnerabilidades"
+        ]
+      }
+    }
+  },
+  "experience": {
+    "badge": "Trayectoria Profesional",
+    "title": "Experiencia",
+    "titleHighlight": "Laboral",
+    "subtitle": "Mi recorrido profesional en el desarrollo de software, donde he convertido desafíos en soluciones digitales.",
+    "current": "Actual",
+    "type": {
+      "fulltime": "Tiempo Completo",
+      "freelance": "Freelance",
+      "internship": "Prácticas",
+      "parttime": "Medio Tiempo"
+    },
+    "technologies": "Tecnologías",
+    "items": {
+      "tec-novedades": {
+        "description": "Desarrollo e implementación de soluciones web para proyectos digitales, abarcando desde landing pages hasta plataformas educativas y sistemas de gestión empresarial.",
+        "achievements": [
+          "Desarrollé e implementé landing pages para diferentes proyectos digitales, optimizando la experiencia de usuario y el rendimiento",
+          "Diseñé y desarrollé una plataforma educativa enfocada en la presentación de cursos y contenido académico",
+          "Desarrollé una landing page para una empresa de comercio exterior orientada a la captación de clientes",
+          "Participé en el desarrollo de una aplicación web para la gestión de capacitaciones de Recursos Humanos",
+          "Diseñé, administré y mantuve bases de datos relacionales, realizando consultas y optimización de información",
+          "Desarrollé funcionalidades tanto en frontend como backend, integrando interfaces con servicios y bases de datos",
+          "Realicé mantenimiento, actualización y corrección de incidencias en aplicaciones web existentes",
+          "Trabajé colaborativamente con el equipo de desarrollo para implementar nuevas funcionalidades",
+          "Participé en pruebas, depuración de errores y optimización del rendimiento de los sistemas desarrollados"
+        ]
+      },
+      "wya-soluciones": {
+        "description": "Desarrollo y mantenimiento de aplicaciones web para la gestión de procesos empresariales, trabajando con tecnologías modernas en un entorno colaborativo.",
+        "achievements": [
+          "Desarrollé y mantuve aplicaciones web para la gestión de procesos empresariales",
+          "Implementé funcionalidades para un sistema de gestión con módulos de ventas, compras, productos, almacenes y administración de usuarios",
+          "Desarrollé nuevas funcionalidades, realicé mantenimiento correctivo y optimización del rendimiento de las aplicaciones",
+          "Diseñé, implementé y mantuve bases de datos, asegurando la integridad de la información",
+          "Desarrollé el módulo de Recursos Humanos para un sistema de gestión del sector bancario",
+          "Realicé integración entre frontend, backend y base de datos para garantizar el correcto funcionamiento",
+          "Corregí incidencias, realicé pruebas de funcionalidades y colaboré con el equipo para la mejora continua"
         ]
       }
     }
@@ -216,15 +260,16 @@
     },
     "status": "Proyectos activos:\n  - Fym       : Plataforma de streaming y archivos de series (TMDb API).\n  - Portfolio : Landing page de alto rendimiento y diseño minimalista.",
     "about": "Estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC).",
-    "ls": "Secciones del portafolio:\n  Skills        Competencias técnicas y profesionales\n  Projects      Proyectos destacados\n  Education     Formación académica y certificaciones\n  Contact       Ponte en contacto conmigo",
+    "ls": "Secciones del portafolio:\n  Skills        Competencias técnicas y profesionales\n  Projects      Proyectos destacados\n  Education     Formación académica y certificaciones\n  Experience     Experiencia laboral\n  Contact       Ponte en contacto conmigo",
     "skills": "Categorías de habilidades:\n  Languages     JavaScript, Python, Java, C++, SQL, Dart\n  Frameworks    React, Node.js, Flutter, Express, Spring Boot\n  Databases     MongoDB, MySQL, PostgreSQL, Firebase\n  Tools         Git, Docker, Linux, Figma, Postman\n  Soft Skills   Comunicación, Trabajo en Equipo, Resolución de Problemas, Adaptabilidad",
     "projects": "Proyectos destacados:\n  Fym           Plataforma de streaming y archivos para series\n  EcoCrop       Landing page de agricultura sostenible\n  ThinkUp       Red social educativa\n  Livria        Tienda digital de libros\n\nEscribe 'help' para ver comandos disponibles.",
     "education": "Formación académica:\n  Ingeniería de Software - UPC (2023-presente)\n  Hacking Ético & Ciberseguridad (2022)\n  Fundamentos de Scrum (2024)\n  MongoDB (2024)\n  SSDLC - Universidad del Bio-Bio (2025)\n\nEscribe 'help' para ver comandos disponibles.",
+    "experience": "Experiencia laboral:\n  Desarrollador Web - TECNovedades (01/2026-05/2026)\n  Desarrollador Full Stack - WYA Soluciones (05/2026-presente)\n\nEscribe 'help' para ver comandos disponibles.",
     "contact": "Ponte en contacto:\n  Email    jhosep.argomedo@example.com\n  Ubicación Lima, Perú (GMT-5)\n  GitHub   https://github.com/JhosepAC\n  LinkedIn /in/jhosep-argomedo",
     "social": "Redes sociales:\n  GitHub    https://github.com/JhosepAC\n  LinkedIn  https://linkedin.com/in/jhosep-argomedo\n  Twitter   https://twitter.com/jhosep_ac",
     "uname": "PortfolioOS 2.5.0-release #1 SMP PREEMPT\n visitor@portfolio ~/ \n Arquitectura: React 19 + Vite 7\n Kernel: Estándares Web Modernos, GNU/Linux-ish",
     "banner": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551          JHOSEP ARGOMEDO - PORTFOLIO v2.5          \u2551\n\u2551        Software Engineering Student @ UPC         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d",
-    "help": "Comandos disponibles:\n  whoami    Muestra mi identidad\n  status    Lista los proyectos actuales\n  about     Información académica\n  age       Fecha de cumpleaños\n  pwd       Muestra el directorio actual\n  ls        Lista las secciones del portafolio\n  skills    Muestra habilidades técnicas\n  projects  Lista proyectos destacados\n  education Muestra formación académica\n  contact   Muestra información de contacto\n  social    Muestra redes sociales\n  repo      URL del repositorio del portafolio\n  version   Muestra la versión del shell\n  uptime    Muestra el tiempo de sesión transcurrido\n  uname     Muestra información del sistema\n  banner    Muestra el banner ASCII\n  sudo      Intenta privilegios de superusuario\n  date      Muestra la fecha y hora actual\n  echo      Imprime un mensaje personalizado (Ej: echo hola)\n  cls/clear Limpia el historial de comandos\n  exit      Cierra el intérprete",
+    "help": "Comandos disponibles:\n  whoami    Muestra mi identidad\n  status    Lista los proyectos actuales\n  about     Información académica\n  age       Fecha de cumpleaños\n  pwd       Muestra el directorio actual\n  ls        Lista las secciones del portafolio\n      skills    Muestra habilidades técnicas\n  projects  Lista proyectos destacados\n  education Muestra formación académica\n  experience Muestra experiencia laboral\n  contact   Muestra información de contacto\n  social    Muestra redes sociales\n  repo      URL del repositorio del portafolio\n  version   Muestra la versión del shell\n  uptime    Muestra el tiempo de sesión transcurrido\n  uname     Muestra información del sistema\n  banner    Muestra el banner ASCII\n  sudo      Intenta privilegios de superusuario\n  date      Muestra la fecha y hora actual\n  echo      Imprime un mensaje personalizado (Ej: echo hola)\n  cls/clear Limpia el historial de comandos\n  exit      Cierra el intérprete",
     "unknown": "'{cmd}' no se reconoce como un comando interno o externo,\nprograma o archivo por lotes ejecutable.\nEscribe 'help' para ver los comandos válidos.",
     "exit": "Sesión interactiva finalizada. El intérprete se ha cerrado de forma segura.\nPuedes recargar la página para iniciar una nueva sesión."
   },
