@@ -174,7 +174,7 @@ const Terminal = () => {
             scrollToBottom();
 
             const terminalInput = document.getElementById('terminal-input');
-            terminalInput?.focus();
+            terminalInput?.focus({preventScroll: true});
 
             const handleKeyDown = (e) => {
                 if (e.key === 'Enter') {

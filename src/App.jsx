@@ -13,10 +13,15 @@ function App() {
     const isLoading = useLoading();
 
     useEffect(() => {
-        if (window.location.hash) {
-            window.history.replaceState(null, '', window.location.pathname);
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
         }
-        window.scrollTo(0, 0);
+        const hasHash = !!window.location.hash;
+        if (hasHash) {
+            window.history.replaceState(null, '', window.location.pathname);
+        } else {
+            window.scrollTo(0, 0);
+        }
     }, []);
 
     return (

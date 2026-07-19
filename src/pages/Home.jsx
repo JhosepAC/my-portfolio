@@ -21,18 +21,10 @@ import ProjectsSection from "../components/projects/ProjectsSection.jsx";
 const Home = () => {
     const {t, i18n} = useTranslation();
 
-    // Reset scroll on mount
     useEffect(() => {
-        window.scrollTo(0, 0);
-
-        const timer = setTimeout(() => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'instant'
-            });
-        }, 50);
-
-        return () => clearTimeout(timer);
+        if (!window.location.hash) {
+            window.scrollTo(0, 0);
+        }
     }, []);
 
     useEffect(() => {
