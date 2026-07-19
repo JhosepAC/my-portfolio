@@ -6,7 +6,7 @@ import { downloadFile } from '../../utils/helpers';
 import FooterLink from './FooterLink';
 import SocialLinks from './SocialLinks';
 import ContactInfo from './ContactInfo';
-import logo from '../../assets/logo/elephant-logo.svg';
+import logo from '../../assets/logo/jhosepac-logo.svg';
 import './Footer.css';
 
 const Footer = () => {

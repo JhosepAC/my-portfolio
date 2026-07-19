@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Menu, X } from 'lucide-react';
 import { useScroll } from '../../../hooks/useScroll';
-import logo from '../../../assets/logo/elephant-logo.svg';
+import logo from '../../../assets/logo/jhosepac-logo.svg';
 import { NAV_LINKS } from "../../../utils/constants.js";
 import './Navbar.css';
 import { useActiveSection } from '../../../hooks/useActiveSection';
