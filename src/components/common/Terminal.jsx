@@ -68,6 +68,7 @@ const Terminal = () => {
             skills: t('terminal.skills'),
             projects: t('terminal.projects'),
             education: t('terminal.education'),
+            experience: t('terminal.experience'),
             contact: t('terminal.contact'),
             social: t('terminal.social'),
             uname: t('terminal.uname'),
