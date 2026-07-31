@@ -80,6 +80,10 @@
       "fym": {
         "description": "Web application for exploring a catalog of movies and TV series. Details, trailers, cast information, scenes, distributors, and much more.",
         "status": "COMPLETED"
+      },
+      "meetmesh": {
+        "description": "Web application for creating and joining virtual meetings. With features for screen sharing, profile customization, and more.",
+        "status": "IN DEVELOPMENT"
       }
     }
   },
