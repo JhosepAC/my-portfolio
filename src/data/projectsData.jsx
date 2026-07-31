@@ -4,6 +4,7 @@ import {Icon} from '@iconify/react';
 import fymImg from '../assets/projects/fym.webp';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
 import skillshareLandingImg from '../assets/projects/thinkup-skillshare-landing_page.webp';
+import meetmeshImg from '../assets/projects/meet_mesh.webp';
 import React from "react";
 
 export const PROJECTS_DATA = [
@@ -75,4 +76,27 @@ export const PROJECTS_DATA = [
     github: 'https://github.com/JhosepAC/fym',
     live: 'https://fym-jac.vercel.app/',
     labelTranslate: 'fym'
-}];
+},
+    {
+        id:  5,
+        category: 'web',
+        statusKey: 'in_development',
+        title: 'MeetMesh',
+        image: meetmeshImg,
+        technologies: [
+            { name: 'Next.js', icon: <Icon icon="simple-icons:nextdotjs"/>, color: '#000000' },
+            { name: 'React', icon: <Icon icon="simple-icons:react"/>, color: '#61DAFB' },
+            { name: 'TypeScript', icon: <Icon icon="simple-icons:typescript"/>, color: '#3178C6' },
+            { name: 'Tailwind CSS', icon: <Icon icon="simple-icons:tailwindcss"/>, color: '#06B6D4' },
+            { name: 'shadcn/ui', icon: <Icon icon="simple-icons:shadcnui"/>, color: '#000000' },
+            { name: 'Supabase', icon: <Icon icon="simple-icons:supabase"/>, color: '#3ECF8E' },
+            { name: 'Socket.IO', icon: <Icon icon="simple-icons:socketdotio"/>, color: '#010101' },
+            { name: 'WebRTC', icon: <Icon icon="simple-icons:webrtc"/>, color: '#333333' },
+            { name: 'WebGL', icon: <Icon icon="simple-icons:webgl"/>, color: '#990000' },
+            { name: 'Git', icon: <Icon icon="simple-icons:git"/>, color: '#F05032' },
+        ],
+        github: 'https://github.com/JhosepAC/videocall-app',
+        live: 'https://meet-mesh.vercel.app',
+        labelTranslate: 'meetmesh'
+    }
+];
