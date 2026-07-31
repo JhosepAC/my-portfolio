@@ -80,6 +80,10 @@
       "fym": {
         "description": "Aplicación web para explorar un catálogo de películas y series de televisión. Detalles, tráileres, información del reparto, escenas, distribuidores y mucho más.",
         "status": "COMPLETADO"
+      },
+      "meetmesh": {
+        "description": "Aplicación web para crear y unirse a reuniones virtuales. Con características para compartir pantalla, personalización de perfiles y más.",
+        "status": "EN DESARROLLO"
       }
     }
   },
