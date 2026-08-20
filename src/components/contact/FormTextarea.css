@@ -15,44 +15,46 @@
     top: 1rem;
     display: flex;
     align-items: center;
-    color: #8b949e;
-    transition: color 0.3s ease;
+    color: var(--ink-faint);
+    transition: color 0.15s ease;
     z-index: 1;
 }
 
 .form-textarea-container.focused .form-textarea-icon,
 .form-textarea-container.filled .form-textarea-icon {
-    color: #5a9fc0;
+    color: var(--ink);
 }
 
 .form-textarea {
     width: 100%;
     padding: 1rem 1rem 1rem 3rem;
-    background: rgba(13, 17, 23, 0.6);
-    border: 1px solid #30363d;
-    border-radius: 12px;
-    color: #c9d1d9;
+    background: #f2f2f2;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    color: var(--ink);
     font-size: 0.95rem;
     font-family: inherit;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     outline: none;
     resize: none;
     min-height: 120px;
 }
 
 .form-textarea::placeholder {
-    color: #6e7681;
+    color: var(--ink-faint);
 }
 
 .form-textarea:focus {
-    background: rgba(13, 17, 23, 0.8);
-    border-color: #5a9fc0;
+    background: #fff;
+    border-color: var(--ink);
+    box-shadow: 3px 3px 0 0 var(--ink);
 }
 
 .form-textarea-wrapper.has-error .form-textarea {
-    border-color: #f85149;
+    border-color: var(--ink);
+    border-style: dashed;
 }
 
 .form-textarea-wrapper.has-error .form-textarea-icon {
-    color: #f85149;
+    color: var(--ink);
 }

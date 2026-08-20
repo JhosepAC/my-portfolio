@@ -5,7 +5,6 @@
     transform: translateX(-50%);
     width: 80%;
     z-index: 1000;
-    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
 
@@ -13,9 +12,9 @@
     width: 55%;
     top: 20px;
     border-radius: 8px;
-    background-color: rgba(13, 17, 23, 0.77);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background-color: #f2f2f2;
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 0 var(--ink);
 }
 
 .navbar-container {
@@ -30,14 +29,12 @@
 .navbar-logo {
     display: flex;
     align-items: center;
-    animation: fadeInLeft 0.8s ease-out;
 }
 
 .logo-image {
     width: 45px;
     height: 45px;
     transition: transform 0.3s ease;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
 }
 
 .logo-image:hover {
@@ -53,54 +50,49 @@
     position: relative;
 }
 
-.navbar-indicator {
-    position: absolute;
-    bottom: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #5a9fc0, #7eb8d8);
-    transition: left 0.3s ease, width 0.3s ease;
-    pointer-events: none;
-    z-index: 1;
-}
-
 .navbar-item {
     margin-bottom: 10px;
-    animation: fadeInDown 0.6s ease-out backwards;
 }
 
-.navbar-item:nth-child(1) { animation-delay: 0.1s; }
-.navbar-item:nth-child(2) { animation-delay: 0.2s; }
-.navbar-item:nth-child(3) { animation-delay: 0.3s; }
-.navbar-item:nth-child(4) { animation-delay: 0.4s; }
-.navbar-item:nth-child(5) { animation-delay: 0.5s; }
-
 .navbar-link {
-    color: #c9d1d9;
+    color: var(--ink);
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
     padding: 0.5rem 0;
     transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar-indicator {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: var(--ink);
+    border-radius: 2px;
+    pointer-events: none;
 }
 
 .navbar-link.active {
-    color: #5a9fc0;
+    color: var(--ink);
+    font-weight: 700;
 }
 
 .navbar-link:hover {
-    color: #5a9fc0;
+    color: var(--ink-soft);
 }
 
 .navbar-actions {
     display: flex;
     gap: 1rem;
-    animation: fadeInRight 0.8s ease-out;
 }
 
 .icon-button {
-    background: transparent;
-    border: 1px solid #30363d;
-    color: #c9d1d9;
+    background: #f2f2f2;
+    border: 2px solid var(--ink);
+    color: var(--ink);
     width: 40px;
     height: 40px;
     border-radius: 8px;
@@ -108,20 +100,26 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
+    box-shadow: 3px 3px 0 0 var(--ink);
 }
 
 .icon-button:hover {
-    background: rgba(94, 159, 192, 0.1);
-    border-color: #5a9fc0;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(94, 159, 192, 0.15);
+    background: var(--ink);
+    color: #f2f2f2;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 0 var(--ink);
+}
+
+.icon-button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 0 var(--ink);
 }
 
 .lang-button {
-    background: rgba(22, 27, 34, 0.6);
-    border: 1px solid #30363d;
-    color: #c9d1d9;
+    background: #f2f2f2;
+    border: 2px solid var(--ink);
+    color: var(--ink);
     padding: 0 1rem;
     height: 40px;
     border-radius: 8px;
@@ -129,13 +127,13 @@
     align-items: center;
     gap: 0.6rem;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.15s ease;
     font-weight: 600;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
-    backdrop-filter: blur(4px);
     position: relative;
     overflow: hidden;
+    box-shadow: 3px 3px 0 0 var(--ink);
 }
 
 .lang-button span {
@@ -144,80 +142,32 @@
 }
 
 .lang-button svg {
-    color: #8b949e;
-    transition: all 0.3s ease;
+    color: var(--ink);
+    transition: all 0.15s ease;
 }
 
 .lang-button:hover {
-    background: rgba(94, 159, 192, 0.1);
-    border-color: #5a9fc0;
-    color: #5a9fc0;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(94, 159, 192, 0.12);
+    background: var(--ink);
+    color: #f2f2f2;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 0 var(--ink);
 }
 
 .lang-button:hover svg {
-    color: #5a9fc0;
+    color: #f2f2f2;
     transform: rotate(15deg);
 }
 
 .lang-button:active {
-    transform: scale(0.95);
-}
-
-.navbar-actions .lang-button {
-    animation: fadeInRight 0.8s ease-out;
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        transform: translateX(-30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        transform: translateX(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 0 var(--ink);
 }
 
 .menu-toggle {
     display: none;
     background: transparent;
     border: none;
-    color: #c9d1d9;
+    color: var(--ink);
     cursor: pointer;
     z-index: 1001;
     transition: color 0.3s ease;
@@ -232,7 +182,7 @@
     width: 100%;
     justify-content: center;
     padding-top: 1rem;
-    border-top: 1px solid #30363d;
+    border-top: 2px solid var(--ink);
 }
 
 @media (max-width: 1600px) {
@@ -284,13 +234,14 @@
         right: -100%;
         width: 70%;
         height: 100vh;
-        background: #0d1117;
+        background: #f2f2f2;
+        border-left: 2px solid var(--ink);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+        box-shadow: 6px 0 0 0 var(--ink);
         z-index: 1000;
         padding: 2rem;
     }
@@ -306,8 +257,7 @@
     .menu-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
+        background: rgba(20, 20, 20, 0.4);
         z-index: 999;
     }
 

@@ -4,72 +4,34 @@
     justify-content: center;
     width: 50px;
     height: 50px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    background: #f2f2f2;
+    border: 2px solid var(--ink);
     border-radius: 8px;
-    color: var(--text-primary);
+    color: var(--ink);
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.15s ease;
     text-decoration: none;
-    backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
-}
-
-.social-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: #5a9fc0;
-    opacity: 0.15;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease, height 0.4s ease;
-}
-
-.social-button:hover::before {
-    width: 120px;
-    height: 120px;
+    box-shadow: 3px 3px 0 0 var(--ink);
 }
 
 .social-button:hover {
-    transform: translateY(-3px) scale(1.05);
-    color: #5a9fc0;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 0 var(--ink);
 }
 
-/* Branding specifics */
-.social-button.github:hover {
-    border-color: #fff;
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
-    color: #fff;
-}
-
-.social-button.github:hover::before {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.social-button.linkedin:hover {
-    border-color: #006fac;
-    box-shadow: 0 10px 30px rgba(10, 102, 194, 0.3);
-}
-
-.social-button.linkedin:hover::before {
-    background: rgba(10, 102, 194, 0.2);
+.social-button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 0 var(--ink);
 }
 
 .social-button svg {
     position: relative;
     z-index: 1;
-    transition: transform 0.3s ease;
+    transition: transform 0.15s ease;
 }
 
 .social-button:hover svg {
     transform: scale(1.1) rotate(5deg);
-}
-
-.social-button:active {
-    transform: translateY(-1px) scale(1.02);
 }

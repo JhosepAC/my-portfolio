@@ -9,19 +9,16 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: rgba(22, 27, 34, 0.4);
-    border: 1px solid #30363d;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    animation: fadeInRight 0.6s ease-out backwards;
-    backdrop-filter: blur(10px);
+    background: rgba(242, 242, 242, 0.06);
+    border: 2px solid rgba(242, 242, 242, 0.35);
+    border-radius: 8px;
+    transition: all 0.15s ease;
 }
 
 .contact-item:hover {
-    background: rgba(22, 27, 34, 0.6);
-    border-color: #5a9fc0;
+    background: rgba(242, 242, 242, 0.12);
+    border-color: #f2f2f2;
     transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(90, 159, 192, 0.15);
 }
 
 .contact-item-icon {
@@ -30,19 +27,16 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(90, 159, 192, 0.1);
-    border: 1px solid rgba(90, 159, 192, 0.2);
-    border-radius: 10px;
-    color: #5a9fc0;
+    background: #f2f2f2;
+    border: 2px solid #f2f2f2;
+    border-radius: 8px;
+    color: #141414;
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
 }
 
 .contact-item:hover .contact-item-icon {
-    background: rgba(90, 159, 192, 0.2);
-    border-color: #5a9fc0;
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 15px rgba(90, 159, 192, 0.3);
 }
 
 .contact-item-content {
@@ -55,24 +49,25 @@
 
 .contact-item-label {
     font-size: 0.75rem;
-    color: #8b949e;
-    font-weight: 600;
+    color: #9a9a9a;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .contact-item-value {
     font-size: 0.95rem;
-    color: #c9d1d9;
+    color: #f2f2f2;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.15s ease;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 a.contact-item-value:hover {
-    color: #5a9fc0;
+    color: #f2f2f2;
+    text-decoration: underline;
 }
 
 .contact-item-copy {
@@ -82,18 +77,18 @@ a.contact-item-value:hover {
     width: 32px;
     height: 32px;
     background: transparent;
-    border: 1px solid #30363d;
-    border-radius: 8px;
-    color: #8b949e;
+    border: 2px solid rgba(242, 242, 242, 0.35);
+    border-radius: 6px;
+    color: #9a9a9a;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     flex-shrink: 0;
 }
 
 .contact-item-copy:hover {
-    background: rgba(90, 159, 192, 0.1);
-    border-color: #5a9fc0;
-    color: #5a9fc0;
+    background: #f2f2f2;
+    border-color: #f2f2f2;
+    color: #141414;
     transform: scale(1.1);
 }
 
@@ -102,22 +97,11 @@ a.contact-item-value:hover {
 }
 
 .contact-item-copy svg {
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
 }
 
 .contact-item-copy:hover svg {
     transform: rotate(5deg);
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 @media (max-width: 768px) {

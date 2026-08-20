@@ -7,10 +7,10 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgba(15, 23, 42, 0.9);
-    border-radius: 20px;
-    border: 1px solid rgba(71, 85, 105, 0.3);
-    backdrop-filter: blur(10px);
+    background: #f2f2f2;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 0 var(--ink);
 }
 
 .status-indicator {
@@ -26,9 +26,9 @@
 }
 
 .project-status .status-text {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.1em;
-    color: #e2e8f0;
+    color: var(--ink);
 }

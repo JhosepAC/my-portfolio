@@ -7,14 +7,14 @@
 .form-label {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #c9d1d9;
+    color: var(--ink);
     display: flex;
     align-items: center;
     gap: 0.3rem;
 }
 
 .form-required {
-    color: #f85149;
+    color: var(--ink);
 }
 
 .form-input-container {
@@ -28,52 +28,56 @@
     left: 1rem;
     display: flex;
     align-items: center;
-    color: #8b949e;
-    transition: color 0.3s ease;
+    color: var(--ink-faint);
+    transition: color 0.15s ease;
     z-index: 1;
 }
 
 .form-input-container.focused .form-input-icon,
 .form-input-container.filled .form-input-icon {
-    color: #5a9fc0;
+    color: var(--ink);
 }
 
 .form-input {
     width: 100%;
     padding: 1rem 1rem 1rem 3rem;
-    background: rgba(13, 17, 23, 0.6);
-    border: 1px solid #30363d;
-    border-radius: 12px;
-    color: #c9d1d9;
+    background: #f2f2f2;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    color: var(--ink);
     font-size: 0.95rem;
-    transition: all 0.3s ease;
+    font-family: inherit;
+    transition: all 0.15s ease;
     outline: none;
     overflow: hidden;
 }
 
 .form-input::placeholder {
-    color: #6e7681;
+    color: var(--ink-faint);
 }
 
 .form-input:focus {
-    background: rgba(13, 17, 23, 0.8);
-    border-color: #5a9fc0;
+    background: #fff;
+    border-color: var(--ink);
+    box-shadow: 3px 3px 0 0 var(--ink);
 }
 
 .form-input-wrapper.has-error .form-input {
-    border-color: #f85149;
+    border-color: var(--ink);
+    border-style: dashed;
 }
 
 .form-input-wrapper.has-error .form-input-icon {
-    color: #f85149;
+    color: var(--ink);
 }
 
 .form-error {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #f85149;
+    color: var(--ink);
     font-size: 0.85rem;
+    font-weight: 600;
     animation: shake 0.4s ease;
 }
 

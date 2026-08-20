@@ -1,8 +1,8 @@
 .skill-card {
     position: relative;
-    background: rgba(22, 27, 34, 0.6);
-    border: 1px solid #30363d;
-    border-radius: 16px;
+    background: #f2f2f2;
+    border: 2px solid var(--ink);
+    border-radius: 12px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -10,51 +10,18 @@
     justify-content: center;
     gap: 1rem;
     cursor: pointer;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    overflow: hidden;
-    animation: fadeInScale 0.6s ease-out backwards;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 4px 4px 0 0 var(--ink);
     will-change: transform;
 }
 
-.skill-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    padding: 1px;
-    background: linear-gradient(135deg, var(--skill-color, #5a9fc0) 0%, transparent 50%, var(--skill-color, #5a9fc0) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.skill-card::after {
-    content: '';
-    position: absolute;
-    inset: -50%;
-    background: radial-gradient(circle, var(--skill-color, #5a9fc0) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    filter: blur(15px);
-    z-index: -1;
-}
-
 .skill-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: var(--skill-color, #5a9fc0);
-    box-shadow:
-            0 10px 40px -10px var(--skill-color-shadow, rgba(90, 159, 192, 0.4)),
-            0 0 20px var(--skill-color-shadow, rgba(90, 159, 192, 0.2));
+    border-color: var(--ink);
+    box-shadow: 6px 6px 0 0 var(--ink);
 }
 
-.skill-card:hover::before {
-    opacity: 1;
-}
-
-.skill-card:hover::after {
-    opacity: 0.3;
+.skill-card:active {
+    box-shadow: 2px 2px 0 0 var(--ink);
 }
 
 .skill-icon-wrapper {
@@ -73,61 +40,32 @@
 
 .skill-icon {
     display: block;
-    color: var(--skill-color, #c9d1d9);
-    filter: drop-shadow(0 0 4px var(--skill-color-shadow, rgba(90, 159, 192, 0.3)));
-    transition: filter 0.2s ease;
-}
-
-.skill-card:hover .skill-icon {
-    filter: drop-shadow(0 0 10px var(--skill-color-shadow, rgba(90, 159, 192, 0.6)));
-}
-
-.skill-card[data-icon="github"] .skill-icon {
-    filter: brightness(0) invert(1) drop-shadow(0 0 4px var(--skill-color-shadow, rgba(90, 159, 192, 0.3)));
-}
-
-.skill-card[data-icon="github"]:hover .skill-icon {
-    filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--skill-color-shadow, rgba(90, 159, 192, 0.6)));
+    color: var(--ink);
 }
 
 .skill-name {
     font-size: 1rem;
     font-weight: 600;
-    color: #c9d1d9;
+    color: var(--ink);
     text-align: center;
     transition: color 0.3s ease;
 }
 
 .skill-card:hover .skill-name {
-    color: var(--skill-color, #5a9fc0);
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.8) translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+    color: var(--ink);
 }
 
 @media (max-width: 768px) {
     .skill-card {
         padding: 0.5rem;
-        border-radius: 10px;
-        transition: transform 0.2s ease, border-color 0.2s ease;
+        border-radius: 8px;
+        transition: border-color 0.15s ease;
+        box-shadow: 3px 3px 0 0 var(--ink);
         gap: 0.4rem;
     }
 
-    .skill-card::before,
-    .skill-card::after {
-        display: none;
-    }
-
     .skill-card:hover {
-        transform: translateY(-3px) scale(1.02);
+        box-shadow: 4px 4px 0 0 var(--ink);
     }
 
     .skill-icon-wrapper {

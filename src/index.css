@@ -5,15 +5,19 @@
 }
 
 :root {
-  --bg-primary: #0d1117;
-  --bg-secondary: #161b22;
-  --text-primary: #c9d1d9;
-  --text-secondary: #8b949e;
-  --accent: #5a9fc0;
-  --accent-light: #7eb8d8;
-  --border-color: #30363d;
+  --bg-primary: #f2f2f2;
+  --bg-secondary: #e7e7e7;
+  --ink: #141414;
+  --ink-soft: #444444;
+  --ink-faint: #7a7a7a;
+  --line: #141414;
+  --text-primary: #141414;
+  --text-secondary: #7a7a7a;
+  --accent: #141414;
+  --accent-light: #444444;
+  --border-color: #141414;
 
-  --gradient-primary: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+  --shadow-hard: 5px 5px 0 0 var(--ink);
 
   --title-size: 4rem;
   --title-size-md: 3rem;
@@ -29,16 +33,15 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-primary);
-  color: var(--text-primary);
+  color: var(--ink);
   overflow-x: hidden;
   position: relative;
-  cursor: crosshair;
 }
 
 a, button, [role="button"], .clickable {
@@ -71,10 +74,9 @@ code {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: rgba(90, 159, 192, 0.5);
+  background: rgba(20, 20, 20, 0.5);
   border-radius: 50%;
   animation: global-float linear infinite;
-  box-shadow: 0 0 10px rgba(90, 159, 192, 0.5);
   will-change: transform, opacity;
 }
 
@@ -99,77 +101,22 @@ code {
   .global-particle {
     width: 1px;
     height: 1px;
-    box-shadow: 0 0 6px rgba(90, 159, 192, 0.4);
   }
 }
 
 /* ============================================
-   GLOBAL ORBS ANIMATIONS
+   GLOBAL REDUCED MOTION
+   Respects user's OS-level motion preference.
+   (motion handles its own reduced-motion via
+   MotionConfig; this covers CSS animations.)
    ============================================ */
-@keyframes float-orb-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-30px, 30px) scale(1.1); }
-}
-
-@keyframes float-orb-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(40px, -20px) scale(1.05); }
-}
-
-@keyframes float-orb-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-50px, 30px) scale(1.1); }
-  66% { transform: translate(30px, -40px) scale(0.95); }
-}
-
-@keyframes float-orb-4 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(20px, -30px) scale(1.08); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* ============================================
-   SECTION ORBS PARALLAX (Low CPU)
-   ============================================ */
-.section-orbs-container {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .section-orbs-container > div {
-    animation: none !important;
-    transform: none !important;
-  }
-}
-
-/* ============================================
-   CENTRALIZED KEYFRAMES
-   ============================================ */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -26,29 +26,33 @@
 .filter-btn {
     padding: 0.5rem 1.25rem;
     border-radius: 999px;
-    border: 1px solid rgba(71, 85, 105, 0.4);
-    background: transparent;
-    color: var(--text-secondary);
+    border: 2px solid var(--ink);
+    background: #f2f2f2;
+    color: var(--ink-faint);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     font-size: 0.875rem;
     font-family: inherit;
+    font-weight: 600;
+    box-shadow: 3px 3px 0 0 var(--ink);
 }
 
 .filter-btn:hover {
-    border-color: rgba(94, 159, 192, 0.5);
-    color: var(--text-primary);
+    border-color: var(--ink);
+    color: var(--ink);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 0 var(--ink);
 }
 
 .filter-btn.active {
-    background: rgba(94, 159, 192, 0.15);
-    border-color: var(--accent);
-    color: #fff;
-    box-shadow: 0 0 15px rgba(94, 159, 192, 0.2);
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #f2f2f2;
+    box-shadow: 3px 3px 0 0 var(--ink);
 }
 
 .filter-btn.active:hover {
-    background: rgba(94, 159, 192, 0.25);
+    background: var(--ink);
 }
 
 /* ── Filter Dropdown ── */
@@ -70,19 +74,22 @@
     transform: rotate(180deg);
 }
 
-.dropdown-menu {
+.dropdown-anim {
     position: absolute;
-    top: calc(100% + 6px);
+    top: calc(100% + 8px);
     left: 50%;
+    z-index: 200;
+}
+
+.dropdown-menu {
+    position: relative;
     transform: translateX(-50%);
     min-width: 160px;
-    background: rgba(15, 23, 42, 0.97);
-    border: 1px solid rgba(71, 85, 105, 0.5);
-    border-radius: 12px;
+    background: #f2f2f2;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
     padding: 0.4rem;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-    z-index: 200;
-    backdrop-filter: blur(16px);
+    box-shadow: 4px 4px 0 0 var(--ink);
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -91,25 +98,25 @@
 .dropdown-item {
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     background: transparent;
-    color: var(--text-secondary);
+    color: var(--ink-soft);
     cursor: pointer;
     font-size: 0.85rem;
     font-family: inherit;
     text-align: left;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
     white-space: nowrap;
 }
 
 .dropdown-item:hover {
-    background: rgba(94, 159, 192, 0.1);
-    color: var(--text-primary);
+    background: var(--bg-secondary);
+    color: var(--ink);
 }
 
 .dropdown-item.active {
-    background: rgba(94, 159, 192, 0.15);
-    color: #fff;
+    background: var(--ink);
+    color: #f2f2f2;
 }
 
 /* ── Projects Grid ── */
