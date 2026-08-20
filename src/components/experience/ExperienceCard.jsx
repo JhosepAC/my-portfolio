@@ -1,6 +1,8 @@
 import {memo, useCallback} from 'react';
+import {motion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {EXPERIENCE_ICONS, TIMELINE_ICONS} from '../../utils/Icons';
+import {EASE} from '../../utils/motionVariants';
 import './ExperienceCard.css';
 
 const typeBadgeClass = {
@@ -10,7 +12,7 @@ const typeBadgeClass = {
     parttime: 'type-parttime'
 };
 
-const ExperienceCard = ({item, index, isExpanded, onToggle, isVisible}) => {
+const ExperienceCard = ({item, index, isExpanded, onToggle}) => {
     const {t} = useTranslation();
 
     const mainIcon = EXPERIENCE_ICONS[item.iconType.toUpperCase()] || EXPERIENCE_ICONS.WORK;
@@ -24,9 +26,12 @@ const ExperienceCard = ({item, index, isExpanded, onToggle, isVisible}) => {
     const achievements = t(`experience.items.${item.id}.achievements`, {returnObjects: true});
 
     return (
-        <div
-            className={`experience-item ${isExpanded ? 'expanded' : ''} ${isVisible ? 'animate' : ''}`}
-            style={{'--item-color': item.color, '--animation-delay': `${index * 0.15}s`}}
+        <motion.div
+            className={`experience-item ${isExpanded ? 'expanded' : ''}`}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            viewport={{once: true, amount: 0.15}}
+            transition={{duration: 0.5, ease: EASE, delay: index * 0.12}}
         >
             <div className="experience-card">
                 <div className="experience-card-header">
@@ -51,7 +56,7 @@ const ExperienceCard = ({item, index, isExpanded, onToggle, isVisible}) => {
                         </div>
 
                         <div className="experience-company">
-                            <span className="company-name" style={{color: item.color}}>{item.company}</span>
+                            <span className="company-name">{item.company}</span>
                             {item.location && (
                                 <>
                                     <span className="company-separator">•</span>
@@ -105,7 +110,7 @@ const ExperienceCard = ({item, index, isExpanded, onToggle, isVisible}) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

@@ -14,7 +14,6 @@ const TechStack = ({technologies}) => {
             {technologies.map((tech, i) => (<div
                 key={i}
                 className="tech-item"
-                style={{'--tech-color': tech.color}}
             >
                 <span className="tech-icon">{React.cloneElement(tech.icon, {'aria-label': tech.name})}</span>
                 <span className="tech-name">{tech.name}</span>

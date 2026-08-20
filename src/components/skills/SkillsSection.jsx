@@ -1,10 +1,11 @@
 import React, {useState, useMemo} from 'react';
+import {AnimatePresence, motion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {SKILLS_DATA} from '../../utils/constants.js';
 import SkillCard from './SkillCard';
 import FilterButton from './FilterButton';
-import SectionOrbs from '../common/orbs/SectionOrbs';
 import SectionHeader from '../common/section-header/SectionHeader';
+import {EASE} from '../../utils/motionVariants';
 import './SkillsSection.css';
 
 const INITIAL_VISIBLE = 16;
@@ -49,7 +50,6 @@ const SkillsSection = () => {
 
     return (
         <section id="skills" className="skills-section">
-            <SectionOrbs sectionId="skills" />
             <div className="skills-container">
                 <SectionHeader
                     align="left"
@@ -57,7 +57,14 @@ const SkillsSection = () => {
                     subtitle={t('skills.subtitle')}
                 />
 
-                <nav className="filters-container" aria-label="Skills filtering">
+                <motion.nav
+                    className="filters-container"
+                    aria-label="Skills filtering"
+                    initial={{opacity: 0, y: 20}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={{once: true, amount: 0.4}}
+                    transition={{duration: 0.5, ease: EASE}}
+                >
                     {filters.map((filter) => (
                         <FilterButton
                             key={filter.id}
@@ -66,27 +73,37 @@ const SkillsSection = () => {
                             onClick={() => handleFilterChange(filter.id)}
                         />
                     ))}
-                </nav>
+                </motion.nav>
 
                 <div className="skills-grid">
-                    {filteredSkills.map((skill, index) => (
-                        <SkillCard
-                            key={`${activeFilter}-${skill.name}-${index}`}
-                            skill={skill}
-                            index={index}
-                        />
-                    ))}
+                    <AnimatePresence mode="popLayout" initial={false}>
+                        {filteredSkills.map((skill, index) => (
+                            <SkillCard
+                                key={skill.id || skill.name}
+                                skill={skill}
+                                index={index}
+                            />
+                        ))}
+                    </AnimatePresence>
                 </div>
 
                 {activeFilter === 'all' && filteredSkills.length >= INITIAL_VISIBLE && (
-                    <div className="skills-show-more">
-                        <button
+                    <motion.div
+                        className="skills-show-more"
+                        initial={{opacity: 0, y: 16}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={{once: true, amount: 0.4}}
+                        transition={{duration: 0.5, ease: EASE}}
+                    >
+                        <motion.button
                             className="skills-show-more-btn"
                             onClick={() => setShowAll(!showAll)}
+                            whileHover={{x: -2, y: -2}}
+                            whileTap={{scale: 0.95}}
                         >
                             {showAll ? t('skills.showLess') : t('skills.showMore')}
-                        </button>
-                    </div>
+                        </motion.button>
+                    </motion.div>
                 )}
             </div>
         </section>

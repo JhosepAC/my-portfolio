@@ -1,8 +1,9 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import ProjectCard from './ProjectCard';
 import { PROJECTS_DATA } from '../../data/projectsData.jsx';
-import SectionOrbs from '../common/orbs/SectionOrbs';
 import SectionHeader from '../common/section-header/SectionHeader';
+import { EASE } from '../../utils/motionVariants';
 import './ProjectsSection.css';
 import { useTranslation } from 'react-i18next';
 
@@ -65,7 +66,6 @@ const ProjectsSection = () => {
 
     return (
         <section id="projects" className="projects-section">
-            <SectionOrbs sectionId="projects" />
             <div className="projects-container">
                 <SectionHeader
                     align="left"
@@ -98,27 +98,39 @@ const ProjectsSection = () => {
                             </svg>
                         </button>
 
-                        {isDropdownOpen && (
-                            <div className="dropdown-menu" role="menu">
-                                {techOptions.map(tech => (
-                                    <button
-                                        key={tech}
-                                        className={`dropdown-item ${activeFilter === tech ? 'active' : ''}`}
-                                        onClick={() => handleTechSelect(tech)}
-                                        role="menuitem"
-                                    >
-                                        {tech}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
+                        <AnimatePresence>
+                            {isDropdownOpen && (
+                                <motion.div
+                                    className="dropdown-anim"
+                                    initial={{opacity: 0, y: -8, scale: 0.96}}
+                                    animate={{opacity: 1, y: 0, scale: 1}}
+                                    exit={{opacity: 0, y: -8, scale: 0.96}}
+                                    transition={{duration: 0.18, ease: EASE}}
+                                >
+                                    <div className="dropdown-menu" role="menu">
+                                        {techOptions.map(tech => (
+                                            <button
+                                                key={tech}
+                                                className={`dropdown-item ${activeFilter === tech ? 'active' : ''}`}
+                                                onClick={() => handleTechSelect(tech)}
+                                                role="menuitem"
+                                            >
+                                                {tech}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 </div>
 
                 <div className="projects-grid" role="list">
-                    {filteredProjects.map((project, index) => (
-                        <ProjectCard key={project.id} project={project} index={index} />
-                    ))}
+                    <AnimatePresence mode="popLayout" initial={false}>
+                        {filteredProjects.map((project, index) => (
+                            <ProjectCard key={project.id} project={project} index={index} />
+                        ))}
+                    </AnimatePresence>
 
                     <div className="project-card placeholder" role="listitem">
                         <div className="placeholder-icon">
