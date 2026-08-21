@@ -2,9 +2,9 @@
     width: 100%;
     max-width: 720px;
     background-color: #0d0d0d;
-    border: 2px solid var(--ink);
+    border: 1px solid var(--line-strong);
     border-radius: 8px;
-    box-shadow: 8px 8px 0 0 var(--ink);
+    box-shadow: var(--shadow-soft);
     display: flex;
     flex-direction: column;
     overflow: hidden;
