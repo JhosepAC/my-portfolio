@@ -1,9 +1,9 @@
 .contact-form-wrapper {
-    background: #f2f2f2;
-    border: 2px solid var(--ink);
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
     border-radius: 12px;
     padding: 2.5rem;
-    box-shadow: 6px 6px 0 0 var(--ink);
+    box-shadow: var(--shadow-soft);
     position: relative;
     overflow: hidden;
 }
@@ -45,7 +45,7 @@
     border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 600;
-    border: 2px solid var(--ink);
+    border: 1px solid var(--line-strong);
 }
 
 .form-message-success {
@@ -54,7 +54,7 @@
 }
 
 .form-message-error {
-    background: #f2f2f2;
+    background: var(--bg-secondary);
     color: var(--ink);
 }
 
@@ -65,7 +65,7 @@
     gap: 0.8rem;
     padding: 1.2rem 2rem;
     background: var(--ink);
-    border: 2px solid var(--ink);
+    border: 1px solid var(--line-strong);
     border-radius: 8px;
     color: #f2f2f2;
     font-size: 1rem;
@@ -74,7 +74,7 @@
     transition: box-shadow 0.15s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 4px 4px 0 0 var(--ink);
+    box-shadow: var(--shadow-soft);
     font-family: inherit;
 }
 

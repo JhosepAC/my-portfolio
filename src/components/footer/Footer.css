@@ -63,7 +63,7 @@
 .footer-status-dot {
     width: 8px;
     height: 8px;
-    background: #f2f2f2;
+    background: var(--bg-secondary);
     border-radius: 50%;
     animation: pulse-dot 2s ease-in-out infinite;
 }
@@ -99,7 +99,7 @@
     left: 0;
     width: 30px;
     height: 2px;
-    background: #f2f2f2;
+    background: var(--bg-secondary);
     border-radius: 2px;
 }
 
@@ -138,8 +138,8 @@
     right: 3rem;
     width: 50px;
     height: 50px;
-    background: #f2f2f2;
-    border: 2px solid var(--ink);
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
     border-radius: 8px;
     color: var(--ink);
     cursor: pointer;
@@ -148,11 +148,11 @@
     justify-content: center;
     transition: box-shadow 0.15s ease;
     z-index: 100;
-    box-shadow: 3px 3px 0 0 var(--ink);
+    box-shadow: 0 1px 2px rgba(20,20,20,0.04);
 }
 
 .scroll-to-top:hover {
-    box-shadow: 5px 5px 0 0 var(--ink);
+    box-shadow: var(--shadow-soft);
 }
 
 .scroll-to-top svg {

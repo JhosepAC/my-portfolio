@@ -6,7 +6,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #f2f2f2;
+    background: var(--bg-secondary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,7 +52,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #f2f2f2;
+    background: var(--bg-secondary);
     display: flex;
     justify-content: center;
     align-items: center;

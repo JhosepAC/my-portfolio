@@ -2,7 +2,7 @@
     padding: 0.9rem 2.5rem;
     background: var(--ink);
     color: #f2f2f2;
-    border: 2px solid var(--ink);
+    border: 1px solid var(--line-strong);
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 700;
@@ -11,7 +11,7 @@
     text-decoration: none;
     display: inline-block;
     position: relative;
-    box-shadow: 4px 4px 0 0 var(--ink);
+    box-shadow: var(--shadow-soft);
     font-family: inherit;
 }
 
