@@ -1,27 +1,29 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import SkillIcon from './SkillIcon';
-import {hexToRgba} from '../../utils/helpers';
+import { EASE } from '../../utils/motionVariants';
 import './SkillCard.css';
 
-const SkillCard = ({skill, index}) => {
-    const cardStyles = {
-        '--skill-color': skill.color,
-        '--skill-color-shadow': hexToRgba(skill.color, 0.4),
-        animationDelay: `${index * 0.05}s`
-    };
-
-    return (
-        <div className="skill-card" style={cardStyles} data-icon={skill.icon}>
-            <div className="skill-icon-wrapper">
-                <SkillIcon
-                    name={skill.icon}
-                    color={skill.color}
-                    iconType={skill.iconType}
-                />
-            </div>
-            <span className="skill-name">{skill.name}</span>
+const SkillCard = ({skill, index}) => (
+    <motion.div
+        className="skill-card"
+        data-icon={skill.icon}
+        layout
+        initial={{opacity: 0, scale: 0.8}}
+        whileInView={{opacity: 1, scale: 1}}
+        exit={{opacity: 0, scale: 0.8}}
+        whileHover={{x: -4, y: -4}}
+        viewport={{once: true, amount: 0.3}}
+        transition={{duration: 0.35, ease: EASE, delay: index * 0.04}}
+    >
+        <div className="skill-icon-wrapper">
+            <SkillIcon
+                name={skill.icon}
+                iconType={skill.iconType}
+            />
         </div>
-    );
-};
+        <span className="skill-name">{skill.name}</span>
+    </motion.div>
+);
 
 export default SkillCard;

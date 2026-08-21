@@ -1,5 +1,6 @@
 .section-header {
     margin-bottom: 3rem;
+    position: relative;
 }
 
 .section-header--center {
@@ -14,40 +15,51 @@
     text-align: left;
 }
 
+/* ── Kicker editorial (mono) ── */
+.section-kicker {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.9rem;
+}
+
 /* ── Badge ── */
 .section-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.6rem 1.4rem;
-    background: rgba(22, 27, 34, 0.8);
-    border: 1px solid var(--border-color);
-    border-radius: 25px;
-    color: var(--accent-light);
-    margin-bottom: 1.5rem;
-    backdrop-filter: blur(10px);
-    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    gap: 0.5rem;
+    padding: 0.38rem 0.85rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-pill);
+    color: var(--ink-soft);
+    margin-bottom: 1.15rem;
 }
 
 .section-badge svg {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.9;
 }
 
 .section-badge-text {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
 }
 
 /* ── Title ── */
 .section-title {
     font-size: var(--title-size);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+    font-weight: 750;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    margin-bottom: 0.85rem;
 }
 
 .section-title-main {
@@ -55,10 +67,7 @@
 }
 
 .section-title-gradient {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--ink);
 }
 
 .section-header--stacked .section-title-main,
@@ -74,9 +83,9 @@
 .section-subtitle {
     font-size: var(--subtitle-size);
     color: var(--text-secondary);
-    max-width: 600px;
-    line-height: 1.6;
-    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+    max-width: 560px;
+    line-height: 1.65;
+    font-weight: 400;
 }
 
 /* ── Responsive ── */
@@ -100,12 +109,4 @@
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .section-badge,
-    .section-title,
-    .section-subtitle {
-        animation: none !important;
-        opacity: 1;
-        transform: none;
-    }
-}
+

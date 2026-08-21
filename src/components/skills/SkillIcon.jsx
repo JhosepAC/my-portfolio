@@ -24,8 +24,8 @@ const ICONIFY_MAP = {
     git: 'devicon:git'
 };
 
-const SkillIcon = ({name, color, iconType}) => {
-    const iconStyle = {color, fontSize: '2.5rem', lineHeight: 1};
+const SkillIcon = ({name, iconType}) => {
+    const iconStyle = {fontSize: '2.5rem', lineHeight: 1};
 
     const iconId = iconType === 'iconify' ? name : ICONIFY_MAP[name] || 'devicon:devicon';
 

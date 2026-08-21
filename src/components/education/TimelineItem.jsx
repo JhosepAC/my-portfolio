@@ -1,12 +1,14 @@
 import {memo, useState, lazy, Suspense} from 'react';
+import {motion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {EDUCATION_ICONS, TIMELINE_ICONS} from '../../utils/Icons';
 import StatusBadge from './StatusBadge';
+import {EASE} from '../../utils/motionVariants';
 import './TimelineItem.css';
 
 const CertificateModal = lazy(() => import("./CertificateModal.jsx"));
 
-const TimelineItem = ({item, index, isExpanded, onToggle, isVisible}) => {
+const TimelineItem = ({item, index, isExpanded, onToggle}) => {
     const {t} = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -17,12 +19,12 @@ const TimelineItem = ({item, index, isExpanded, onToggle, isVisible}) => {
         onToggle(item.id);
     };
 
-    return (<div
-        className={`timeline-item ${item.type === 'university' ? 'timeline-item-important' : ''} ${isExpanded ? 'expanded' : ''} ${isVisible ? 'animate' : ''}`}
-        style={{
-            '--item-color': item.color,
-            '--animation-delay': `${index * 0.15}s`
-        }}
+    return (<motion.div
+        className={`timeline-item ${item.type === 'university' ? 'timeline-item-important' : ''} ${isExpanded ? 'expanded' : ''}`}
+        initial={{opacity: 0, y: 28}}
+        whileInView={{opacity: 1, y: 0}}
+        viewport={{once: true, amount: 0.2}}
+        transition={{duration: 0.5, ease: EASE, delay: index * 0.12}}
     >
         <div className="timeline-year"><span>{item.year}</span></div>
 
@@ -81,17 +83,19 @@ const TimelineItem = ({item, index, isExpanded, onToggle, isVisible}) => {
 
                         {item.status === 'completed' && item.certificate && (
                             <div className="certificate-wrapper">
-                                <button
+                                <motion.button
                                     type="button"
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         setIsModalOpen(true);
                                     }}
                                     className="certificate-button"
+                                    whileHover={{x: -2, y: -2}}
+                                    whileTap={{scale: 0.95}}
                                 >
                                     {TIMELINE_ICONS.CERT_FILE}
                                     <span>{t('education.viewCertificate')}</span>
-                                </button>
+                                </motion.button>
 
                                 <div className="certificate-preview">
                                     <iframe
@@ -116,7 +120,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, isVisible}) => {
                 </div>
             </div>
         </div>
-    </div>);
+    </motion.div>);
 };
 
 export default memo(TimelineItem);

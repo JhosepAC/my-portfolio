@@ -1,9 +1,11 @@
 import {memo, useCallback, useState} from 'react';
+import {AnimatePresence, motion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import FormInput from './FormInput.jsx';
 import FormTextarea from './FormTextarea';
 import {CONTACT_CONFIG} from "../../utils/constants.js";
 import {FORM_ICONS} from "../../utils/Icons.jsx";
+import {EASE} from '../../utils/motionVariants';
 import './ContactForm.css';
 
 const ContactForm = ({isSubmitting, setIsSubmitting}) => {
@@ -81,7 +83,13 @@ const ContactForm = ({isSubmitting, setIsSubmitting}) => {
         }
     };
 
-    return (<div className="contact-form-wrapper">
+    return (<motion.div
+        className="contact-form-wrapper"
+        initial={{opacity: 0, x: 24}}
+        whileInView={{opacity: 1, x: 0}}
+        viewport={{once: true, amount: 0.2}}
+        transition={{duration: 0.6, ease: EASE}}
+    >
         <div className="contact-form-header">
             <h3 className="contact-form-title">{t('contact.form.title')}</h3>
             <p className="contact-form-description">{t('contact.form.description')}</p>
@@ -134,20 +142,36 @@ const ContactForm = ({isSubmitting, setIsSubmitting}) => {
                 icon={FORM_ICONS.MESSAGE}
             />
 
-            {submitStatus === 'success' && (<div className="form-message form-message-success">
-                {FORM_ICONS.SUCCESS}
-                <span>{t('contact.form.success')}</span>
-            </div>)}
+            <AnimatePresence mode="wait">
+                {submitStatus === 'success' && (<motion.div
+                    className="form-message form-message-success"
+                    initial={{opacity: 0, y: -10}}
+                    animate={{opacity: 1, y: 0}}
+                    exit={{opacity: 0, y: -10}}
+                    transition={{duration: 0.25, ease: EASE}}
+                >
+                    {FORM_ICONS.SUCCESS}
+                    <span>{t('contact.form.success')}</span>
+                </motion.div>)}
 
-            {submitStatus === 'error' && (<div className="form-message form-message-error">
-                {FORM_ICONS.ERROR}
-                <span>{t('contact.form.error')}</span>
-            </div>)}
+                {submitStatus === 'error' && (<motion.div
+                    className="form-message form-message-error"
+                    initial={{opacity: 0, y: -10}}
+                    animate={{opacity: 1, y: 0}}
+                    exit={{opacity: 0, y: -10}}
+                    transition={{duration: 0.25, ease: EASE}}
+                >
+                    {FORM_ICONS.ERROR}
+                    <span>{t('contact.form.error')}</span>
+                </motion.div>)}
+            </AnimatePresence>
 
-            <button
+            <motion.button
                 type="submit"
                 className="form-submit-btn"
                 disabled={isSubmitting}
+                whileHover={{x: -3, y: -3}}
+                whileTap={{scale: 0.96}}
             >
                 {isSubmitting ? (<>
                     <span className="submit-spinner"></span>
@@ -156,9 +180,9 @@ const ContactForm = ({isSubmitting, setIsSubmitting}) => {
                     <span>{t('contact.form.submit')}</span>
                     {FORM_ICONS.SEND}
                 </>)}
-            </button>
+            </motion.button>
         </form>
-    </div>);
+    </motion.div>);
 };
 
 export default memo(ContactForm);

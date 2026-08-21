@@ -6,7 +6,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #0f172a;
+    background: var(--bg-secondary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@
 .loader-ring {
     width: 80px;
     height: 80px;
-    border: 3px solid rgba(90, 159, 192, 0.1);
+    border: 3px solid rgba(20, 20, 20, 0.15);
     border-radius: 50%;
     position: relative;
     margin-bottom: 2rem;
@@ -35,14 +35,14 @@
     width: 80px;
     height: 80px;
     border: 3px solid transparent;
-    border-top: 3px solid #5a9fc0;
+    border-top: 3px solid #141414;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
 
 .loader-text {
-    color: #5a9fc0;
-    font-family: 'JetBrains Mono', monospace;
+    color: #141414;
+    font-family: 'Space Mono', 'JetBrains Mono', monospace;
     font-size: 0.8rem;
     letter-spacing: 0.3em;
     animation: pulse-text 1.5s ease-in-out infinite;
@@ -52,7 +52,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #0f172a;
+    background: var(--bg-secondary);
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,12 +1,14 @@
 import React from 'react';
+import {motion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {Icon} from '@iconify/react';
 import {ASSETS, NAV_LINKS} from '../../utils/constants';
 import { downloadFile } from '../../utils/helpers';
+import {EASE} from '../../utils/motionVariants';
 import FooterLink from './FooterLink';
 import SocialLinks from './SocialLinks';
 import ContactInfo from './ContactInfo';
-import logo from '../../assets/logo/jhosepac-logo.svg';
+import logo from '../../assets/logo/logo-light.svg';
 import './Footer.css';
 
 const Footer = () => {
@@ -27,10 +29,24 @@ const Footer = () => {
         },
     ];
 
+    const viewport = {once: true, amount: 0.2};
+
     return (<footer className="footer">
             <div className="footer-container">
-                <div className="footer-content">
-                    <div className="footer-brand">
+                <motion.div
+                    className="footer-content"
+                    initial={{opacity: 0, y: 30}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={viewport}
+                    transition={{duration: 0.6, ease: EASE}}
+                >
+                    <motion.div
+                        className="footer-brand"
+                        initial={{opacity: 0, x: -30}}
+                        whileInView={{opacity: 1, x: 0}}
+                        viewport={viewport}
+                        transition={{duration: 0.6, ease: EASE, delay: 0.1}}
+                    >
                         <div className="footer-logo">
                             <img src={logo} alt="Jhosep Logo" className="logo-image"/>
                             <span className="footer-logo-text">Jhosep Argomedo</span>
@@ -40,59 +56,83 @@ const Footer = () => {
                             <span className="footer-status-dot"></span>
                             <span className="footer-status-text">{t('footer.available')}</span>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="footer-section">
+                    <motion.div
+                        className="footer-section"
+                        initial={{opacity: 0, y: 24}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={viewport}
+                        transition={{duration: 0.6, ease: EASE, delay: 0.15}}
+                    >
                         <h3 className="footer-section-title">{t('footer.navigation')}</h3>
                         <nav className="footer-nav">
-                            {NAV_LINKS.map((link, index) => (<FooterLink
+                            {NAV_LINKS.map((link) => (<FooterLink
                                     key={link.id}
                                     href={link.href}
                                     label={t(link.key)}
-                                    delay={index * 0.05}
                                 />))}
                         </nav>
-                    </div>
+                    </motion.div>
 
-                    <div className="footer-section">
+                    <motion.div
+                        className="footer-section"
+                        initial={{opacity: 0, y: 24}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={viewport}
+                        transition={{duration: 0.6, ease: EASE, delay: 0.25}}
+                    >
                         <h3 className="footer-section-title">{t('footer.quickLinks')}</h3>
                         <nav className="footer-nav">
-                            {quickLinks.map((link, index) => (<FooterLink
+                            {quickLinks.map((link) => (<FooterLink
                                     key={link.id}
                                     href={link.href}
                                     label={link.label}
-                                    delay={index * 0.05}
                                     onClick={link.onClick}
                                 />))}
                         </nav>
-                    </div>
+                    </motion.div>
 
-                    <div className="footer-section">
+                    <motion.div
+                        className="footer-section"
+                        initial={{opacity: 0, y: 24}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={viewport}
+                        transition={{duration: 0.6, ease: EASE, delay: 0.35}}
+                    >
                         <h3 className="footer-section-title">{t('footer.contact')}</h3>
                         <ContactInfo/>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
                 <div className="footer-divider">
                     <div className="footer-divider-line"></div>
                 </div>
 
-                <div className="footer-bottom">
+                <motion.div
+                    className="footer-bottom"
+                    initial={{opacity: 0, y: 24}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={viewport}
+                    transition={{duration: 0.6, ease: EASE, delay: 0.4}}
+                >
                     <div className="footer-bottom-content">
                         <p className="footer-copyright">
                             © {currentYear} Jhosep Argomedo. {t('footer.rights')}
                         </p>
                         <SocialLinks/>
                     </div>
-                </div>
+                </motion.div>
 
-                <button
+                <motion.button
                     className="scroll-to-top"
                     onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
                     aria-label="Scroll to top"
+                    whileHover={{x: -2, y: -2}}
+                    whileTap={{scale: 0.9}}
                 >
                     <Icon icon="mdi:chevron-up" width="24"/>
-                </button>
+                </motion.button>
             </div>
         </footer>);
 };

@@ -1,59 +1,31 @@
 .filter-button {
     position: relative;
-    padding: 0.8rem 1.8rem;
-    background: rgba(22, 27, 34, 0.6);
-    border: 1px solid #30363d;
-    border-radius: 12px;
-    color: #8b949e;
-    font-size: 0.95rem;
-    font-weight: 600;
+    padding: 0.55rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-    overflow: hidden;
-}
-
-.filter-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(126, 184, 216, 0.12);
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease, height 0.4s ease;
-}
-
-.filter-button:hover::before {
-    width: 200px;
-    height: 200px;
+    transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
 .filter-button:hover {
-    border-color: #5a9fc0;
-    color: #c9d1d9;
-    transform: translateY(-2px);
+    border-color: var(--line-strong);
+    color: var(--ink);
+}
+
+.filter-button:active {
+    transform: none;
 }
 
 .filter-button.active {
-    background: linear-gradient(135deg, rgba(94, 159, 192, 0.2), rgba(126, 184, 216, 0.2));
-    border-color: #5a9fc0;
-    color: #5a9fc0;
-    box-shadow: 0 4px 20px rgba(94, 159, 192, 0.2);
-}
-
-.filter-button.active::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 1px;
-    background: linear-gradient(135deg, #5a9fc0, #7eb8d8);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
 }
 
 .filter-indicator {
@@ -63,9 +35,8 @@
     transform: translateX(-50%);
     width: 20px;
     height: 3px;
-    background: linear-gradient(90deg, #5a9fc0, #7eb8d8);
+    background: var(--ink);
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(126, 184, 216, 0.5);
     animation: pulse-indicator 2s ease-in-out infinite;
 }
 
@@ -85,7 +56,6 @@
         padding: 0.6rem 1.2rem;
         font-size: 0.8rem;
         white-space: nowrap;
-        border-radius: 8px;
-        backdrop-filter: blur(5px);
+        border-radius: 6px;
     }
 }

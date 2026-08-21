@@ -94,11 +94,11 @@ const Terminal = () => {
 
         const runBoot = async () => {
             const loadingDiv = document.createElement('div');
-            loadingDiv.style.color = '#8b949e';
+            loadingDiv.style.color = '#9a9a9a';
             body.appendChild(loadingDiv);
 
             const connectMsg = t('terminal.loading.connecting');
-            loadingDiv.innerHTML = `${connectMsg} <span style="color: #58a6ff;">https://jhosep-ac.pages.dev/</span>...<br>`;
+            loadingDiv.innerHTML = `${connectMsg} <span style="color: #f2f2f2;">https://jhosep-ac.pages.dev/</span>...<br>`;
             await delay(600);
             loadingDiv.innerHTML += `${t('terminal.loading.tunnel')}<br>`;
             await delay(600);
@@ -106,7 +106,7 @@ const Terminal = () => {
             await delay(400);
 
             const progressContainer = document.createElement('div');
-            progressContainer.style.color = '#58a6ff';
+            progressContainer.style.color = '#f2f2f2';
             loadingDiv.appendChild(progressContainer);
 
             const stages = [
@@ -122,7 +122,7 @@ const Terminal = () => {
             }
 
             const successMsg = document.createElement('div');
-            successMsg.style.color = '#27c93f';
+            successMsg.style.color = '#f2f2f2';
             successMsg.style.marginTop = '10px';
             successMsg.textContent = t('terminal.success');
             loadingDiv.appendChild(successMsg);
@@ -131,12 +131,12 @@ const Terminal = () => {
             body.innerHTML = '';
 
             const header = document.createElement('div');
-            header.style.color = '#8b949e';
+            header.style.color = '#9a9a9a';
             header.style.marginBottom = '20px';
             header.style.fontSize = '13px';
             header.innerHTML = [
                 t('terminal.header.shell'),
-                `${t('terminal.header.env')} <span style="color: #58a6ff;">https://jhosep-ac.pages.dev/</span>`,
+                `${t('terminal.header.env')} <span style="color: #f2f2f2;">https://jhosep-ac.pages.dev/</span>`,
                 t('terminal.header.tagline'),
                 '',
                 t('terminal.header.starting'),
@@ -152,11 +152,11 @@ const Terminal = () => {
             await typeCommand('status', historyContainer);
 
             const hint = document.createElement('div');
-            hint.style.color = '#8b949e';
+            hint.style.color = '#9a9a9a';
             hint.style.fontSize = '13px';
             hint.style.marginBottom = '14px';
             hint.style.marginTop = '6px';
-            hint.innerHTML = `Type <span style="color: #58a6ff; font-weight: 600;">help</span> to see all available commands`;
+            hint.innerHTML = `Type <span style="color: #f2f2f2; font-weight: 600;">help</span> to see all available commands`;
             historyContainer.appendChild(hint);
             scrollToBottom();
             await delay(600);
@@ -238,7 +238,7 @@ const Terminal = () => {
             promptSpan.textContent = PROMPT;
 
             const cmdSpan = document.createElement('span');
-            cmdSpan.style.color = '#f0f6fc';
+            cmdSpan.style.color = '#f2f2f2';
             cmdSpan.style.fontWeight = '500';
 
             const cursor = document.createElement('span');
@@ -294,7 +294,7 @@ const Terminal = () => {
             pSpan.textContent = PROMPT;
 
             const cmdSpan = document.createElement('span');
-            cmdSpan.style.color = '#f0f6fc';
+            cmdSpan.style.color = '#f2f2f2';
             cmdSpan.style.fontWeight = '500';
             cmdSpan.textContent = rawInput;
 
