@@ -8,7 +8,7 @@ import {EASE} from '../../utils/motionVariants';
 import FooterLink from './FooterLink';
 import SocialLinks from './SocialLinks';
 import ContactInfo from './ContactInfo';
-import logo from '../../assets/logo/jhosepac-logo.svg';
+import logo from '../../assets/logo/logo-light.svg';
 import './Footer.css';
 
 const Footer = () => {

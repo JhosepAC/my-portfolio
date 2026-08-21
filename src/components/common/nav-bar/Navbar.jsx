@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useScroll } from '../../../hooks/useScroll';
 import { EASE } from '../../../utils/motionVariants';
 import { useAppReady } from '../../../context/AppReadyContext';
-import logo from '../../../assets/logo/jhosepac-logo.svg';
+import logo from '../../../assets/logo/logo-light.svg';
 import { NAV_LINKS } from "../../../utils/constants.js";
 import './Navbar.css';
 import { useActiveSection } from '../../../hooks/useActiveSection';
