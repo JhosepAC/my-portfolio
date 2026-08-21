@@ -53,6 +53,7 @@ const SkillsSection = () => {
             <div className="skills-container">
                 <SectionHeader
                     align="left"
+                    kicker="/skills — 01"
                     title={t('skills.title')}
                     subtitle={t('skills.subtitle')}
                 />

@@ -52,6 +52,7 @@ const ContactSection = () => {
         <div className="contact-container">
             <SectionHeader
                 align="center"
+                kicker="/contact — 05"
                 title={t('contact.title')}
                 titleHighlight={t('contact.titleHighlight')}
                 subtitle={t('contact.subtitle')}

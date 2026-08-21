@@ -4,7 +4,7 @@ import './SectionHeader.css';
 
 const STEP = 0.12;
 
-const SectionHeader = ({title, titleHighlight, subtitle, align = 'center', badge, stacked, highlightFirst}) => {
+const SectionHeader = ({title, titleHighlight, subtitle, align = 'center', badge, stacked, highlightFirst, kicker}) => {
     const classes = [
         'section-header',
         `section-header--${align}`,
@@ -16,6 +16,17 @@ const SectionHeader = ({title, titleHighlight, subtitle, align = 'center', badge
 
     return (
         <header className={classes}>
+            {kicker && (
+                <motion.span
+                    className="section-kicker"
+                    initial={{opacity: 0, y: 12}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={viewport}
+                    transition={{duration: 0.5, ease: EASE}}
+                >
+                    {kicker}
+                </motion.span>
+            )}
             {badge && (
                 <motion.div
                     className="section-badge"

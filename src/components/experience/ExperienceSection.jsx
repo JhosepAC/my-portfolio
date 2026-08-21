@@ -23,6 +23,7 @@ const ExperienceSection = () => {
             <div className="experience-container">
                 <SectionHeader
                     align="center"
+                    kicker="/experience — 04"
                     title={t('experience.title')}
                     titleHighlight={t('experience.titleHighlight')}
                     subtitle={t('experience.subtitle')}

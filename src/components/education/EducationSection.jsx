@@ -29,6 +29,7 @@ const EducationSection = () => {
             <div className="education-container">
                 <SectionHeader
                     align="center"
+                    kicker="/education — 03"
                     title={t('education.title')}
                     titleHighlight={t('education.titleHighlight')}
                     subtitle={t('education.subtitle')}
