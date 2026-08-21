@@ -18,6 +18,7 @@ const Navbar = ({ theme, toggleTheme }) => {
 
     const sectionIds = NAV_LINKS.map(link => link.id);
     const activeSection = useActiveSection(sectionIds);
+    const [hoveredId, setHoveredId] = useState(null);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
@@ -61,22 +62,27 @@ const Navbar = ({ theme, toggleTheme }) => {
                     )}
                 </AnimatePresence>
 
-                <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
-                    {NAV_LINKS.map(({ id, key }, index) => (
+                <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`} onMouseLeave={() => setHoveredId(null)}>
+                    {NAV_LINKS.map(({ id, key }, index) => {
+                        const isActive = activeSection === id;
+                        const isHovered = hoveredId === id;
+                        const showIndicator = hoveredId ? isHovered : isActive;
+                        return (
                         <motion.li
                             key={id}
                             className="navbar-item"
                             initial={{opacity: 0, y: -20}}
                             animate={ready ? {opacity: 1, y: 0} : {}}
                             transition={{duration: 0.5, ease: EASE, delay: 0.1 + index * 0.08}}
+                            onMouseEnter={() => setHoveredId(id)}
                         >
                             <a
                                 href={`#${id}`}
-                                className={`navbar-link ${activeSection === id ? 'active' : ''}`}
+                                className={`navbar-link ${isActive ? 'active' : ''}`}
                                 onClick={closeMenu}
                             >
                                 {t(key)}
-                                {activeSection === id && (
+                                {showIndicator && (
                                     <motion.span
                                         className="navbar-indicator"
                                         layoutId="nav-indicator"
@@ -85,7 +91,8 @@ const Navbar = ({ theme, toggleTheme }) => {
                                 )}
                             </a>
                         </motion.li>
-                    ))}
+                        );
+                    })}
 
                     <li className="mobile-actions">
                         <button onClick={toggleLanguage} className="lang-button">

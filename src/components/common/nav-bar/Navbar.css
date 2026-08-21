@@ -123,29 +123,25 @@
     background: transparent;
     border: 1px solid var(--line);
     color: var(--ink-soft);
-    padding: 0;
-    width: 36px;
+    padding: 0 0.75rem;
     height: 36px;
     border-radius: var(--radius-sm);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0;
+    gap: 0.4rem;
     cursor: pointer;
     transition: border-color 0.18s ease, background 0.18s ease;
     font-family: var(--mono);
     font-weight: 400;
     font-size: 0.72rem;
     letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .lang-button span {
     position: relative;
     z-index: 1;
-}
-
-.lang-button.desktop-only .lang-text {
-    display: none;
 }
 
 .lang-button svg {
@@ -160,7 +156,7 @@
 
 .lang-button:hover svg {
     color: var(--ink-soft);
-    transform: none;
+    transform: rotate(15deg);
 }
 
 .lang-button:active {
