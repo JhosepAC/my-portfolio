@@ -1,14 +1,15 @@
 .projects-section {
     width: 100%;
     min-height: 100vh;
-    padding: 8rem 2rem;
+    padding: 7rem 2.5rem;
     position: relative;
     overflow: hidden;
     background: var(--bg-primary);
+    border-top: 1px solid var(--line);
 }
 
 .projects-container {
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -24,31 +25,28 @@
 }
 
 .filter-btn {
-    padding: 0.5rem 1.25rem;
-    border-radius: 999px;
-    border: 2px solid var(--ink);
-    background: #f2f2f2;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--line-strong);
+    background: var(--bg-secondary);
     color: var(--ink-faint);
     cursor: pointer;
-    transition: all 0.15s ease;
-    font-size: 0.875rem;
-    font-family: inherit;
-    font-weight: 600;
-    box-shadow: 3px 3px 0 0 var(--ink);
+    transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+    font-size: 0.78rem;
+    font-family: var(--mono);
+    font-weight: 400;
+    letter-spacing: 0.02em;
 }
 
 .filter-btn:hover {
     border-color: var(--ink);
     color: var(--ink);
-    transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 0 var(--ink);
 }
 
 .filter-btn.active {
     background: var(--ink);
     border-color: var(--ink);
-    color: #f2f2f2;
-    box-shadow: 3px 3px 0 0 var(--ink);
+    color: #fff;
 }
 
 .filter-btn.active:hover {
@@ -85,11 +83,11 @@
     position: relative;
     transform: translateX(-50%);
     min-width: 160px;
-    background: #f2f2f2;
-    border: 2px solid var(--ink);
-    border-radius: 8px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
     padding: 0.4rem;
-    box-shadow: 4px 4px 0 0 var(--ink);
+    box-shadow: var(--shadow-soft);
     display: flex;
     flex-direction: column;
     gap: 2px;

@@ -1,10 +1,11 @@
 .skills-section {
     position: relative;
-    padding: 6rem 3rem;
+    padding: 7rem 2.5rem;
+    border-top: 1px solid var(--line);
 }
 
 .skills-container {
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
@@ -12,9 +13,11 @@
 
 .filters-container {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 3rem;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
     flex-wrap: wrap;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--line);
 }
 
 .skills-grid {
@@ -30,22 +33,23 @@
 }
 
 .skills-show-more-btn {
-    background: #f2f2f2;
-    border: 2px solid var(--ink);
-    color: var(--ink);
-    padding: 0.7rem 1.8rem;
-    border-radius: 999px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius-pill);
     cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: box-shadow 0.15s ease;
-    box-shadow: 4px 4px 0 0 var(--ink);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
 .skills-show-more-btn:hover {
     background: var(--ink);
-    color: #f2f2f2;
-    box-shadow: 6px 6px 0 0 var(--ink);
+    color: #fff;
+    border-color: var(--ink);
 }
 
 

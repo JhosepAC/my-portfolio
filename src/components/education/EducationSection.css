@@ -1,6 +1,6 @@
 .education-section {
     position: relative;
-    padding: 4rem 0 3rem;
+    padding: 6rem 0 4rem;
     background: var(--bg-primary);
     overflow: hidden;
 }
@@ -23,8 +23,8 @@
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background: var(--ink);
+    width: 1px;
+    background: var(--line-strong);
     transform: translateX(-50%);
 }
 

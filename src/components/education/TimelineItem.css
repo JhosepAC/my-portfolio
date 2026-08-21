@@ -49,7 +49,7 @@
     height: 20px;
     background: var(--ink);
     border-radius: 50%;
-    border: 3px solid #f2f2f2;
+    border: 2px solid var(--bg-secondary);
     transition: all 0.4s ease;
 }
 
@@ -80,23 +80,23 @@
 
 .timeline-card {
     position: relative;
-    background: #f2f2f2;
-    border: 2px solid var(--ink);
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
     border-radius: 12px;
-    box-shadow: 4px 4px 0 0 var(--ink);
+    box-shadow: var(--shadow-soft);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
 }
 
 .timeline-card:hover {
-    transform: translate(-4px, -4px);
+    transform: translateY(-2px);
     border-color: var(--ink);
-    box-shadow: 6px 6px 0 0 var(--ink);
+    box-shadow: var(--shadow-soft);
 }
 
 .timeline-item-important .timeline-card {
     background: var(--bg-secondary);
-    border: 3px solid var(--ink);
+    border: 1px solid var(--line-strong);
 }
 
 .timeline-item-important .dot-inner {
@@ -120,7 +120,7 @@
     align-items: center;
     justify-content: center;
     background: var(--bg-secondary);
-    border: 2px solid var(--ink);
+    border: 1px solid var(--line-strong);
     border-radius: 8px;
     color: var(--ink);
     transition: all 0.15s ease;
@@ -170,8 +170,8 @@
 }
 
 .status-ongoing {
-    background: #f2f2f2;
-    border: 2px solid var(--ink);
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
     color: var(--ink);
 }
 
@@ -193,8 +193,8 @@
 }
 
 .status-completed {
-    background: #f2f2f2;
-    border: 2px solid var(--ink);
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
     color: var(--ink);
 }
 
@@ -253,8 +253,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f2f2f2;
-    border: 2px solid var(--ink);
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
     border-radius: 6px;
     color: var(--ink);
     cursor: pointer;
@@ -276,7 +276,7 @@
     background: var(--ink);
     color: #f2f2f2;
     transform: translate(-1px, -1px);
-    box-shadow: 3px 3px 0 0 var(--ink);
+    box-shadow: 0 1px 2px rgba(20,20,20,0.04);
 }
 
 .card-expanded {
@@ -337,8 +337,8 @@
 
 .skill-tag {
     padding: 0.3rem 0.7rem;
-    background: #f2f2f2;
-    border: 2px solid var(--ink);
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
     border-radius: 6px;
     color: var(--ink);
     font-size: 0.85rem;
@@ -349,8 +349,8 @@
 .skill-tag:hover {
     background: var(--ink);
     color: #f2f2f2;
-    transform: translate(-2px, -2px);
-    box-shadow: 3px 3px 0 0 var(--ink);
+    transform: translateY(-1px);
+    box-shadow: 0 1px 2px rgba(20,20,20,0.04);
 }
 
 .certificate-wrapper {
@@ -363,8 +363,8 @@
     align-items: center;
     gap: 0.6rem;
     padding: 0.5rem 1rem;
-    background: #f2f2f2;
-    border: 2px solid var(--ink);
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-strong);
     border-radius: 8px;
     color: var(--ink);
     text-decoration: none;
@@ -373,13 +373,13 @@
     cursor: pointer;
     font-family: inherit;
     transition: box-shadow 0.15s ease;
-    box-shadow: 3px 3px 0 0 var(--ink);
+    box-shadow: 0 1px 2px rgba(20,20,20,0.04);
 }
 
 .certificate-button:hover {
     background: var(--ink);
     color: #f2f2f2;
-    box-shadow: 5px 5px 0 0 var(--ink);
+    box-shadow: var(--shadow-soft);
 }
 
 .certificate-preview {
@@ -390,15 +390,15 @@
     width: 160px;
     height: 210px;
     border-radius: 8px;
-    border: 2px solid var(--ink);
-    background: #f2f2f2;
+    border: 1px solid var(--line-strong);
+    background: var(--bg-secondary);
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
     pointer-events: none;
     z-index: 10;
-    box-shadow: 4px 4px 0 0 var(--ink);
+    box-shadow: var(--shadow-soft);
 }
 
 .certificate-wrapper:hover .certificate-preview {
