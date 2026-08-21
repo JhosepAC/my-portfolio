@@ -160,7 +160,8 @@ const Home = () => {
                     aria-label="Scroll down"
                     style={{opacity: indicatorOpacity}}
                 >
-                    <ChevronDown size={24} />
+                    <span>Scroll</span>
+                    <ChevronDown size={16} />
                 </motion.a>
             </section>
 
