@@ -39,14 +39,28 @@
     align-items: center;
 }
 
+.logo-svg,
 .logo-image {
     width: 45px;
     height: 45px;
     transition: transform 0.3s ease;
+    display: block;
 }
 
+.logo-svg:hover,
 .logo-image:hover {
     transform: scale(1.1) rotate(5deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-svg,
+    .logo-image {
+        transition: none;
+    }
+    .logo-svg:hover,
+    .logo-image:hover {
+        transform: none;
+    }
 }
 
 .navbar-menu {

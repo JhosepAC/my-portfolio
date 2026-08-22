@@ -5,10 +5,68 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useScroll } from '../../../hooks/useScroll';
 import { EASE } from '../../../utils/motionVariants';
 import { useAppReady } from '../../../context/AppReadyContext';
-import logo from '../../../assets/logo/logo-light.svg';
 import { NAV_LINKS } from "../../../utils/constants.js";
 import './Navbar.css';
 import { useActiveSection } from '../../../hooks/useActiveSection';
+
+const TerminalLogo = () => {
+    const [showUnderscore, setShowUnderscore] = useState(true);
+
+    useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        let flickerInterval = null;
+        let cycleInterval = null;
+
+        const startFlickerBurst = () => {
+            let elapsed = 0;
+            // Cada 0.5s alterna entre logo-light.svg (con _) y logo-light-effect.svg (sin _)
+            flickerInterval = setInterval(() => {
+                setShowUnderscore((prev) => !prev);
+                elapsed += 500;
+                if (elapsed >= 3000) {
+                    clearInterval(flickerInterval);
+                    flickerInterval = null;
+                    // Al terminar la ráfaga vuelve a estado estable logo-light.svg
+                    setShowUnderscore(true);
+                }
+            }, 500);
+        };
+
+        // Cada 8s dispara ráfaga de 3s con cambios cada 0.5s (6 alternancias)
+        cycleInterval = setInterval(startFlickerBurst, 8000);
+
+        return () => {
+            clearInterval(cycleInterval);
+            if (flickerInterval) clearInterval(flickerInterval);
+        };
+    }, []);
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            className="logo-svg"
+            aria-hidden="true"
+            focusable="false"
+            width="45"
+            height="45"
+        >
+            <g fill="none" stroke="#1e1e1e" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12">
+                {/* Mismo path que logo-light.svg y logo-light-effect.svg */}
+                <path d="M 8 18 L 48 50 L 8 82" />
+                {/* Underscore terminal: solo en logo-light.svg — ráfaga 500ms x 3s cada 8s */}
+                <motion.path
+                    d="M 58 82 L 92 82"
+                    initial={false}
+                    animate={{ opacity: showUnderscore ? 1 : 0 }}
+                    transition={{ duration: 0.2, ease: EASE }}
+                    style={{ visibility: showUnderscore ? 'visible' : 'hidden' }}
+                />
+            </g>
+        </svg>
+    );
+};
 
 const Navbar = ({ theme, toggleTheme }) => {
     const scrolled = useScroll(20);
@@ -45,8 +103,10 @@ const Navbar = ({ theme, toggleTheme }) => {
                     initial={{opacity: 0, x: -30}}
                     animate={ready ? {opacity: 1, x: 0} : {}}
                     transition={{duration: 0.6, ease: EASE}}
+                    aria-label="Jhosep Logo"
+                    role="img"
                 >
-                    <img src={logo} alt="Jhosep Logo" className="logo-image" />
+                    <TerminalLogo />
                 </motion.div>
 
                 <AnimatePresence>
