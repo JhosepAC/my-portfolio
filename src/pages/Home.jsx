@@ -1,12 +1,10 @@
 import {useEffect, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import {motion, useScroll, useTransform, useSpring, useReducedMotion} from 'motion/react';
-import {Rocket, ChevronDown} from 'lucide-react';
-import {SOCIAL_LINKS} from '../utils/constants';
+import {Rocket, ChevronDown, Mail} from 'lucide-react';
 import {EASE} from '../utils/motionVariants';
 import {useAppReady} from '../context/AppReadyContext';
 import Terminal from '../components/common/Terminal';
-import SocialButton from '../components/common/social-btn/SocialButton';
 import DownloadButton from '../components/common/download-btn/DownloadButton';
 import MagneticButton from '../components/common/motion/MagneticButton';
 import SkillsSection from "../components/skills/SkillsSection.jsx";
@@ -119,26 +117,24 @@ const Home = () => {
                         animate={ready ? {opacity: 1, y: 0} : {}}
                         transition={{duration: 0.6, ease: EASE, delay: 0.6}}
                     >
-                        <MagneticButton>
-                            <a href="#projects" className="btn-primary">
-                                <Rocket size={18} className="btn-primary-icon" />
-                                {t('nav.projects')}
-                            </a>
-                        </MagneticButton>
-
-                        <div className="hero-actions-secondary">
+                        <div className="hero-actions-primary">
                             <MagneticButton>
-                                <DownloadButton label="CV"/>
+                                <a href="#contact" className="btn-primary">
+                                    <Mail size={18} className="btn-primary-icon" />
+                                    {t('nav.contact-me')}
+                                </a>
                             </MagneticButton>
 
-                            {SOCIAL_LINKS.filter(link => ['github', 'linkedin'].includes(link.id)).map((link) => (
-                                <MagneticButton key={link.id}>
-                                    <SocialButton
-                                        icon={link.id}
-                                        url={link.url}
-                                        ariaLabel={link.name}
-                                    />
-                                </MagneticButton>))}
+                            <MagneticButton>
+                                <a href="#projects" className="btn-secondary">
+                                    <Rocket size={18} className="btn-secondary-icon" />
+                                    {i18n.language.startsWith('es') ? 'Ver proyectos' : 'View projects'}
+                                </a>
+                            </MagneticButton>
+
+                            <MagneticButton>
+                                <DownloadButton label="CV" variant="secondary" />
+                            </MagneticButton>
                         </div>
                     </motion.div>
                 </motion.div>
