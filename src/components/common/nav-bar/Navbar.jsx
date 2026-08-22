@@ -17,10 +17,12 @@ const TerminalLogo = () => {
 
         let flickerInterval = null;
         let cycleInterval = null;
+        let firstTimeout = null;
 
         const startFlickerBurst = () => {
             let elapsed = 0;
             // Cada 0.5s alterna entre logo-light.svg (con _) y logo-light-effect.svg (sin _)
+            if (flickerInterval) clearInterval(flickerInterval);
             flickerInterval = setInterval(() => {
                 setShowUnderscore((prev) => !prev);
                 elapsed += 500;
@@ -33,10 +35,14 @@ const TerminalLogo = () => {
             }, 500);
         };
 
-        // Cada 8s dispara ráfaga de 3s con cambios cada 0.5s (6 alternancias)
-        cycleInterval = setInterval(startFlickerBurst, 8000);
+        // Primera ráfaga visible pronto (1.8s) para que el efecto se perciba, luego cada 8s
+        firstTimeout = setTimeout(() => {
+            startFlickerBurst();
+            cycleInterval = setInterval(startFlickerBurst, 8000);
+        }, 1800);
 
         return () => {
+            clearTimeout(firstTimeout);
             clearInterval(cycleInterval);
             if (flickerInterval) clearInterval(flickerInterval);
         };
@@ -61,7 +67,6 @@ const TerminalLogo = () => {
                     initial={false}
                     animate={{ opacity: showUnderscore ? 1 : 0 }}
                     transition={{ duration: 0.2, ease: EASE }}
-                    style={{ visibility: showUnderscore ? 'visible' : 'hidden' }}
                 />
             </g>
         </svg>
