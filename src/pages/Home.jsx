@@ -161,7 +161,7 @@ const Home = () => {
                     style={{opacity: indicatorOpacity}}
                 >
                     <span>Scroll</span>
-                    <ChevronDown size={16} />
+                    <ChevronDown size={16} className="scroll-indicator-icon" aria-hidden="true" />
                 </motion.a>
             </section>
 
