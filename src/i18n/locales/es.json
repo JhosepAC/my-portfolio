@@ -22,11 +22,11 @@
     "filters": {
       "all": "Todos",
       "languages": "Lenguajes",
-      "databases": "Base de Datos",
       "frameworks": "Frameworks",
+      "databases": "Base de datos",
       "tools": "Herramientas",
       "others": "Otros",
-      "softskills": "Habilidades Blandas"
+      "softskills": "Habilidades blandas"
     },
     "softskillsList": {
       "communication": "Comunicación",
