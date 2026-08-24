@@ -18,8 +18,8 @@ const SkillsSection = () => {
     const filters = useMemo(() => [
         {id: 'all', label: t('skills.filters.all')},
         {id: 'languages', label: t('skills.filters.languages')},
-        {id: 'databases', label: t('skills.filters.databases')},
         {id: 'frameworks', label: t('skills.filters.frameworks')},
+        {id: 'databases', label: t('skills.filters.databases')},
         {id: 'tools', label: t('skills.filters.tools')},
         {id: 'others', label: t('skills.filters.others')},
         {id: 'softskills', label: t('skills.filters.softskills')},
@@ -32,10 +32,13 @@ const SkillsSection = () => {
         })) || [];
 
         const allData = {...SKILLS_DATA, softskills};
-        const allSkills = Object.values(allData).flat();
+
+        // En "todos" excluir 'others' y 'softskills' y ordenar: frameworks → lenguajes → base de datos → herramientas
+        const orderedKeys = ['frameworks', 'languages', 'databases', 'tools'];
+        const allSkillsForAll = orderedKeys.flatMap((key) => allData[key] || []);
 
         const currentSet = activeFilter === 'all'
-            ? allSkills
+            ? allSkillsForAll
             : allData[activeFilter] || [];
 
         return (activeFilter === 'all' && !showAll)
@@ -76,8 +79,8 @@ const SkillsSection = () => {
                     ))}
                 </motion.nav>
 
-                <div className="skills-grid">
-                    <AnimatePresence mode="popLayout" initial={false}>
+                <motion.div layout className="skills-grid" transition={{type: 'spring', stiffness: 220, damping: 30}}>
+                    <AnimatePresence mode="popLayout">
                         {filteredSkills.map((skill, index) => (
                             <SkillCard
                                 key={skill.id || skill.name}
@@ -86,7 +89,7 @@ const SkillsSection = () => {
                             />
                         ))}
                     </AnimatePresence>
-                </div>
+                </motion.div>
 
                 {activeFilter === 'all' && filteredSkills.length >= INITIAL_VISIBLE && (
                     <motion.div

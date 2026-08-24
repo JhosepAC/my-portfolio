@@ -43,8 +43,8 @@ export const SOCIAL_LINKS = [{
 
 export const SKILLS_DATA = {
     languages: [{name: 'JavaScript', icon: 'javascript'}, {
-        name: 'Python', icon: 'python'
-    }, {name: 'Flutter', icon: 'flutter'}, {
+        name: 'TypeScript', icon: 'typescript'
+    }, {name: 'Python', icon: 'python'}, {name: 'Flutter', icon: 'flutter'}, {
         name: 'C#', icon: 'csharp'
     }, {name: 'HTML5', icon: 'html'}, {
         name: 'CSS3', icon: 'css'
@@ -54,16 +54,16 @@ export const SKILLS_DATA = {
     }, {name: 'SQL Server', icon: 'sqlserver'}, {
         name: 'MongoDB', icon: 'mongodb'
     },],
-    frameworks: [{name: 'Vue', icon: 'vue'}, {
+    frameworks: [{name: 'Next.js', icon: 'nextjs'}, {
         name: 'React', icon: 'react'
-    }, {name: 'Tailwind', icon: 'headlessui'}],
+    }, {name: 'Vue', icon: 'vue'}, {name: 'Node.js', icon: 'nodejs'}, {name: 'Tailwind', icon: 'headlessui'}],
     tools: [{name: 'GitHub', icon: 'github'}, {
         name: 'Git', icon: 'git'
     }, {name: 'Linux', icon: 'linux'}, {
         name: 'Azure', icon: 'azure'
     }, {name: 'Android Studio', icon: 'androidstudio'}, {
         name: 'Figma', icon: 'figma'
-    },],
+    }, {name: 'Supabase', icon: 'supabase'}, {name: 'Firebase', icon: 'firebase'},],
     others: [{
         name: 'Scrum', icon: 'simple-icons:scrumalliance', iconType: 'iconify'
     }, {

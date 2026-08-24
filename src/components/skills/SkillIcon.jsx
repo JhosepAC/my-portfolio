@@ -4,6 +4,7 @@ import {Icon} from '@iconify/react';
 const ICONIFY_MAP = {
     css: 'devicon:css3',
     javascript: 'devicon:javascript',
+    typescript: 'devicon:typescript',
     flutter: 'devicon:flutter',
     python: 'devicon:python',
     csharp: 'devicon:csharp',
@@ -13,6 +14,8 @@ const ICONIFY_MAP = {
     sqlserver: 'devicon:microsoftsqlserver',
     azure: 'devicon:azure',
     vue: 'devicon:vuejs',
+    nextjs: 'devicon:nextjs',
+    nodejs: 'devicon:nodejs',
     github: 'devicon:github',
     figma: 'devicon:figma',
     headlessui: 'devicon:tailwindcss',
@@ -21,7 +24,9 @@ const ICONIFY_MAP = {
     androidstudio: 'devicon:androidstudio',
     react: 'devicon:react',
     html: 'devicon:html5',
-    git: 'devicon:git'
+    git: 'devicon:git',
+    supabase: 'devicon:supabase',
+    firebase: 'devicon:firebase'
 };
 
 const SkillIcon = ({name, iconType}) => {
