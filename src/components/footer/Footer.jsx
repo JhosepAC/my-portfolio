@@ -12,18 +12,22 @@ import logo from '../../assets/logo/logo-light.svg';
 import './Footer.css';
 
 const Footer = () => {
-    const {t} = useTranslation();
+    const {t, i18n} = useTranslation();
     const currentYear = new Date().getFullYear();
 
     const handleDownloadCV = (e) => {
         e.preventDefault();
-        downloadFile(ASSETS.CV_PATH, ASSETS.CV_NAME);
+        const isEs = i18n.language?.startsWith('es');
+        const path = isEs ? ASSETS.CV_PATH_ES : ASSETS.CV_PATH_EN;
+        const name = isEs ? ASSETS.CV_NAME_ES : ASSETS.CV_NAME_EN;
+        downloadFile(path, name);
     };
 
+    const cvSuffix = i18n.language?.startsWith('es') ? 'es' : 'en';
     const quickLinks = [
         {
             id: 'resume',
-            label: t('footer.resume'),
+            label: `CV^${cvSuffix}`,
             onClick: handleDownloadCV,
             href: '#'
         },

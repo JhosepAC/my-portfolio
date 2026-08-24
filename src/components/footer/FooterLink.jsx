@@ -33,7 +33,7 @@ const FooterLink = ({href, label, onClick}) => {
                     <path d="M9 18l6-6-6-6"/>
                 </svg>
             </span>
-            <span className="footer-link-text">{label}</span>
+            <span className="footer-link-text">{label?.includes('^') ? (() => { const [main, sup] = label.split('^'); return <>{main}<sup style={{fontSize:'0.6em', verticalAlign:'super', marginLeft:'1px'}}>{sup}</sup></>; })() : label}</span>
             {isHovered && <span className="footer-link-underline"></span>}
         </a>);
 };

@@ -1,9 +1,21 @@
-import cvFile from '../assets/docs/JHOSEP_JAMIL-ARGOMEDO_CAMACHO-CV.pdf';
+import cvEn from '../assets/docs/CV-JHOSEP_ARGOMEDO-EN.pdf';
+import cvEs from '../assets/docs/CV-JHOSEP_ARGOMEDO-ES.pdf';
 import certificateSDLC from '../assets/docs/CERT-CICLO_DE_VIDA_DEL_DESARROLLO_DE_SOFTWARE_SEGURO.pdf';
 import certificateSCRUM from '../assets/docs/CERT-SCRUM_FUNDAMENTALS.pdf';
 
 export const ASSETS = {
-    CV_PATH: cvFile, CV_NAME: 'JHOSEP_ARGOMEDO-CV.pdf'
+    CV_PATH_ES: cvEs, CV_NAME_ES: 'JHOSEP_ARGOMEDO-CV-ES.pdf',
+    CV_PATH_EN: cvEn, CV_NAME_EN: 'JHOSEP_ARGOMEDO-CV-EN.pdf',
+    // backward compat (defaults to EN)
+    CV_PATH: cvEn, CV_NAME: 'JHOSEP_ARGOMEDO-CV-EN.pdf'
+};
+
+export const getLocalizedCv = (lang) => {
+    const isEs = lang?.startsWith('es');
+    return {
+        path: isEs ? cvEs : cvEn,
+        name: isEs ? 'JHOSEP_ARGOMEDO-CV-ES.pdf' : 'JHOSEP_ARGOMEDO-CV-EN.pdf',
+    };
 };
 
 export const NAV_LINKS = [{id: 'home', key: 'nav.home', href: '#home'}, {
