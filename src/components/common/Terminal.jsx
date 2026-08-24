@@ -6,6 +6,22 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const PROMPT = 'visitor@portfolio:~$';
 
+const PROMPT_HTML = '<span class="term-user">visitor</span><span class="term-at">@</span><span class="term-host">portfolio</span>:<span class="term-path">~</span>$';
+
+const escapeHtml = (str) =>
+    str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+
+const formatOutput = (text) => {
+    if (!text) return '';
+    let html = escapeHtml(text);
+    html = html.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="term-url">$1</a>');
+    return html;
+};
+
 const HARD_CODED = {
     whoami: 'Jhosep Argomedo',
     age: '14/02/2006',
@@ -20,6 +36,12 @@ const HARD_CODED = {
     ].join('\n'),
 };
 
+const COMMAND_LIST = [
+    'whoami', 'status', 'about', 'age', 'pwd', 'ls', 'skills', 'projects',
+    'education', 'experience', 'contact', 'social', 'repo', 'version',
+    'uptime', 'uname', 'banner', 'sudo', 'date', 'echo', 'help', 'clear', 'cls', 'exit', 'history',
+];
+
 const Terminal = () => {
     const bodyRef = useRef(null);
     const cmdHistory = useRef([]);
@@ -28,9 +50,24 @@ const Terminal = () => {
     const startTime = useRef(0);
     const { t } = useTranslation();
 
-    const scrollToBottom = () => {
+    const isReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const scrollToBottom = (smooth = false) => {
         const body = bodyRef.current;
-        if (body) body.scrollTop = body.scrollHeight;
+        if (!body) return;
+        if (smooth && !isReducedMotion()) {
+            body.scrollTo({ top: body.scrollHeight, behavior: 'smooth' });
+        } else {
+            body.scrollTop = body.scrollHeight;
+        }
+    };
+
+    // desplazamiento ligero mientras escribe — solo si está cerca del fondo
+    const nudgeScroll = () => {
+        const body = bodyRef.current;
+        if (!body) return;
+        const nearBottom = body.scrollHeight - body.scrollTop - body.clientHeight < 40;
+        if (nearBottom) scrollToBottom(true);
     };
 
     const getCommandOutput = (baseCmd, args) => {
@@ -44,6 +81,11 @@ const Terminal = () => {
 
         if (baseCmd === 'echo') {
             return args || '';
+        }
+
+        if (baseCmd === 'history') {
+            if (cmdHistory.current.length === 0) return 'No hay historial aún.';
+            return cmdHistory.current.map((c, i) => `${String(i + 1).padStart(2, ' ')}  ${c}`).join('\n');
         }
 
         if (baseCmd === 'uptime') {
@@ -92,21 +134,34 @@ const Terminal = () => {
         const body = bodyRef.current;
         if (!body) return;
 
+        // Delegación para enlaces: abre en otra pestaña aunque el estilo sea minimalista
+        const handleLinkClick = (e) => {
+            const anchor = e.target.closest('a.term-url');
+            if (anchor) {
+                e.preventDefault();
+                window.open(anchor.href, '_blank', 'noopener,noreferrer');
+            }
+        };
+        body.addEventListener('click', handleLinkClick);
+
         const runBoot = async () => {
             const loadingDiv = document.createElement('div');
-            loadingDiv.style.color = '#9a9a9a';
+            loadingDiv.style.color = '#7a8a88';
             body.appendChild(loadingDiv);
 
             const connectMsg = t('terminal.loading.connecting');
-            loadingDiv.innerHTML = `${connectMsg} <span style="color: #f2f2f2;">https://jhosep-ac.pages.dev/</span>...<br>`;
+            loadingDiv.innerHTML = `${connectMsg} <a href="https://jhosep-ac.pages.dev/" target="_blank" rel="noopener noreferrer" class="term-url">https://jhosep-ac.pages.dev/</a>...<br>`;
+            scrollToBottom();
             await delay(600);
-            loadingDiv.innerHTML += `${t('terminal.loading.tunnel')}<br>`;
+            loadingDiv.innerHTML += `<span class="term-muted">${t('terminal.loading.tunnel')}</span><br>`;
+            scrollToBottom(true);
             await delay(600);
-            loadingDiv.innerHTML += `${t('terminal.loading.installing')}<br><br>`;
+            loadingDiv.innerHTML += `<span class="term-muted">${t('terminal.loading.installing')}</span><br><br>`;
+            scrollToBottom(true);
             await delay(400);
 
             const progressContainer = document.createElement('div');
-            progressContainer.style.color = '#f2f2f2';
+            progressContainer.style.color = '#d6c7a8';
             loadingDiv.appendChild(progressContainer);
 
             const stages = [
@@ -118,32 +173,35 @@ const Terminal = () => {
 
             for (const stage of stages) {
                 progressContainer.textContent = stage.bar;
+                nudgeScroll();
                 await delay(stage.time);
             }
 
             const successMsg = document.createElement('div');
-            successMsg.style.color = '#f2f2f2';
+            successMsg.className = 'terminal-success';
             successMsg.style.marginTop = '10px';
             successMsg.textContent = t('terminal.success');
             loadingDiv.appendChild(successMsg);
+            scrollToBottom(true);
 
             await delay(900);
             body.innerHTML = '';
 
             const header = document.createElement('div');
-            header.style.color = '#9a9a9a';
+            header.style.color = '#7a8a88';
             header.style.marginBottom = '20px';
             header.style.fontSize = '13px';
             header.innerHTML = [
-                t('terminal.header.shell'),
-                `${t('terminal.header.env')} <span style="color: #f2f2f2;">https://jhosep-ac.pages.dev/</span>`,
-                t('terminal.header.tagline'),
+                `<span class="term-accent">${t('terminal.header.shell')}</span>`,
+                `${t('terminal.header.env')} <a href="https://jhosep-ac.pages.dev/" target="_blank" rel="noopener noreferrer" class="term-url">https://jhosep-ac.pages.dev/</a>`,
+                `<span class="term-muted">${t('terminal.header.tagline')}</span>`,
                 '',
-                t('terminal.header.starting'),
+                `<span class="term-muted">${t('terminal.header.starting')}</span>`,
             ].join('<br>');
             body.appendChild(header);
 
             const historyContainer = document.createElement('div');
+            historyContainer.id = 'terminal-history';
             historyContainer.style.display = 'flex';
             historyContainer.style.flexDirection = 'column';
             body.appendChild(historyContainer);
@@ -152,13 +210,13 @@ const Terminal = () => {
             await typeCommand('status', historyContainer);
 
             const hint = document.createElement('div');
-            hint.style.color = '#9a9a9a';
+            hint.style.color = '#7a8a88';
             hint.style.fontSize = '13px';
             hint.style.marginBottom = '14px';
             hint.style.marginTop = '6px';
-            hint.innerHTML = `Type <span style="color: #f2f2f2; font-weight: 600;">help</span> to see all available commands`;
+            hint.innerHTML = `Type <span class="term-key">help</span> to see all available commands — <span class="term-muted">Tab</span> autocompleta, <span class="term-muted">↑/↓</span> historial`;
             historyContainer.appendChild(hint);
-            scrollToBottom();
+            scrollToBottom(true);
             await delay(600);
 
             const activeRow = document.createElement('div');
@@ -167,50 +225,97 @@ const Terminal = () => {
             activeRow.style.alignItems = 'center';
             activeRow.style.marginTop = '12px';
             activeRow.innerHTML = `
-                <span class="terminal-prompt">${PROMPT}</span>
-                <input type="text" id="terminal-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+                <span class="terminal-prompt">${PROMPT_HTML}</span>
+                <input type="text" id="terminal-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input"/>
             `;
             body.appendChild(activeRow);
-            scrollToBottom();
+            scrollToBottom(true);
 
             const terminalInput = document.getElementById('terminal-input');
-            terminalInput?.focus({preventScroll: true});
+            terminalInput?.focus({ preventScroll: true });
+
+            // Desplazamiento ligero al escribir: cada input nudge suave
+            const handleInput = () => nudgeScroll();
+            terminalInput?.addEventListener('input', handleInput);
 
             const handleKeyDown = (e) => {
+                // Ctrl+L / Cmd+L → clear
+                if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'l') {
+                    e.preventDefault();
+                    historyContainer.innerHTML = '';
+                    scrollToBottom();
+                    return;
+                }
+                // Ctrl+C / Esc → cancela línea actual
+                if ((e.ctrlKey && e.key.toLowerCase() === 'c') || e.key === 'Escape') {
+                    terminalInput.value = '';
+                    historyIndex.current = cmdHistory.current.length;
+                    e.preventDefault();
+                    return;
+                }
+                // Tab → autocompletar
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+                    const current = terminalInput.value.trim().toLowerCase();
+                    if (!current) return;
+                    const matches = COMMAND_LIST.filter((c) => c.startsWith(current));
+                    if (matches.length === 1) {
+                        terminalInput.value = matches[0] + ' ';
+                    } else if (matches.length > 1) {
+                        const line = document.createElement('div');
+                        line.className = 'terminal-line';
+                        line.style.marginBottom = '10px';
+                        const out = document.createElement('div');
+                        out.className = 'terminal-output';
+                        out.innerHTML = `<span class="term-muted">${matches.join('  ')}</span>`;
+                        line.appendChild(out);
+                        historyContainer.appendChild(line);
+                        scrollToBottom(true);
+                    }
+                    return;
+                }
+
                 if (e.key === 'Enter') {
                     const rawInput = terminalInput.value;
                     const cleanInput = rawInput.trim();
 
                     if (cleanInput !== '') {
+                        if (cmdHistory.current.length >= 80) cmdHistory.current.shift();
                         cmdHistory.current.push(rawInput);
                         historyIndex.current = cmdHistory.current.length;
                         executeCommand(cleanInput, rawInput, historyContainer);
                     } else {
                         const line = document.createElement('div');
+                        line.className = 'terminal-line';
                         line.style.marginBottom = '14px';
                         const emptyRow = document.createElement('div');
                         emptyRow.style.display = 'flex';
                         emptyRow.style.alignItems = 'center';
                         const pSpan = document.createElement('span');
                         pSpan.className = 'terminal-prompt';
-                        pSpan.textContent = PROMPT;
+                        pSpan.innerHTML = PROMPT_HTML;
                         emptyRow.appendChild(pSpan);
                         line.appendChild(emptyRow);
                         historyContainer.appendChild(line);
                     }
 
                     terminalInput.value = '';
-                    scrollToBottom();
+                    scrollToBottom(true);
                 } else if (e.key === 'ArrowUp') {
-                    if (cmdHistory.current.length > 0 && historyIndex.current > 0) {
-                        historyIndex.current--;
-                        terminalInput.value = cmdHistory.current[historyIndex.current];
-                        setTimeout(() => {
-                            terminalInput.selectionStart = terminalInput.selectionEnd = terminalInput.value.length;
-                        }, 0);
-                    }
                     e.preventDefault();
+                    if (cmdHistory.current.length === 0) return;
+                    if (historyIndex.current === -1) {
+                        historyIndex.current = cmdHistory.current.length - 1;
+                    } else if (historyIndex.current > 0) {
+                        historyIndex.current--;
+                    }
+                    terminalInput.value = cmdHistory.current[historyIndex.current] ?? '';
+                    requestAnimationFrame(() => {
+                        terminalInput.selectionStart = terminalInput.selectionEnd = terminalInput.value.length;
+                    });
                 } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (historyIndex.current === -1) return;
                     if (historyIndex.current < cmdHistory.current.length - 1) {
                         historyIndex.current++;
                         terminalInput.value = cmdHistory.current[historyIndex.current];
@@ -218,7 +323,6 @@ const Terminal = () => {
                         historyIndex.current = cmdHistory.current.length;
                         terminalInput.value = '';
                     }
-                    e.preventDefault();
                 }
             };
 
@@ -227,6 +331,7 @@ const Terminal = () => {
 
         const typeCommand = async (cmd, container) => {
             const line = document.createElement('div');
+            line.className = 'terminal-line';
             line.style.marginBottom = '14px';
 
             const row = document.createElement('div');
@@ -235,11 +340,10 @@ const Terminal = () => {
 
             const promptSpan = document.createElement('span');
             promptSpan.className = 'terminal-prompt';
-            promptSpan.textContent = PROMPT;
+            promptSpan.innerHTML = PROMPT_HTML;
 
             const cmdSpan = document.createElement('span');
-            cmdSpan.style.color = '#f2f2f2';
-            cmdSpan.style.fontWeight = '500';
+            cmdSpan.className = 'terminal-cmd';
 
             const cursor = document.createElement('span');
             cursor.className = 'terminal-cursor';
@@ -255,7 +359,7 @@ const Terminal = () => {
 
             for (const char of cmd) {
                 cmdSpan.textContent += char;
-                scrollToBottom();
+                nudgeScroll();
                 await delay(50 + Math.random() * 40);
             }
 
@@ -264,9 +368,9 @@ const Terminal = () => {
 
             const output = document.createElement('div');
             output.className = 'terminal-output';
-            output.textContent = getCommandOutput(cmd, '');
+            output.innerHTML = formatOutput(getCommandOutput(cmd, ''));
             line.appendChild(output);
-            scrollToBottom();
+            scrollToBottom(true);
             await delay(800);
         };
 
@@ -277,12 +381,14 @@ const Terminal = () => {
 
             if (baseCmd === 'cls' || baseCmd === 'clear') {
                 container.innerHTML = '';
+                scrollToBottom();
                 return;
             }
 
             const outputText = getCommandOutput(baseCmd, args);
 
             const line = document.createElement('div');
+            line.className = 'terminal-line';
             line.style.marginBottom = '14px';
 
             const promptRow = document.createElement('div');
@@ -291,11 +397,10 @@ const Terminal = () => {
 
             const pSpan = document.createElement('span');
             pSpan.className = 'terminal-prompt';
-            pSpan.textContent = PROMPT;
+            pSpan.innerHTML = PROMPT_HTML;
 
             const cmdSpan = document.createElement('span');
-            cmdSpan.style.color = '#f2f2f2';
-            cmdSpan.style.fontWeight = '500';
+            cmdSpan.className = 'terminal-cmd';
             cmdSpan.textContent = rawInput;
 
             promptRow.appendChild(pSpan);
@@ -305,7 +410,7 @@ const Terminal = () => {
             if (outputText !== null && outputText !== undefined) {
                 const outputDiv = document.createElement('div');
                 outputDiv.className = 'terminal-output';
-                outputDiv.textContent = outputText;
+                outputDiv.innerHTML = formatOutput(outputText);
                 line.appendChild(outputDiv);
 
                 if (baseCmd === 'exit') {
@@ -314,18 +419,25 @@ const Terminal = () => {
                 }
             } else {
                 const outputDiv = document.createElement('div');
-                outputDiv.className = 'terminal-output';
-                outputDiv.textContent = t('terminal.unknown', { cmd: baseCmd });
+                outputDiv.className = 'terminal-output terminal-error';
+                outputDiv.innerHTML = formatOutput(t('terminal.unknown', { cmd: baseCmd }));
                 line.appendChild(outputDiv);
             }
 
             container.appendChild(line);
+            scrollToBottom(true);
         };
 
         runBoot();
+
+        return () => {
+            body.removeEventListener('click', handleLinkClick);
+        };
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const handleContainerClick = () => {
+    const handleContainerClick = (e) => {
+        // No robar el click si es un enlace — debe abrir en otra pestaña
+        if (e.target.closest('a.term-url')) return;
         const input = document.getElementById('terminal-input');
         input?.focus();
     };
@@ -333,14 +445,14 @@ const Terminal = () => {
     return (
         <div className="terminal-container" onClick={handleContainerClick}>
             <div className="terminal-header">
-                <div className="window-buttons">
+                <div className="window-buttons" aria-hidden="true">
                     <span className="dot red"></span>
                     <span className="dot yellow"></span>
                     <span className="dot green"></span>
                 </div>
                 <span className="terminal-title">jhosep@portfolio:~</span>
             </div>
-            <div className="terminal-body" ref={bodyRef}></div>
+            <div className="terminal-body" ref={bodyRef} role="log" aria-live="polite" aria-label="Terminal"></div>
         </div>
     );
 };
