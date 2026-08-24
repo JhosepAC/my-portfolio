@@ -1,20 +1,21 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import SkillIcon from './SkillIcon';
-import { EASE } from '../../utils/motionVariants';
 import './SkillCard.css';
 
-const SkillCard = ({skill, index}) => (
+const SkillCard = ({skill}) => (
     <motion.div
         className="skill-card"
         data-icon={skill.icon}
         layout
-        initial={{opacity: 0, scale: 0.8}}
-        whileInView={{opacity: 1, scale: 1}}
-        exit={{opacity: 0, scale: 0.8}}
-        whileHover={{x: -4, y: -4}}
-        viewport={{once: true, amount: 0.3}}
-        transition={{duration: 0.35, ease: EASE, delay: index * 0.04}}
+        whileHover={{y: -2, scale: 1.015}}
+        whileTap={{scale: 0.992}}
+        transition={{
+            type: 'spring',
+            stiffness: 220,
+            damping: 30,
+            mass: 0.8
+        }}
     >
         <div className="skill-icon-wrapper">
             <SkillIcon
