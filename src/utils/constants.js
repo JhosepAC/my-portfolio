@@ -3,6 +3,7 @@ import cvEs from '../assets/docs/CV-JHOSEP_ARGOMEDO-ES.pdf';
 import certificateSDLC from '../assets/docs/CERT-CICLO_DE_VIDA_DEL_DESARROLLO_DE_SOFTWARE_SEGURO.pdf';
 import certificateSCRUM from '../assets/docs/CERT-SCRUM_FUNDAMENTALS.pdf';
 import upcLogo from '../assets/external_logos/upc-logo.png';
+import ubbLogo from '../assets/external_logos/ubb-logo.png';
 
 export const ASSETS = {
     CV_PATH_ES: cvEs, CV_NAME_ES: 'JHOSEP_ARGOMEDO-CV-ES.pdf',
@@ -103,6 +104,7 @@ export const EDUCATION_DATA = [{
     type: 'university',
     status: 'completed',
     iconType: 'university',
+    logo: ubbLogo,
     certificate: certificateSDLC
 }, {
     id: 'mongodb-udemy-2024',
