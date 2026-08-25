@@ -75,6 +75,7 @@ const ExperienceCard = ({item, index, isExpanded, onToggle}) => {
                     <button
                         className="experience-expand-btn"
                         aria-label={isExpanded ? 'Collapse' : 'Expand'}
+                        aria-expanded={isExpanded}
                         onClick={handleToggle}
                     >
                         {TIMELINE_ICONS.CHEVRON}
