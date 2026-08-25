@@ -131,6 +131,19 @@
     height: 18px;
 }
 
+.card-icon.has-logo {
+    background: #fff;
+    padding: 4px;
+    overflow: hidden;
+}
+
+.card-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
 .card-info {
     display: flex;
     flex-direction: column;

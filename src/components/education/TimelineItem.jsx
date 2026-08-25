@@ -12,7 +12,9 @@ const TimelineItem = ({item, index, isExpanded, onToggle}) => {
     const {t} = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const mainIcon = EDUCATION_ICONS[item.iconType.toUpperCase()] || EDUCATION_ICONS.COURSE;
+    const mainIcon = item.logo
+        ? <img src={item.logo} alt={item.institution} className="card-icon-img" loading="lazy" />
+        : (EDUCATION_ICONS[item.iconType.toUpperCase()] || EDUCATION_ICONS.COURSE);
 
     const toggleExpand = (e) => {
         e.stopPropagation();
@@ -35,7 +37,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle}) => {
 
         <div className="timeline-card">
             <div className="card-header">
-                <div className="card-icon">{mainIcon}</div>
+                <div className={`card-icon ${item.logo ? 'has-logo' : ''}`}>{mainIcon}</div>
 
                 <div className="card-info">
                     <div className="card-top">
