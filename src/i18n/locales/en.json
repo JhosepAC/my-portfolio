@@ -63,11 +63,11 @@
     "items": {
       "ecocrop": {
         "description": "Landing page that presents and communicates the features, goals, and benefits of EcoCrop as a digital solution for pest control and sustainable agriculture.",
-        "status": "COMPLETED"
+        "status": "IN PRODUCTION"
       },
       "skillshare": {
         "description": "Educational social networking application that connects students with similar academic interests, enabling study group creation, real-time collaboration, and resource sharing to enhance collaborative learning.",
-        "status": "COMPLETED"
+        "status": "IN PRODUCTION"
       },
       "livria": {
         "description": "Digital bookstore that allows users to purchase physical books, ebooks, and audiobooks, integrating a reader community where users can interact, chat, and share recommendations.",
@@ -75,11 +75,11 @@
       },
       "skillshare_landing": {
         "description": "SkillShare landing page, a digital platform for collaborative learning and academic networking. Built with HTML, CSS, and JavaScript, following web development best practices and version control standards.",
-        "status": "MAINTENANCE"
+        "status": "IN PRODUCTION"
       },
       "fym": {
         "description": "Web application for exploring a catalog of movies and TV series. Details, trailers, cast information, scenes, distributors, and much more.",
-        "status": "COMPLETED"
+        "status": "IN PRODUCTION"
       },
       "meetmesh": {
         "description": "Web application for creating and joining virtual meetings. With features for screen sharing, profile customization, and more.",
