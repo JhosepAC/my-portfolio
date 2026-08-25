@@ -15,7 +15,9 @@ const typeBadgeClass = {
 const ExperienceCard = ({item, index, isExpanded, onToggle}) => {
     const {t} = useTranslation();
 
-    const mainIcon = EXPERIENCE_ICONS[item.iconType.toUpperCase()] || EXPERIENCE_ICONS.WORK;
+    const mainIcon = item.logo
+        ? <img src={item.logo} alt={item.company} className="experience-icon-img" loading="lazy" />
+        : (EXPERIENCE_ICONS[item.iconType.toUpperCase()] || EXPERIENCE_ICONS.WORK);
 
     const handleToggle = useCallback((e) => {
         e.stopPropagation();
@@ -35,7 +37,7 @@ const ExperienceCard = ({item, index, isExpanded, onToggle}) => {
         >
             <div className="experience-card">
                 <div className="experience-card-header">
-                    <div className="experience-icon">
+                    <div className={`experience-icon ${item.logo ? 'has-logo' : ''}`}>
                         {mainIcon}
                     </div>
 
@@ -75,6 +77,7 @@ const ExperienceCard = ({item, index, isExpanded, onToggle}) => {
                     <button
                         className="experience-expand-btn"
                         aria-label={isExpanded ? 'Collapse' : 'Expand'}
+                        aria-expanded={isExpanded}
                         onClick={handleToggle}
                     >
                         {TIMELINE_ICONS.CHEVRON}
