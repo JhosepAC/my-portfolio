@@ -2,6 +2,9 @@ import cvEn from '../assets/docs/CV-JHOSEP_ARGOMEDO-EN.pdf';
 import cvEs from '../assets/docs/CV-JHOSEP_ARGOMEDO-ES.pdf';
 import certificateSDLC from '../assets/docs/CERT-CICLO_DE_VIDA_DEL_DESARROLLO_DE_SOFTWARE_SEGURO.pdf';
 import certificateSCRUM from '../assets/docs/CERT-SCRUM_FUNDAMENTALS.pdf';
+import upcLogo from '../assets/external_logos/upc-logo.png';
+import ubbLogo from '../assets/external_logos/ubb-logo.png';
+import ubbCertificatePreview from '../assets/docs/ubb-certificate-preview.jpg';
 
 export const ASSETS = {
     CV_PATH_ES: cvEs, CV_NAME_ES: 'JHOSEP_ARGOMEDO-CV-ES.pdf',
@@ -102,7 +105,9 @@ export const EDUCATION_DATA = [{
     type: 'university',
     status: 'completed',
     iconType: 'university',
-    certificate: certificateSDLC
+    logo: ubbLogo,
+    certificate: certificateSDLC,
+    certificateImage: ubbCertificatePreview
 }, {
     id: 'mongodb-udemy-2024',
     year: '2024',
@@ -141,6 +146,7 @@ export const EDUCATION_DATA = [{
     type: 'university',
     status: 'ongoing',
     iconType: 'university',
+    logo: upcLogo,
     endDate: 'Actualidad'
 }, {
     id: 'hacking-2022',

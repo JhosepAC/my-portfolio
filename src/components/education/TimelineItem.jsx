@@ -3,16 +3,22 @@ import {motion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {EDUCATION_ICONS, TIMELINE_ICONS} from '../../utils/Icons';
 import StatusBadge from './StatusBadge';
+import useIsMobile from '../../hooks/useIsMobile';
 import {EASE} from '../../utils/motionVariants';
 import './TimelineItem.css';
 
 const CertificateModal = lazy(() => import("./CertificateModal.jsx"));
+const CertificateImageViewer = lazy(() => import("./CertificateImageViewer.jsx"));
 
 const TimelineItem = ({item, index, isExpanded, onToggle}) => {
     const {t} = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isImageOpen, setIsImageOpen] = useState(false);
+    const isMobile = useIsMobile();
 
-    const mainIcon = EDUCATION_ICONS[item.iconType.toUpperCase()] || EDUCATION_ICONS.COURSE;
+    const mainIcon = item.logo
+        ? <img src={item.logo} alt={item.institution} className="card-icon-img" loading="lazy" />
+        : (EDUCATION_ICONS[item.iconType.toUpperCase()] || EDUCATION_ICONS.COURSE);
 
     const toggleExpand = (e) => {
         e.stopPropagation();
@@ -35,7 +41,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle}) => {
 
         <div className="timeline-card">
             <div className="card-header">
-                <div className="card-icon">{mainIcon}</div>
+                <div className={`card-icon ${item.logo ? 'has-logo' : ''}`}>{mainIcon}</div>
 
                 <div className="card-info">
                     <div className="card-top">
@@ -63,6 +69,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle}) => {
                 <button
                     className="expand-button"
                     aria-label={isExpanded ? 'Collapse' : 'Expand'}
+                    aria-expanded={isExpanded}
                     onClick={toggleExpand}
                 >
                     {TIMELINE_ICONS.CHEVRON}
@@ -87,23 +94,19 @@ const TimelineItem = ({item, index, isExpanded, onToggle}) => {
                                     type="button"
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        setIsModalOpen(true);
+                                        if (isMobile && item.certificateImage) {
+                                            setIsImageOpen(true);
+                                        } else {
+                                            setIsModalOpen(true);
+                                        }
                                     }}
                                     className="certificate-button"
-                                    whileHover={{x: -2, y: -2}}
-                                    whileTap={{scale: 0.95}}
+                                    whileHover={{ y: -1 }}
+                                    whileTap={{ scale: 0.97 }}
                                 >
                                     {TIMELINE_ICONS.CERT_FILE}
                                     <span>{t('education.viewCertificate')}</span>
                                 </motion.button>
-
-                                <div className="certificate-preview">
-                                    <iframe
-                                        src={`${item.certificate}#page=1&view=FitH&toolbar=0&navpanes=0`}
-                                        title={item.title}
-                                        loading="lazy"
-                                    />
-                                </div>
 
                                 <Suspense fallback={null}>
                                     <CertificateModal
@@ -112,6 +115,15 @@ const TimelineItem = ({item, index, isExpanded, onToggle}) => {
                                         certificateUrl={item.certificate}
                                         title={item.title || item.degree}
                                     />
+                                    {item.certificateImage && (
+                                        <CertificateImageViewer
+                                            isOpen={isImageOpen}
+                                            onClose={() => setIsImageOpen(false)}
+                                            imageSrc={item.certificateImage}
+                                            title={item.title || item.degree}
+                                            onOpenModal={() => setIsModalOpen(true)}
+                                        />
+                                    )}
                                 </Suspense>
                             </div>
                         )}

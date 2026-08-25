@@ -24,6 +24,7 @@ export default defineConfig({
           'vendor-router': ['react-router-dom'],
           'vendor-i18n': ['i18next', 'react-i18next', 'i18next-browser-languagedetector'],
           'vendor-motion': ['motion'],
+          'vendor-pdf': ['react-pdf', 'pdfjs-dist'],
         }
       }
     }
