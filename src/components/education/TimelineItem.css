@@ -158,6 +158,12 @@
     flex-wrap: wrap;
 }
 
+.card-top .status-badge {
+    margin: 0;
+    margin-bottom: 0 !important;
+    align-self: center;
+}
+
 .card-title {
     font-size: 0.98rem;
     font-weight: 700;

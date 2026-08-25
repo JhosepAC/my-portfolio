@@ -11,6 +11,9 @@
     line-height: 1;
     border: none;
     font-family: var(--mono);
+    margin: 0;
+    align-self: center;
+    vertical-align: middle;
 }
 
 .status-ongoing {
