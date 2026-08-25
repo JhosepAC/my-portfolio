@@ -63,6 +63,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle}) => {
                 <button
                     className="expand-button"
                     aria-label={isExpanded ? 'Collapse' : 'Expand'}
+                    aria-expanded={isExpanded}
                     onClick={toggleExpand}
                 >
                     {TIMELINE_ICONS.CHEVRON}
@@ -90,20 +91,12 @@ const TimelineItem = ({item, index, isExpanded, onToggle}) => {
                                         setIsModalOpen(true);
                                     }}
                                     className="certificate-button"
-                                    whileHover={{x: -2, y: -2}}
-                                    whileTap={{scale: 0.95}}
+                                    whileHover={{ y: -1 }}
+                                    whileTap={{ scale: 0.97 }}
                                 >
                                     {TIMELINE_ICONS.CERT_FILE}
                                     <span>{t('education.viewCertificate')}</span>
                                 </motion.button>
-
-                                <div className="certificate-preview">
-                                    <iframe
-                                        src={`${item.certificate}#page=1&view=FitH&toolbar=0&navpanes=0`}
-                                        title={item.title}
-                                        loading="lazy"
-                                    />
-                                </div>
 
                                 <Suspense fallback={null}>
                                     <CertificateModal
