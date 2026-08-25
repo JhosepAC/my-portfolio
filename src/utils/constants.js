@@ -2,6 +2,7 @@ import cvEn from '../assets/docs/CV-JHOSEP_ARGOMEDO-EN.pdf';
 import cvEs from '../assets/docs/CV-JHOSEP_ARGOMEDO-ES.pdf';
 import certificateSDLC from '../assets/docs/CERT-CICLO_DE_VIDA_DEL_DESARROLLO_DE_SOFTWARE_SEGURO.pdf';
 import certificateSCRUM from '../assets/docs/CERT-SCRUM_FUNDAMENTALS.pdf';
+import upcLogo from '../assets/external_logos/upc-logo.png';
 
 export const ASSETS = {
     CV_PATH_ES: cvEs, CV_NAME_ES: 'JHOSEP_ARGOMEDO-CV-ES.pdf',
@@ -141,6 +142,7 @@ export const EDUCATION_DATA = [{
     type: 'university',
     status: 'ongoing',
     iconType: 'university',
+    logo: upcLogo,
     endDate: 'Actualidad'
 }, {
     id: 'hacking-2022',
