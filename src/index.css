@@ -12,6 +12,7 @@
   --ink-soft: #3a3a3a;
   --ink-faint: #8a8a86;
   --line: #e8e8e6;
+  --line-soft: #f0f0ef;
   --line-strong: #d6d6d3;
   --text-primary: #141414;
   --text-secondary: #6b6b68;
@@ -20,7 +21,12 @@
   --border-color: #e8e8e6;
 
   --shadow-soft: 0 1px 2px rgba(20, 20, 20, 0.04), 0 8px 24px rgba(20, 20, 20, 0.06);
+  --shadow-card: 0 2px 10px rgba(20, 20, 20, 0.05);
   --shadow-hard: none;
+  --neo-shadow: 6px 6px 14px rgba(20, 20, 20, 0.06), -6px -6px 14px rgba(255, 255, 255, 0.9);
+  --neo-shadow-sm: 4px 4px 10px rgba(20, 20, 20, 0.05), -4px -4px 10px rgba(255, 255, 255, 0.9);
+  --neo-pressed: inset 4px 4px 8px rgba(20, 20, 20, 0.06), inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+  --brutal-offset: 1.5px 1.5px 0 rgba(20, 20, 20, 0.08);
 
   --radius-sm: 8px;
   --radius-md: 12px;

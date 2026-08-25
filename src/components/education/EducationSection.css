@@ -24,7 +24,8 @@
     top: 0;
     bottom: 0;
     width: 1px;
-    background: var(--line-strong);
+    background: linear-gradient(to bottom, transparent 0%, var(--line-strong) 12%, var(--line-strong) 88%, transparent 100%);
+    opacity: 0.55;
     transform: translateX(-50%);
 }
 
