@@ -98,6 +98,7 @@
     },
     "skills": "Skills",
     "viewCertificate": "View Certificate",
+    "openAsModal": "Open as modal",
     "items": {
       "ubiobio-2025": {
         "description": "Specialized program in the Secure Software Development Life Cycle (SSDLC), focused on integrating security practices from requirements analysis to deployment and maintenance, applying DevSecOps principles.",
