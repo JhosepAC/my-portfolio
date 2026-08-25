@@ -75,10 +75,62 @@
     flex: 1;
     background-color: #f2f2f2;
     position: relative;
+    overflow: hidden;
 }
 
 .modal-body iframe {
     border: none;
+    display: block;
+}
+
+/* ── PDF.js mobile viewer ── */
+.pdf-viewer-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: #f6f6f5;
+    padding: 12px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pdf-loading,
+.pdf-error,
+.pdf-page-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    font-family: var(--mono);
+}
+
+.pdf-error a {
+    color: var(--ink);
+    text-decoration: underline;
+    margin-left: 0.35rem;
+}
+
+.react-pdf__Document {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.pdf-page,
+.react-pdf__Page {
+    background: #fff;
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(20,20,20,0.08);
+    overflow: hidden;
+}
+
+.pdf-page canvas,
+.react-pdf__Page canvas {
+    width: 100% !important;
+    height: auto !important;
     display: block;
 }
 
@@ -89,6 +141,11 @@
 
     .modal-content {
         height: 100vh;
+        height: 100dvh;
         border-radius: 0;
+    }
+
+    .pdf-viewer-container {
+        padding: 8px;
     }
 }

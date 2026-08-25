@@ -1,10 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { X, Download, ExternalLink } from 'lucide-react';
+import useIsMobile from '../../hooks/useIsMobile';
 import './CertificateModal.css';
 
+const CertificatePdfViewer = lazy(() => import('./CertificatePdfViewer.jsx'));
+
 const CertificateModal = ({ isOpen, onClose, certificateUrl, title }) => {
+    const isMobile = useIsMobile();
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -61,13 +65,19 @@ const CertificateModal = ({ isOpen, onClose, certificateUrl, title }) => {
                             </div>
                         </div>
                         <div className="modal-body">
-                            <iframe
-                                src={`${certificateUrl}#toolbar=0&navpanes=0`}
-                                title={title}
-                                width="100%"
-                                height="100%"
-                                frameBorder="0"
-                            />
+                            {isMobile ? (
+                                <Suspense fallback={<div className="pdf-loading">Cargando PDF...</div>}>
+                                    <CertificatePdfViewer file={certificateUrl} />
+                                </Suspense>
+                            ) : (
+                                <iframe
+                                    src={`${certificateUrl}#toolbar=0&navpanes=0`}
+                                    title={title}
+                                    width="100%"
+                                    height="100%"
+                                    frameBorder="0"
+                                />
+                            )}
                         </div>
                     </motion.div>
                 </motion.div>
