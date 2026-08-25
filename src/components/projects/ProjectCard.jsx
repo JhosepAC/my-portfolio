@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { motion } from 'motion/react';
-import { useTranslation } from 'react-i18next';
 import ProjectStatus from './ProjectStatus';
 import TechStack from './TechStack';
 import ProjectActions from './ProjectActions';
@@ -8,12 +6,10 @@ import { EASE } from '../../utils/motionVariants';
 import './ProjectCard.css';
 
 const ProjectCard = ({ project, index }) => {
-    const { t } = useTranslation();
-    const [isExpanded, setIsExpanded] = useState(false);
 
     return (
         <motion.div
-            className={`project-card ${isExpanded ? 'expanded' : ''}`}
+            className="project-card"
             role="listitem"
             layout
             drag
@@ -36,7 +32,7 @@ const ProjectCard = ({ project, index }) => {
             <div className="card-body">
                 <h3 className="card-title">{project.title}</h3>
 
-                <p className={`card-description ${isExpanded ? 'expanded' : ''}`}>
+                <p className="card-description">
                     {project.description}
                 </p>
 
@@ -46,15 +42,6 @@ const ProjectCard = ({ project, index }) => {
 
                 <div className="card-footer">
                     <ProjectActions github={project.github} live={project.live} projectTitle={project.title} />
-                    <motion.button
-                        className="view-more-btn"
-                        onClick={() => setIsExpanded(prev => !prev)}
-                        aria-expanded={isExpanded}
-                        whileHover={{x: -2, y: -2}}
-                        whileTap={{scale: 0.95}}
-                    >
-                        {isExpanded ? t('projects.showLess') : t('projects.showMore')}
-                    </motion.button>
                 </div>
             </div>
         </motion.div>

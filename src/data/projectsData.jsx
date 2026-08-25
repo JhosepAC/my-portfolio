@@ -11,7 +11,7 @@ export const PROJECTS_DATA = [
 // {
 //     id: 1,
 //     category: 'web',
-//     statusKey: 'completed',
+//     statusKey: 'production',
 //     title: 'Green Sprout Innovations - EcoCrop',
 //     image: ecoCropImg,
 //     technologies: [
@@ -26,7 +26,7 @@ export const PROJECTS_DATA = [
 // {
 //     id: 2,
 //     category: 'mobile',
-//     statusKey: 'completed',
+//     statusKey: 'production',
 //     title: 'ThinkUp - SkillShare',
 //     image: skillShareImg,
 //     technologies: [
@@ -41,7 +41,7 @@ export const PROJECTS_DATA = [
 {
     id: 3,
     category: 'web',
-    statusKey: 'maintenance',
+    statusKey: 'in_development',
     title: 'SkillShare - Collaborative Learning Platform',
     image: skillshareLandingImg,
     technologies: [
@@ -58,7 +58,7 @@ export const PROJECTS_DATA = [
 {
     id:  4,
     category: 'web',
-    statusKey: 'completed',
+    statusKey: 'production',
     title: 'FyM - Find Your Movie',
     image: fymImg,
     technologies: [
