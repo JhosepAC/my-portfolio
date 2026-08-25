@@ -41,7 +41,7 @@ export const PROJECTS_DATA = [
 {
     id: 3,
     category: 'web',
-    statusKey: 'production',
+    statusKey: 'in_development',
     title: 'SkillShare - Collaborative Learning Platform',
     image: skillshareLandingImg,
     technologies: [

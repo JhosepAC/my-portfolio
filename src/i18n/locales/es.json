@@ -74,8 +74,8 @@
         "status": "EN DESARROLLO"
       },
       "skillshare_landing": {
-        "description": "Landing page de SkillShare, una plataforma digital de aprendizaje colaborativo y redes académicas. Desarrollada con HTML, CSS y JavaScript, siguiendo buenas prácticas de desarrollo web y estándares de control de versiones.",
-        "status": "EN PRODUCCIÓN"
+        "description": "Landing page de SkillShare, una plataforma digital de aprendizaje colaborativo y redes académicas.",
+        "status": "EN DESARROLLO"
       },
       "fym": {
         "description": "Aplicación web para explorar un catálogo de películas y series de televisión. Detalles, tráileres, información del reparto, escenas, distribuidores y mucho más.",
