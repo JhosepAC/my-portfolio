@@ -8,35 +8,38 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1rem;
-    background: rgba(242, 242, 242, 0.06);
-    border: 2px solid rgba(242, 242, 242, 0.35);
-    border-radius: 8px;
-    transition: all 0.15s ease;
+    padding: 0.95rem 1rem;
+    background: rgba(242, 242, 242, 0.05);
+    border: 1px solid rgba(242, 242, 242, 0.12);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
 }
 
 .contact-item:hover {
-    background: rgba(242, 242, 242, 0.12);
-    border-color: #f2f2f2;
-    transform: translateX(5px);
+    background: rgba(242, 242, 242, 0.08);
+    border-color: rgba(242, 242, 242, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.14);
 }
 
 .contact-item-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     background: var(--bg-secondary);
-    border: 2px solid #f2f2f2;
-    border-radius: 8px;
+    border: 1px solid rgba(242, 242, 242, 0.9);
+    border-radius: 10px;
     color: #141414;
     flex-shrink: 0;
-    transition: all 0.15s ease;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.12);
 }
 
 .contact-item:hover .contact-item-icon {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.04);
 }
 
 .contact-item-content {
@@ -74,22 +77,23 @@ a.contact-item-value:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     background: transparent;
-    border: 2px solid rgba(242, 242, 242, 0.35);
-    border-radius: 6px;
+    border: 1px solid rgba(242, 242, 242, 0.14);
+    border-radius: 8px;
     color: #9a9a9a;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: all 0.2s ease;
     flex-shrink: 0;
 }
 
 .contact-item-copy:hover {
     background: var(--bg-secondary);
-    border-color: #f2f2f2;
+    border-color: rgba(242, 242, 242, 0.9);
     color: #141414;
-    transform: scale(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
 }
 
 .contact-item-copy:active {
