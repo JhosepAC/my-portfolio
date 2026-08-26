@@ -49,6 +49,10 @@
     margin-bottom: 1.75rem;
 }
 
+.hero-content .status-badge {
+    margin-bottom: 30px;
+}
+
 .status-dot {
     width: 6px;
     height: 6px;

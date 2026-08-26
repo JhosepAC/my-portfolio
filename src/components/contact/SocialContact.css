@@ -1,9 +1,9 @@
 .social-contact {
     padding: 1.3rem;
     background: var(--bg-secondary);
-    border: 1px solid var(--line-strong);
-    border-radius: 12px;
-    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: 14px;
+    box-shadow: var(--shadow-card);
 }
 
 .social-contact-title {
@@ -25,19 +25,19 @@
     gap: 0.6rem;
     padding: 0.75rem;
     background: var(--bg-secondary);
-    border: 1px solid var(--line-strong);
-    border-radius: 8px;
-    box-shadow: 2px 2px 0 0 var(--ink);
+    border: 1px solid var(--line-soft);
+    border-radius: 10px;
+    box-shadow: var(--shadow-card);
     text-decoration: none;
-    transition: all 0.15s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     position: relative;
     overflow: hidden;
 }
 
 .social-contact-link:hover {
     transform: translateY(-1px);
-    border-color: var(--ink);
-    box-shadow: var(--shadow-soft);
+    border-color: var(--line);
+    box-shadow: 0 4px 14px rgba(20,20,20,0.07);
 }
 
 .social-contact-icon {
@@ -46,10 +46,11 @@
     justify-content: center;
     width: 34px;
     height: 34px;
-    background: var(--ink);
-    border-radius: 6px;
-    color: #f2f2f2;
-    transition: all 0.15s ease;
+    background: var(--bg-muted);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    color: var(--ink-soft);
+    transition: background 0.18s ease, transform 0.18s ease;
     position: relative;
     z-index: 1;
     flex-shrink: 0;
@@ -62,7 +63,9 @@
 
 .social-contact-link:hover .social-contact-icon {
     background: var(--ink);
-    transform: scale(1.08) rotate(5deg);
+    color: #fff;
+    border-color: var(--ink);
+    transform: scale(1.04);
 }
 
 .social-contact-label {

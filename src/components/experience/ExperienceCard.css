@@ -1,26 +1,15 @@
 .experience-item {
-    position: relative;
     margin-bottom: 1.25rem;
-}
-
-.experience-item:first-child {
-    z-index: 10;
-}
-
-.experience-item:first-child .experience-card {
-    z-index: 5;
 }
 
 /* ── Card ── */
 .experience-card {
-    position: relative;
     background: var(--bg-secondary);
     border: 1px solid var(--line-soft);
     border-radius: 14px;
     box-shadow: var(--shadow-card);
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     overflow: hidden;
-    cursor: pointer;
 }
 
 .experience-card:hover {
@@ -53,9 +42,23 @@
     transition: background 0.2s ease;
 }
 
-.experience-icon svg { width: 18px; height: 18px; }
-.experience-icon.has-logo { background: #fff; padding: 4px; overflow: hidden; }
-.experience-icon-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.experience-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.experience-icon.has-logo {
+    background: #fff;
+    padding: 4px;
+    overflow: hidden;
+}
+
+.experience-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
 
 .experience-info {
     display: flex;
@@ -139,10 +142,29 @@
     align-self: center;
 }
 
-.type-parttime { background: #eef1ff; color: #4338ca; border-color: #e0e4ff; }
-.type-fulltime { background: #e6efe6; color: #2d5a2d; border-color: #d6e8d6; }
-.type-freelance { background: #fef3e2; color: #9a6700; border-color: #fde6c0; }
-.type-internship { background: #fde8f0; color: #9d174d; border-color: #fbcfe8; }
+.type-parttime {
+    background: #eef1ff;
+    color: #4338ca;
+    border-color: #e0e4ff;
+}
+
+.type-fulltime {
+    background: #e6efe6;
+    color: #2d5a2d;
+    border-color: #d6e8d6;
+}
+
+.type-freelance {
+    background: #fef3e2;
+    color: #9a6700;
+    border-color: #fde6c0;
+}
+
+.type-internship {
+    background: #fde8f0;
+    color: #9d174d;
+    border-color: #fbcfe8;
+}
 
 /* ── Company & Dates ── */
 .experience-company {
@@ -154,9 +176,19 @@
     flex-wrap: wrap;
 }
 
-.company-name { font-weight: 600; color: var(--ink-soft); }
+.company-name {
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+
 .company-separator { color: var(--line-strong); }
-.company-location { display: flex; align-items: center; gap: 0.25rem; }
+
+.company-location {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
 .company-location svg { width: 13px; height: 13px; }
 
 .experience-dates {
@@ -186,8 +218,15 @@
     flex-shrink: 0;
 }
 
-.experience-expand-btn svg { width: 18px; height: 18px; transition: transform 0.3s ease; }
-.experience-item.expanded .experience-expand-btn svg { transform: rotate(180deg); }
+.experience-expand-btn svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.experience-item.expanded .experience-expand-btn svg {
+    transform: rotate(180deg);
+}
 
 .experience-expand-btn:hover {
     background: var(--ink);
@@ -197,100 +236,14 @@
     transform: translateY(-1px);
 }
 
-.experience-expand-btn:active { transform: translateY(0); box-shadow: var(--neo-pressed); }
-.experience-expand-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-/* ── Expand hint — solo primera card, esquina inferior derecha, touch ── */
-.expand-hint {
-    position: absolute;
-    bottom: 0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.32rem 0.65rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--line-soft);
-    border-radius: 999px;
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    box-shadow: 0 4px 12px rgba(20,20,20,0.08), var(--brutal-offset);
-    pointer-events: none;
-    z-index: 3;
-    white-space: nowrap;
+.experience-expand-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--neo-pressed);
 }
 
-.expand-hint--touch {
-    left: auto;
-    right: -8px;
-    bottom: -10px;
-    transform: none;
-    padding: 0;
-    width: auto;
-    height: auto;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    justify-content: center;
-    z-index: 30;
-}
-
-.hint-touch-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink);
-    filter: drop-shadow(0 3px 8px rgba(20,20,20,0.22));
-    transform: rotate(-30deg);
-    animation: hint-tap 1.6s ease-in-out infinite;
-    position: relative;
-    z-index: 30;
-}
-
-.hint-touch-icon svg {
-    width: 30px;
-    height: 30px;
-    fill: #fff;
-    stroke: var(--ink);
-    stroke-width: 1.5;
-}
-
-@keyframes hint-tap {
-    0%, 100% { transform: rotate(-30deg) scale(1); }
-    50% { transform: rotate(-30deg) scale(0.92); }
-}
-
-.hint-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    height: 16px;
-    background: var(--bg-muted);
-    border: 1px solid var(--line-soft);
-    border-radius: 50%;
-    color: var(--ink);
-    flex-shrink: 0;
-    animation: hint-pulse 1.4s ease-in-out infinite;
-}
-
-.hint-icon svg { width: 10px; height: 10px; }
-
-.hint-chevron { display: flex; align-items: center; color: var(--ink-faint); }
-.hint-chevron svg { width: 12px; height: 12px; }
-
-@keyframes hint-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-}
-
-@media (min-width: 769px) {
-    .expand-hint { display: none !important; }
+.experience-expand-btn:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
 }
 
 /* ── Body ── */
@@ -300,9 +253,14 @@
     transition: grid-template-rows 0.4s cubic-bezier(0.4,0,0.2,1);
 }
 
-.experience-item.expanded .experience-card-body { grid-template-rows: 1fr; }
+.experience-item.expanded .experience-card-body {
+    grid-template-rows: 1fr;
+}
 
-.experience-body-wrapper { min-height: 0; overflow: hidden; }
+.experience-body-wrapper {
+    min-height: 0;
+    overflow: hidden;
+}
 
 .experience-body-content {
     padding: 0 1.15rem 1rem;
@@ -312,7 +270,10 @@
     padding-top: 0.9rem;
 }
 
-@keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 .experience-description {
     color: var(--ink-faint);
@@ -321,7 +282,9 @@
     font-size: 0.88rem;
 }
 
-.experience-achievements { margin-bottom: 0.85rem; }
+.experience-achievements {
+    margin-bottom: 0.85rem;
+}
 
 .achievements-list {
     list-style: none;
@@ -352,7 +315,11 @@
 }
 
 /* ── Tech ── */
-.experience-tech { display: flex; flex-direction: column; gap: 0.45rem; }
+.experience-tech {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
 
 .tech-label {
     font-size: 0.7rem;
@@ -363,7 +330,11 @@
     font-family: var(--mono);
 }
 
-.tech-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
 
 .tech-tag {
     padding: 0.28rem 0.65rem;
@@ -379,7 +350,9 @@
     user-select: none;
 }
 
-.tech-tag:hover { background: #e8e8e6; }
+.tech-tag:hover {
+    background: #e8e8e6;
+}
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
@@ -390,14 +363,18 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-    .experience-card { overflow: visible; }
     .experience-card-header {
-        padding: 0.85rem 0.9rem 1.1rem;
+        padding: 0.85rem 0.9rem;
         grid-template-columns: auto 1fr;
         gap: 0.6rem;
     }
 
-    .experience-icon { width: 32px; height: 32px; border-radius: 8px; }
+    .experience-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+    }
+
     .experience-icon svg { width: 15px; height: 15px; }
 
     .experience-info { gap: 0.25rem; }
@@ -408,7 +385,15 @@
 
     .experience-dates { font-size: 0.72rem; }
 
-    .experience-expand-btn { display: none; }
+    .experience-expand-btn {
+        grid-column: 1 / -1;
+        justify-self: center;
+        margin-top: 0.15rem;
+        width: 30px;
+        height: 30px;
+    }
+
+    .experience-expand-btn svg { width: 16px; height: 16px; }
 
     .experience-body-content { padding: 0 0.9rem 0.85rem; margin-top: 0; padding-top: 0.75rem; }
 

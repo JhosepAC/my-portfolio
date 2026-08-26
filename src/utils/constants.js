@@ -4,6 +4,8 @@ import certificateSDLC from '../assets/docs/CERT-CICLO_DE_VIDA_DEL_DESARROLLO_DE
 import certificateSCRUM from '../assets/docs/CERT-SCRUM_FUNDAMENTALS.pdf';
 import upcLogo from '../assets/external_logos/upc-logo.png';
 import ubbLogo from '../assets/external_logos/ubb-logo.png';
+import tecnovedadesLogo from '../assets/external_logos/tecnovedades-logo.png';
+import wyaLogo from '../assets/external_logos/wya-soluciones-logo.png';
 import ubbCertificatePreview from '../assets/docs/ubb-certificate-preview.jpg';
 
 export const ASSETS = {
@@ -168,6 +170,7 @@ export const EXPERIENCE_DATA = [{
     endDate: '05/2026',
     type: 'parttime',
     iconType: 'work',
+    logo: tecnovedadesLogo,
     technologies: ['HTML', 'CSS', 'JS', 'PHP', 'WordPress', 'MySQL']
 }, {
     id: 'wya-soluciones',
@@ -178,5 +181,6 @@ export const EXPERIENCE_DATA = [{
     endDate: null,
     type: 'parttime',
     iconType: 'work',
+    logo: wyaLogo,
     technologies: ['.NET CORE', 'C#', 'Git', 'Figma', 'SQL Server']
 }];
