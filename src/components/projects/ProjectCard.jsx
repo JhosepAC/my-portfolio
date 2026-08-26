@@ -2,22 +2,25 @@ import { motion } from 'motion/react';
 import ProjectStatus from './ProjectStatus';
 import TechStack from './TechStack';
 import ProjectActions from './ProjectActions';
+import useIsMobile from '../../hooks/useIsMobile';
 import { EASE } from '../../utils/motionVariants';
 import './ProjectCard.css';
 
 const ProjectCard = ({ project, index }) => {
+    const isTouch = useIsMobile(1024);
 
     return (
         <motion.div
             className="project-card"
             role="listitem"
-            layout
-            drag
-            dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-            dragElastic={0.15}
+            layout={!isTouch}
+            drag={!isTouch}
+            dragConstraints={isTouch ? undefined : { top: 0, left: 0, right: 0, bottom: 0 }}
+            dragElastic={isTouch ? undefined : 0.15}
             dragMomentum={false}
-            whileDrag={{ scale: 1.04, zIndex: 30 }}
-            whileHover={{ x: -4, y: -4 }}
+            whileDrag={isTouch ? undefined : { scale: 1.04, zIndex: 30 }}
+            whileHover={isTouch ? undefined : { x: -4, y: -4 }}
+            style={{ touchAction: isTouch ? 'pan-y' : undefined }}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, transition: { duration: 0.2 } }}
