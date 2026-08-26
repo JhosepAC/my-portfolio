@@ -9,6 +9,7 @@ import './EducationSection.css';
 const EducationSection = () => {
     const {t} = useTranslation();
     const [expandedId, setExpandedId] = useState(null);
+    const [hasOpenedAny, setHasOpenedAny] = useState(false);
 
     const educationItems = useMemo(() => EDUCATION_DATA.map(item => {
         const translatedSkills = t(`education.items.${item.id}.skills`, {returnObjects: true});
@@ -21,7 +22,11 @@ const EducationSection = () => {
     }), [t]);
 
     const handleToggle = useCallback((id) => {
-        setExpandedId(prev => prev === id ? null : id);
+        setExpandedId(prev => {
+            const next = prev === id ? null : id;
+            if (next !== null) setHasOpenedAny(true);
+            return next;
+        });
     }, []);
 
     return (
@@ -47,6 +52,7 @@ const EducationSection = () => {
                             index={index}
                             isExpanded={expandedId === item.id}
                             onToggle={handleToggle}
+                            hasOpenedAny={hasOpenedAny}
                         />
                     ))}
                 </div>

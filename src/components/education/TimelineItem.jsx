@@ -1,5 +1,5 @@
-import {memo, useState, lazy, Suspense} from 'react';
-import {motion} from 'motion/react';
+import {memo, useState, lazy, Suspense, useEffect} from 'react';
+import {motion, AnimatePresence} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {EDUCATION_ICONS, TIMELINE_ICONS} from '../../utils/Icons';
 import StatusBadge from './StatusBadge';
@@ -10,10 +10,11 @@ import './TimelineItem.css';
 const CertificateModal = lazy(() => import("./CertificateModal.jsx"));
 const CertificateImageViewer = lazy(() => import("./CertificateImageViewer.jsx"));
 
-const TimelineItem = ({item, index, isExpanded, onToggle}) => {
+const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
     const {t} = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isImageOpen, setIsImageOpen] = useState(false);
+    const [showHint, setShowHint] = useState(false);
     const isMobile = useIsMobile();
 
     const mainIcon = item.logo
@@ -21,9 +22,33 @@ const TimelineItem = ({item, index, isExpanded, onToggle}) => {
         : (EDUCATION_ICONS[item.iconType.toUpperCase()] || EDUCATION_ICONS.COURSE);
 
     const toggleExpand = (e) => {
-        e.stopPropagation();
+        if (e) e.stopPropagation();
+        setShowHint(false);
         onToggle(item.id);
     };
+
+    const handleCardClick = (e) => {
+        const target = e.target;
+        if (target.closest && target.closest('a, button, [role="button"]')) {
+            if (target.closest('.expand-button')) return;
+            if (!target.closest('.timeline-card')) return;
+            if (target.closest('.certificate-wrapper')) return;
+        }
+        toggleExpand(e);
+    };
+
+    // Hint solo en primera card, esquina inferior derecha, cada 2s, hasta que se abra alguna card
+    useEffect(() => {
+        if (!isMobile || index !== 0 || isExpanded || hasOpenedAny) {
+            setShowHint(false);
+            return;
+        }
+        const interval = setInterval(() => {
+            setShowHint(true);
+            setTimeout(() => setShowHint(false), 1200);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, [isMobile, index, isExpanded, hasOpenedAny]);
 
     return (<motion.div
         className={`timeline-item ${item.type === 'university' ? 'timeline-item-important' : ''} ${isExpanded ? 'expanded' : ''}`}
@@ -39,7 +64,27 @@ const TimelineItem = ({item, index, isExpanded, onToggle}) => {
             <div className="dot-pulse"></div>
         </div>
 
-        <div className="timeline-card">
+        <div className="timeline-card" onClick={handleCardClick} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(e); } }} aria-expanded={isExpanded}>
+            <AnimatePresence>
+                {showHint && !isExpanded && isMobile && index === 0 && !hasOpenedAny && (
+                    <motion.div
+                        className="expand-hint expand-hint--touch"
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.85 }}
+                        transition={{ duration: 0.22, ease: EASE }}
+                    >
+                        <span className="hint-touch-icon" aria-hidden="true">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M12 11V4a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7" />
+                                <path d="M9 11V6a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v5" />
+                                <path d="M15 11V7a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v5" />
+                                <path d="M5 13V9a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v4a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-2" />
+                            </svg>
+                        </span>
+                    </motion.div>
+                )}
+            </AnimatePresence>
             <div className="card-header">
                 <div className={`card-icon ${item.logo ? 'has-logo' : ''}`}>{mainIcon}</div>
 
