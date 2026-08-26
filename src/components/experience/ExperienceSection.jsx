@@ -8,6 +8,7 @@ import './ExperienceSection.css';
 const ExperienceSection = () => {
     const {t} = useTranslation();
     const [expandedId, setExpandedId] = useState(null);
+    const [hasOpenedAny, setHasOpenedAny] = useState(false);
 
     const experienceItems = useMemo(() => EXPERIENCE_DATA.map(item => ({
         ...item,
@@ -15,7 +16,11 @@ const ExperienceSection = () => {
     })), [t]);
 
     const handleToggle = useCallback((id) => {
-        setExpandedId(prev => prev === id ? null : id);
+        setExpandedId(prev => {
+            const next = prev === id ? null : id;
+            if (next !== null) setHasOpenedAny(true);
+            return next;
+        });
     }, []);
 
     return (
@@ -37,6 +42,7 @@ const ExperienceSection = () => {
                             index={index}
                             isExpanded={expandedId === item.id}
                             onToggle={handleToggle}
+                            hasOpenedAny={hasOpenedAny}
                         />
                     ))}
                 </div>

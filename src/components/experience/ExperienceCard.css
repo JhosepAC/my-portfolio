@@ -1,5 +1,14 @@
 .experience-item {
+    position: relative;
     margin-bottom: 1.25rem;
+}
+
+.experience-item:first-child {
+    z-index: 10;
+}
+
+.experience-item:first-child .experience-card {
+    z-index: 5;
 }
 
 /* ── Card ── */
@@ -190,8 +199,7 @@
 
 .experience-expand-btn:active { transform: translateY(0); box-shadow: var(--neo-pressed); }
 .experience-expand-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-
-/* ── Expand hint — solo móvil ── */
+/* ── Expand hint — solo primera card, esquina inferior derecha, touch ── */
 .expand-hint {
     position: absolute;
     bottom: 0.5rem;
@@ -216,6 +224,47 @@
     white-space: nowrap;
 }
 
+.expand-hint--touch {
+    left: auto;
+    right: -8px;
+    bottom: -10px;
+    transform: none;
+    padding: 0;
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    justify-content: center;
+    z-index: 30;
+}
+
+.hint-touch-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    filter: drop-shadow(0 3px 8px rgba(20,20,20,0.22));
+    transform: rotate(-30deg);
+    animation: hint-tap 1.6s ease-in-out infinite;
+    position: relative;
+    z-index: 30;
+}
+
+.hint-touch-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    stroke: var(--ink);
+    stroke-width: 1.5;
+}
+
+@keyframes hint-tap {
+    0%, 100% { transform: rotate(-30deg) scale(1); }
+    50% { transform: rotate(-30deg) scale(0.92); }
+}
+
 .hint-icon {
     display: flex;
     align-items: center;
@@ -231,6 +280,7 @@
 }
 
 .hint-icon svg { width: 10px; height: 10px; }
+
 .hint-chevron { display: flex; align-items: center; color: var(--ink-faint); }
 .hint-chevron svg { width: 12px; height: 12px; }
 
@@ -340,6 +390,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+    .experience-card { overflow: visible; }
     .experience-card-header {
         padding: 0.85rem 0.9rem 1.1rem;
         grid-template-columns: auto 1fr;
