@@ -32,10 +32,16 @@
     background: var(--bg-secondary);
     border: 1px solid rgba(242, 242, 242, 0.9);
     border-radius: 10px;
-    color: #141414;
+    color: var(--ink);
     flex-shrink: 0;
     transition: all 0.2s ease;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.12);
+}
+
+:root[data-theme="dark"] .contact-item-icon {
+    background: var(--ink);
+    color: var(--bg-primary);
+    border-color: var(--ink);
 }
 
 .contact-item:hover .contact-item-icon {
@@ -89,9 +95,9 @@ a.contact-item-value:hover {
 }
 
 .contact-item-copy:hover {
-    background: var(--bg-secondary);
-    border-color: rgba(242, 242, 242, 0.9);
-    color: #141414;
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bg-primary);
     transform: translateY(-1px);
     box-shadow: 0 3px 10px rgba(0,0,0,0.12);
 }
