@@ -36,6 +36,18 @@
        THEME
   ============================================================= -->
   <meta name="theme-color" content="#f2f2f2" />
+  <script>
+    (function() {
+      try {
+        var s = localStorage.getItem('theme');
+        var m = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var t = s === 'dark' || s === 'light' ? s : (m ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', t === 'dark' ? '#0a0a0b' : '#f2f2f2');
+      } catch(e) {}
+    })();
+  </script>
 
   <!-- ============================================================
        OPEN GRAPH
