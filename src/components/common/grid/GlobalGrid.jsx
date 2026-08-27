@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useThemeContext } from '../../../context/ThemeContext';
 
 const GlobalGrid = () => {
+    const { theme } = useThemeContext();
+    const isDark = theme === 'dark';
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [scrollY, setScrollY] = useState(0);
     const [isHovering, setIsHovering] = useState(false);
@@ -98,10 +101,9 @@ const GlobalGrid = () => {
                     inset: 0,
                     pointerEvents: 'none',
                     zIndex: 1,
-                    backgroundImage: `
-                        linear-gradient(rgba(20, 20, 20, 0.12) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(20, 20, 20, 0.12) 1px, transparent 1px)
-                    `,
+                    backgroundImage: isDark
+                        ? `linear-gradient(rgba(232, 232, 232, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.05) 1px, transparent 1px)`
+                        : `linear-gradient(rgba(20, 20, 20, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 20, 20, 0.12) 1px, transparent 1px)`,
                     backgroundSize: '80px 80px',
                     transform: `translate(${gridOffsetX}px, ${gridOffsetY}px)`,
                     animation: 'grid-pulse 3s ease-in-out infinite, grid-wave 8s linear infinite',
@@ -122,7 +124,7 @@ const GlobalGrid = () => {
                             width: '40px',
                             height: '40px',
                             borderRadius: '50%',
-                            border: '1px solid rgba(20, 20, 20, 0.6)',
+                            border: isDark ? '1px solid rgba(232, 232, 232, 0.35)' : '1px solid rgba(20, 20, 20, 0.6)',
                             transform: `translate(${glowX - 20}px, ${glowY - 20}px)`,
                             transition: 'transform 0.08s ease-out',
                             opacity: isHovering ? 1 : 0
@@ -140,7 +142,7 @@ const GlobalGrid = () => {
                             width: '6px',
                             height: '6px',
                             borderRadius: '50%',
-                            background: 'rgba(20, 20, 20, 1)',
+                            background: isDark ? 'rgba(232, 232, 232, 0.85)' : 'rgba(20, 20, 20, 1)',
                             transform: `translate(${glowX - 3}px, ${glowY - 3}px)`,
                             transition: 'transform 0.05s ease-out',
                             opacity: isHovering ? 1 : 0

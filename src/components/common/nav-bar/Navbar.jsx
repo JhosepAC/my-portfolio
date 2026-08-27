@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, Menu, X } from 'lucide-react';
+import { Globe, Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useScroll } from '../../../hooks/useScroll';
 import { EASE } from '../../../utils/motionVariants';
 import { useAppReady } from '../../../context/AppReadyContext';
+import { useThemeContext } from '../../../context/ThemeContext';
 import { NAV_LINKS } from "../../../utils/constants.js";
 import './Navbar.css';
 import { useActiveSection } from '../../../hooks/useActiveSection';
@@ -58,7 +59,7 @@ const TerminalLogo = () => {
             width="45"
             height="45"
         >
-            <g fill="none" stroke="#1e1e1e" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12">
+            <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12">
                 {/* Mismo path que logo-light.svg y logo-light-effect.svg */}
                 <path d="M 8 18 L 48 50 L 8 82" />
                 {/* Underscore terminal: solo en logo-light.svg — ráfaga 500ms x 3s cada 8s */}
@@ -73,9 +74,10 @@ const TerminalLogo = () => {
     );
 };
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = () => {
     const scrolled = useScroll(20);
     const ready = useAppReady();
+    const { theme, toggleTheme } = useThemeContext();
     const { i18n, t } = useTranslation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -160,14 +162,29 @@ const Navbar = ({ theme, toggleTheme }) => {
                     })}
 
                     <li className="mobile-actions">
-                        <button onClick={toggleLanguage} className="lang-button">
-                            <Globe size={18}/>
-                            <span>{i18n.language.toUpperCase()}</span>
-                        </button>
+                        <div className="mobile-actions-group">
+                            <button onClick={toggleLanguage} className="lang-button">
+                                <Globe size={18}/>
+                                <span>{i18n.language.toUpperCase()}</span>
+                            </button>
+                            <button onClick={toggleTheme} className="theme-button" aria-label={theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}>
+                                {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
+                            </button>
+                        </div>
                     </li>
                 </ul>
 
                 <div className="navbar-actions">
+                    <motion.button
+                        onClick={toggleTheme}
+                        className="theme-button desktop-only"
+                        aria-label={theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+                        initial={{opacity: 0, x: 30}}
+                        animate={ready ? {opacity: 1, x: 0} : {}}
+                        transition={{duration: 0.6, ease: EASE, delay: 0.35}}
+                    >
+                        {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
+                    </motion.button>
                     <motion.button
                         onClick={toggleLanguage}
                         className="lang-button desktop-only"
@@ -179,12 +196,6 @@ const Navbar = ({ theme, toggleTheme }) => {
                         <Globe size={18}/>
                         <span className="lang-text">{i18n.language.toUpperCase()}</span>
                     </motion.button>
-
-                    {/*
-                    <button onClick={toggleTheme} className="icon-button" aria-label="Theme">
-                        {theme === 'dark' ? <Sun size={20}/> : <Moon size={20}/>}
-                    </button>
-                    */}
 
                     <motion.button
                         className="menu-toggle"
