@@ -63,7 +63,7 @@
 
 .social-contact-link:hover .social-contact-icon {
     background: var(--ink);
-    color: #fff;
+    color: var(--bg-primary);
     border-color: var(--ink);
     transform: scale(1.04);
 }
