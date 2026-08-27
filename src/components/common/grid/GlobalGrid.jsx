@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useThemeContext } from '../../../context/ThemeContext';
+import Ferrofluid from '../../Ferrofluid';
 
 const GlobalGrid = () => {
     const { theme } = useThemeContext();
@@ -92,24 +93,55 @@ const GlobalGrid = () => {
                 }
             `}</style>
 
-            {/* Base Grid with stronger visibility */}
-            <div 
-                aria-hidden="true" 
-                className="global-grid"
-                style={{
-                    position: 'fixed',
-                    inset: 0,
-                    pointerEvents: 'none',
-                    zIndex: 1,
-                    backgroundImage: isDark
-                        ? `linear-gradient(rgba(232, 232, 232, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 232, 232, 0.05) 1px, transparent 1px)`
-                        : `linear-gradient(rgba(20, 20, 20, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 20, 20, 0.12) 1px, transparent 1px)`,
-                    backgroundSize: '80px 80px',
-                    transform: `translate(${gridOffsetX}px, ${gridOffsetY}px)`,
-                    animation: 'grid-pulse 3s ease-in-out infinite, grid-wave 8s linear infinite',
-                    transition: 'transform 0.1s ease-out'
-                }}
-            />
+            {/* Background: Grid (light) vs Ferrofluid experiment (dark only) */}
+            {isDark ? (
+                <div
+                    aria-hidden="true"
+                    style={{
+                        position: 'fixed',
+                        inset: 0,
+                        pointerEvents: 'none',
+                        zIndex: 0,
+                        width: '100vw',
+                        height: '100vh',
+                        overflow: 'hidden',
+                        opacity: 0.9,
+                    }}
+                >
+                    <Ferrofluid
+                        colors={["#4c4c4c","#ababab","#878787"]}
+                        speed={0.3}
+                        scale={1.6}
+                        turbulence={1}
+                        fluidity={0.1}
+                        rimWidth={0.2}
+                        sharpness={2.5}
+                        shimmer={1.5}
+                        glow={2}
+                        flowDirection="down"
+                        opacity={1}
+                        mouseInteraction
+                        mouseStrength={0.9}
+                        mouseRadius={0.2}
+                    />
+                </div>
+            ) : (
+                <div
+                    aria-hidden="true"
+                    className="global-grid"
+                    style={{
+                        position: 'fixed',
+                        inset: 0,
+                        pointerEvents: 'none',
+                        zIndex: 1,
+                        backgroundImage: `linear-gradient(rgba(20, 20, 20, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 20, 20, 0.12) 1px, transparent 1px)`,
+                        backgroundSize: '80px 80px',
+                        transform: `translate(${gridOffsetX}px, ${gridOffsetY}px)`,
+                        animation: 'grid-pulse 3s ease-in-out infinite, grid-wave 8s linear infinite',
+                        transition: 'transform 0.1s ease-out'
+                    }}
+                />
+            )}
 
             {/* Cursor Circle - Border only - oculto en mobile */}
             {!isMobile && (
