@@ -104,6 +104,24 @@
     opacity: 1;
 }
 
+/* Dark: monocromático apagado, no destaca */
+:root[data-theme="dark"] .terminal-prompt { color: #8e8e8e; }
+:root[data-theme="dark"] .terminal-prompt .term-at { color: #757575; }
+:root[data-theme="dark"] .terminal-prompt .term-host { color: #9a9a9a; }
+:root[data-theme="dark"] .terminal-prompt .term-path { color: #6e6e6e; }
+:root[data-theme="dark"] .terminal-cmd { color: #b8b8b8; }
+:root[data-theme="dark"] .terminal-output { color: #8a8a8a; }
+:root[data-theme="dark"] .terminal-output .term-key { color: #9e9e9e; }
+:root[data-theme="dark"] .terminal-output .term-val { color: #8a8a8a; }
+:root[data-theme="dark"] .terminal-output .term-accent { color: #8e8e8e; }
+:root[data-theme="dark"] .terminal-output .term-muted { color: #6b6b6b; }
+:root[data-theme="dark"] .terminal-output .term-url,
+:root[data-theme="dark"] a.term-url { color: #a8a8a8; }
+:root[data-theme="dark"] .terminal-success { color: #8a8a8a; }
+:root[data-theme="dark"] .terminal-error { color: #8a8a8a; }
+:root[data-theme="dark"] .terminal-cursor { background-color: #9a9a9a; }
+:root[data-theme="dark"] #terminal-input { color: #b8b8b8; caret-color: #9a9a9a; }
+
 .terminal-body::-webkit-scrollbar {
     width: 6px;
 }
