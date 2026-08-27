@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useThemeContext } from '../../../context/ThemeContext';
-import Ferrofluid from '../../Ferrofluid';
+import Grainient from '../../Grainient';
 
 const GlobalGrid = () => {
     const { theme } = useThemeContext();
@@ -93,7 +93,7 @@ const GlobalGrid = () => {
                 }
             `}</style>
 
-            {/* Background: Grid (light) vs Ferrofluid experiment (dark only) */}
+            {/* Background: Grid (light) vs Grainient experiment (dark only) - permanent */}
             {isDark ? (
                 <div
                     aria-hidden="true"
@@ -102,27 +102,33 @@ const GlobalGrid = () => {
                         inset: 0,
                         pointerEvents: 'none',
                         zIndex: 0,
-                        width: '100vw',
-                        height: '100vh',
                         overflow: 'hidden',
-                        opacity: 0.9,
+                        opacity: 1,
                     }}
                 >
-                    <Ferrofluid
-                        colors={["#4c4c4c","#ababab","#878787"]}
-                        speed={0.3}
-                        scale={1.6}
-                        turbulence={1}
-                        fluidity={0.1}
-                        rimWidth={0.2}
-                        sharpness={2.5}
-                        shimmer={1.5}
-                        glow={2}
-                        flowDirection="down"
-                        opacity={1}
-                        mouseInteraction
-                        mouseStrength={0.9}
-                        mouseRadius={0.2}
+                    <Grainient
+                        color1="#343434"
+                        color2="#000000"
+                        color3="#343434"
+                        timeSpeed={1.4}
+                        colorBalance={-0.01}
+                        warpStrength={2.2}
+                        warpFrequency={4.2}
+                        warpSpeed={2}
+                        warpAmplitude={50}
+                        blendAngle={0}
+                        blendSoftness={0.05}
+                        rotationAmount={500}
+                        noiseScale={2}
+                        grainAmount={0.1}
+                        grainScale={2}
+                        grainAnimated={false}
+                        contrast={1.5}
+                        gamma={1}
+                        saturation={1}
+                        centerX={0}
+                        centerY={0}
+                        zoom={0.9}
                     />
                 </div>
             ) : (
