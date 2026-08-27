@@ -167,6 +167,21 @@ code, .mono {
   background: rgba(232, 232, 232, 0.1);
 }
 
+/* Ferrofluid experiment: keep background visible throughout in dark */
+:root[data-theme="dark"] .home-container,
+:root[data-theme="dark"] .projects-section,
+:root[data-theme="dark"] .contact-section,
+:root[data-theme="dark"] .education-section,
+:root[data-theme="dark"] .experience-section,
+:root[data-theme="dark"] .skills-section {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+:root[data-theme="dark"] body {
+  background-color: #0a0a0b;
+}
+
 @keyframes global-float {
   0%, 100% {
     transform: translateY(0) translateX(0);
