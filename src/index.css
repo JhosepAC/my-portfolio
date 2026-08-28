@@ -58,7 +58,7 @@
   --bg-muted: #1c1c1f;
   --ink: #e8e8e8;
   --ink-soft: #a1a1a6;
-  --ink-faint: #6b6b70;
+  --ink-faint: #bcb0b0;
   --line: #232326;
   --line-soft: #1e1e21;
   --line-strong: #2c2c30;
@@ -167,7 +167,6 @@ code, .mono {
   background: rgba(232, 232, 232, 0.1);
 }
 
-/* Ferrofluid experiment: keep background visible throughout in dark */
 :root[data-theme="dark"] .home-container,
 :root[data-theme="dark"] .projects-section,
 :root[data-theme="dark"] .contact-section,

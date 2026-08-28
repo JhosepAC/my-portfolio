@@ -35,6 +35,10 @@
     padding-top: 0.6rem;
 }
 
+:root[data-theme="dark"] .timeline-year {
+    color: rgba(243, 243, 243, 0.28);
+}
+
 .timeline-dot {
     grid-column: 2 / 3;
     position: relative;

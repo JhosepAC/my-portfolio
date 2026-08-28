@@ -93,7 +93,6 @@ const GlobalGrid = () => {
                 }
             `}</style>
 
-            {/* Background: Grid (light) vs Grainient experiment (dark only) - permanent */}
             {isDark ? (
                 <div
                     aria-hidden="true"
@@ -107,9 +106,9 @@ const GlobalGrid = () => {
                     }}
                 >
                     <Grainient
-                        color1="#343434"
-                        color2="#000000"
-                        color3="#343434"
+                        color1="#454545"
+                        color2="#0a0a0b"
+                        color3="#444444"
                         timeSpeed={1.4}
                         colorBalance={-0.01}
                         warpStrength={2.2}

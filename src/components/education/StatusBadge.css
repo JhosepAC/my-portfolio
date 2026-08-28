@@ -21,6 +21,16 @@
     color: var(--ink-soft);
 }
 
+:root[data-theme="dark"] .status-badge.status-ongoing {
+    background: #2a261e;
+    color: #c9b78a;
+    border: 1px solid #3a3520;
+}
+
+:root[data-theme="dark"] .status-badge.status-ongoing .status-dot {
+    background: #c9a227;
+}
+
 .status-ongoing .status-dot {
     width: 6px;
     height: 6px;
@@ -37,6 +47,12 @@
 .status-completed {
     background: #e6efe6;
     color: #2d5a2d;
+}
+
+:root[data-theme="dark"] .status-badge.status-completed {
+    background: #1e2e1e;
+    color: #8ec08e;
+    border: 1px solid #2d4a2d;
 }
 
 .status-completed svg {

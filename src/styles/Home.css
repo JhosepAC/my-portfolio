@@ -62,7 +62,7 @@
 }
 
 :root[data-theme="dark"] .status-dot {
-    background: #a1a1a6;
+    background: #22c55e;
 }
 
 @keyframes pulse {
@@ -193,7 +193,6 @@
     margin-right: 0.5rem;
 }
 
-/* Segundo nivel — menos intenso que primary */
 .btn-secondary {
     display: inline-flex;
     align-items: center;

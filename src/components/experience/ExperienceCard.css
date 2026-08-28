@@ -110,6 +110,12 @@
     align-self: center;
 }
 
+:root[data-theme="dark"] .experience-current-badge {
+    background: #1e2e1e;
+    color: #8ec08e;
+    border: 1px solid #2d4a2d;
+}
+
 .current-dot {
     width: 6px;
     height: 6px;
@@ -146,6 +152,12 @@
     background: #eef1ff;
     color: #4338ca;
     border-color: #e0e4ff;
+}
+
+:root[data-theme="dark"] .experience-type-badge.type-parttime {
+    background: #23233e;
+    color: #a5a3ff;
+    border-color: #34345e;
 }
 
 .type-fulltime {
