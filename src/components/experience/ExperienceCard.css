@@ -110,6 +110,12 @@
     align-self: center;
 }
 
+:root[data-theme="dark"] .experience-current-badge {
+    background: #1e2e1e;
+    color: #8ec08e;
+    border: 1px solid #2d4a2d;
+}
+
 .current-dot {
     width: 6px;
     height: 6px;
@@ -146,6 +152,12 @@
     background: #eef1ff;
     color: #4338ca;
     border-color: #e0e4ff;
+}
+
+:root[data-theme="dark"] .experience-type-badge.type-parttime {
+    background: #23233e;
+    color: #a5a3ff;
+    border-color: #34345e;
 }
 
 .type-fulltime {
@@ -201,7 +213,6 @@
 
 .experience-dates svg { width: 13px; height: 13px; }
 
-/* ── Expand button — único con cursor pointer + neobrutalismo ligero ── */
 .experience-expand-btn {
     width: 34px;
     height: 34px;
@@ -214,7 +225,6 @@
     color: var(--ink-soft);
     cursor: pointer;
     transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
-    box-shadow: 3px 3px 8px rgba(20,20,20,0.05), -3px -3px 8px rgba(255,255,255,0.9), var(--brutal-offset);
     flex-shrink: 0;
 }
 
@@ -230,7 +240,7 @@
 
 .experience-expand-btn:hover {
     background: var(--ink);
-    color: #fff;
+    color: var(--bg-primary);
     border-color: var(--ink);
     box-shadow: 0 4px 12px rgba(20,20,20,0.14);
     transform: translateY(-1px);
@@ -351,7 +361,8 @@
 }
 
 .tech-tag:hover {
-    background: #e8e8e6;
+    background: var(--line-strong);
+    color: var(--ink);
 }
 
 /* ── Reduced motion ── */

@@ -8,6 +8,7 @@ import GlobalParticles from './components/common/particles/GlobalParticles';
 import GlobalGrid from './components/common/grid/GlobalGrid';
 import { useLoading } from './hooks/useLoading';
 import { AppReadyContext } from './context/AppReadyContext';
+import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
     }, []);
 
     return (
+        <ThemeProvider>
         <LazyMotion features={domMax} strict>
             <MotionConfig reducedMotion="user">
                 <Router>
@@ -55,6 +57,7 @@ function App() {
                 </Router>
             </MotionConfig>
         </LazyMotion>
+        </ThemeProvider>
     );
 }
 

@@ -12,8 +12,12 @@
     padding: 20px;
 }
 
+:root[data-theme="dark"] .modal-overlay {
+    background: rgba(0, 0, 0, 0.68);
+}
+
 .modal-content {
-    background-color: #f2f2f2;
+    background-color: var(--bg-secondary);
     width: 100%;
     max-width: 1000px;
     height: 90vh;
@@ -26,9 +30,13 @@
     box-shadow: 0 20px 60px rgba(20, 20, 20, 0.12);
 }
 
+:root[data-theme="dark"] .modal-content {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
 .modal-header {
     padding: 1rem 1.5rem;
-    background-color: #f2f2f2;
+    background-color: var(--bg-secondary);
     border-bottom: 1px solid var(--line);
     display: flex;
     justify-content: space-between;
@@ -65,7 +73,7 @@
 
 .action-btn:hover, .close-btn:hover {
     background-color: var(--ink);
-    color: #fff;
+    color: var(--bg-primary);
     border-color: var(--ink);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(20,20,20,0.14);
@@ -73,7 +81,7 @@
 
 .modal-body {
     flex: 1;
-    background-color: #f2f2f2;
+    background-color: var(--bg-primary);
     position: relative;
     overflow: hidden;
 }
@@ -88,7 +96,7 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background: #f6f6f5;
+    background: var(--bg-primary);
     padding: 12px;
     -webkit-overflow-scrolling: touch;
 }
@@ -120,11 +128,16 @@
 
 .pdf-page,
 .react-pdf__Page {
-    background: #fff;
+    background: var(--bg-secondary);
     border: 1px solid var(--line-soft);
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(20,20,20,0.08);
     overflow: hidden;
+}
+
+:root[data-theme="dark"] .pdf-page,
+:root[data-theme="dark"] .react-pdf__Page {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
 
 .pdf-page canvas,

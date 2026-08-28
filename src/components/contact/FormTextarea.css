@@ -46,7 +46,7 @@
 }
 
 .form-textarea:focus {
-    background: #fff;
+    background: var(--bg-secondary);
     border-color: var(--line);
     box-shadow: 0 4px 14px rgba(20,20,20,0.06);
 }

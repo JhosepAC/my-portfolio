@@ -50,7 +50,7 @@
 
 .form-message-success {
     background: var(--ink);
-    color: #f2f2f2;
+    color: var(--bg-primary);
 }
 
 .form-message-error {
@@ -67,7 +67,7 @@
     background: var(--ink);
     border: 1px solid var(--ink);
     border-radius: 10px;
-    color: #fff;
+    color: var(--bg-primary);
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
@@ -79,7 +79,6 @@
 }
 
 .form-submit-btn:hover:not(:disabled) {
-    background: #000;
     transform: translateY(-1px);
     box-shadow: 0 6px 18px rgba(20,20,20,0.16);
 }
@@ -92,8 +91,8 @@
 .submit-spinner {
     width: 18px;
     height: 18px;
-    border: 2px solid rgba(242, 242, 242, 0.3);
-    border-top-color: #f2f2f2;
+    border: 2px solid rgba(232, 232, 232, 0.3);
+    border-top-color: var(--bg-primary);
     border-radius: 50%;
     animation: spin 0.6s linear infinite;
 }

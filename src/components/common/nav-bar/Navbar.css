@@ -25,6 +25,11 @@
     box-shadow: 0 4px 20px rgba(20,20,20,0.06);
 }
 
+:root[data-theme="dark"] .navbar.scrolled {
+    background-color: rgba(20, 20, 23, 0.88);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
 .navbar-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -37,6 +42,7 @@
 .navbar-logo {
     display: flex;
     align-items: center;
+    color: var(--ink);
 }
 
 .logo-svg,
@@ -129,7 +135,7 @@
 
 .icon-button:hover {
     background: var(--ink);
-    color: #f2f2f2;
+    color: var(--bg-primary);
     transform: translateY(-1px);
     box-shadow: var(--shadow-soft);
 }
@@ -137,6 +143,40 @@
 .icon-button:active {
     transform: translate(1px, 1px);
     box-shadow: 1px 1px 0 0 var(--ink);
+}
+
+.theme-button {
+    background: var(--bg-secondary);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.theme-button:hover {
+    background: var(--bg-muted);
+    border-color: var(--line-strong);
+    color: var(--ink);
+}
+
+.theme-button:active {
+    transform: scale(0.96);
+}
+
+:root[data-theme="dark"] .theme-button {
+    background: var(--bg-muted);
+    border-color: var(--line-strong);
+}
+
+:root[data-theme="dark"] .theme-button:hover {
+    background: var(--line-strong);
+    border-color: var(--ink-faint);
 }
 
 .lang-button {
@@ -204,6 +244,12 @@
     justify-content: center;
     padding-top: 1rem;
     border-top: 1px solid var(--line);
+}
+
+.mobile-actions-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
 @media (max-width: 1600px) {

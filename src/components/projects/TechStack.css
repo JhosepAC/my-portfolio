@@ -42,7 +42,7 @@
 }
 
 .tech-item:hover .tech-icon {
-    color: #f2f2f2;
+    color: var(--bg-primary);
 }
 
 .tech-name {
@@ -53,5 +53,5 @@
 }
 
 .tech-item:hover .tech-name {
-    color: #f2f2f2;
+    color: var(--bg-primary);
 }

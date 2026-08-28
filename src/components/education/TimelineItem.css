@@ -35,6 +35,10 @@
     padding-top: 0.6rem;
 }
 
+:root[data-theme="dark"] .timeline-year {
+    color: rgba(243, 243, 243, 0.28);
+}
+
 .timeline-dot {
     grid-column: 2 / 3;
     position: relative;
@@ -221,7 +225,6 @@
     gap: 0.35rem;
 }
 
-/* ── Expand button — único con cursor pointer + brutalismo ligero ── */
 .expand-button {
     width: 34px;
     height: 34px;
@@ -234,7 +237,6 @@
     color: var(--ink-soft);
     cursor: pointer;
     transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
-    box-shadow: 3px 3px 8px rgba(20, 20, 20, 0.05), -3px -3px 8px rgba(255, 255, 255, 0.9), var(--brutal-offset);
     flex-shrink: 0;
 }
 
@@ -250,7 +252,7 @@
 
 .expand-button:hover {
     background: var(--ink);
-    color: #fff;
+    color: var(--bg-primary);
     border-color: var(--ink);
     box-shadow: 0 4px 12px rgba(20, 20, 20, 0.14);
     transform: translateY(-1px);
@@ -429,7 +431,8 @@
 }
 
 .skill-tag:hover {
-    background: #e8e8e6;
+    background: var(--line-strong);
+    color: var(--ink);
 }
 
 /* ── Certificate — botón negro sólido, sin preview ── */
@@ -446,7 +449,7 @@
     background: var(--ink);
     border: 1px solid var(--ink);
     border-radius: 8px;
-    color: #fff;
+    color: var(--bg-primary);
     font-weight: 600;
     font-size: 0.82rem;
     font-family: inherit;
@@ -457,9 +460,13 @@
 }
 
 .certificate-button:hover {
-    background: #000;
+    background: #2a2a2a;
     transform: translateY(-1px);
     box-shadow: 0 6px 18px rgba(20, 20, 20, 0.18);
+}
+
+:root[data-theme="dark"] .certificate-button:hover {
+    background: #d4d4d4;
 }
 
 .certificate-button:active {

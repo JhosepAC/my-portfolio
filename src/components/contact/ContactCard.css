@@ -34,7 +34,6 @@
 .contact-card-compact:hover .card-icon-mini {
     background: var(--bg-secondary);
     border-color: var(--line);
-    box-shadow: 2px 2px 8px rgba(20,20,20,0.06), -2px -2px 8px rgba(255,255,255,0.9);
     transform: translateY(-1px);
 }
 
@@ -85,12 +84,11 @@
     color: var(--ink-soft);
     cursor: pointer;
     transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
-    box-shadow: 2px 2px 6px rgba(20,20,20,0.04), -2px -2px 6px rgba(255,255,255,0.8);
 }
 
 .action-btn-mini:hover {
     background: var(--ink);
-    color: #fff;
+    color: var(--bg-primary);
     border-color: var(--ink);
     transform: translateY(-1px);
     box-shadow: 0 4px 10px rgba(20,20,20,0.12);
@@ -98,6 +96,6 @@
 
 .action-btn-mini.copied {
     background: var(--ink);
-    color: #fff;
+    color: var(--bg-primary);
     border-color: var(--ink);
 }

@@ -23,9 +23,9 @@
 
 .social-link:hover {
     transform: translateY(-1px);
-    background: var(--bg-secondary);
-    color: #141414;
-    border-color: rgba(242, 242, 242, 0.9);
+    background: var(--ink);
+    color: var(--bg-primary);
+    border-color: var(--ink);
     box-shadow: 0 4px 14px rgba(0,0,0,0.18), 1.5px 1.5px 0 rgba(242,242,242,0.08);
 }
 
@@ -49,10 +49,10 @@
     left: 50%;
     transform: translateX(-50%);
     padding: 0.38rem 0.7rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--line-soft);
+    background: var(--ink);
+    border: 1px solid var(--ink);
     border-radius: 8px;
-    color: #141414;
+    color: var(--bg-primary);
     font-size: 0.72rem;
     font-weight: 600;
     white-space: nowrap;
@@ -68,7 +68,7 @@
     left: 50%;
     transform: translateX(-50%);
     border: 5px solid transparent;
-    border-top-color: #141414;
+    border-top-color: var(--ink);
 }
 
 @keyframes tooltipFadeIn {

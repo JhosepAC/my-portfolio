@@ -52,6 +52,35 @@
   --mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
+:root[data-theme="dark"] {
+  --bg-primary: #0a0a0b;
+  --bg-secondary: #141416;
+  --bg-muted: #1c1c1f;
+  --ink: #e8e8e8;
+  --ink-soft: #a1a1a6;
+  --ink-faint: #bcb0b0;
+  --line: #232326;
+  --line-soft: #1e1e21;
+  --line-strong: #2c2c30;
+  --text-primary: #e8e8e8;
+  --text-secondary: #9a9aa0;
+  --accent: #e8e8e8;
+  --accent-light: #2c2c30;
+  --border-color: #232326;
+
+  --scrollbar-thumb: #2c2c30;
+  --scrollbar-thumb-hover: #6b6b70;
+  --scrollbar-track: var(--bg-primary);
+
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.5);
+  --shadow-hard: none;
+  --neo-shadow: 6px 6px 14px rgba(0, 0, 0, 0.55), -6px -6px 14px rgba(255, 255, 255, 0.02);
+  --neo-shadow-sm: 4px 4px 10px rgba(0, 0, 0, 0.5), -4px -4px 10px rgba(255, 255, 255, 0.015);
+  --neo-pressed: inset 4px 4px 8px rgba(0, 0, 0, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.015);
+  --brutal-offset: 1.5px 1.5px 0 rgba(0, 0, 0, 0.4);
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
@@ -132,6 +161,24 @@ code, .mono {
   border-radius: 50%;
   animation: global-float linear infinite;
   will-change: transform, opacity;
+}
+
+:root[data-theme="dark"] .global-particle {
+  background: rgba(232, 232, 232, 0.1);
+}
+
+:root[data-theme="dark"] .home-container,
+:root[data-theme="dark"] .projects-section,
+:root[data-theme="dark"] .contact-section,
+:root[data-theme="dark"] .education-section,
+:root[data-theme="dark"] .experience-section,
+:root[data-theme="dark"] .skills-section {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+:root[data-theme="dark"] body {
+  background-color: #0a0a0b;
 }
 
 @keyframes global-float {
