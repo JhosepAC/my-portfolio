@@ -1,7 +1,9 @@
 import {memo, useCallback, useState} from 'react';
+import {motion} from 'motion/react';
 import PropTypes from 'prop-types';
 import './ContactCard.css';
 import {CONTACT_ICONS} from "../../utils/Icons.jsx";
+import {EASE} from '../../utils/motionVariants';
 
 const ActionButton = memo(({onClick, href, title, icon, className = ""}) => {
     const commonProps = {
@@ -24,7 +26,7 @@ ActionButton.displayName = 'ActionButton';
 const ContactCard = ({method, index}) => {
     const [isCopied, setIsCopied] = useState(false);
 
-    const {id, color, icon, title, value, action} = method;
+    const {id, icon, title, value, action} = method;
 
     const handleCopy = useCallback(async (e) => {
         e.preventDefault();
@@ -41,11 +43,13 @@ const ContactCard = ({method, index}) => {
 
     const canCopy = id === 'email' || id === 'phone';
 
-    return (<div
+    return (<motion.div
             className="contact-card-compact"
-            style={{
-                '--card-color': color, animationDelay: `${index * 0.1}s`
-            }}
+            initial={{opacity: 0, x: -24}}
+            whileInView={{opacity: 1, x: 0}}
+            whileHover={{x: -2, y: -2}}
+            viewport={{once: true, amount: 0.3}}
+            transition={{duration: 0.45, ease: EASE, delay: index * 0.1}}
         >
             <div className="card-icon-mini">
                 {icon}
@@ -77,13 +81,12 @@ const ContactCard = ({method, index}) => {
                     icon={CONTACT_ICONS.EXTERNAL_LINK}
                 />
             </div>
-        </div>);
+        </motion.div>);
 };
 
 ContactCard.propTypes = {
     method: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        color: PropTypes.string,
         icon: PropTypes.node,
         title: PropTypes.string,
         value: PropTypes.string,

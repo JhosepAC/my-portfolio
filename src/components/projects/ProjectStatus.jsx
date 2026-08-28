@@ -2,14 +2,10 @@ import React from 'react';
 import './ProjectStatus.css'
 
 const ProjectStatus = ({ status, text }) => {
-    const getStatusColor = (statusKey) => {
-        switch (statusKey) {
-            case 'completed': return '#10b981';
-            case 'in_development': return '#f59e0b';
-            case 'maintenance': return '#5a9fc0';
-            case 'private': return '#6b7280';
-            default: return '#6b7280';
-        }
+    const getStatusColor = (s) => {
+        if (s === 'in_development') return '#f59e0b'; // amber - En desarrollo
+        if (s === 'production') return '#22c55e'; // green - En Producción
+        return '#141414';
     };
 
     return (

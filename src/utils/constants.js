@@ -1,9 +1,26 @@
-import cvFile from '../assets/docs/JHOSEP_JAMIL-ARGOMEDO_CAMACHO-CV.pdf';
+import cvEn from '../assets/docs/CV-JHOSEP_ARGOMEDO-EN.pdf';
+import cvEs from '../assets/docs/CV-JHOSEP_ARGOMEDO-ES.pdf';
 import certificateSDLC from '../assets/docs/CERT-CICLO_DE_VIDA_DEL_DESARROLLO_DE_SOFTWARE_SEGURO.pdf';
 import certificateSCRUM from '../assets/docs/CERT-SCRUM_FUNDAMENTALS.pdf';
+import upcLogo from '../assets/external_logos/upc-logo.png';
+import ubbLogo from '../assets/external_logos/ubb-logo.png';
+import tecnovedadesLogo from '../assets/external_logos/tecnovedades-logo.png';
+import wyaLogo from '../assets/external_logos/wya-soluciones-logo.png';
+import ubbCertificatePreview from '../assets/docs/ubb-certificate-preview.jpg';
 
 export const ASSETS = {
-    CV_PATH: cvFile, CV_NAME: 'JHOSEP_ARGOMEDO-CV.pdf'
+    CV_PATH_ES: cvEs, CV_NAME_ES: 'JHOSEP_ARGOMEDO-CV-ES.pdf',
+    CV_PATH_EN: cvEn, CV_NAME_EN: 'JHOSEP_ARGOMEDO-CV-EN.pdf',
+    // backward compat (defaults to EN)
+    CV_PATH: cvEn, CV_NAME: 'JHOSEP_ARGOMEDO-CV-EN.pdf'
+};
+
+export const getLocalizedCv = (lang) => {
+    const isEs = lang?.startsWith('es');
+    return {
+        path: isEs ? cvEs : cvEn,
+        name: isEs ? 'JHOSEP_ARGOMEDO-CV-ES.pdf' : 'JHOSEP_ARGOMEDO-CV-EN.pdf',
+    };
 };
 
 export const NAV_LINKS = [{id: 'home', key: 'nav.home', href: '#home'}, {
@@ -22,50 +39,50 @@ export const SOCIAL_ICONS = {
 };
 
 export const SOCIAL_LINKS = [{
-    id: 'github', name: 'GitHub', url: 'https://github.com/JhosepAC', color: '#ffffff'
-}, {id: 'linkedin', name: 'LinkedIn', url: 'https://linkedin.com/in/jhosep-ac', color: '#0077b5'}, {
-    id: 'email', name: 'Email', url: 'mailto:jhosepjamil@gmail.com', color: '#ea4335'
-}, {id: 'instagram', name: 'Instagram', url: 'https://instagram.com/jh_slin', color: '#e4405f'}, {
-    id: 'whatsapp', name: 'WhatsApp', url: 'https://wa.me/+51978777386', color: '#25D366'
+    id: 'github', name: 'GitHub', url: 'https://github.com/JhosepAC'
+}, {id: 'linkedin', name: 'LinkedIn', url: 'https://linkedin.com/in/jhosep-ac'}, {
+    id: 'email', name: 'Email', url: 'mailto:jhosepjamil@gmail.com'
+}, {id: 'instagram', name: 'Instagram', url: 'https://instagram.com/jh_slin'}, {
+    id: 'whatsapp', name: 'WhatsApp', url: 'https://wa.me/+51978777386'
 }];
 
 export const SKILLS_DATA = {
-    languages: [{name: 'JavaScript', icon: 'javascript', color: '#f7df1e'}, {
-        name: 'Python', icon: 'python', color: '#3776ab'
-    }, {name: 'Flutter', icon: 'flutter', color: '#02569b'}, {
-        name: 'C#', icon: 'csharp', color: '#239120'
-    }, {name: 'HTML5', icon: 'html', color: '#e34f26'}, {
-        name: 'CSS3', icon: 'css', color: '#2965f1'
+    languages: [{name: 'JavaScript', icon: 'javascript'}, {
+        name: 'TypeScript', icon: 'typescript'
+    }, {name: 'Python', icon: 'python'}, {name: 'Flutter', icon: 'flutter'}, {
+        name: 'C#', icon: 'csharp'
+    }, {name: 'HTML5', icon: 'html'}, {
+        name: 'CSS3', icon: 'css'
     },],
-    databases: [{name: 'MySQL', icon: 'mysql', color: '#4479a1'}, {
-        name: 'MariaDB', icon: 'mariadb', color: '#00526a'
-    }, {name: 'SQL Server', icon: 'sqlserver', color: '#cc2927'}, {
-        name: 'MongoDB', icon: 'mongodb', color: '#47a248'
+    databases: [{name: 'MySQL', icon: 'mysql'}, {
+        name: 'MariaDB', icon: 'mariadb'
+    }, {name: 'SQL Server', icon: 'sqlserver'}, {
+        name: 'MongoDB', icon: 'mongodb'
     },],
-    frameworks: [{name: 'Vue', icon: 'vue', color: '#42b883'}, {
-        name: 'React', icon: 'react', color: '#61dafb'
-    }, {name: 'Tailwind', icon: 'headlessui', color: '#66e3ff'}],
-    tools: [{name: 'GitHub', icon: 'github', color: '#ffffff'}, {
-        name: 'Git', icon: 'git', color: '#f05032'
-    }, {name: 'Linux', icon: 'linux', color: '#fcc624'}, {
-        name: 'Azure', icon: 'azure', color: '#0078d4'
-    }, {name: 'Android Studio', icon: 'androidstudio', color: '#3ddc84'}, {
-        name: 'Figma', icon: 'figma', color: '#a259ff'
-    },],
+    frameworks: [{name: 'Next.js', icon: 'nextjs'}, {
+        name: 'React', icon: 'react'
+    }, {name: 'Vue', icon: 'vue'}, {name: 'Node.js', icon: 'nodejs'}, {name: 'Tailwind', icon: 'headlessui'}],
+    tools: [{name: 'GitHub', icon: 'github'}, {
+        name: 'Git', icon: 'git'
+    }, {name: 'Linux', icon: 'linux'}, {
+        name: 'Azure', icon: 'azure'
+    }, {name: 'Android Studio', icon: 'androidstudio'}, {
+        name: 'Figma', icon: 'figma'
+    }, {name: 'Supabase', icon: 'supabase'}, {name: 'Firebase', icon: 'firebase'},],
     others: [{
-        name: 'Scrum', icon: 'simple-icons:scrumalliance', iconType: 'iconify', color: '#f15a24'
+        name: 'Scrum', icon: 'simple-icons:scrumalliance', iconType: 'iconify'
     }, {
-        name: 'User Stories', icon: 'mdi:clipboard-text-outline', iconType: 'iconify', color: '#4caf50'
-    }, {name: 'Agile', icon: 'mdi:sync', iconType: 'iconify', color: '#2196f3'}],
+        name: 'User Stories', icon: 'mdi:clipboard-text-outline', iconType: 'iconify'
+    }, {name: 'Agile', icon: 'mdi:sync', iconType: 'iconify'}],
     softskills: [{
-        id: 'communication', icon: 'mdi:chat-processing-outline', iconType: 'iconify', color: '#00d2ff'
+        id: 'communication', icon: 'mdi:chat-processing-outline', iconType: 'iconify'
     }, {
-        id: 'teamwork', icon: 'mdi:account-group-outline', iconType: 'iconify', color: '#ff9a9e'
+        id: 'teamwork', icon: 'mdi:account-group-outline', iconType: 'iconify'
     }, {
-        id: 'problemSolving', icon: 'mdi:lightbulb-on-outline', iconType: 'iconify', color: '#f6d365'
-    }, {id: 'adaptability', icon: 'mdi:cached', iconType: 'iconify', color: '#a1c4fd'}, {
-        id: 'timeManagement', icon: 'mdi:clock-outline', iconType: 'iconify', color: '#d4fc79'
-    }, {id: 'creativity', icon: 'mdi:palette-outline', iconType: 'iconify', color: '#84fab0'}]
+        id: 'problemSolving', icon: 'mdi:lightbulb-on-outline', iconType: 'iconify'
+    }, {id: 'adaptability', icon: 'mdi:cached', iconType: 'iconify'}, {
+        id: 'timeManagement', icon: 'mdi:clock-outline', iconType: 'iconify'
+    }, {id: 'creativity', icon: 'mdi:palette-outline', iconType: 'iconify'}]
 };
 
 export const CONTACT_DATA = [{
@@ -90,8 +107,9 @@ export const EDUCATION_DATA = [{
     type: 'university',
     status: 'completed',
     iconType: 'university',
+    logo: ubbLogo,
     certificate: certificateSDLC,
-    color: '#f97316'
+    certificateImage: ubbCertificatePreview
 }, {
     id: 'mongodb-udemy-2024',
     year: '2024',
@@ -100,8 +118,7 @@ export const EDUCATION_DATA = [{
     institution: 'Udemy',
     type: 'course',
     status: 'completed',
-    iconType: 'course',
-    color: '#10b981'
+    iconType: 'course'
 }, {
     id: 'mongodb-intro-2024',
     year: '2024',
@@ -110,8 +127,7 @@ export const EDUCATION_DATA = [{
     institution: 'learn.mongodb.com',
     type: 'course',
     status: 'completed',
-    iconType: 'course',
-    color: '#10b981'
+    iconType: 'course'
 }, {
     id: 'scrum-2024',
     year: '2024',
@@ -121,8 +137,7 @@ export const EDUCATION_DATA = [{
     type: 'certification',
     status: 'completed',
     iconType: 'certificate',
-    certificate: certificateSCRUM,
-    color: '#5a9fc0'
+    certificate: certificateSCRUM
 }, {
     id: 'upc-2023',
     year: '2023',
@@ -133,7 +148,7 @@ export const EDUCATION_DATA = [{
     type: 'university',
     status: 'ongoing',
     iconType: 'university',
-    color: '#8b5cf6',
+    logo: upcLogo,
     endDate: 'Actualidad'
 }, {
     id: 'hacking-2022',
@@ -143,8 +158,7 @@ export const EDUCATION_DATA = [{
     institution: 'Escuela Americana de Innovación',
     type: 'course',
     status: 'completed',
-    iconType: 'shield',
-    color: '#ef4444'
+    iconType: 'shield'
 }];
 
 export const EXPERIENCE_DATA = [{
@@ -156,7 +170,7 @@ export const EXPERIENCE_DATA = [{
     endDate: '05/2026',
     type: 'parttime',
     iconType: 'work',
-    color: '#5a9fc0',
+    logo: tecnovedadesLogo,
     technologies: ['HTML', 'CSS', 'JS', 'PHP', 'WordPress', 'MySQL']
 }, {
     id: 'wya-soluciones',
@@ -167,6 +181,6 @@ export const EXPERIENCE_DATA = [{
     endDate: null,
     type: 'parttime',
     iconType: 'work',
-    color: '#10b981',
+    logo: wyaLogo,
     technologies: ['.NET CORE', 'C#', 'Git', 'Figma', 'SQL Server']
 }];

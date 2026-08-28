@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { TIMELINE_ICONS } from '../../utils/Icons';
+import './StatusBadge.css';
 
 const StatusBadge = ({ status }) => {
     const { t } = useTranslation();

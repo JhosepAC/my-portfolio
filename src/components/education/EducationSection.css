@@ -1,49 +1,8 @@
 .education-section {
     position: relative;
-    padding: 4rem 0 3rem;
+    padding: 6rem 0 4rem;
     background: var(--bg-primary);
     overflow: hidden;
-}
-
-.education-bg {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.education-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.15;
-    animation: float-education-orb 20s ease-in-out infinite;
-}
-
-.education-orb-1 {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(94, 159, 192, 0.3), transparent);
-    top: -150px;
-    right: -100px;
-}
-
-.education-orb-2 {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(126, 184, 216, 0.25), transparent);
-    bottom: -150px;
-    left: -100px;
-    animation-delay: 10s;
-}
-
-@keyframes float-education-orb {
-    0%, 100% {
-        transform: translate(0, 0) scale(1);
-    }
-    50% {
-        transform: translate(50px, -50px) scale(1.1);
-    }
 }
 
 .education-container {
@@ -64,24 +23,10 @@
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg,
-    transparent,
-    rgba(126, 184, 216, 0.4) 10%,
-    rgba(126, 184, 216, 0.4) 90%,
-    transparent
-    );
+    width: 1px;
+    background: linear-gradient(to bottom, transparent 0%, var(--line-strong) 12%, var(--line-strong) 88%, transparent 100%);
+    opacity: 0.55;
     transform: translateX(-50%);
-    animation: timeline-glow 3s ease-in-out infinite;
-}
-
-@keyframes timeline-glow {
-    0%, 100% {
-        box-shadow: 0 0 10px rgba(126, 184, 216, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(126, 184, 216, 0.5);
-    }
 }
 
 @media (max-width: 1024px) {

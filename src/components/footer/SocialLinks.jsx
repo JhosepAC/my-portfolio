@@ -6,7 +6,7 @@ const SocialLinks = () => {
     const [hoveredId, setHoveredId] = useState(null);
 
     return (<div className="social-links">
-            {SOCIAL_LINKS.map((social, index) => (<a
+            {SOCIAL_LINKS.map((social) => (<a
                     key={social.id}
                     href={social.url}
                     target="_blank"
@@ -15,9 +15,6 @@ const SocialLinks = () => {
                     aria-label={social.name}
                     onMouseEnter={() => setHoveredId(social.id)}
                     onMouseLeave={() => setHoveredId(null)}
-                    style={{
-                        '--social-color': social.color, animationDelay: `${index * 0.1}s`
-                    }}
                 >
                     <span className="social-link-icon">
                         <svg

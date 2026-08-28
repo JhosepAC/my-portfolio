@@ -10,37 +10,50 @@
     justify-content: center;
     gap: 0.5rem;
     padding: 0.55rem 0.75rem;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: 600;
     font-size: 0.75rem;
     text-decoration: none;
-    transition: all 0.25s ease;
-    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    border: 1px solid var(--line-strong);
     cursor: pointer;
 }
 
 .button-primary {
-    background: linear-gradient(135deg, #5a9fc0 0%, #3d8ab0 100%);
-    color: #fff;
-    border-color: rgba(94, 159, 192, 0.5);
+    background: var(--ink);
+    color: var(--bg-primary);
+    border-color: var(--ink);
+    box-shadow: 0 1px 2px rgba(20,20,20,0.04);
 }
 
 .button-primary:hover {
-    background: linear-gradient(135deg, #3d8ab0 0%, #2a7a9c 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(94, 159, 192, 0.35);
+    background: var(--ink);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
+}
+
+.button-primary:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 0 var(--ink);
 }
 
 .button-secondary {
-    background: rgba(30, 41, 59, 0.6);
-    color: #e2e8f0;
-    border-color: rgba(71, 85, 105, 0.6);
+    background: var(--bg-secondary);
+    color: var(--ink);
+    border-color: var(--ink);
+    box-shadow: 0 1px 2px rgba(20,20,20,0.04);
 }
 
 .button-secondary:hover {
-    background: rgba(30, 41, 59, 0.9);
-    border-color: #94a3b8;
-    transform: translateY(-2px);
+    background: var(--ink);
+    color: var(--bg-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
+}
+
+.button-secondary:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 0 var(--ink);
 }
 
 @media (max-width: 768px) {

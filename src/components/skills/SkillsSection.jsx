@@ -1,10 +1,11 @@
 import React, {useState, useMemo} from 'react';
+import {AnimatePresence, motion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {SKILLS_DATA} from '../../utils/constants.js';
 import SkillCard from './SkillCard';
 import FilterButton from './FilterButton';
-import SectionOrbs from '../common/orbs/SectionOrbs';
 import SectionHeader from '../common/section-header/SectionHeader';
+import {EASE} from '../../utils/motionVariants';
 import './SkillsSection.css';
 
 const INITIAL_VISIBLE = 16;
@@ -17,8 +18,8 @@ const SkillsSection = () => {
     const filters = useMemo(() => [
         {id: 'all', label: t('skills.filters.all')},
         {id: 'languages', label: t('skills.filters.languages')},
-        {id: 'databases', label: t('skills.filters.databases')},
         {id: 'frameworks', label: t('skills.filters.frameworks')},
+        {id: 'databases', label: t('skills.filters.databases')},
         {id: 'tools', label: t('skills.filters.tools')},
         {id: 'others', label: t('skills.filters.others')},
         {id: 'softskills', label: t('skills.filters.softskills')},
@@ -31,10 +32,13 @@ const SkillsSection = () => {
         })) || [];
 
         const allData = {...SKILLS_DATA, softskills};
-        const allSkills = Object.values(allData).flat();
+
+        // En "todos" excluir 'others' y 'softskills' y ordenar: frameworks → lenguajes → base de datos → herramientas
+        const orderedKeys = ['frameworks', 'languages', 'databases', 'tools'];
+        const allSkillsForAll = orderedKeys.flatMap((key) => allData[key] || []);
 
         const currentSet = activeFilter === 'all'
-            ? allSkills
+            ? allSkillsForAll
             : allData[activeFilter] || [];
 
         return (activeFilter === 'all' && !showAll)
@@ -49,15 +53,22 @@ const SkillsSection = () => {
 
     return (
         <section id="skills" className="skills-section">
-            <SectionOrbs sectionId="skills" />
             <div className="skills-container">
                 <SectionHeader
                     align="left"
+                    kicker="/skills — 01"
                     title={t('skills.title')}
                     subtitle={t('skills.subtitle')}
                 />
 
-                <nav className="filters-container" aria-label="Skills filtering">
+                <motion.nav
+                    className="filters-container"
+                    aria-label="Skills filtering"
+                    initial={{opacity: 0, y: 20}}
+                    whileInView={{opacity: 1, y: 0}}
+                    viewport={{once: true, amount: 0.4}}
+                    transition={{duration: 0.5, ease: EASE}}
+                >
                     {filters.map((filter) => (
                         <FilterButton
                             key={filter.id}
@@ -66,27 +77,37 @@ const SkillsSection = () => {
                             onClick={() => handleFilterChange(filter.id)}
                         />
                     ))}
-                </nav>
+                </motion.nav>
 
-                <div className="skills-grid">
-                    {filteredSkills.map((skill, index) => (
-                        <SkillCard
-                            key={`${activeFilter}-${skill.name}-${index}`}
-                            skill={skill}
-                            index={index}
-                        />
-                    ))}
-                </div>
+                <motion.div layout className="skills-grid" transition={{type: 'spring', stiffness: 220, damping: 30}}>
+                    <AnimatePresence mode="popLayout">
+                        {filteredSkills.map((skill, index) => (
+                            <SkillCard
+                                key={skill.id || skill.name}
+                                skill={skill}
+                                index={index}
+                            />
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
 
                 {activeFilter === 'all' && filteredSkills.length >= INITIAL_VISIBLE && (
-                    <div className="skills-show-more">
-                        <button
+                    <motion.div
+                        className="skills-show-more"
+                        initial={{opacity: 0, y: 16}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={{once: true, amount: 0.4}}
+                        transition={{duration: 0.5, ease: EASE}}
+                    >
+                        <motion.button
                             className="skills-show-more-btn"
                             onClick={() => setShowAll(!showAll)}
+                            whileHover={{x: -2, y: -2}}
+                            whileTap={{scale: 0.95}}
                         >
                             {showAll ? t('skills.showLess') : t('skills.showMore')}
-                        </button>
-                    </div>
+                        </motion.button>
+                    </motion.div>
                 )}
             </div>
         </section>

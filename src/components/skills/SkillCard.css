@@ -1,60 +1,29 @@
 .skill-card {
     position: relative;
-    background: rgba(22, 27, 34, 0.6);
-    border: 1px solid #30363d;
-    border-radius: 16px;
-    padding: 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 0.9rem 0.75rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.65rem;
     cursor: pointer;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    overflow: hidden;
-    animation: fadeInScale 0.6s ease-out backwards;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+    box-shadow: 0 1px 2px rgba(20,20,20,0.04);
     will-change: transform;
 }
 
-.skill-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    padding: 1px;
-    background: linear-gradient(135deg, var(--skill-color, #5a9fc0) 0%, transparent 50%, var(--skill-color, #5a9fc0) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.skill-card::after {
-    content: '';
-    position: absolute;
-    inset: -50%;
-    background: radial-gradient(circle, var(--skill-color, #5a9fc0) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    filter: blur(15px);
-    z-index: -1;
-}
-
 .skill-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: var(--skill-color, #5a9fc0);
-    box-shadow:
-            0 10px 40px -10px var(--skill-color-shadow, rgba(90, 159, 192, 0.4)),
-            0 0 20px var(--skill-color-shadow, rgba(90, 159, 192, 0.2));
+    border-color: var(--line-strong);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-1px);
 }
 
-.skill-card:hover::before {
-    opacity: 1;
-}
-
-.skill-card:hover::after {
-    opacity: 0.3;
+.skill-card:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(20,20,20,0.04);
 }
 
 .skill-icon-wrapper {
@@ -63,71 +32,44 @@
     justify-content: center;
     text-align: center;
     position: relative;
-    height: 90px;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 76px;
+    transition: transform 0.28s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .skill-card:hover .skill-icon-wrapper {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.04) rotate(2deg);
 }
 
 .skill-icon {
     display: block;
-    color: var(--skill-color, #c9d1d9);
-    filter: drop-shadow(0 0 4px var(--skill-color-shadow, rgba(90, 159, 192, 0.3)));
-    transition: filter 0.2s ease;
-}
-
-.skill-card:hover .skill-icon {
-    filter: drop-shadow(0 0 10px var(--skill-color-shadow, rgba(90, 159, 192, 0.6)));
-}
-
-.skill-card[data-icon="github"] .skill-icon {
-    filter: brightness(0) invert(1) drop-shadow(0 0 4px var(--skill-color-shadow, rgba(90, 159, 192, 0.3)));
-}
-
-.skill-card[data-icon="github"]:hover .skill-icon {
-    filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--skill-color-shadow, rgba(90, 159, 192, 0.6)));
+    color: var(--ink);
 }
 
 .skill-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #c9d1d9;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
     text-align: center;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
+    line-height: 1.25;
 }
 
 .skill-card:hover .skill-name {
-    color: var(--skill-color, #5a9fc0);
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.8) translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+    color: var(--ink);
 }
 
 @media (max-width: 768px) {
     .skill-card {
-        padding: 0.5rem;
+        padding: 0.6rem 0.4rem;
         border-radius: 10px;
-        transition: transform 0.2s ease, border-color 0.2s ease;
         gap: 0.4rem;
-    }
-
-    .skill-card::before,
-    .skill-card::after {
-        display: none;
+        box-shadow: 0 1px 2px rgba(20,20,20,0.04);
     }
 
     .skill-card:hover {
-        transform: translateY(-3px) scale(1.02);
+        box-shadow: var(--shadow-soft);
     }
 
     .skill-icon-wrapper {
@@ -145,7 +87,7 @@
     }
 
     .skill-card:hover .skill-icon-wrapper {
-        transform: scale(1.05);
+        transform: scale(1.03);
     }
 
     .skill-name {

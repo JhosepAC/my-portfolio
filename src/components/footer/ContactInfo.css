@@ -8,41 +8,44 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1rem;
-    background: rgba(22, 27, 34, 0.4);
-    border: 1px solid #30363d;
+    padding: 0.95rem 1rem;
+    background: rgba(242, 242, 242, 0.05);
+    border: 1px solid rgba(242, 242, 242, 0.12);
     border-radius: 12px;
-    transition: all 0.3s ease;
-    animation: fadeInRight 0.6s ease-out backwards;
-    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
 }
 
 .contact-item:hover {
-    background: rgba(22, 27, 34, 0.6);
-    border-color: #5a9fc0;
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(90, 159, 192, 0.15);
+    background: rgba(242, 242, 242, 0.08);
+    border-color: rgba(242, 242, 242, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.14);
 }
 
 .contact-item-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(90, 159, 192, 0.1);
-    border: 1px solid rgba(90, 159, 192, 0.2);
+    width: 38px;
+    height: 38px;
+    background: var(--bg-secondary);
+    border: 1px solid rgba(242, 242, 242, 0.9);
     border-radius: 10px;
-    color: #5a9fc0;
+    color: var(--ink);
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.12);
+}
+
+:root[data-theme="dark"] .contact-item-icon {
+    background: var(--ink);
+    color: var(--bg-primary);
+    border-color: var(--ink);
 }
 
 .contact-item:hover .contact-item-icon {
-    background: rgba(90, 159, 192, 0.2);
-    border-color: #5a9fc0;
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 15px rgba(90, 159, 192, 0.3);
+    transform: scale(1.04);
 }
 
 .contact-item-content {
@@ -55,46 +58,48 @@
 
 .contact-item-label {
     font-size: 0.75rem;
-    color: #8b949e;
-    font-weight: 600;
+    color: #9a9a9a;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .contact-item-value {
     font-size: 0.95rem;
-    color: #c9d1d9;
+    color: #f2f2f2;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.15s ease;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 a.contact-item-value:hover {
-    color: #5a9fc0;
+    color: #f2f2f2;
+    text-decoration: underline;
 }
 
 .contact-item-copy {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     background: transparent;
-    border: 1px solid #30363d;
+    border: 1px solid rgba(242, 242, 242, 0.14);
     border-radius: 8px;
-    color: #8b949e;
+    color: #9a9a9a;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     flex-shrink: 0;
 }
 
 .contact-item-copy:hover {
-    background: rgba(90, 159, 192, 0.1);
-    border-color: #5a9fc0;
-    color: #5a9fc0;
-    transform: scale(1.1);
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--bg-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
 }
 
 .contact-item-copy:active {
@@ -102,22 +107,11 @@ a.contact-item-value:hover {
 }
 
 .contact-item-copy svg {
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
 }
 
 .contact-item-copy:hover svg {
     transform: rotate(5deg);
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 @media (max-width: 768px) {

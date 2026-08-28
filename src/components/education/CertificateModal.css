@@ -4,33 +4,40 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    backdrop-filter: blur(5px);
+    background: rgba(20, 20, 20, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99999;
     padding: 20px;
-    animation: fadeInModal 0.3s ease;
+}
+
+:root[data-theme="dark"] .modal-overlay {
+    background: rgba(0, 0, 0, 0.68);
 }
 
 .modal-content {
-    background-color: #0d1117;
+    background-color: var(--bg-secondary);
     width: 100%;
     max-width: 1000px;
     height: 90vh;
-    border-radius: 12px;
-    border: 1px solid #30363d;
+    border-radius: 16px;
+    border: 1px solid var(--line-soft);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 60px rgba(20, 20, 20, 0.12);
+}
+
+:root[data-theme="dark"] .modal-content {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
 
 .modal-header {
     padding: 1rem 1.5rem;
-    background-color: #161b22;
-    border-bottom: 1px solid #30363d;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--line);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +46,7 @@
 .modal-header h3 {
     margin: 0;
     font-size: 1.1rem;
-    color: #e6edf3;
+    color: var(--ink);
     font-weight: 600;
 }
 
@@ -50,32 +57,33 @@
 }
 
 .action-btn, .close-btn {
-    background: transparent;
-    border: none;
-    color: #8b949e;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-soft);
+    color: var(--ink-soft);
     padding: 8px;
     cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.2s ease;
+    border-radius: 8px;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    box-shadow: var(--neo-shadow-sm);
 }
 
 .action-btn:hover, .close-btn:hover {
-    background-color: #30363d;
-    color: #5a9fc0;
-}
-
-.close-btn:hover {
-    color: #f85149;
+    background-color: var(--ink);
+    color: var(--bg-primary);
+    border-color: var(--ink);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(20,20,20,0.14);
 }
 
 .modal-body {
     flex: 1;
-    background-color: #0d1117;
+    background-color: var(--bg-primary);
     position: relative;
+    overflow: hidden;
 }
 
 .modal-body iframe {
@@ -83,9 +91,60 @@
     display: block;
 }
 
-@keyframes fadeInModal {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* ── PDF.js mobile viewer ── */
+.pdf-viewer-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: var(--bg-primary);
+    padding: 12px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pdf-loading,
+.pdf-error,
+.pdf-page-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    font-family: var(--mono);
+}
+
+.pdf-error a {
+    color: var(--ink);
+    text-decoration: underline;
+    margin-left: 0.35rem;
+}
+
+.react-pdf__Document {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.pdf-page,
+.react-pdf__Page {
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(20,20,20,0.08);
+    overflow: hidden;
+}
+
+:root[data-theme="dark"] .pdf-page,
+:root[data-theme="dark"] .react-pdf__Page {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.pdf-page canvas,
+.react-pdf__Page canvas {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
 }
 
 @media (max-width: 768px) {
@@ -95,6 +154,11 @@
 
     .modal-content {
         height: 100vh;
+        height: 100dvh;
         border-radius: 0;
+    }
+
+    .pdf-viewer-container {
+        padding: 8px;
     }
 }

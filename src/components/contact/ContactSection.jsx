@@ -1,11 +1,12 @@
 import {useMemo, useState} from 'react';
+import {motion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import ContactForm from './ContactForm';
 import ContactCard from './ContactCard';
 import SocialContact from './SocialContact';
 import {CONTACT_DATA} from "../../utils/constants.js";
-import SectionOrbs from '../common/orbs/SectionOrbs';
 import SectionHeader from '../common/section-header/SectionHeader';
+import {EASE} from '../../utils/motionVariants';
 import './ContactSection.css';
 
 const ContactSection = () => {
@@ -19,7 +20,6 @@ const ContactSection = () => {
         action: {
             label: t('contact.email.action'), href: CONTACT_DATA.find(d => d.id === 'email').href
         },
-        color: '#ea4335',
         icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
             <polyline points="22,6 12,13 2,6"/>
@@ -31,7 +31,6 @@ const ContactSection = () => {
         action: {
             label: t('contact.phone.action'), href: CONTACT_DATA.find(d => d.id === 'phone').href
         },
-        color: '#34a853',
         icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path
                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -43,7 +42,6 @@ const ContactSection = () => {
         action: {
             label: t('contact.location.action'), href: 'https://maps.google.com/?q=Lima,Peru'
         },
-        color: '#4285f4',
         icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
             <circle cx="12" cy="10" r="3"/>
@@ -51,17 +49,23 @@ const ContactSection = () => {
     }], [t]);
 
     return (<section id="contact" className="contact-section">
-        <SectionOrbs sectionId="contact" />
         <div className="contact-container">
             <SectionHeader
                 align="center"
+                kicker="/contact — 05"
                 title={t('contact.title')}
                 titleHighlight={t('contact.titleHighlight')}
                 subtitle={t('contact.subtitle')}
                 stacked
             />
 
-            <div className="contact-content">
+            <motion.div
+                className="contact-content"
+                initial={{opacity: 0, y: 24}}
+                whileInView={{opacity: 1, y: 0}}
+                viewport={{once: true, amount: 0.15}}
+                transition={{duration: 0.6, ease: EASE}}
+            >
                 <div className="contact-left">
                     <div className="contact-cards">
                         {contactMethods.map((method, index) => (<ContactCard
@@ -73,7 +77,13 @@ const ContactSection = () => {
 
                     <SocialContact/>
 
-                    <div className="contact-availability">
+                    <motion.div
+                        className="contact-availability"
+                        initial={{opacity: 0, x: -24}}
+                        whileInView={{opacity: 1, x: 0}}
+                        viewport={{once: true, amount: 0.4}}
+                        transition={{duration: 0.5, ease: EASE, delay: 0.35}}
+                    >
                         <div className="availability-content">
                             <div className="availability-icon">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -87,7 +97,7 @@ const ContactSection = () => {
                                 <span className="availability-value">{t('contact.availability.value')}</span>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div className="contact-right">
@@ -96,7 +106,7 @@ const ContactSection = () => {
                         setIsSubmitting={setIsFormSubmitting}
                     />
                 </div>
-            </div>
+            </motion.div>
         </div>
     </section>);
 };

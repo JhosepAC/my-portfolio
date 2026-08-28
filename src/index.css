@@ -5,49 +5,135 @@
 }
 
 :root {
-  --bg-primary: #0d1117;
-  --bg-secondary: #161b22;
-  --text-primary: #c9d1d9;
-  --text-secondary: #8b949e;
-  --accent: #5a9fc0;
-  --accent-light: #7eb8d8;
-  --border-color: #30363d;
+  --bg-primary: #f6f6f5;
+  --bg-secondary: #ffffff;
+  --bg-muted: #eeeeec;
+  --ink: #141414;
+  --ink-soft: #3a3a3a;
+  --ink-faint: #8a8a86;
+  --line: #e8e8e6;
+  --line-soft: #f0f0ef;
+  --line-strong: #d6d6d3;
+  --text-primary: #141414;
+  --text-secondary: #6b6b68;
+  --accent: #141414;
+  --accent-light: #444444;
+  --border-color: #e8e8e6;
 
-  --gradient-primary: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+  --scrollbar-thumb: #c2c2be;
+  --scrollbar-thumb-hover: #3a3a3a;
+  --scrollbar-track: var(--bg-primary);
 
-  --title-size: 4rem;
-  --title-size-md: 3rem;
-  --title-size-sm: 2.2rem;
+  --shadow-soft: 0 1px 2px rgba(20, 20, 20, 0.04), 0 8px 24px rgba(20, 20, 20, 0.06);
+  --shadow-card: 0 2px 10px rgba(20, 20, 20, 0.05);
+  --shadow-hard: none;
+  --neo-shadow: 6px 6px 14px rgba(20, 20, 20, 0.06), -6px -6px 14px rgba(255, 255, 255, 0.9);
+  --neo-shadow-sm: 4px 4px 10px rgba(20, 20, 20, 0.05), -4px -4px 10px rgba(255, 255, 255, 0.9);
+  --neo-pressed: inset 4px 4px 8px rgba(20, 20, 20, 0.06), inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+  --brutal-offset: 1.5px 1.5px 0 rgba(20, 20, 20, 0.08);
 
-  --subtitle-size: 1.2rem;
-  --subtitle-size-sm: 1rem;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
 
-  --section-padding: 6rem 0;
-  --section-padding-md: 4rem 0;
-  --section-padding-sm: 3rem 0;
+  --title-size: clamp(2.6rem, 4vw, 3.4rem);
+  --title-size-md: clamp(2.1rem, 3.5vw, 2.8rem);
+  --title-size-sm: clamp(1.9rem, 3vw, 2.3rem);
+
+  --title-hero: clamp(3.2rem, 7vw, 5.2rem);
+  --subtitle-size: 1.05rem;
+  --subtitle-size-sm: 0.95rem;
+
+  --section-padding: 7rem 0;
+  --section-padding-md: 5rem 0;
+  --section-padding-sm: 3.5rem 0;
+
+  --mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #0a0a0b;
+  --bg-secondary: #141416;
+  --bg-muted: #1c1c1f;
+  --ink: #e8e8e8;
+  --ink-soft: #a1a1a6;
+  --ink-faint: #bcb0b0;
+  --line: #232326;
+  --line-soft: #1e1e21;
+  --line-strong: #2c2c30;
+  --text-primary: #e8e8e8;
+  --text-secondary: #9a9aa0;
+  --accent: #e8e8e8;
+  --accent-light: #2c2c30;
+  --border-color: #232326;
+
+  --scrollbar-thumb: #2c2c30;
+  --scrollbar-thumb-hover: #6b6b70;
+  --scrollbar-track: var(--bg-primary);
+
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.5);
+  --shadow-hard: none;
+  --neo-shadow: 6px 6px 14px rgba(0, 0, 0, 0.55), -6px -6px 14px rgba(255, 255, 255, 0.02);
+  --neo-shadow-sm: 4px 4px 10px rgba(0, 0, 0, 0.5), -4px -4px 10px rgba(255, 255, 255, 0.015);
+  --neo-pressed: inset 4px 4px 8px rgba(0, 0, 0, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.015);
+  --brutal-offset: 1.5px 1.5px 0 rgba(0, 0, 0, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* ============================================
+   GLOBAL CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--scrollbar-track);
+  background-clip: padding-box;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-track);
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-primary);
-  color: var(--text-primary);
+  color: var(--ink);
   overflow-x: hidden;
   position: relative;
-  cursor: crosshair;
 }
 
 a, button, [role="button"], .clickable {
   cursor: pointer;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+code, .mono {
+  font-family: var(--mono);
 }
 
 #root {
@@ -69,13 +155,30 @@ code {
 
 .global-particle {
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(90, 159, 192, 0.5);
+  width: 1.5px;
+  height: 1.5px;
+  background: rgba(20, 20, 20, 0.22);
   border-radius: 50%;
   animation: global-float linear infinite;
-  box-shadow: 0 0 10px rgba(90, 159, 192, 0.5);
   will-change: transform, opacity;
+}
+
+:root[data-theme="dark"] .global-particle {
+  background: rgba(232, 232, 232, 0.1);
+}
+
+:root[data-theme="dark"] .home-container,
+:root[data-theme="dark"] .projects-section,
+:root[data-theme="dark"] .contact-section,
+:root[data-theme="dark"] .education-section,
+:root[data-theme="dark"] .experience-section,
+:root[data-theme="dark"] .skills-section {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+:root[data-theme="dark"] body {
+  background-color: #0a0a0b;
 }
 
 @keyframes global-float {
@@ -99,77 +202,22 @@ code {
   .global-particle {
     width: 1px;
     height: 1px;
-    box-shadow: 0 0 6px rgba(90, 159, 192, 0.4);
   }
 }
 
 /* ============================================
-   GLOBAL ORBS ANIMATIONS
+   GLOBAL REDUCED MOTION
+   Respects user's OS-level motion preference.
+   (motion handles its own reduced-motion via
+   MotionConfig; this covers CSS animations.)
    ============================================ */
-@keyframes float-orb-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-30px, 30px) scale(1.1); }
-}
-
-@keyframes float-orb-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(40px, -20px) scale(1.05); }
-}
-
-@keyframes float-orb-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-50px, 30px) scale(1.1); }
-  66% { transform: translate(30px, -40px) scale(0.95); }
-}
-
-@keyframes float-orb-4 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(20px, -30px) scale(1.08); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* ============================================
-   SECTION ORBS PARALLAX (Low CPU)
-   ============================================ */
-.section-orbs-container {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .section-orbs-container > div {
-    animation: none !important;
-    transform: none !important;
-  }
-}
-
-/* ============================================
-   CENTRALIZED KEYFRAMES
-   ============================================ */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
   }
 }
