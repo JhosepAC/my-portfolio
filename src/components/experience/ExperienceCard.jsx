@@ -103,10 +103,6 @@ const ExperienceCard = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
                                 </>
                             )}
                         </div>
-
-                        <div className="experience-dates">
-                            {TIMELINE_ICONS.DATE} {item.startDate} {item.endDate ? `- ${item.endDate}` : `- ${t('experience.current')}`}
-                        </div>
                     </div>
 
                     <button

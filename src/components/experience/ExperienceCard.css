@@ -155,15 +155,7 @@
 
 .company-location svg { width: 13px; height: 13px; }
 
-.experience-dates {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.8rem;
-    color: var(--ink-faint);
-}
 
-.experience-dates svg { width: 13px; height: 13px; }
 
 .experience-expand-btn {
     width: 34px;
@@ -345,8 +337,6 @@
     .experience-role { font-size: 0.9rem; }
 
     .experience-company { font-size: 0.78rem; }
-
-    .experience-dates { font-size: 0.72rem; }
 
     .experience-expand-btn {
         grid-column: 1 / -1;
