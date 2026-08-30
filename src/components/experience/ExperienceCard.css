@@ -53,6 +53,11 @@
     overflow: hidden;
 }
 
+:root[data-theme="dark"] .experience-icon.has-logo {
+    background: #1e1e20;
+    border-color: var(--line-soft);
+}
+
 .experience-icon-img {
     width: 100%;
     height: 100%;
@@ -130,54 +135,6 @@
     50% { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
 }
 
-.experience-type-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.22rem 0.6rem;
-    border-radius: 999px;
-    font-size: 0.66rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    font-family: var(--mono);
-    line-height: 1;
-    background: var(--bg-muted);
-    color: var(--ink-soft);
-    border: 1px solid var(--line-soft);
-    margin: 0;
-    align-self: center;
-}
-
-.type-parttime {
-    background: #eef1ff;
-    color: #4338ca;
-    border-color: #e0e4ff;
-}
-
-:root[data-theme="dark"] .experience-type-badge.type-parttime {
-    background: #23233e;
-    color: #a5a3ff;
-    border-color: #34345e;
-}
-
-.type-fulltime {
-    background: #e6efe6;
-    color: #2d5a2d;
-    border-color: #d6e8d6;
-}
-
-.type-freelance {
-    background: #fef3e2;
-    color: #9a6700;
-    border-color: #fde6c0;
-}
-
-.type-internship {
-    background: #fde8f0;
-    color: #9d174d;
-    border-color: #fbcfe8;
-}
-
 /* ── Company & Dates ── */
 .experience-company {
     display: flex;
@@ -203,15 +160,7 @@
 
 .company-location svg { width: 13px; height: 13px; }
 
-.experience-dates {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.8rem;
-    color: var(--ink-faint);
-}
 
-.experience-dates svg { width: 13px; height: 13px; }
 
 .experience-expand-btn {
     width: 34px;
@@ -393,8 +342,6 @@
     .experience-role { font-size: 0.9rem; }
 
     .experience-company { font-size: 0.78rem; }
-
-    .experience-dates { font-size: 0.72rem; }
 
     .experience-expand-btn {
         grid-column: 1 / -1;

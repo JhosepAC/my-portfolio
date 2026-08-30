@@ -34,17 +34,43 @@ const ExperienceSection = () => {
                     subtitle={t('experience.subtitle')}
                 />
 
-                <div className="experience-list">
-                    {experienceItems.map((item, index) => (
-                        <ExperienceCard
-                            key={item.id}
-                            item={item}
-                            index={index}
-                            isExpanded={expandedId === item.id}
-                            onToggle={handleToggle}
-                            hasOpenedAny={hasOpenedAny}
-                        />
-                    ))}
+                <div className="experience-timeline">
+                    <div className="experience-timeline-track" aria-hidden="true" />
+                    {experienceItems.map((item, index) => {
+                        const isExpanded = expandedId === item.id;
+                        const isCurrent = !item.endDate;
+                        return (
+                            <div
+                                key={item.id}
+                                className={`experience-timeline-row ${isExpanded ? 'expanded' : ''} ${isCurrent ? 'is-current' : ''}`}
+                            >
+                                <div className="experience-timeline-rail">
+                                    <div className="experience-timeline-date">
+                                        <span className="timeline-date-range">
+                                            {item.startDate}
+                                            <span className="timeline-date-sep"> — </span>
+                                            {item.endDate ? item.endDate : t('experience.current')}
+                                        </span>
+                                    </div>
+                                    <div className="experience-timeline-node">
+                                        <span className="experience-timeline-dot" />
+                                        <span className="experience-timeline-dot-pulse" />
+                                        <span className="experience-timeline-connector" aria-hidden="true" />
+                                    </div>
+                                </div>
+
+                                <div className="experience-timeline-card-wrap">
+                                    <ExperienceCard
+                                        item={item}
+                                        index={index}
+                                        isExpanded={isExpanded}
+                                        onToggle={handleToggle}
+                                        hasOpenedAny={hasOpenedAny}
+                                    />
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
