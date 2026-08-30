@@ -6,39 +6,269 @@
 }
 
 .experience-container {
-    max-width: 800px;
+    max-width: 880px;
     margin: 0 auto;
     padding: 0 3rem;
     position: relative;
     z-index: 2;
 }
 
-.experience-list {
+/* ── Timeline wrapper ── */
+.experience-timeline {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 0;
+    margin-top: 0.5rem;
+    padding-left: 0;
 }
 
+/* vertical continuous line - behind dots */
+.experience-timeline-track {
+    position: absolute;
+    left: 62px; /* center of 124px rail */
+    top: 14px;
+    bottom: 14px;
+    width: 1.5px;
+    background: var(--line);
+    opacity: 0.9;
+    border-radius: 999px;
+    z-index: 0;
+}
+
+:root[data-theme="dark"] .experience-timeline-track {
+    background: var(--line-strong);
+    opacity: 0.6;
+}
+
+/* each row = rail + card */
+.experience-timeline-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 124px 1fr;
+    gap: 24px;
+    align-items: start;
+    z-index: 1;
+    margin-bottom: 1.9rem;
+}
+
+.experience-timeline-row:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Rail (left column) ── */
+.experience-timeline-rail {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding-top: 1.35rem; /* aligns dot with card header center */
+    min-height: 100%;
+}
+
+.experience-timeline-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 22px;
+    padding: 0.18rem 0.55rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line-soft);
+    border-radius: 999px;
+    box-shadow: var(--shadow-card);
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.timeline-date-range {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    line-height: 1;
+}
+
+.timeline-date-sep {
+    color: var(--ink-faint);
+    margin: 0 0.15rem;
+}
+
+.experience-timeline-row.is-current .timeline-date-range {
+    color: var(--ink);
+}
+
+.experience-timeline-row.is-current .experience-timeline-date {
+    border-color: var(--line);
+    background: var(--bg-secondary);
+}
+
+/* Node container with dot + connector */
+.experience-timeline-node {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin-top: 10px;
+    z-index: 2;
+}
+
+.experience-timeline-dot {
+    width: 13px;
+    height: 13px;
+    background: var(--bg-secondary);
+    border: 2.5px solid var(--ink);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--bg-primary);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.experience-timeline-row.is-current .experience-timeline-dot {
+    background: var(--ink);
+    border-color: var(--ink);
+    box-shadow: 0 0 0 4px var(--bg-primary), 0 0 0 7px rgba(34,197,94,0.12);
+}
+
+.experience-timeline-row.expanded .experience-timeline-dot {
+    transform: scale(1.15);
+    border-color: var(--ink);
+}
+
+.experience-timeline-dot-pulse {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--ink);
+    opacity: 0.12;
+    animation: exp-pulse 2.4s ease-out infinite;
+    z-index: 1;
+}
+
+.experience-timeline-row.is-current .experience-timeline-dot-pulse {
+    background: #22c55e;
+    opacity: 0.18;
+}
+
+@keyframes exp-pulse {
+    0% { transform: scale(1); opacity: 0.14; }
+    100% { transform: scale(2.9); opacity: 0; }
+}
+
+/* horizontal connector from dot to card */
+.experience-timeline-connector {
+    position: absolute;
+    left: calc(100% + 2px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 1.5px;
+    background: var(--line);
+    border-radius: 999px;
+    z-index: 1;
+}
+
+:root[data-theme="dark"] .experience-timeline-connector {
+    background: var(--line-strong);
+}
+
+.experience-timeline-card-wrap {
+    min-width: 0;
+}
+
+/* allow overflow for hint absolute */
+.experience-timeline-card-wrap .experience-item {
+    margin-bottom: 0;
+    overflow: visible;
+}
+
+.experience-timeline-card-wrap .experience-card {
+    overflow: hidden;
+}
+
+/* ── Responsive ── */
 @media (max-width: 1024px) {
     .experience-section {
         padding: 3rem 0 2rem;
     }
-
     .experience-container {
         padding: 0 2rem;
     }
-
+    .experience-timeline-row {
+        grid-template-columns: 110px 1fr;
+        gap: 18px;
+    }
+    .experience-timeline-track {
+        left: 55px;
+    }
+    .experience-timeline-connector {
+        width: 18px;
+    }
 }
 
 @media (max-width: 768px) {
     .experience-section {
         padding: 2.5rem 0 1.5rem;
     }
-
     .experience-container {
-        padding: 0 1.5rem;
+        padding: 0 1.2rem 0 1rem;
     }
+    .experience-timeline-row {
+        grid-template-columns: 78px 1fr;
+        gap: 12px;
+        margin-bottom: 1.4rem;
+    }
+    .experience-timeline-track {
+        left: 39px;
+        width: 1.5px;
+        top: 10px;
+        bottom: 10px;
+    }
+    .experience-timeline-rail {
+        padding-top: 1.1rem;
+    }
+    .experience-timeline-date {
+        padding: 0.16rem 0.42rem;
+    }
+    .timeline-date-range {
+        font-size: 0.6rem;
+        letter-spacing: 0.03em;
+    }
+    .experience-timeline-node {
+        width: 14px;
+        height: 14px;
+        margin-top: 8px;
+    }
+    .experience-timeline-dot,
+    .experience-timeline-dot-pulse {
+        width: 11px;
+        height: 11px;
+    }
+    .experience-timeline-connector {
+        width: 12px;
+        left: calc(100% + 1px);
+    }
+}
 
+@media (max-width: 480px) {
+    .experience-timeline-row {
+        grid-template-columns: 68px 1fr;
+        gap: 10px;
+    }
+    .experience-timeline-track {
+        left: 34px;
+    }
+    .timeline-date-range {
+        font-size: 0.56rem;
+    }
+}
 
-
+@media (prefers-reduced-motion: reduce) {
+    .experience-timeline-dot-pulse { animation: none; }
 }
