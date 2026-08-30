@@ -29,16 +29,16 @@
     left: 62px; /* center of 124px rail */
     top: 14px;
     bottom: 14px;
-    width: 1.5px;
-    background: var(--line);
-    opacity: 0.9;
+    width: 2px;
+    background: var(--line-strong);
+    opacity: 1;
     border-radius: 999px;
     z-index: 0;
 }
 
 :root[data-theme="dark"] .experience-timeline-track {
-    background: var(--line-strong);
-    opacity: 0.6;
+    background: #2e2e32;
+    opacity: 1;
 }
 
 /* each row = rail + card */
@@ -168,14 +168,16 @@
     top: 50%;
     transform: translateY(-50%);
     width: 76px; /* union: touches card left edge (rail 124 + gap 24) */
-    height: 1.5px;
-    background: var(--line);
+    height: 2px;
+    background: var(--line-strong);
+    opacity: 1;
     border-radius: 999px;
     z-index: 1;
 }
 
 :root[data-theme="dark"] .experience-timeline-connector {
-    background: var(--line-strong);
+    background: #2e2e32;
+    opacity: 1;
 }
 
 .experience-timeline-card-wrap {
@@ -226,7 +228,7 @@
     }
     .experience-timeline-track {
         left: 39px;
-        width: 1.5px;
+        width: 2px;
         top: 10px;
         bottom: 10px;
     }
