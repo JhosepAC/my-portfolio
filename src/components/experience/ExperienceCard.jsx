@@ -6,13 +6,6 @@ import useIsMobile from '../../hooks/useIsMobile';
 import {EASE} from '../../utils/motionVariants';
 import './ExperienceCard.css';
 
-const typeBadgeClass = {
-    fulltime: 'type-fulltime',
-    freelance: 'type-freelance',
-    internship: 'type-internship',
-    parttime: 'type-parttime'
-};
-
 const ExperienceCard = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
     const {t} = useTranslation();
     const [showHint, setShowHint] = useState(false);
@@ -89,17 +82,14 @@ const ExperienceCard = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
                     <div className="experience-info">
                         <div className="experience-top">
                             <h3 className="experience-role">{item.role}</h3>
-                            <div className="experience-badges">
-                                {!item.endDate && (
+                            {!item.endDate && (
+                                <div className="experience-badges">
                                     <span className="experience-current-badge">
                                         <span className="current-dot" />
                                         {t('experience.current')}
                                     </span>
-                                )}
-                                <span className={`experience-type-badge ${typeBadgeClass[item.type] || ''}`}>
-                                    {t(`experience.type.${item.type}`)}
-                                </span>
-                            </div>
+                                </div>
+                            )}
                         </div>
 
                         <div className="experience-company">
