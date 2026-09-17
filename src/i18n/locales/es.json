@@ -50,7 +50,8 @@
     "techFilter": "Tecnologías",
     "filterCat": {
         "web": "Web",
-        "mobile": "Mobile"
+        "mobile": "Mobile",
+        "desktop": "Escritorio"
     },
     "noResults": "No se encontraron proyectos con ese filtro",
     "showMore": "Ver Más",
@@ -83,6 +84,10 @@
       },
       "meetmesh": {
         "description": "Aplicación web para crear y unirse a reuniones virtuales. Con características para compartir pantalla, personalización de perfiles y más.",
+        "status": "EN DESARROLLO"
+      },
+      "biovision": {
+        "description": "Plataforma de escritorio offline para análisis biométrico facial: enrolamiento con control de calidad, comparación 1:1, búsqueda 1:N con FAISS, reconocimiento en webcam a 30 FPS y análisis forense de video. Desarrollada con PySide6, InsightFace (ArcFace 512D), ONNX Runtime y SQLite — 100% local y privada.",
         "status": "EN DESARROLLO"
       }
     }
