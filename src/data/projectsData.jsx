@@ -3,6 +3,7 @@ import fymImg from '../assets/projects/fym.webp';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
 import skillshareLandingImg from '../assets/projects/thinkup-skillshare-landing_page.webp';
 import meetmeshImg from '../assets/projects/meet_mesh.webp';
+import facialRecognitionImg from '../assets/projects/facial_recognition.webp';
 import React from "react";
 
 export const PROJECTS_DATA = [
@@ -65,5 +66,24 @@ export const PROJECTS_DATA = [
         github: 'https://github.com/JhosepAC/videocall-app',
         live: 'https://meet-mesh.vercel.app',
         labelTranslate: 'meetmesh'
+    },
+    {
+        id: 4,
+        category: 'desktop',
+        statusKey: 'in_development',
+        title: 'BioVision Suite — Facial Biometric Platform',
+        image: facialRecognitionImg,
+        technologies: [
+            {name: 'Python', icon: <Icon icon="simple-icons:python"/>},
+            {name: 'PySide6', icon: <Icon icon="simple-icons:qt"/>},
+            {name: 'InsightFace', icon: <Icon icon="simple-icons:onnx"/>},
+            {name: 'ONNX Runtime', icon: <Icon icon="simple-icons:onnx"/>},
+            {name: 'OpenCV', icon: <Icon icon="simple-icons:opencv"/>},
+            {name: 'FAISS', icon: <Icon icon="simple-icons:meta"/>},
+            {name: 'SQLite', icon: <Icon icon="simple-icons:sqlite"/>},
+            {name: 'SQLAlchemy', icon: <Icon icon="simple-icons:sqlalchemy"/>},
+        ],
+        github: 'https://github.com/JhosepAC/facial_recognition_suite',
+        labelTranslate: 'biovision'
     }
 ];
