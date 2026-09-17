@@ -17,16 +17,18 @@ const ProjectActions = ({github, live, projectTitle, className = ''}) => {
                 <Icon icon="simple-icons:github"/>
                 <span>{t('projects.seeCode')}</span>
             </a>
-            <a
-                href={live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-button button-primary"
-                aria-label={t('projects.seeLive')}
-            >
-                <Icon icon="mdi:open-in-new"/>
-                <span>{t('projects.seeLive')}</span>
-            </a>
+            {live && (
+                <a
+                    href={live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="action-button button-primary"
+                    aria-label={t('projects.seeLive')}
+                >
+                    <Icon icon="mdi:open-in-new"/>
+                    <span>{t('projects.seeLive')}</span>
+                </a>
+            )}
         </div>);
 };
 
