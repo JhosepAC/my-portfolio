@@ -50,7 +50,8 @@
     "techFilter": "Technologies",
     "filterCat": {
         "web": "Web",
-        "mobile": "Mobile"
+        "mobile": "Mobile",
+        "desktop": "Desktop"
     },
     "noResults": "No projects found matching this filter",
     "showMore": "View More",
@@ -83,6 +84,10 @@
       },
       "meetmesh": {
         "description": "Web application for creating and joining virtual meetings. With features for screen sharing, profile customization, and more.",
+        "status": "IN DEVELOPMENT"
+      },
+      "biovision": {
+        "description": "Offline desktop platform for facial biometric analysis: enrollment with quality gate, 1:1 comparison, 1:N search with FAISS, real-time webcam and forensic video processing. Built with PySide6, InsightFace (ArcFace 512D), ONNX Runtime and SQLite — 100% local and private.",
         "status": "IN DEVELOPMENT"
       }
     }
