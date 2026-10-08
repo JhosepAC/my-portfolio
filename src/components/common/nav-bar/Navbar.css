@@ -1,13 +1,14 @@
 .navbar {
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     transition:
             width 0.5s ease,
             top 0.5s ease,
+            left 0.5s ease,
+            transform 0.5s ease,
             border-radius 0.5s ease,
             background-color 0.5s ease,
             backdrop-filter 0.5s ease,
@@ -17,6 +18,8 @@
 .navbar.scrolled {
     width: 55%;
     top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: var(--radius-md);
     background-color: rgba(246, 246, 245, 0.92);
     backdrop-filter: blur(10px);
@@ -284,6 +287,9 @@
     .navbar.scrolled {
         top: 0;
         width: 100%;
+        left: 0;
+        transform: none;
+        border-radius: 0;
     }
 
     .menu-toggle {
@@ -348,5 +354,121 @@
 
     .navbar-container {
         padding: 1rem 1.5rem;
+    }
+}
+
+/* ============================================================
+   AVAILABILITY BANNER (Full 100% Screen Width)
+============================================================= */
+.availability-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 0.45rem 2.5rem 0.45rem 1.5rem;
+    background: var(--ink);
+    color: var(--bg-primary);
+    font-size: 0.78rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--line-strong);
+    z-index: 1002;
+    box-sizing: border-box;
+}
+
+:root[data-theme="dark"] .availability-banner {
+    background: #141417;
+    color: #e5e5e5;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.availability-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.availability-banner-dot {
+    width: 7px;
+    height: 7px;
+    background: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+    flex-shrink: 0;
+    animation: banner-pulse 2s ease-in-out infinite;
+}
+
+@keyframes banner-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+    }
+}
+
+.availability-banner-text {
+    letter-spacing: -0.01em;
+    color: inherit;
+    font-size: 0.8rem;
+}
+
+.availability-banner-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--bg-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: opacity 0.2s ease;
+}
+
+:root[data-theme="dark"] .availability-banner-link {
+    color: #ffffff;
+}
+
+.availability-banner-link:hover {
+    opacity: 0.85;
+}
+
+.availability-banner-close {
+    position: absolute;
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: inherit;
+    opacity: 0.7;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.availability-banner-close:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+    .availability-banner {
+        padding: 0.4rem 2.2rem 0.4rem 0.85rem;
+    }
+    .availability-banner-text {
+        font-size: 0.72rem;
+    }
+    .availability-banner-link {
+        font-size: 0.72rem;
     }
 }

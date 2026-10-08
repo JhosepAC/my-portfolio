@@ -78,17 +78,6 @@ const Home = () => {
         <div className="home-container">
             <section id="home" className="hero-section" ref={heroRef}>
                 <motion.div className="hero-content">
-                    {/* Availability Badge */}
-                    <motion.div
-                        className="status-badge"
-                        initial={{opacity: 0, y: 24}}
-                        animate={ready ? {opacity: 1, y: 0} : {}}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.1}}
-                    >
-                        <span className="status-dot"/>
-                        <span className="status-text">{t('hero.status')}</span>
-                    </motion.div>
-
                     <motion.div style={{y: titleY}}>
                         <motion.header
                             className="hero-title"
