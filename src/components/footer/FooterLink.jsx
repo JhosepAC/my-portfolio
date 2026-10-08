@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './FooterLink.css';
 
-const FooterLink = ({href, label, onClick}) => {
+const FooterLink = ({href, label, onClick, target, rel}) => {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleClick = (e) => {
@@ -27,6 +27,8 @@ const FooterLink = ({href, label, onClick}) => {
             onClick={handleClick}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            target={target}
+            rel={rel}
         >
             <span className="footer-link-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

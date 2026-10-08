@@ -8,7 +8,9 @@
     "projects": "Projects",
     "education": "Education",
     "experience": "Experience",
-    "contact-me": "Contact me"
+    "contact-me": "Contact me",
+    "availabilityBanner": "Open to internships, junior roles & freelance",
+    "availabilityAction": "Let's talk"
   },
   "hero": {
     "status": "Available for opportunities",
