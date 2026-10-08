@@ -27,10 +27,24 @@ const Footer = () => {
     const quickLinks = [
         {
             id: 'resume',
-            label: `CV^${cvSuffix}`,
+            label: `CV^${cvSuffix} (PDF)`,
             onClick: handleDownloadCV,
             href: '#'
         },
+        {
+            id: 'cv-md',
+            label: 'CV (Markdown)',
+            href: '/cv.md',
+            target: '_blank',
+            rel: 'noopener noreferrer'
+        },
+        {
+            id: 'llms-txt',
+            label: 'llms.txt',
+            href: '/llms.txt',
+            target: '_blank',
+            rel: 'noopener noreferrer'
+        }
     ];
 
     const viewport = {once: true, amount: 0.2};
@@ -93,6 +107,8 @@ const Footer = () => {
                                     href={link.href}
                                     label={link.label}
                                     onClick={link.onClick}
+                                    target={link.target}
+                                    rel={link.rel}
                                 />))}
                         </nav>
                     </motion.div>

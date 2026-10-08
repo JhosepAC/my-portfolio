@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, Menu, X, Sun, Moon } from 'lucide-react';
+import { Globe, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useScroll } from '../../../hooks/useScroll';
 import { EASE } from '../../../utils/motionVariants';
@@ -22,7 +22,6 @@ const TerminalLogo = () => {
 
         const startFlickerBurst = () => {
             let elapsed = 0;
-            // Cada 0.5s alterna entre logo-light.svg (con _) y logo-light-effect.svg (sin _)
             if (flickerInterval) clearInterval(flickerInterval);
             flickerInterval = setInterval(() => {
                 setShowUnderscore((prev) => !prev);
@@ -30,13 +29,11 @@ const TerminalLogo = () => {
                 if (elapsed >= 3000) {
                     clearInterval(flickerInterval);
                     flickerInterval = null;
-                    // Al terminar la ráfaga vuelve a estado estable logo-light.svg
                     setShowUnderscore(true);
                 }
             }, 500);
         };
 
-        // Primera ráfaga visible pronto (1.8s) para que el efecto se perciba, luego cada 8s
         firstTimeout = setTimeout(() => {
             startFlickerBurst();
             cycleInterval = setInterval(startFlickerBurst, 8000);
@@ -60,9 +57,7 @@ const TerminalLogo = () => {
             height="45"
         >
             <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12">
-                {/* Mismo path que logo-light.svg y logo-light-effect.svg */}
                 <path d="M 8 18 L 48 50 L 8 82" />
-                {/* Underscore terminal: solo en logo-light.svg — ráfaga 500ms x 3s cada 8s */}
                 <motion.path
                     d="M 58 82 L 92 82"
                     initial={false}
@@ -80,6 +75,7 @@ const Navbar = () => {
     const { theme, toggleTheme } = useThemeContext();
     const { i18n, t } = useTranslation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isBannerDismissed, setIsBannerDismissed] = useState(false);
 
     const sectionIds = NAV_LINKS.map(link => link.id);
     const activeSection = useActiveSection(sectionIds);
@@ -102,8 +98,39 @@ const Navbar = () => {
         }
     }, [isMenuOpen]);
 
+    const showBanner = !isBannerDismissed && !scrolled;
+
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''} ${showBanner ? 'has-banner' : ''}`}>
+            <AnimatePresence>
+                {showBanner && (
+                    <motion.div
+                        className="availability-banner"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: EASE }}
+                    >
+                        <div className="availability-banner-content">
+                            <span className="availability-banner-dot" />
+                            <span className="availability-banner-text">{t('nav.availabilityBanner')}</span>
+                            <a href="#contact" className="availability-banner-link">
+                                <span>{t('nav.availabilityAction')}</span>
+                                <ArrowUpRight size={13} />
+                            </a>
+                        </div>
+                        <button
+                            type="button"
+                            className="availability-banner-close"
+                            onClick={() => setIsBannerDismissed(true)}
+                            aria-label="Cerrar banner"
+                        >
+                            <X size={13} />
+                        </button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             <div className="navbar-container">
                 <motion.div
                     className="navbar-logo"

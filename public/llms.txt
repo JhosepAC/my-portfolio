@@ -1,0 +1,44 @@
+# Jhosep Argomedo — Full Stack Developer & Software Engineer
+
+> Full Stack Developer and Software Engineering student at UPC (Lima, Peru). Specialized in web, mobile, and desktop applications using React, Next.js, Vue, Node.js, Python, C#, and Flutter.
+
+## Core Information
+- Name: Jhosep Argomedo (Jhosep Jamil Argomedo)
+- Title: Software Engineering Student & Full Stack Developer
+- Location: Lima, Peru
+- Email: jhosepjamil@gmail.com
+- Phone: +51 978 777 386
+- GitHub: https://github.com/JhosepAC
+- LinkedIn: https://linkedin.com/in/jhosep-ac
+- Portfolio: https://jhosep-ac.pages.dev/
+- Status: Available for pre-professional internships, junior software engineer roles, and freelance projects.
+
+## Technical Skills
+- Languages: JavaScript (ES6+), TypeScript, Python, C#, Dart (Flutter), HTML5, CSS3, PHP, SQL
+- Frameworks & Libraries: React, Next.js, Vue.js, Node.js, .NET Core, PySide6, Tailwind CSS, shadcn/ui, Socket.IO, WebRTC, OGL/WebGL
+- Databases: PostgreSQL, MySQL, MariaDB, SQL Server, MongoDB, SQLite, Supabase, Firebase
+- AI & Computer Vision: InsightFace, ONNX Runtime, OpenCV, FAISS (Vector DB)
+- Tools & Methodologies: Git, GitHub, Azure, Docker, Linux, Figma, Scrum (Certified), Agile
+
+## Work Experience
+- Full Stack Developer at WYA Soluciones (May 2026 – Present)
+  - Building enterprise web solutions with .NET Core, C#, SQL Server, and Figma.
+- Web Developer at TECNovedades (Jan 2026 – May 2026)
+  - Developed custom web solutions using HTML, CSS, JavaScript, PHP, WordPress, and MySQL.
+
+## Key Projects
+- BioVision Suite: Facial Biometric Platform (Python, PySide6, InsightFace, ONNX, OpenCV, FAISS, SQLite). High-performance desktop biometric suite with 512d face embedding search.
+- MeetMesh: Real-time Video & Mesh Collaboration App (Next.js, TypeScript, Supabase, Socket.IO, WebRTC, WebGL, Tailwind CSS).
+- FyM (Find Your Movie): Movie & TV discovery web platform (Next.js, React, TypeScript, Tailwind CSS, TMDB API).
+- SkillShare: Collaborative learning platform landing site (HTML5, CSS3, JS, Figma).
+
+## Education & Certifications
+- Software Engineering at Universidad Peruana de Ciencias Aplicadas (UPC) — 2023 to Present
+- Secure Software Development Life Cycle (SDLC) — Universidad del BíoBío (2025)
+- Scrum Fundamentals Certified — SCRUMstudy (2024)
+- Complete MongoDB Guide — Udemy & Learn MongoDB (2024)
+- Ethical Hacking Course — Escuela Americana de Innovación (2022)
+
+## Links & Documents
+- CV (Markdown): https://jhosep-ac.pages.dev/cv.md
+- LLM Context: https://jhosep-ac.pages.dev/llms.txt

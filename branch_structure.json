@@ -1,0 +1,21 @@
+{
+  "default_branch": "master",
+  "branches": [
+    "develop",
+    "feature/hero-section",
+    "master",
+    "origin"
+  ],
+  "parent": {
+    "develop": "master",
+    "feature/hero-section": "master",
+    "master": null,
+    "origin": "master"
+  },
+  "order": [
+    "master",
+    "develop",
+    "feature/hero-section",
+    "origin"
+  ]
+}
