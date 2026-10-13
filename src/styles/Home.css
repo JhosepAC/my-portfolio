@@ -71,6 +71,11 @@
     line-height: 1.65;
 }
 
+.subtitle-highlight {
+    color: var(--ink);
+    font-weight: 650;
+}
+
 .hero-actions {
     display: flex;
     flex-direction: column;
