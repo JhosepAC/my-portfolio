@@ -1,6 +1,6 @@
 .navbar {
     position: fixed;
-    top: 0;
+    top: var(--banner-height, 34px);
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -17,7 +17,7 @@
 
 .navbar.scrolled {
     width: 55%;
-    top: 16px;
+    top: calc(var(--banner-height, 34px) + 16px);
     left: 50%;
     transform: translateX(-50%);
     border-radius: var(--radius-md);
@@ -285,7 +285,7 @@
     }
 
     .navbar.scrolled {
-        top: 0;
+        top: var(--banner-height, 34px);
         width: 100%;
         left: 0;
         transform: none;
@@ -364,10 +364,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding: 0.45rem 2.5rem 0.45rem 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0.45rem 1.5rem;
     background: var(--ink);
     color: var(--bg-primary);
     font-size: 0.78rem;
@@ -418,32 +420,11 @@
     opacity: 0.85;
 }
 
-.availability-banner-close {
-    position: absolute;
-    right: 1.2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    color: inherit;
-    opacity: 0.7;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.25rem;
-    border-radius: 4px;
-    transition: opacity 0.2s ease, background 0.2s ease;
-}
-
-.availability-banner-close:hover {
-    opacity: 1;
-    background: rgba(255, 255, 255, 0.15);
-}
+/* Botón de cierre eliminado: el banner es permanente */
 
 @media (max-width: 768px) {
     .availability-banner {
-        padding: 0.4rem 2.2rem 0.4rem 0.85rem;
+        padding: 0.4rem 0.85rem;
     }
     .availability-banner-text {
         font-size: 0.72rem;
