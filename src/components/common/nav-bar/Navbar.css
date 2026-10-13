@@ -392,26 +392,6 @@
     text-align: center;
 }
 
-.availability-banner-dot {
-    width: 7px;
-    height: 7px;
-    background: #22c55e;
-    border-radius: 50%;
-    display: inline-block;
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
-    flex-shrink: 0;
-    animation: banner-pulse 2s ease-in-out infinite;
-}
-
-@keyframes banner-pulse {
-    0%, 100% {
-        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
-    }
-    50% {
-        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
-    }
-}
-
 .availability-banner-text {
     letter-spacing: -0.01em;
     color: inherit;

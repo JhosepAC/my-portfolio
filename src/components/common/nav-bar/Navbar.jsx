@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -76,6 +76,8 @@ const Navbar = () => {
     const { i18n, t } = useTranslation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isBannerDismissed, setIsBannerDismissed] = useState(false);
+    const [isNavigating, setIsNavigating] = useState(false);
+    const navigateTimer = useRef(null);
 
     const sectionIds = NAV_LINKS.map(link => link.id);
     const activeSection = useActiveSection(sectionIds);
@@ -98,7 +100,31 @@ const Navbar = () => {
         }
     }, [isMenuOpen]);
 
-    const showBanner = !isBannerDismissed && !scrolled;
+    useEffect(() => () => clearTimeout(navigateTimer.current), []);
+
+    // El banner se oculta en cuanto hay scroll (ver `scrolled`). Si se
+    // desmonta justo cuando arranca el scroll programático hacia #contact,
+    // la animación de salida + el cambio a navbar flotante interrumpen el
+    // desplazamiento suave. Mientras dura la navegación se congela el
+    // banner y se descarta al llegar.
+    const showBanner = !isBannerDismissed && (!scrolled || isNavigating);
+
+    const handleBannerContactClick = (e) => {
+        e.preventDefault();
+        clearTimeout(navigateTimer.current);
+        setIsNavigating(true);
+        const target = document.querySelector('#contact');
+        if (target) {
+            const navbarHeight = document.querySelector('.navbar')?.offsetHeight ?? 80;
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const top = target.getBoundingClientRect().top + window.scrollY - navbarHeight - 12;
+            window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+        }
+        navigateTimer.current = setTimeout(() => {
+            setIsNavigating(false);
+            setIsBannerDismissed(true);
+        }, 1000);
+    };
 
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''} ${showBanner ? 'has-banner' : ''}`}>
@@ -112,9 +138,8 @@ const Navbar = () => {
                         transition={{ duration: 0.3, ease: EASE }}
                     >
                         <div className="availability-banner-content">
-                            <span className="availability-banner-dot" />
                             <span className="availability-banner-text">{t('nav.availabilityBanner')}</span>
-                            <a href="#contact" className="availability-banner-link">
+                            <a href="#contact" className="availability-banner-link" onClick={handleBannerContactClick}>
                                 <span>{t('nav.availabilityAction')}</span>
                                 <ArrowUpRight size={13} />
                             </a>
