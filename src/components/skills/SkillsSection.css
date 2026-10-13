@@ -50,7 +50,7 @@
     border-color: var(--ink);
 }
 
-:root[data-theme="dark"] .skills-show-more-btn {
+:root[data-theme="dark"] .skills-show-more-btn:hover {
     border-color: var(--ink-soft);
 }
 
