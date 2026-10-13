@@ -21,7 +21,7 @@
 - Tools & Methodologies: Git, GitHub, Azure, Docker, Linux, Figma, Scrum (Certified), Agile
 
 ## Work Experience
-- Full Stack Developer at WYA Soluciones (May 2026 – Present)
+- Full Stack Developer at WYA Soluciones (May 2026 – Sep 2026)
   - Building enterprise web solutions with .NET Core, C#, SQL Server, and Figma.
 - Web Developer at TECNovedades (Jan 2026 – May 2026)
   - Developed custom web solutions using HTML, CSS, JavaScript, PHP, WordPress, and MySQL.

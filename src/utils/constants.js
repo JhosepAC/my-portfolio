@@ -178,7 +178,7 @@ export const EXPERIENCE_DATA = [{
     role: 'Desarrollador Full Stack',
     location: 'Remoto',
     startDate: '05/2026',
-    endDate: null,
+    endDate: '09/2026',
     type: 'parttime',
     iconType: 'work',
     logo: wyaLogo,

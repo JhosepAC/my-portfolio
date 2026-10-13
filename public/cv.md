@@ -12,7 +12,7 @@ Estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Apli
 ## Experiencia Laboral
 
 ### Desarrollador Full Stack — WYA Soluciones
-*Mayo 2026 – Actualidad | Remoto*
+*Mayo 2026 – Septiembre 2026 | Remoto*
 - Desarrollo de soluciones web empresariales utilizando **.NET Core**, **C#**, **SQL Server** y **Git**.
 - Colaboración activa en diseño UX/UI en **Figma** e integración de APIs backend.
 
