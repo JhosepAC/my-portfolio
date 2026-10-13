@@ -76,28 +76,6 @@ const ContactSection = () => {
                     </div>
 
                     <SocialContact/>
-
-                    <motion.div
-                        className="contact-availability"
-                        initial={{opacity: 0, x: -24}}
-                        whileInView={{opacity: 1, x: 0}}
-                        viewport={{once: true, amount: 0.4}}
-                        transition={{duration: 0.5, ease: EASE, delay: 0.35}}
-                    >
-                        <div className="availability-content">
-                            <div className="availability-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                     strokeWidth="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
-                            </div>
-                            <div className="availability-text">
-                                <span className="availability-label">{t('contact.availability.label')}</span>
-                                <span className="availability-value">{t('contact.availability.value')}</span>
-                            </div>
-                        </div>
-                    </motion.div>
                 </div>
 
                 <div className="contact-right">
