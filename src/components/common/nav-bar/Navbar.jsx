@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, Menu, X, Sun, Moon } from 'lucide-react';
+import { Globe, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useScroll } from '../../../hooks/useScroll';
 import { EASE } from '../../../utils/motionVariants';
@@ -22,7 +22,6 @@ const TerminalLogo = () => {
 
         const startFlickerBurst = () => {
             let elapsed = 0;
-            // Cada 0.5s alterna entre logo-light.svg (con _) y logo-light-effect.svg (sin _)
             if (flickerInterval) clearInterval(flickerInterval);
             flickerInterval = setInterval(() => {
                 setShowUnderscore((prev) => !prev);
@@ -30,13 +29,11 @@ const TerminalLogo = () => {
                 if (elapsed >= 3000) {
                     clearInterval(flickerInterval);
                     flickerInterval = null;
-                    // Al terminar la ráfaga vuelve a estado estable logo-light.svg
                     setShowUnderscore(true);
                 }
             }, 500);
         };
 
-        // Primera ráfaga visible pronto (1.8s) para que el efecto se perciba, luego cada 8s
         firstTimeout = setTimeout(() => {
             startFlickerBurst();
             cycleInterval = setInterval(startFlickerBurst, 8000);
@@ -60,9 +57,7 @@ const TerminalLogo = () => {
             height="45"
         >
             <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12">
-                {/* Mismo path que logo-light.svg y logo-light-effect.svg */}
                 <path d="M 8 18 L 48 50 L 8 82" />
-                {/* Underscore terminal: solo en logo-light.svg — ráfaga 500ms x 3s cada 8s */}
                 <motion.path
                     d="M 58 82 L 92 82"
                     initial={false}
@@ -102,8 +97,63 @@ const Navbar = () => {
         }
     }, [isMenuOpen]);
 
+    useEffect(() => () => document.documentElement.style.removeProperty('--banner-height'), []);
+
+    // El banner es permanente y fijo arriba. Se mide su altura real
+    // (puede envolverse a 2 líneas en móvil) y se expone como
+    // `--banner-height` para desplazar el navbar fijo debajo de él.
+    useEffect(() => {
+        const bannerEl = document.querySelector('.availability-banner');
+        if (!bannerEl) return;
+
+        const updateHeight = () => {
+            document.documentElement.style.setProperty(
+                '--banner-height',
+                `${bannerEl.offsetHeight}px`
+            );
+        };
+
+        updateHeight();
+
+        let observer = null;
+        if (typeof ResizeObserver !== 'undefined') {
+            observer = new ResizeObserver(updateHeight);
+            observer.observe(bannerEl);
+        }
+        window.addEventListener('resize', updateHeight);
+
+        return () => {
+            window.removeEventListener('resize', updateHeight);
+            observer?.disconnect();
+        };
+    }, [i18n.language]);
+
+    const handleBannerContactClick = (e) => {
+        e.preventDefault();
+        const target = document.querySelector('#contact');
+        if (target) {
+            const navbarEl = document.querySelector('.navbar');
+            const bannerEl = document.querySelector('.availability-banner');
+            const offset = (navbarEl?.offsetHeight ?? 80) + (bannerEl?.offsetHeight ?? 0) + 12;
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+        }
+    };
+
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
+        <>
+            <div className="availability-banner">
+                <div className="availability-banner-content">
+                    <span className="availability-banner-text">{t('nav.availabilityBanner')}</span>
+                    <a href="#contact" className="availability-banner-link" onClick={handleBannerContactClick}>
+                        <span>{t('nav.availabilityAction')}</span>
+                        <ArrowUpRight size={13} />
+                    </a>
+                </div>
+            </div>
+            <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
+
             <div className="navbar-container">
                 <motion.div
                     className="navbar-logo"
@@ -210,6 +260,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
+        </>
     );
 };
 

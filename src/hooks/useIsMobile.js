@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 
 const useIsMobile = (breakpoint = 768) => {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(
+        () => window.matchMedia(`(max-width: ${breakpoint}px)`).matches
+    );
 
     useEffect(() => {
         const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
         const handler = (e) => setIsMobile(e.matches);
-        setIsMobile(mql.matches);
         // modern browsers
         if (mql.addEventListener) mql.addEventListener('change', handler);
         else mql.addListener(handler);

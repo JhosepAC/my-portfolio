@@ -41,59 +41,6 @@
     flex: 1.2;
 }
 
-.contact-availability {
-    padding: 1.35rem 1.4rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--line-soft);
-    border-radius: 14px;
-    box-shadow: var(--shadow-card);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.contact-availability:hover {
-    border-color: var(--line);
-    box-shadow: 0 4px 16px rgba(20,20,20,0.06);
-}
-
-.availability-content {
-    display: flex;
-    align-items: center;
-    gap: 1.1rem;
-}
-
-.availability-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: var(--bg-muted);
-    border: 1px solid var(--line-soft);
-    border-radius: 10px;
-    color: var(--ink-soft);
-    flex-shrink: 0;
-}
-
-.availability-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-.availability-label {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.availability-value {
-    font-size: 1.1rem;
-    color: var(--text-primary);
-    font-weight: 600;
-}
-
 @media (max-width: 1024px) {
     .contact-section {
         padding: 6rem 0 4rem;
@@ -120,31 +67,5 @@
 
     .contact-content {
         gap: 2.5rem;
-    }
-
-    .contact-availability {
-        padding: 1rem;
-    }
-
-    .availability-content {
-        gap: 0.8rem;
-    }
-
-    .availability-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .availability-icon svg {
-        width: 16px;
-        height: 16px;
-    }
-
-    .availability-label {
-        font-size: 0.75rem;
-    }
-
-    .availability-value {
-        font-size: 0.9rem;
     }
 }

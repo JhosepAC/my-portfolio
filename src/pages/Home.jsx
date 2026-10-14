@@ -19,6 +19,20 @@ import ProjectsSection from "../components/projects/ProjectsSection.jsx";
  * Home Page Component
  * Main landing page containing the Hero section and Skills.
  */
+const highlightPhrases = (text, phrases) => {
+    if (!text) return text;
+    const sorted = [...phrases].sort((a, b) => b.length - a.length);
+    const escaped = sorted.map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    const pattern = new RegExp(`(${escaped.join('|')})`, 'gi');
+    return text.split(pattern).map((part, i) =>
+        sorted.some((p) => p.toLowerCase() === part.toLowerCase()) ? (
+            <strong key={i} className="subtitle-highlight">{part}</strong>
+        ) : (
+            <span key={i}>{part}</span>
+        )
+    );
+};
+
 const Home = () => {
     const {t, i18n} = useTranslation();
     const ready = useAppReady();
@@ -78,17 +92,6 @@ const Home = () => {
         <div className="home-container">
             <section id="home" className="hero-section" ref={heroRef}>
                 <motion.div className="hero-content">
-                    {/* Availability Badge */}
-                    <motion.div
-                        className="status-badge"
-                        initial={{opacity: 0, y: 24}}
-                        animate={ready ? {opacity: 1, y: 0} : {}}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.1}}
-                    >
-                        <span className="status-dot"/>
-                        <span className="status-text">{t('hero.status')}</span>
-                    </motion.div>
-
                     <motion.div style={{y: titleY}}>
                         <motion.header
                             className="hero-title"
@@ -107,8 +110,8 @@ const Home = () => {
                         animate={ready ? {opacity: 1, y: 0} : {}}
                         transition={{duration: 0.6, ease: EASE, delay: 0.45}}
                     >
-                        <p className="subtitle-line">{t('hero.subtitle1')}</p>
-                        <p className="subtitle-line">{t('hero.subtitle2')}</p>
+                        <p className="subtitle-line">{highlightPhrases(t('hero.subtitle1'), i18n.language.startsWith('es') ? ['full-stack'] : ['Full-stack', 'full-stack'])}</p>
+                        <p className="subtitle-line">{highlightPhrases(t('hero.subtitle2'), i18n.language.startsWith('es') ? ['web y móviles', 'agentes de IA'] : ['web and mobile', 'AI agents'])}</p>
                     </motion.div>
 
                     <motion.div

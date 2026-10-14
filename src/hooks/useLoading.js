@@ -5,7 +5,6 @@ export const useLoading = () => {
 
     useEffect(() => {
         if (document.readyState === 'complete') {
-            setIsLoading(false);
             return;
         }
 

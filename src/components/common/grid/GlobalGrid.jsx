@@ -8,7 +8,12 @@ const GlobalGrid = () => {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [scrollY, setScrollY] = useState(0);
     const [isHovering, setIsHovering] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(
+        () =>
+            window.matchMedia('(max-width: 768px)').matches ||
+            window.matchMedia('(pointer: coarse)').matches ||
+            window.matchMedia('(hover: none)').matches
+    );
 
     const handleMouseMove = useCallback((e) => {
         setMousePos({ x: e.clientX, y: e.clientY });
@@ -30,8 +35,6 @@ const GlobalGrid = () => {
 
         const checkIsMobile = () =>
             mediaQuery.matches || coarsePointer.matches || noHover.matches;
-
-        setIsMobile(checkIsMobile());
 
         const handleMediaChange = () => setIsMobile(checkIsMobile());
 

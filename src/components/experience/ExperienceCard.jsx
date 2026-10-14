@@ -8,7 +8,7 @@ import './ExperienceCard.css';
 
 const ExperienceCard = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
     const {t} = useTranslation();
-    const [showHint, setShowHint] = useState(false);
+    const [hintPulse, setHintPulse] = useState(false);
     const isMobile = useIsMobile();
 
     const mainIcon = item.logo
@@ -17,7 +17,6 @@ const ExperienceCard = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
 
     const handleToggle = useCallback((e) => {
         if (e) e.stopPropagation();
-        setShowHint(false);
         onToggle(item.id);
     }, [item.id, onToggle]);
 
@@ -30,17 +29,18 @@ const ExperienceCard = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
         handleToggle(e);
     };
 
+    // `hintActive` se deriva del estado en el render; el efecto solo programa el pulso.
+    const hintActive = isMobile && index === 0 && !isExpanded && !hasOpenedAny;
     useEffect(() => {
-        if (!isMobile || index !== 0 || isExpanded || hasOpenedAny) {
-            setShowHint(false);
+        if (!hintActive) {
             return;
         }
         const interval = setInterval(() => {
-            setShowHint(true);
-            setTimeout(() => setShowHint(false), 1200);
+            setHintPulse(true);
+            setTimeout(() => setHintPulse(false), 1200);
         }, 2000);
         return () => clearInterval(interval);
-    }, [isMobile, index, isExpanded, hasOpenedAny]);
+    }, [hintActive]);
 
     const description = t(`experience.items.${item.id}.description`);
     const achievements = t(`experience.items.${item.id}.achievements`, {returnObjects: true});
@@ -55,7 +55,7 @@ const ExperienceCard = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
         >
             <div className="experience-card" onClick={handleCardClick} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(e); } }} aria-expanded={isExpanded}>
                 <AnimatePresence>
-                    {showHint && !isExpanded && isMobile && index === 0 && !hasOpenedAny && (
+                    {hintActive && hintPulse && (
                         <motion.div
                             className="expand-hint expand-hint--touch"
                             initial={{ opacity: 0, scale: 0.85 }}

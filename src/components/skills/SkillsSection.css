@@ -50,6 +50,12 @@
     border-color: var(--ink);
 }
 
+:root[data-theme="dark"] .skills-show-more-btn:hover {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--ink-soft);
+}
+
 
 
 @media (max-width: 1024px) {
