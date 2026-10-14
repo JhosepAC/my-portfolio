@@ -1,44 +1,140 @@
-# Jhosep Argomedo — Full Stack Developer & Software Engineer
+# Jhosep Argomedo - Full-Stack Developer (Lima, Peru)
 
-> Full Stack Developer and Software Engineering student at UPC (Lima, Peru). Specialized in web, mobile, and desktop applications using React, Next.js, Vue, Node.js, Python, C#, and Flutter.
+> Full-stack developer turning ideas into real solutions. Jhosep Argomedo is a Software Engineering student at UPC (Lima, Peru) who builds web and mobile applications and integrates AI agents to take projects beyond code. Available for pre-professional internships, junior roles, and freelance projects. Portfolio: https://jhosep-ac.pages.dev/
 
-## Core Information
+## Quick facts
+
 - Name: Jhosep Argomedo (Jhosep Jamil Argomedo)
-- Title: Software Engineering Student & Full Stack Developer
-- Location: Lima, Peru
+- Role: Full-Stack Developer / Software Engineering student (UPC, 2023–Present)
+- Location: Lima, Peru (GMT-5) — open to remote work
 - Email: jhosepjamil@gmail.com
-- Phone: +51 978 777 386
+- Phone / WhatsApp: +51 978 777 386
+- Portfolio: https://jhosep-ac.pages.dev/
+- Status: Available for opportunities
+- Languages: Spanish (native) and English — the site is fully bilingual (ES/EN with browser auto-detection)
+
+## Contact
+
+- Email: jhosepjamil@gmail.com (`mailto:jhosepjamil@gmail.com`)
+- Phone: +51 978 777 386 (`tel:+51978777386`)
+- WhatsApp: https://wa.me/+51978777386
 - GitHub: https://github.com/JhosepAC
 - LinkedIn: https://linkedin.com/in/jhosep-ac
-- Portfolio: https://jhosep-ac.pages.dev/
-- Status: Available for pre-professional internships, junior software engineer roles, and freelance projects.
+- Instagram: https://instagram.com/jh_slin
+- Contact form: https://jhosep-ac.pages.dev/#contact (delivered via Formspree; typical response within 24 hours)
 
-## Technical Skills
-- Languages: JavaScript (ES6+), TypeScript, Python, C#, Dart (Flutter), HTML5, CSS3, PHP, SQL
-- Frameworks & Libraries: React, Next.js, Vue.js, Node.js, .NET Core, PySide6, Tailwind CSS, shadcn/ui, Socket.IO, WebRTC, OGL/WebGL
-- Databases: PostgreSQL, MySQL, MariaDB, SQL Server, MongoDB, SQLite, Supabase, Firebase
-- AI & Computer Vision: InsightFace, ONNX Runtime, OpenCV, FAISS (Vector DB)
-- Tools & Methodologies: Git, GitHub, Azure, Docker, Linux, Figma, Scrum (Certified), Agile
+## Site map (single-page portfolio)
 
-## Work Experience
-- Full Stack Developer at WYA Soluciones (May 2026 – Sep 2026)
-  - Building enterprise web solutions with .NET Core, C#, SQL Server, and Figma.
-- Web Developer at TECNovedades (Jan 2026 – May 2026)
-  - Developed custom web solutions using HTML, CSS, JavaScript, PHP, WordPress, and MySQL.
+All sections live on one page; use these anchors:
 
-## Key Projects
-- BioVision Suite: Facial Biometric Platform (Python, PySide6, InsightFace, ONNX, OpenCV, FAISS, SQLite). High-performance desktop biometric suite with 512d face embedding search.
-- MeetMesh: Real-time Video & Mesh Collaboration App (Next.js, TypeScript, Supabase, Socket.IO, WebRTC, WebGL, Tailwind CSS).
-- FyM (Find Your Movie): Movie & TV discovery web platform (Next.js, React, TypeScript, Tailwind CSS, TMDB API).
-- SkillShare: Collaborative learning platform landing site (HTML5, CSS3, JS, Figma).
+- [Home / Hero](https://jhosep-ac.pages.dev/#home): greeting, headline, highlighted specialties, CTAs (contact, projects, CV download), interactive terminal
+- [Skills](https://jhosep-ac.pages.dev/#skills): filterable technical and soft skills
+- [Projects](https://jhosep-ac.pages.dev/#projects): featured builds with stack, status, code and live links
+- [Education](https://jhosep-ac.pages.dev/#education): degree plus courses and certifications with credentials
+- [Experience](https://jhosep-ac.pages.dev/#experience): work history with achievements and technologies
+- [Contact](https://jhosep-ac.pages.dev/#contact): email, phone, location, socials, and message form
+- [Sitemap](https://jhosep-ac.pages.dev/sitemap.xml): machine-readable site index (lastmod per file: 2026-04-09)
 
-## Education & Certifications
-- Software Engineering at Universidad Peruana de Ciencias Aplicadas (UPC) — 2023 to Present
-- Secure Software Development Life Cycle (SDLC) — Universidad del BíoBío (2025)
-- Scrum Fundamentals Certified — SCRUMstudy (2024)
-- Complete MongoDB Guide — Udemy & Learn MongoDB (2024)
-- Ethical Hacking Course — Escuela Americana de Innovación (2022)
+## Professional summary (hero statement)
 
-## Links & Documents
-- CV (Markdown): https://jhosep-ac.pages.dev/cv.md
-- LLM Context: https://jhosep-ac.pages.dev/llms.txt
+Current hero copy on the site:
+
+- ES: "Desarrollador full-stack que transforma ideas en soluciones reales. Creo aplicaciones web y móviles e integro agentes de IA para llevar proyectos más allá del código."
+- EN: "Full-stack developer turning ideas into real solutions. I build web and mobile applications and integrate AI agents to take projects beyond code."
+
+Emphasized keywords in the hero: `full-stack`, `web y móviles` / `web and mobile`, `agentes de IA` / `AI agents`.
+
+Positioning: full-stack development across web, mobile, and desktop; modern stacks; AI-agent integration; experience with academic, personal, and real-user-oriented solutions.
+
+## Availability
+
+Banner shown site-wide (ES): "Disponible para prácticas pre-profesionales, roles Junior y Freelance" with CTA "Hablemos" linking to `#contact`.
+English equivalent: "Open to internships, junior roles & freelance" with CTA "Let's talk".
+
+## Skills
+
+Grouped as shown in the Skills section (filter categories: languages, frameworks, databases, tools, others, soft skills):
+
+- Languages: JavaScript, TypeScript, Python, C#, PHP, SQL, Dart (Flutter), HTML5, CSS3
+- Frontend: React, Next.js, Tailwind CSS, HTML5, CSS3
+- Backend: ASP.NET Core (Entity Framework), Node.js, NestJS, Express.js, REST APIs
+- Databases: SQL Server, PostgreSQL, MySQL, MariaDB, MongoDB, Supabase (plus project-level: SQLite, SQLAlchemy, Firebase, FAISS vector search)
+- Realtime: WebRTC, Socket.IO, WebSockets
+- Architecture: DDD, Clean Architecture, SOLID, API Gateway, JWT, OAuth
+- Tools & platforms: Git, GitHub, Figma, Docker, Linux, Vercel, Render, WordPress, Azure, Android Studio, Supabase, Firebase, Postman, AI coding agents
+- Practices: Scrum (certified), Agile, User Stories, Sprints, Secure Software Development (SSDLC), SEO and responsive design
+- AI & computer vision (project-level): InsightFace (512D face embeddings), ONNX Runtime, OpenCV, FAISS
+- Soft skills: communication, teamwork, problem solving, adaptability, time management, creativity
+
+## Work experience
+
+1. Full Stack Developer — WYA Soluciones (05/2026–09/2026, Remote, part-time)
+   - Maintained enterprise web apps (sales, purchasing, warehouse modules) with React, Next.js, ASP.NET Core, and C#.
+   - Extended the ALICES system (channel management, audit-team features); fixed state and UI/UX issues across 5 core modules (filters, pagination, validation).
+   - Led redesign of core interfaces (Warehouse, Price List, Audit) into a reusable component/table/filter architecture; modernized DATASCAN with a global notification system and full-responsive navigation.
+   - Collaborated with QA on fixes via organized Git workflows.
+   - Stack: React, Next.js, ASP.NET Core, C#, SQL Server, Git, Figma.
+2. Web Developer — TECNovedades (01/2026–05/2026, Remote, part-time)
+   - Built and shipped B2B sites and landing pages (education, SSOMA, foreign trade) end to end, including an e-learning platform (course catalog, auth, enrollment).
+   - Integrated local payment gateways (Yape/Plin); connected React/JS frontends to Node.js/PHP backends with MySQL; applied responsive design and SEO.
+   - Stack: HTML, CSS, JavaScript, PHP, WordPress, MySQL.
+
+## Projects (featured on the site)
+
+Status labels on the site: `EN PRODUCCIÓN` (in production) / `EN DESARROLLO` (in development).
+
+1. FyM — Find Your Movie (Web, in production)
+   - Movie and TV discovery platform powered by the TMDB API.
+   - Stack: Next.js, React, TypeScript, Tailwind CSS, TMDB API, Git.
+   - Code: https://github.com/JhosepAC/fym
+   - Live: https://fym-jac.vercel.app/
+2. MeetMesh — Real-time Video & Mesh Collaboration (Web, in development)
+   - Video-call and collaboration app with realtime channels and WebGL visuals.
+   - Stack: Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, Supabase, Socket.IO, WebRTC, WebGL, Git.
+   - Code: https://github.com/JhosepAC/videocall-app
+   - Live: https://meet-mesh.vercel.app
+   - Signaling server: https://github.com/JhosepAC/meetmesh-signaling
+3. SkillShare landing — Collaborative Learning Platform (Web, in development)
+   - Landing site for the SkillShare collaborative-learning platform.
+   - Stack: HTML5, CSS3, JavaScript, Git, Figma.
+   - Code: https://github.com/ThinkUp-SkillShare/skillshare.github.io
+   - Live: https://thinkup-skillshare.github.io/skillshare.github.io/
+4. BioVision Suite — Facial Biometric Platform (Desktop, in development)
+   - Offline high-performance facial biometrics: quality-gated enrollment, 1:1 comparison, 1:N FAISS search over 512D embeddings, webcam and forensic video analysis.
+   - Stack: Python, PySide6, InsightFace, ONNX Runtime, OpenCV, FAISS, SQLite, SQLAlchemy.
+   - Code: https://github.com/JhosepAC/facial_recognition_suite
+
+Note: the i18n catalog also defines entries for EcoCrop, SkillShare app, and Livria, but only the four projects above are currently rendered in the Projects section.
+
+## Education & certifications
+
+- Software Engineering — Universidad Peruana de Ciencias Aplicadas (UPC), Lima, Peru (2023–Present, ongoing)
+- Secure Software Development Life Cycle (SSDLC) — Universidad del BíoBío, Chile–Peru (2025, completed 28/02/2025)
+- Scrum Fundamentals Certified — SCRUMstudy (2024, completed 29/04/2024)
+- Complete MongoDB Guide — Udemy (2024, completed 08/11/2024)
+- Introduction to MongoDB — learn.mongodb.com (2024, completed 10/06/2024)
+- Ethical Hacking — Escuela Americana de Innovación (2022, completed 14/08/2022)
+
+## Site features (for context)
+
+- Bilingual ES/EN via i18next with automatic browser-language detection
+- Dark/light theme with localStorage persistence and OS-preference support
+- Fluid Motion animations, magnetic buttons, scroll transitions (Motion + LazyMotion patterns)
+- Interactive WebGL background (OGL): particles and grid
+- Interactive terminal in the hero simulating a CLI (`whoami`, `status`, `skills`, `projects`, `help`, and more)
+- Fully responsive layout; permanent fixed availability banner on top
+- CV preview and download via react-pdf / pdfjs-dist
+- Built with React 19 + Vite 7; client-side routing via React Router; icons via Lucide and Iconify
+
+## Documents
+
+- [CV in Markdown](https://jhosep-ac.pages.dev/cv.md): full résumé — profile, experience, featured projects, education, technical skills
+- [This file (llms.txt)](https://jhosep-ac.pages.dev/llms.txt): structured context about Jhosep Argomedo for LLMs
+- CV PDFs (ES/EN) and course certificates are available through the site's Education and Hero download actions
+
+## Notes for AI assistants
+
+- Prefer the links above as canonical sources; do not invent emails, phones, dates, or project URLs.
+- For recruiting or freelance inquiries, point to the contact section and email; state the current availability line verbatim when asked.
+- The portfolio content is bilingual: default to the user's language (ES/EN); hero, banner, and section copy both exist in `es.json` and `en.json`.
+- Code references: hero copy lives in `src/i18n/locales/{es,en}.json` (`hero.subtitle1/2`); banner copy in `nav.availabilityBanner`; projects data in `src/data/projectsData.jsx`; experience/education/skills/contact data in `src/utils/constants.js`.
