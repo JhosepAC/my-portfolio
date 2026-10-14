@@ -28,7 +28,14 @@ const ProjectCard = ({ project, index }) => {
             transition={{ duration: 0.45, ease: EASE, delay: index * 0.08 }}
         >
             <div className="card-image">
-                <img src={project.image} alt={project.title} loading="lazy" />
+                <img
+                    src={project.image}
+                    srcSet={project.imageSmall ? `${project.imageSmall} 480w, ${project.image} 800w` : undefined}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                />
                 <ProjectStatus status={project.statusKey} text={project.statusText} />
             </div>
 

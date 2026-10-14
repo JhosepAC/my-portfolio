@@ -3,7 +3,7 @@ import cvEs from '../assets/docs/CV-JHOSEP_ARGOMEDO-ES.pdf';
 import certificateSDLC from '../assets/docs/CERT-CICLO_DE_VIDA_DEL_DESARROLLO_DE_SOFTWARE_SEGURO.pdf';
 import certificateSCRUM from '../assets/docs/CERT-SCRUM_FUNDAMENTALS.pdf';
 import upcLogo from '../assets/external_logos/upc-logo.png';
-import ubbLogo from '../assets/external_logos/ubb-logo.png';
+import ubbLogo from '../assets/external_logos/ubb-logo.webp';
 import tecnovedadesLogo from '../assets/external_logos/tecnovedades-logo.png';
 import wyaLogo from '../assets/external_logos/wya-soluciones-logo.png';
 import ubbCertificatePreview from '../assets/docs/ubb-certificate-preview.jpg';

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useThemeContext } from '../../../context/ThemeContext';
 import Grainient from '../../Grainient';
 
@@ -15,9 +15,18 @@ const GlobalGrid = () => {
             window.matchMedia('(hover: none)').matches
     );
 
+    // Limita las actualizaciones de puntero/scroll a 1 por frame para
+    // evitar re-renders y reflows forzados en cada evento.
+    const rafRef = useRef(0);
+
     const handleMouseMove = useCallback((e) => {
-        setMousePos({ x: e.clientX, y: e.clientY });
-        setIsHovering(true);
+        const { clientX, clientY } = e;
+        if (rafRef.current) return;
+        rafRef.current = requestAnimationFrame(() => {
+            rafRef.current = 0;
+            setMousePos({ x: clientX, y: clientY });
+            setIsHovering(true);
+        });
     }, []);
 
     const handleMouseLeave = useCallback(() => {
@@ -25,7 +34,11 @@ const GlobalGrid = () => {
     }, []);
 
     const handleScroll = useCallback(() => {
-        setScrollY(window.scrollY);
+        if (rafRef.current) return;
+        rafRef.current = requestAnimationFrame(() => {
+            rafRef.current = 0;
+            setScrollY(window.scrollY);
+        });
     }, []);
 
     useEffect(() => {
@@ -63,6 +76,7 @@ const GlobalGrid = () => {
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('mouseleave', handleMouseLeave);
+            cancelAnimationFrame(rafRef.current);
         };
     }, [handleMouseMove, handleScroll, handleMouseLeave, isMobile]);
 
