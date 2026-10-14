@@ -14,7 +14,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
     const {t} = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isImageOpen, setIsImageOpen] = useState(false);
-    const [showHint, setShowHint] = useState(false);
+    const [hintPulse, setHintPulse] = useState(false);
     const isMobile = useIsMobile();
 
     const mainIcon = item.logo
@@ -23,7 +23,6 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
 
     const toggleExpand = (e) => {
         if (e) e.stopPropagation();
-        setShowHint(false);
         onToggle(item.id);
     };
 
@@ -37,18 +36,19 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
         toggleExpand(e);
     };
 
-    // Hint solo en primera card, esquina inferior derecha, cada 2s, hasta que se abra alguna card
+    // Hint solo en primera card, esquina inferior derecha, cada 2s, hasta que se abra alguna card.
+    // `hintActive` se deriva del estado en el render; el efecto solo programa el pulso.
+    const hintActive = isMobile && index === 0 && !isExpanded && !hasOpenedAny;
     useEffect(() => {
-        if (!isMobile || index !== 0 || isExpanded || hasOpenedAny) {
-            setShowHint(false);
+        if (!hintActive) {
             return;
         }
         const interval = setInterval(() => {
-            setShowHint(true);
-            setTimeout(() => setShowHint(false), 1200);
+            setHintPulse(true);
+            setTimeout(() => setHintPulse(false), 1200);
         }, 2000);
         return () => clearInterval(interval);
-    }, [isMobile, index, isExpanded, hasOpenedAny]);
+    }, [hintActive]);
 
     return (<motion.div
         className={`timeline-item ${item.type === 'university' ? 'timeline-item-important' : ''} ${isExpanded ? 'expanded' : ''}`}
@@ -66,7 +66,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
 
         <div className="timeline-card" onClick={handleCardClick} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(e); } }} aria-expanded={isExpanded}>
             <AnimatePresence>
-                {showHint && !isExpanded && isMobile && index === 0 && !hasOpenedAny && (
+                {hintActive && hintPulse && (
                     <motion.div
                         className="expand-hint expand-hint--touch"
                         initial={{ opacity: 0, scale: 0.85 }}
