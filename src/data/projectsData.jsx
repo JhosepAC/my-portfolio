@@ -1,9 +1,13 @@
 import {Icon} from '@iconify/react';
-import fymImg from '../assets/projects/fym.webp';
+import fymImg from '../assets/projects/fym-800.webp';
+import fymImgSmall from '../assets/projects/fym-480.webp';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
-import skillshareLandingImg from '../assets/projects/thinkup-skillshare-landing_page.webp';
-import meetmeshImg from '../assets/projects/meet_mesh.webp';
-import facialRecognitionImg from '../assets/projects/facial_recognition.webp';
+import skillshareLandingImg from '../assets/projects/thinkup-skillshare-landing_page-800.webp';
+import skillshareLandingImgSmall from '../assets/projects/thinkup-skillshare-landing_page-480.webp';
+import meetmeshImg from '../assets/projects/meet_mesh-800.webp';
+import meetmeshImgSmall from '../assets/projects/meet_mesh-480.webp';
+import facialRecognitionImg from '../assets/projects/facial_recognition-800.webp';
+import facialRecognitionImgSmall from '../assets/projects/facial_recognition-480.webp';
 import React from "react";
 
 export const PROJECTS_DATA = [
@@ -13,6 +17,7 @@ export const PROJECTS_DATA = [
         statusKey: 'in_development',
         title: 'SkillShare - Collaborative Learning Platform',
         image: skillshareLandingImg,
+        imageSmall: skillshareLandingImgSmall,
         technologies: [
             {name: 'HTML5', icon: <Icon icon="simple-icons:html5"/>},
             {name: 'CSS3', icon: <Icon icon="simple-icons:css3"/>},
@@ -30,6 +35,7 @@ export const PROJECTS_DATA = [
         statusKey: 'production',
         title: 'FyM - Find Your Movie',
         image: fymImg,
+        imageSmall: fymImgSmall,
         technologies: [
             {name: 'Next.js', icon: <Icon icon="simple-icons:nextdotjs"/>},
             {name: 'React', icon: <Icon icon="simple-icons:react"/>},
@@ -51,6 +57,7 @@ export const PROJECTS_DATA = [
         statusKey: 'in_development',
         title: 'MeetMesh',
         image: meetmeshImg,
+        imageSmall: meetmeshImgSmall,
         technologies: [
             {name: 'Next.js', icon: <Icon icon="simple-icons:nextdotjs"/>},
             {name: 'React', icon: <Icon icon="simple-icons:react"/>},
@@ -73,6 +80,7 @@ export const PROJECTS_DATA = [
         statusKey: 'in_development',
         title: 'BioVision Suite — Facial Biometric Platform',
         image: facialRecognitionImg,
+        imageSmall: facialRecognitionImgSmall,
         technologies: [
             {name: 'Python', icon: <Icon icon="simple-icons:python"/>},
             {name: 'PySide6', icon: <Icon icon="simple-icons:qt"/>},
