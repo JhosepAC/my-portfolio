@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useThemeContext } from '../../../context/ThemeContext';
 import Grainient from '../../Grainient';
+import { useReducedMotion } from 'motion/react';
 
 const GlobalGrid = () => {
+    const reduceMotion = useReducedMotion();
     const { theme } = useThemeContext();
     const isDark = theme === 'dark';
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -66,7 +68,7 @@ const GlobalGrid = () => {
     }, []);
 
     useEffect(() => {
-        if (isMobile) return;
+        if (isMobile || reduceMotion) return;
 
         window.addEventListener('mousemove', handleMouseMove);
         window.addEventListener('scroll', handleScroll);
@@ -78,7 +80,7 @@ const GlobalGrid = () => {
             window.removeEventListener('mouseleave', handleMouseLeave);
             cancelAnimationFrame(rafRef.current);
         };
-    }, [handleMouseMove, handleScroll, handleMouseLeave, isMobile]);
+    }, [handleMouseMove, handleScroll, handleMouseLeave, isMobile, reduceMotion]);
 
     const gridOffsetX = (mousePos.x / window.innerWidth - 0.5) * 20;
     const gridOffsetY = ((mousePos.y + scrollY) / window.innerHeight - 0.5) * 20;
@@ -126,7 +128,7 @@ const GlobalGrid = () => {
                         color1="#454545"
                         color2="#0a0a0b"
                         color3="#444444"
-                        timeSpeed={1.4}
+                        timeSpeed={reduceMotion ? 0 : 1.4}
                         colorBalance={-0.01}
                         warpStrength={2.2}
                         warpFrequency={4.2}

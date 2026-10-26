@@ -1,65 +1,8 @@
-.project-actions {
-    display: flex;
-    gap: 1rem;
-}
-
-.action-button {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.55rem 0.75rem;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.75rem;
-    text-decoration: none;
-    transition: all 0.15s ease;
-    border: 1px solid var(--line-strong);
-    cursor: pointer;
-}
-
-.button-primary {
-    background: var(--ink);
-    color: var(--bg-primary);
-    border-color: var(--ink);
-    box-shadow: 0 1px 2px rgba(20,20,20,0.04);
-}
-
-.button-primary:hover {
-    background: var(--ink);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-soft);
-}
-
-.button-primary:active {
-    transform: translate(1px, 1px);
-    box-shadow: 1px 1px 0 0 var(--ink);
-}
-
-.button-secondary {
-    background: var(--bg-secondary);
-    color: var(--ink);
-    border-color: var(--ink);
-    box-shadow: 0 1px 2px rgba(20,20,20,0.04);
-}
-
-.button-secondary:hover {
-    background: var(--ink);
-    color: var(--bg-primary);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-soft);
-}
-
-.button-secondary:active {
-    transform: translate(1px, 1px);
-    box-shadow: 1px 1px 0 0 var(--ink);
-}
-
-@media (max-width: 768px) {
-    .action-button {
-        padding: 0.6rem 0.8rem;
-        font-size: 0.75rem;
-        gap: 0.4rem;
-    }
-}
+.project-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.project-actions .action-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 12px 18px; border: 0; border-radius: 4px; font-size: 14px; line-height: 1.3; font-weight: 500; text-decoration: none;  transition: transform 150ms ease; }
+.project-actions .button-secondary { background: var(--bg-muted); color: var(--ink); }
+.project-actions .button-primary { background: var(--ink); color: var(--bg-primary); }
+.project-actions .action-button:hover { transform: translateY(-2px);  }
+.project-actions .action-button:active { transform: scale(.97);  }
+.project-actions .action-button:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+.card-footer .project-actions .action-button { flex: 1; }

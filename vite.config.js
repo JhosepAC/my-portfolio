@@ -16,7 +16,7 @@ function cssNonBlocking() {
 
 export default defineConfig({
   plugins: [react(), cssNonBlocking()],
-  base: './',
+  base: '/',
   build: {
     rollupOptions: {
       output: {

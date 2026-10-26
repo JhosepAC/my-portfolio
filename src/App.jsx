@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LazyMotion, domMax, MotionConfig, AnimatePresence, motion } from 'motion/react';
 import Navbar from './components/common/nav-bar/Navbar';
 import Home from './pages/Home';
@@ -10,6 +10,9 @@ import { useLoading } from './hooks/useLoading';
 import { AppReadyContext } from './context/AppReadyContext';
 import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
+import ProjectCaseStudy from './pages/ProjectCaseStudy';
+import NotFound from './pages/NotFound';
+import RouteEffects from './components/common/RouteEffects';
 
 function App() {
     const isLoading = useLoading();
@@ -17,12 +20,6 @@ function App() {
     useEffect(() => {
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
-        }
-        const hasHash = !!window.location.hash;
-        if (hasHash) {
-            window.history.replaceState(null, '', window.location.pathname);
-        } else {
-            window.scrollTo(0, 0);
         }
     }, []);
 
@@ -39,6 +36,7 @@ function App() {
                         </AnimatePresence>
 
                         <AppReadyContext.Provider value={!isLoading}>
+                        <RouteEffects />
                         <motion.main
                             className={`app-content ${isLoading ? 'is-loading' : 'is-ready'}`}
                             initial={false}
@@ -48,8 +46,8 @@ function App() {
                             <Navbar />
                             <Routes>
                                 <Route path="/" element={<Home />} />
-
-                                <Route path="*" element={<Navigate to="/" replace />} />
+                                <Route path="/proyectos/:slug" element={<ProjectCaseStudy />} />
+                                <Route path="*" element={<NotFound />} />
                             </Routes>
                         </motion.main>
                     </AppReadyContext.Provider>

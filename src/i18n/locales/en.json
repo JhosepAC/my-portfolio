@@ -43,7 +43,7 @@
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "Exploring the boundaries of modern development",
+    "subtitle": "Interfaces, decisions and code behind each project.",
     "numberLabel": "PROJECT",
     "technologiesLabel": "Technologies Used",
     "seeCode": "Source Code",
@@ -51,17 +51,17 @@
     "allFilter": "All",
     "techFilter": "Technologies",
     "filterCat": {
-        "web": "Web",
-        "mobile": "Mobile",
-        "desktop": "Desktop"
+      "web": "Web",
+      "mobile": "Mobile",
+      "desktop": "Desktop"
     },
     "noResults": "No projects found matching this filter",
     "showMore": "View More",
     "showLess": "Show Less",
     "placeholder": {
-        "title": "More projects on the way",
-        "text": "I'm working on new projects that will be added soon.",
-        "badge": "IN DEVELOPMENT"
+      "title": "More projects on the way",
+      "text": "I'm working on new projects that will be added soon.",
+      "badge": "IN DEVELOPMENT"
     },
     "items": {
       "ecocrop": {
@@ -89,7 +89,7 @@
         "status": "IN DEVELOPMENT"
       },
       "biovision": {
-        "description": "Offline desktop platform for facial biometric analysis: enrollment with quality gate, 1:1 comparison, 1:N search with FAISS, real-time webcam and forensic video processing. Built with PySide6, InsightFace (ArcFace 512D), ONNX Runtime and SQLite — 100% local and private.",
+        "description": "A desktop suite for enrollment, facial comparison and search, recognition and video analysis. Local processing and privacy.",
         "status": "IN DEVELOPMENT"
       }
     }
@@ -280,7 +280,7 @@
     "contact": "Get in touch:\n  Email    jhosepjamil@gmail.com\n  Location Lima, Peru (GMT-5)\n  GitHub   https://github.com/JhosepAC\n  LinkedIn https://www.linkedin.com/in/jhosep-ac/",
     "social": "Social links:\n  GitHub    https://github.com/JhosepAC\n  LinkedIn  https://www.linkedin.com/in/jhosep-ac/\n  Instagram  https://www.instagram.com/jh_nub/",
     "uname": "PortfolioOS 2.5.0-release #1 SMP PREEMPT\n visitor@portfolio ~/ \n Architecture: React 19 + Vite 7\n Kernel: Modern Web Standards, GNU/Linux-ish",
-    "banner": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551          JHOSEP ARGOMEDO - PORTFOLIO v2.5          \u2551\n\u2551        Software Engineering Student @ UPC         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d",
+    "banner": "╔═════════════════════════════════════╗\n║          JHOSEP ARGOMEDO - PORTFOLIO v2.5          ║\n║        Software Engineering Student @ UPC         ║\n╚═════════════════════════════════════╝",
     "help": "Available commands:\n  whoami       Display my identity\n  status       List current projects\n  about        Academic background info\n  age          Birthday date\n  pwd          Show current directory\n  ls           List portfolio sections\n  skills       Show technical skills\n  projects     List featured projects\n  education    Show academic background\n  experience   Show work experience\n  contact      Display contact information\n  social       Show social media links\n  repo         Portfolio repository URL\n  version      Show shell version\n  uptime       Show elapsed session time\n  uname        Display system information\n  banner       Show ASCII art banner\n  sudo         Try superuser privileges\n  date         Show current date and time\n  echo         Print a custom message (e.g., echo hello)\n  cls/clear    Clear command history\n  exit         Close the interpreter",
     "unknown": "'{{cmd}}' is not recognized as an internal or external command,\noperable program or batch file.\nType 'help' to see available commands.",
     "exit": "Interactive session ended. The interpreter has been safely closed.\nYou can reload the page to start a new session."
@@ -293,10 +293,234 @@
     "contact": "Contact",
     "resume": "Resume",
     "contactLabels": {
-        "email": "Email",
-        "location": "Location",
-        "phone": "Phone"
+      "email": "Email",
+      "location": "Location",
+      "phone": "Phone"
     },
     "rights": "All rights reserved."
+  },
+  "caseStudy": {
+    "back": "Back to projects",
+    "catalog": "All projects",
+    "explore": "Explore case study",
+    "moreTechnologies": "{{count}} more technologies",
+    "filter": "Filter projects",
+    "technology": "Filter by technology",
+    "allTechnologies": "All technologies",
+    "count": "{{count}} project",
+    "count_other": "{{count}} projects",
+    "reset": "Reset filters",
+    "problem": "The challenge",
+    "objectives": "Objectives",
+    "solution": "The solution",
+    "highlights": "Features",
+    "decisions": "Technical decisions",
+    "stack": "Technology stack",
+    "gallery": "Gallery",
+    "results": "Project status",
+    "learnings": "Learnings",
+    "future": "Next steps",
+    "architecture": "Architecture",
+    "challenges": "Technical challenges",
+    "contents": "In this project",
+    "preview": "Project preview",
+    "enlarge": "Enlarge screenshot",
+    "close": "Close image",
+    "imageMissing": "Screenshot unavailable",
+    "previewAlt": "Screenshot of the {{name}} interface",
+    "noLive": "Desktop application. No web demo.",
+    "noLinks": "External resources are not available.",
+    "previous": "Previous project",
+    "next": "Next project",
+    "contact": "Let’s talk about your project",
+    "source": "Project documentation",
+    "noPage": "Page not found",
+    "noPageText": "This address does not match a page in the portfolio. You can keep exploring the projects.",
+    "types": {
+      "landing": "Landing page",
+      "web": "Web application",
+      "desktop": "Desktop application"
+    },
+    "labels": {
+      "type": "Type",
+      "role": "Role",
+      "year": "Year",
+      "duration": "Duration",
+      "collaboration": "Collaboration",
+      "status": "Status"
+    },
+    "values": {
+      "team": "Team",
+      "individual": "Individual"
+    },
+    "status": {
+      "in_development": "In development",
+      "production": "In production"
+    },
+    "groups": {
+      "interface": "Interface",
+      "realtime": "Communication and video",
+      "data": "Data and services",
+      "vision": "Vision and inference",
+      "tools": "Design and tools",
+      "other": "Other technologies"
+    },
+    "items": {
+      "skillshare": {
+        "tagline": "A way into collaborative learning.",
+        "summary": "The landing page for SkillShare, a collaborative learning and academic networking platform. It introduces the concept and connects students with the community.",
+        "problem": "SkillShare brings together collaborative learning and academic connections. This landing page needs to explain what the platform offers and how it can help students connect.",
+        "objectives": [
+          "Present the collaborative learning concept.",
+          "Explain the platform’s services.",
+          "Make the information available across devices."
+        ],
+        "solution": "A presentation website built with HTML, CSS and JavaScript. This case covers the landing page: it introduces the educational platform and its services.",
+        "highlights": [
+          {
+            "title": "Educational concept",
+            "text": "An introduction to SkillShare and its focus on academic collaboration."
+          },
+          {
+            "title": "Spanish and English",
+            "text": "Localized content with translation resources and a language manager."
+          },
+          {
+            "title": "Responsive design",
+            "text": "A presentation accessible on mobile and desktop."
+          }
+        ],
+        "technicalDecisions": [
+          {
+            "title": "Static website",
+            "text": "HTML structures the content, CSS adapts the presentation and JavaScript adds interaction."
+          },
+          {
+            "title": "Localized content",
+            "text": "Copy is organized in language files, separate from styles and scripts."
+          },
+          {
+            "title": "GitHub Pages deployment",
+            "text": "The landing page is distributed as a static website from its repository."
+          }
+        ],
+        "results": "The portfolio catalog lists this project as in development. The landing page has a public link and a repository; both are available here."
+      },
+      "fym": {
+        "tagline": "From browsing to your next movie.",
+        "summary": "FyM (Find Your Movie) is a web application for exploring movies and TV shows, discovering cast members, browsing scenes and watching trailers.",
+        "problem": "Exploring a movie also means discovering its cast, watching a trailer and finding related titles. FyM brings this information into a browsing experience dedicated to movies and TV shows.",
+        "objectives": [
+          "Explore movies and shows in a catalog.",
+          "Read details and discover audiovisual content.",
+          "Find content through search and filters."
+        ],
+        "solution": "A web application built with Next.js and React, using TMDB as its information source. Catalog browsing connects to dedicated detail pages for movies and TV shows.",
+        "highlights": [
+          {
+            "title": "Explore the catalog",
+            "text": "Movies and TV shows with information to help discover what to watch."
+          },
+          {
+            "title": "Search and filter",
+            "text": "Content search, genre filters and sorting options."
+          },
+          {
+            "title": "Discover the story",
+            "text": "Detail pages with cast members, trailers and more information about each title."
+          }
+        ],
+        "technicalDecisions": [
+          {
+            "title": "Hybrid rendering",
+            "text": "The README documents server-side data loading and client components for filters and interaction."
+          },
+          {
+            "title": "Debounced search",
+            "text": "Search waits for a pause in typing to avoid making a request on every keystroke."
+          }
+        ],
+        "results": "The portfolio catalog lists FyM as in production. The application and source code are available through this case study’s links."
+      },
+      "meetmesh": {
+        "tagline": "A room to come together.",
+        "summary": "A web application for creating and joining virtual meetings, sharing your screen and personalizing profiles.",
+        "problem": "A virtual meeting needs to bring participants together and let them share what they are seeing. MeetMesh addresses that flow from creating a room to communicating inside it.",
+        "objectives": [
+          "Create and join meetings.",
+          "Share audio, video and screens.",
+          "Manage a personal profile."
+        ],
+        "solution": "A meeting application with a Next.js and React interface. It combines WebRTC, Socket.IO and Supabase for communication, room coordination and user accounts.",
+        "highlights": [
+          {
+            "title": "Meeting rooms",
+            "text": "Create rooms and join using a room code."
+          },
+          {
+            "title": "Screen sharing",
+            "text": "Share visual content during the call."
+          },
+          {
+            "title": "Personal profiles",
+            "text": "Customize your name, username and avatar."
+          }
+        ],
+        "technicalDecisions": [
+          {
+            "title": "Browser-to-browser media",
+            "text": "WebRTC carries audio and video between peers. A separate Socket.IO server exchanges signaling messages."
+          },
+          {
+            "title": "Identity and profiles",
+            "text": "Supabase provides authentication and storage for profiles."
+          }
+        ],
+        "results": "MeetMesh is listed as in development in the portfolio. A repository and web demo are available; calls also depend on the signaling service."
+      },
+      "biovision-suite": {
+        "tagline": "Biometrics that stay local.",
+        "summary": "A desktop application for facial biometric analysis, enrollment, identity comparison and search, with local processing and privacy.",
+        "problem": "Biometric analysis handles sensitive information. BioVision Suite focuses on performing facial processing and storage on the device, without depending on a cloud API to operate.",
+        "objectives": [
+          "Enroll people with image quality checks.",
+          "Compare faces and search for matches.",
+          "Analyze images, cameras and video locally."
+        ],
+        "solution": "A Python and PySide6 desktop suite combining computer vision, ONNX Runtime inference, FAISS vector search, and persistence with SQLite and SQLAlchemy.",
+        "highlights": [
+          {
+            "title": "Enrollment",
+            "text": "Register people with image quality validation."
+          },
+          {
+            "title": "1:1 comparison",
+            "text": "Compare faces across two images."
+          },
+          {
+            "title": "1:N search",
+            "text": "Find matches within the collection using FAISS."
+          },
+          {
+            "title": "Camera and video",
+            "text": "Facial recognition and video file analysis."
+          }
+        ],
+        "technicalDecisions": [
+          {
+            "title": "Separate layers",
+            "text": "The PySide6 interface is separated from services, vision engines and persistence repositories."
+          },
+          {
+            "title": "Local operation",
+            "text": "Models are downloaded on the first run. Afterwards, inference and storage operate on the device."
+          }
+        ],
+        "results": "BioVision Suite is listed as in development. Its repository documents installation and use; as a desktop application, it has no web demo."
+      }
+    },
+    "moreProjects": "More projects",
+    "meetmeshLandingAlt": "MeetMesh public home page",
+    "meetmeshLandingCaption": "MeetMesh home page. Captured from the public website."
   }
 }
