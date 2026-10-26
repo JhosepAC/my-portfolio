@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -9,6 +9,8 @@ import { useThemeContext } from '../../../context/ThemeContext';
 import { NAV_LINKS } from "../../../utils/constants.js";
 import './Navbar.css';
 import { useActiveSection } from '../../../hooks/useActiveSection';
+import { Link, useLocation } from 'react-router-dom';
+import useIsMobile from '../../../hooks/useIsMobile';
 
 const TerminalLogo = () => {
     const [showUnderscore, setShowUnderscore] = useState(true);
@@ -70,6 +72,10 @@ const TerminalLogo = () => {
 };
 
 const Navbar = () => {
+    const { pathname } = useLocation();
+    const isCasePage = pathname !== '/';
+    const isMobile = useIsMobile(900);
+    const menuButtonRef = useRef(null);
     const scrolled = useScroll(20);
     const ready = useAppReady();
     const { theme, toggleTheme } = useThemeContext();
@@ -83,6 +89,24 @@ const Navbar = () => {
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
 
+    const handleMenuKeyboard = event => {
+        if (!isMobile || !isMenuOpen) return;
+        if (event.key === 'Escape') {
+            closeMenu();
+            menuButtonRef.current?.focus();
+        }
+        if (event.key === 'Tab') {
+            const controls = [...event.currentTarget.querySelectorAll('.navbar-menu a, .navbar-menu button, .menu-toggle')];
+            const first = controls[0];
+            const last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault(); last?.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault(); first?.focus();
+            }
+        }
+    };
+
     const toggleLanguage = () => {
         const currentLang = i18n.language.split('-')[0];
         const newLang = currentLang === 'es' ? 'en' : 'es';
@@ -90,12 +114,11 @@ const Navbar = () => {
     };
 
     useEffect(() => {
-        if (isMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-    }, [isMenuOpen]);
+        if (!isMenuOpen || !isMobile) return;
+        const previous = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        return () => { document.body.style.overflow = previous; };
+    }, [isMenuOpen, isMobile]);
 
     useEffect(() => () => document.documentElement.style.removeProperty('--banner-height'), []);
 
@@ -129,6 +152,7 @@ const Navbar = () => {
     }, [i18n.language]);
 
     const handleBannerContactClick = (e) => {
+        if (isCasePage) return;
         e.preventDefault();
         const target = document.querySelector('#contact');
         if (target) {
@@ -143,16 +167,16 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="availability-banner">
+            <div className={`availability-banner ${isCasePage ? 'availability-banner--case' : ''}`}>
                 <div className="availability-banner-content">
                     <span className="availability-banner-text">{t('nav.availabilityBanner')}</span>
-                    <a href="#contact" className="availability-banner-link" onClick={handleBannerContactClick}>
+                    <Link to="/#contact" className="availability-banner-link" onClick={handleBannerContactClick}>
                         <span>{t('nav.availabilityAction')}</span>
                         <ArrowUpRight size={13} />
-                    </a>
+                    </Link>
                 </div>
             </div>
-            <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
+            <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''} ${isCasePage ? 'navbar--case' : ''}`} aria-label={t('footer.navigation')} onKeyDown={handleMenuKeyboard}>
 
             <div className="navbar-container">
                 <motion.div
@@ -163,7 +187,7 @@ const Navbar = () => {
                     aria-label="Jhosep Logo"
                     role="img"
                 >
-                    <TerminalLogo />
+                    <Link to="/" aria-label={t('nav.home')} onClick={closeMenu} style={{ color: 'inherit' }}><TerminalLogo /></Link>
                 </motion.div>
 
                 <AnimatePresence>
@@ -179,9 +203,9 @@ const Navbar = () => {
                     )}
                 </AnimatePresence>
 
-                <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`} onMouseLeave={() => setHoveredId(null)}>
+                <ul id="portfolio-navigation" className={`navbar-menu ${isMenuOpen ? 'active' : ''}`} inert={isMobile && !isMenuOpen ? true : undefined} onMouseLeave={() => setHoveredId(null)}>
                     {NAV_LINKS.map(({ id, key }, index) => {
-                        const isActive = activeSection === id;
+                        const isActive = isCasePage ? id === 'projects' : activeSection === id;
                         const isHovered = hoveredId === id;
                         const showIndicator = hoveredId ? isHovered : isActive;
                         return (
@@ -193,8 +217,8 @@ const Navbar = () => {
                             transition={{duration: 0.5, ease: EASE, delay: 0.1 + index * 0.08}}
                             onMouseEnter={() => setHoveredId(id)}
                         >
-                            <a
-                                href={`#${id}`}
+                            <Link
+                                to={`/#${id}`}
                                 className={`navbar-link ${isActive ? 'active' : ''}`}
                                 onClick={closeMenu}
                             >
@@ -206,7 +230,7 @@ const Navbar = () => {
                                         transition={{type: 'spring', stiffness: 400, damping: 30}}
                                     />
                                 )}
-                            </a>
+                            </Link>
                         </motion.li>
                         );
                     })}
@@ -249,8 +273,11 @@ const Navbar = () => {
 
                     <motion.button
                         className="menu-toggle"
+                        ref={menuButtonRef}
                         onClick={toggleMenu}
                         aria-label="Menu"
+                        aria-expanded={isMenuOpen}
+                        aria-controls="portfolio-navigation"
                         initial={{opacity: 0}}
                         animate={ready ? {opacity: 1} : {}}
                         transition={{duration: 0.6, ease: EASE, delay: 0.5}}
