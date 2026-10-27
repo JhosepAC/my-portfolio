@@ -1,279 +1,172 @@
 .experience-section {
     position: relative;
-    padding: 6rem 0 4rem;
+    padding: 3.3rem 2.5rem;
     background: var(--bg-primary);
-    overflow: hidden;
+    scroll-margin-top: 120px;
 }
 
-.experience-container {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 0 3rem;
-    position: relative;
-    z-index: 2;
-}
+.experience-container { max-width: 1280px; margin-inline: auto; position: relative; z-index: 2; }
 
-/* ── Timeline wrapper ── */
-.experience-timeline {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 0.5rem;
-    padding-left: 0;
-}
-
-/* vertical continuous line - behind dots */
-.experience-timeline-track {
-    position: absolute;
-    left: 62px; /* center of 124px rail */
-    top: 14px;
-    bottom: 14px;
-    width: 2px;
-    background: var(--line-strong);
-    opacity: 1;
-    border-radius: 999px;
-    z-index: 0;
-}
-
-:root[data-theme="dark"] .experience-timeline-track {
-    background: #2e2e32;
-    opacity: 1;
-}
-
-/* each row = rail + card */
-.experience-timeline-row {
-    position: relative;
+.experience-intro {
     display: grid;
-    grid-template-columns: 124px 1fr;
-    gap: 24px;
-    align-items: start;
-    z-index: 1;
-    margin-bottom: 1.9rem;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 440px);
+    gap: 28px;
+    align-items: end;
+    margin-bottom: 20px;
 }
 
-.experience-timeline-row:last-child {
-    margin-bottom: 0;
-}
-
-/* ── Rail (left column) ── */
-.experience-timeline-rail {
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding-top: 1.35rem; /* aligns dot with card header center */
-    min-height: 100%;
-}
-
-.experience-timeline-date {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 22px;
-    padding: 0.18rem 0.55rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--line-soft);
-    border-radius: 999px;
-    box-shadow: var(--shadow-card);
-    white-space: nowrap;
-    z-index: 2;
-}
-
-.timeline-date-range {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--ink-soft);
-    line-height: 1;
-}
-
-.timeline-date-sep {
-    color: var(--ink-faint);
-    margin: 0 0.15rem;
-}
-
-.experience-timeline-row.is-current .timeline-date-range {
+.experience-intro h2 {
+    font-size: clamp(28px, 3.36vw, 46px);
+    font-weight: 700;
+    line-height: .99;
+    letter-spacing: -.055em;
     color: var(--ink);
+    max-width: 10ch;
 }
 
-.experience-timeline-row.is-current .experience-timeline-date {
-    border-color: var(--line);
-    background: var(--bg-secondary);
+/* The hash-navigation target receives programmatic focus; it is not an interactive control. */
+.experience-intro h2[tabindex="-1"]:focus { outline: none; }
+
+.experience-intro p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    padding-bottom: 3px;
 }
 
-/* Node container with dot + connector */
-.experience-timeline-node {
+.experience-employers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.experience-employer {
     position: relative;
+    isolation: isolate;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 16px;
-    height: 16px;
-    margin-top: 10px;
-    z-index: 2;
-}
-
-.experience-timeline-dot {
-    width: 13px;
-    height: 13px;
-    background: var(--bg-secondary);
-    border: 2.5px solid var(--ink);
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px var(--bg-primary);
-    position: relative;
-    z-index: 2;
-    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-}
-
-.experience-timeline-row.is-current .experience-timeline-dot {
-    background: var(--ink);
-    border-color: var(--ink);
-    box-shadow: 0 0 0 4px var(--bg-primary), 0 0 0 7px rgba(34,197,94,0.12);
-}
-
-.experience-timeline-row.expanded .experience-timeline-dot {
-    transform: scale(1.15);
-    border-color: var(--ink);
-}
-
-.experience-timeline-dot-pulse {
-    position: absolute;
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    background: var(--ink);
-    opacity: 0.12;
-    animation: exp-pulse 2.4s ease-out infinite;
-    z-index: 1;
-}
-
-.experience-timeline-row.is-current .experience-timeline-dot-pulse {
-    background: #22c55e;
-    opacity: 0.18;
-}
-
-@keyframes exp-pulse {
-    0% { transform: scale(1); opacity: 0.14; }
-    100% { transform: scale(2.9); opacity: 0; }
-}
-
-/* horizontal connector from dot to card — union with .experience-card */
-.experience-timeline-connector {
-    position: absolute;
-    left: calc(100% + 2px);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 76px; /* union: touches card left edge (rail 124 + gap 24) */
-    height: 2px;
-    background: var(--line-strong);
-    opacity: 1;
-    border-radius: 999px;
-    z-index: 1;
-}
-
-:root[data-theme="dark"] .experience-timeline-connector {
-    background: #2e2e32;
-    opacity: 1;
-}
-
-.experience-timeline-card-wrap {
+    gap: 10px;
     min-width: 0;
+    min-height: 76px;
+    padding: 12px 15px;
+    border: 0;
+    border-radius: 0;
+    background: var(--bg-muted);
+    color: var(--ink);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background 180ms ease, transform 180ms cubic-bezier(.23, 1, .32, 1);
 }
 
-/* allow overflow for hint absolute */
-.experience-timeline-card-wrap .experience-item {
-    margin-bottom: 0;
-    overflow: visible;
+.experience-employer:hover { transform: translateY(-2px); }
+.experience-employer:active { transform: translateY(0); }
+.experience-employer.is-selected { background: transparent; color: var(--bg-primary); }
+.experience-employer:focus-visible,
+.experience-details summary:focus-visible,
+.experience-panel:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+.experience-employer.is-selected:focus-visible { outline-color: var(--ink); }
+
+.experience-employer-mark {
+    width: 32px;
+    height: 32px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    background: #ffffff;
+    padding: 4px;
 }
 
-.experience-timeline-card-wrap .experience-card {
-    overflow: hidden;
+.experience-employer-mark img { width: 100%; height: 100%; object-fit: contain; }
+.experience-employer-copy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.experience-employer-name { font-size: clamp(15px, 1.26vw, 17px); font-weight: 650; line-height: 1.1; letter-spacing: -.035em; }
+.experience-employer-role { font-size: 13px; line-height: 1.3; opacity: .78; }
+.experience-period { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; font-size: 13px; font-variant-numeric: tabular-nums; }
+.experience-employer > .experience-period { margin-left: auto; align-self: flex-end; opacity: .75; }
+
+.experience-panel {
+    margin-top: 8px;
+    padding: clamp(18px, 2.38vw, 28px);
+    background: var(--bg-secondary);
+    min-height: 357px;
 }
 
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-    .experience-section {
-        padding: 3rem 0 2rem;
-    }
-    .experience-container {
-        padding: 0 2rem;
-    }
-    .experience-timeline-row {
-        grid-template-columns: 110px 1fr;
-        gap: 18px;
-    }
-    .experience-timeline-track {
-        left: 55px;
-    }
-    .experience-timeline-connector {
-        width: 63px;
-    }
+.experience-panel-inner {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    gap: 20px clamp(27px, 3.5vw, 50px);
 }
 
-@media (max-width: 768px) {
-    .experience-section {
-        padding: 2.5rem 0 1.5rem;
-    }
-    .experience-container {
-        padding: 0 1.2rem 0 1rem;
-    }
-    .experience-timeline-row {
-        grid-template-columns: 78px 1fr;
-        gap: 12px;
-        margin-bottom: 1.4rem;
-    }
-    .experience-timeline-track {
-        left: 39px;
-        width: 2px;
-        top: 10px;
-        bottom: 10px;
-    }
-    .experience-timeline-rail {
-        padding-top: 1.1rem;
-    }
-    .experience-timeline-date {
-        padding: 0.16rem 0.42rem;
-    }
-    .timeline-date-range {
-        font-size: 0.6rem;
-        letter-spacing: 0.03em;
-    }
-    .experience-timeline-node {
-        width: 14px;
-        height: 14px;
-        margin-top: 8px;
-    }
-    .experience-timeline-dot,
-    .experience-timeline-dot-pulse {
-        width: 11px;
-        height: 11px;
-    }
-    .experience-timeline-connector {
-        width: 41px;
-        left: calc(100% + 1px);
-    }
+.experience-panel-lead, .experience-panel-work { min-width: 0; }
+.experience-panel-identity { display: flex; align-items: center; gap: 8px; margin-top: 13px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.experience-panel-lead h3 { font-size: clamp(25px, 2.59vw, 38px); line-height: 1.02; letter-spacing: -.055em; font-weight: 650; color: var(--ink); max-width: 12ch; }
+.experience-panel-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; margin-top: 8px; color: var(--ink-soft); font-size: 13px; }
+.experience-panel-description { margin-top: 15px; font-size: 14px; line-height: 1.45; color: var(--ink); max-width: 60ch; }
+
+.experience-panel-work > h4 { font-size: 15px; font-weight: 600; letter-spacing: -.025em; color: var(--ink); margin-bottom: 13px; }
+.experience-focus-list { display: grid; gap: 13px; }
+.experience-focus h5 { font-size: 15px; font-weight: 600; letter-spacing: -.025em; line-height: 1.25; color: var(--ink); margin-bottom: 4px; }
+.experience-focus p { font-size: 14px; line-height: 1.45; color: var(--ink); max-width: 70ch; }
+
+.experience-details { margin-top: 12px; background: var(--bg-muted); }
+.experience-details summary { min-height: 44px; padding: 8px 11px; display: flex; align-items: center; justify-content: space-between; gap: 8px; list-style: none; cursor: pointer; color: var(--ink); font-size: 13px; font-weight: 600; }
+.experience-details summary::-webkit-details-marker { display: none; }
+.experience-details summary svg { flex: none; width: 14px; height: 14px; transition: transform 200ms ease; }
+.experience-details[open] summary svg { transform: rotate(180deg); }
+.experience-details ul { margin: 0; padding: 2px 15px 15px 27px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 21px; }
+.experience-details li { font-size: 14px; line-height: 1.45; color: var(--ink-soft); padding-left: 2px; }
+
+.experience-stack { grid-column: 1 / -1; display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 15px; margin-top: 3px; }
+.experience-stack h4 { font-size: 13px; font-weight: 600; color: var(--ink); }
+.experience-stack ul { display: flex; flex-wrap: wrap; gap: 5px; list-style: none; }
+.experience-stack li { font-size: 13px; line-height: 1.3; padding: 5px 7px; background: var(--bg-muted); color: var(--ink); }
+
+@media (max-width: 1050px) {
+    .experience-section { padding: 3rem 24px; }
+    .experience-intro { grid-template-columns: minmax(0, 1fr) minmax(250px, 380px); gap: 17px; }
+    .experience-employer { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 7px 10px; padding: 13px; }
+    .experience-employer-mark { width: 34px; height: 34px; grid-row: 1 / 3; }
+    .experience-employer > .experience-period { grid-column: 2; align-self: start; margin-left: 0; }
+    .experience-panel-inner { gap: 25px; }
 }
 
-@media (max-width: 480px) {
-    .experience-timeline-row {
-        grid-template-columns: 68px 1fr;
-        gap: 10px;
-    }
-    .experience-timeline-track {
-        left: 34px;
-    }
-    .timeline-date-range {
-        font-size: 0.56rem;
-    }
-    .experience-timeline-connector {
-        width: 34px;
-    }
+@media (max-width: 700px) {
+    .experience-section { padding: 2.2rem 16px; }
+    .experience-intro { display: block; margin-bottom: 17px; }
+    .experience-intro h2 { font-size: clamp(26px, 6.3vw, 32px); max-width: none; }
+    .experience-intro p { margin-top: 11px; font-size: 14px; }
+    .experience-employers { grid-template-columns: 1fr; gap: 6px; }
+    .experience-employer { min-height: 56px; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 3px 8px; padding: 8px; }
+    .experience-employer-mark { grid-row: 1 / 3; width: 28px; height: 28px; padding: 3px; }
+    .experience-employer-copy { grid-column: 2; grid-row: 1 / 3; }
+    .experience-employer-name { font-size: 15px; }
+    .experience-employer-role { font-size: 13px; }
+    .experience-employer > .experience-period { grid-column: 3; grid-row: 1 / 3; align-self: center; font-size: 13px; gap: 4px; }
+    .experience-panel { padding: 15px 13px; min-height: 0; margin-top: 6px; }
+    .experience-panel-inner { grid-template-columns: 1fr; gap: 18px; }
+    .experience-panel-lead h3 { font-size: clamp(24px, 6.3vw, 30px); }
+    .experience-panel-description { font-size: 14px; margin-top: 13px; }
+    .experience-panel-meta { margin-top: 11px; }
+    .experience-panel-work > h4 { font-size: 15px; }
+    .experience-focus-list { gap: 11px; }
+    .experience-focus h5 { font-size: 14px; }
+    .experience-focus p { font-size: 14px; }
+    .experience-details ul { grid-template-columns: 1fr; gap: 7px; }
+    .experience-stack { margin-top: 0; }
+}
+
+@media (max-width: 430px) {
+    .experience-employer { grid-template-columns: 28px minmax(0, 1fr); }
+    .experience-employer > .experience-period { grid-column: 2; grid-row: 3; align-self: start; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .experience-timeline-dot-pulse { animation: none; }
+    .experience-employer, .experience-details summary svg { transition: none; }
+    .experience-employer:hover, .experience-employer:active { transform: none; }
+}
+
+.experience-active-surface { position: absolute; inset: 0; z-index: -1; background: var(--ink); pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+    .experience-details[open] ul { animation: content-arrive 200ms var(--ease-out-quint) both; }
 }

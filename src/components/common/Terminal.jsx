@@ -2,7 +2,15 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../../styles/Terminal.css';
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const delay = (ms, signal) => {
+    if (signal.aborted) return Promise.reject(new DOMException('Cancelled', 'AbortError'));
+    if (ms === 0) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+        const cancel = () => { clearTimeout(timer); reject(new DOMException('Cancelled', 'AbortError')); };
+        const timer = setTimeout(() => { signal.removeEventListener('abort', cancel); resolve(); }, ms);
+        signal.addEventListener('abort', cancel, { once: true });
+    });
+};
 
 const PROMPT = 'visitor@portfolio:~$';
 
@@ -133,6 +141,8 @@ const Terminal = () => {
 
         const body = bodyRef.current;
         if (!body) return;
+        const controller = new AbortController();
+        const wait = ms => delay(isReducedMotion() ? 0 : ms * 0.2, controller.signal);
 
         // Delegación para enlaces: abre en otra pestaña aunque el estilo sea minimalista
         const handleLinkClick = (e) => {
@@ -152,13 +162,13 @@ const Terminal = () => {
             const connectMsg = t('terminal.loading.connecting');
             loadingDiv.innerHTML = `${connectMsg} <a href="https://jhosep-ac.pages.dev/" target="_blank" rel="noopener noreferrer" class="term-url">https://jhosep-ac.pages.dev/</a>...<br>`;
             scrollToBottom();
-            await delay(600);
+            await wait(600);
             loadingDiv.innerHTML += `<span class="term-muted">${t('terminal.loading.tunnel')}</span><br>`;
             scrollToBottom(true);
-            await delay(600);
+            await wait(600);
             loadingDiv.innerHTML += `<span class="term-muted">${t('terminal.loading.installing')}</span><br><br>`;
             scrollToBottom(true);
-            await delay(400);
+            await wait(400);
 
             const progressContainer = document.createElement('div');
             progressContainer.style.color = '#d6c7a8';
@@ -174,7 +184,7 @@ const Terminal = () => {
             for (const stage of stages) {
                 progressContainer.textContent = stage.bar;
                 nudgeScroll();
-                await delay(stage.time);
+                await wait(stage.time);
             }
 
             const successMsg = document.createElement('div');
@@ -184,7 +194,7 @@ const Terminal = () => {
             loadingDiv.appendChild(successMsg);
             scrollToBottom(true);
 
-            await delay(900);
+            await wait(900);
             body.innerHTML = '';
 
             const header = document.createElement('div');
@@ -217,7 +227,7 @@ const Terminal = () => {
             hint.innerHTML = `Type <span class="term-key">help</span> to see all available commands — <span class="term-muted">Tab</span> autocompleta, <span class="term-muted">↑/↓</span> historial`;
             historyContainer.appendChild(hint);
             scrollToBottom(true);
-            await delay(600);
+            await wait(600);
 
             const activeRow = document.createElement('div');
             activeRow.id = 'terminal-active-row';
@@ -232,7 +242,7 @@ const Terminal = () => {
             scrollToBottom(true);
 
             const terminalInput = document.getElementById('terminal-input');
-            terminalInput?.focus({ preventScroll: true });
+
 
             // Desplazamiento ligero al escribir: cada input nudge suave
             const handleInput = () => nudgeScroll();
@@ -355,15 +365,15 @@ const Terminal = () => {
             container.appendChild(line);
             scrollToBottom();
 
-            await delay(400);
+            await wait(400);
 
             for (const char of cmd) {
                 cmdSpan.textContent += char;
                 nudgeScroll();
-                await delay(50 + Math.random() * 40);
+                await wait(50 + Math.random() * 40);
             }
 
-            await delay(300);
+            await wait(300);
             cursor.remove();
 
             const output = document.createElement('div');
@@ -371,7 +381,7 @@ const Terminal = () => {
             output.innerHTML = formatOutput(getCommandOutput(cmd, ''));
             line.appendChild(output);
             scrollToBottom(true);
-            await delay(800);
+            await wait(800);
         };
 
         const executeCommand = (input, rawInput, container) => {
@@ -428,10 +438,19 @@ const Terminal = () => {
             scrollToBottom(true);
         };
 
-        runBoot();
+        const observer = new IntersectionObserver(entries => {
+            if (!entries.some(entry => entry.isIntersecting)) return;
+            observer.disconnect();
+            runBoot().catch(error => { if (error.name !== 'AbortError') console.error(error); });
+        }, { threshold: 0.1 });
+        observer.observe(body);
 
         return () => {
+            controller.abort();
+            observer.disconnect();
             body.removeEventListener('click', handleLinkClick);
+            body.replaceChildren();
+            booted.current = false;
         };
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 

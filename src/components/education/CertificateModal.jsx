@@ -26,16 +26,16 @@ const CertificateModal = ({ isOpen, onClose, certificateUrl, title }) => {
                     onClick={onClose}
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
-                    exit={{opacity: 0}}
+                    exit={{opacity: 0, transition: {duration: 0.15}}}
                     transition={{duration: 0.25, ease: 'easeOut'}}
                 >
                     <motion.div
                         className="modal-content"
                         onClick={(e) => e.stopPropagation()}
-                        initial={{opacity: 0, scale: 0.9, y: 24}}
+                        initial={{opacity: 0, scale: 0.98, y: 12}}
                         animate={{opacity: 1, scale: 1, y: 0}}
-                        exit={{opacity: 0, scale: 0.95, y: 12}}
-                        transition={{duration: 0.3, ease: 'easeOut'}}
+                        exit={{opacity: 0, scale: 0.985, y: 6, transition: {duration: 0.15}}}
+                        transition={{duration: 0.24, ease: 'easeOut'}}
                     >
                         <div className="modal-header">
                             <div className="header-info">

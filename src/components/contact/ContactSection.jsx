@@ -1,12 +1,10 @@
 import {useMemo, useState} from 'react';
-import {motion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import ContactForm from './ContactForm';
 import ContactCard from './ContactCard';
 import SocialContact from './SocialContact';
 import {CONTACT_DATA} from "../../utils/constants.js";
 import SectionHeader from '../common/section-header/SectionHeader';
-import {EASE} from '../../utils/motionVariants';
 import './ContactSection.css';
 
 const ContactSection = () => {
@@ -59,13 +57,7 @@ const ContactSection = () => {
                 stacked
             />
 
-            <motion.div
-                className="contact-content"
-                initial={{opacity: 0, y: 24}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={{once: true, amount: 0.15}}
-                transition={{duration: 0.6, ease: EASE}}
-            >
+            <div className="contact-content">
                 <div className="contact-left">
                     <div className="contact-cards">
                         {contactMethods.map((method, index) => (<ContactCard
@@ -84,7 +76,7 @@ const ContactSection = () => {
                         setIsSubmitting={setIsFormSubmitting}
                     />
                 </div>
-            </motion.div>
+            </div>
         </div>
     </section>);
 };

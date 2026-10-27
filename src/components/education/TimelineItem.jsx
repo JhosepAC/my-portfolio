@@ -1,10 +1,10 @@
-import {memo, useState, lazy, Suspense, useEffect} from 'react';
-import {motion, AnimatePresence} from 'motion/react';
+import {memo, useState, lazy, Suspense, useEffect, useRef} from 'react';
+import {motion, AnimatePresence, useInView, useReducedMotion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {EDUCATION_ICONS, TIMELINE_ICONS} from '../../utils/Icons';
 import StatusBadge from './StatusBadge';
 import useIsMobile from '../../hooks/useIsMobile';
-import {EASE} from '../../utils/motionVariants';
+import {EASE, reveal} from '../../utils/motionVariants';
 import './TimelineItem.css';
 
 const CertificateModal = lazy(() => import("./CertificateModal.jsx"));
@@ -12,6 +12,9 @@ const CertificateImageViewer = lazy(() => import("./CertificateImageViewer.jsx")
 
 const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
     const {t} = useTranslation();
+    const reduced = useReducedMotion();
+    const cardRef = useRef(null);
+    const inView = useInView(cardRef, { once: true, amount: 0.15 });
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isImageOpen, setIsImageOpen] = useState(false);
     const [hintPulse, setHintPulse] = useState(false);
@@ -38,24 +41,21 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
 
     // Hint solo en primera card, esquina inferior derecha, cada 2s, hasta que se abra alguna card.
     // `hintActive` se deriva del estado en el render; el efecto solo programa el pulso.
-    const hintActive = isMobile && index === 0 && !isExpanded && !hasOpenedAny;
+    const hintActive = !reduced && isMobile && index === 0 && !isExpanded && !hasOpenedAny;
     useEffect(() => {
         if (!hintActive) {
             return;
         }
-        const interval = setInterval(() => {
-            setHintPulse(true);
-            setTimeout(() => setHintPulse(false), 1200);
-        }, 2000);
-        return () => clearInterval(interval);
-    }, [hintActive]);
+        if (!inView) return;
+        const show = setTimeout(() => setHintPulse(true), 1200);
+        const hide = setTimeout(() => setHintPulse(false), 2400);
+        return () => { clearTimeout(show); clearTimeout(hide); };
+    }, [hintActive, inView]);
 
     return (<motion.div
         className={`timeline-item ${item.type === 'university' ? 'timeline-item-important' : ''} ${isExpanded ? 'expanded' : ''}`}
-        initial={{opacity: 0, y: 28}}
-        whileInView={{opacity: 1, y: 0}}
-        viewport={{once: true, amount: 0.2}}
-        transition={{duration: 0.5, ease: EASE, delay: index * 0.12}}
+        ref={cardRef} data-in-view={inView}
+        {...reveal(reduced, { distance: 16, delay: Math.min(index, 2) * 0.045 })}
     >
         <div className="timeline-year"><span>{item.year}</span></div>
 
@@ -64,7 +64,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
             <div className="dot-pulse"></div>
         </div>
 
-        <div className="timeline-card" onClick={handleCardClick} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(e); } }} aria-expanded={isExpanded}>
+        <div className="timeline-card" onClick={handleCardClick} role="button" tabIndex={0} onKeyDown={(e) => { if (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); handleCardClick(e); } }} aria-expanded={isExpanded}>
             <AnimatePresence>
                 {hintActive && hintPulse && (
                     <motion.div
@@ -72,7 +72,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
                         initial={{ opacity: 0, scale: 0.85 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.85 }}
-                        transition={{ duration: 0.22, ease: EASE }}
+                        transition={{ duration: 0.18, ease: EASE }}
                     >
                         <span className="hint-touch-icon" aria-hidden="true">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">

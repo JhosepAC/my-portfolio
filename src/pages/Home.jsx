@@ -2,6 +2,7 @@ import {useEffect, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import {motion, useScroll, useTransform, useSpring, useReducedMotion} from 'motion/react';
 import {Rocket, ChevronDown, Mail} from 'lucide-react';
+import useMediaQuery from '../hooks/useMediaQuery';
 import {EASE} from '../utils/motionVariants';
 import {useAppReady} from '../context/AppReadyContext';
 import Terminal from '../components/common/Terminal';
@@ -38,6 +39,8 @@ const Home = () => {
     const ready = useAppReady();
     const heroRef = useRef(null);
     const reduceMotion = useReducedMotion();
+    const hasTerminal = useMediaQuery('(min-width: 769px)');
+    const finePointer = useMediaQuery('(hover: hover) and (pointer: fine) and (min-width: 769px)');
 
     const {scrollYProgress} = useScroll({
         target: heroRef,
@@ -45,12 +48,12 @@ const Home = () => {
     });
 
     const titleY = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 60]),
-        {stiffness: 120, damping: 20}
+        useTransform(scrollYProgress, [0, 1], [0, reduceMotion || !finePointer ? 0 : 28]),
+        {stiffness: 120, damping: 28}
     );
     const visualY = useSpring(
-        useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -50]),
-        {stiffness: 120, damping: 20}
+        useTransform(scrollYProgress, [0, 1], [0, reduceMotion || !finePointer ? 0 : -28]),
+        {stiffness: 120, damping: 28}
     );
     const indicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
@@ -95,9 +98,9 @@ const Home = () => {
                     <motion.div style={{y: titleY}}>
                         <motion.header
                             className="hero-title"
-                            initial={{opacity: 0, y: 24}}
+                            initial={{opacity: 0, y: 16}}
                             animate={ready ? {opacity: 1, y: 0} : {}}
-                            transition={{duration: 0.6, ease: EASE, delay: 0.25}}
+                            transition={{duration: 0.38, ease: EASE, delay: 0.05}}
                         >
                             <span className="title-line">{t('hero.greeting')}</span>
                             <span className="title-name">Jhosep Argomedo</span>
@@ -106,9 +109,9 @@ const Home = () => {
 
                     <motion.div
                         className="hero-subtitle"
-                        initial={{opacity: 0, y: 24}}
+                        initial={{opacity: 0, y: 16}}
                         animate={ready ? {opacity: 1, y: 0} : {}}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.45}}
+                        transition={{duration: 0.38, ease: EASE, delay: 0.11}}
                     >
                         <p className="subtitle-line">{highlightPhrases(t('hero.subtitle1'), i18n.language.startsWith('es') ? ['full-stack'] : ['Full-stack', 'full-stack'])}</p>
                         <p className="subtitle-line">{highlightPhrases(t('hero.subtitle2'), i18n.language.startsWith('es') ? ['web y móviles', 'agentes de IA'] : ['web and mobile', 'AI agents'])}</p>
@@ -116,9 +119,9 @@ const Home = () => {
 
                     <motion.div
                         className="hero-actions"
-                        initial={{opacity: 0, y: 24}}
+                        initial={{opacity: 0, y: 16}}
                         animate={ready ? {opacity: 1, y: 0} : {}}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.6}}
+                        transition={{duration: 0.38, ease: EASE, delay: 0.17}}
                     >
                         <div className="hero-actions-primary">
                             <MagneticButton>
@@ -144,12 +147,12 @@ const Home = () => {
 
                 <motion.div
                     className="hero-visual"
-                    initial={{opacity: 0, x: 50}}
+                    initial={{opacity: 0, x: 18}}
                     animate={ready ? {opacity: 1, x: 0} : {}}
-                    transition={{duration: 0.8, ease: EASE, delay: 0.5}}
+                    transition={{duration: 0.42, ease: EASE, delay: 0.12}}
                 >
                     <motion.div style={{y: visualY}}>
-                        <Terminal key={i18n.language} />
+                        {hasTerminal && <Terminal key={i18n.language} />}
                     </motion.div>
                 </motion.div>
 

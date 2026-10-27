@@ -5,6 +5,10 @@
 }
 
 :root {
+  --ease-out-quint: cubic-bezier(.22, 1, .36, 1);
+  --ease-in-out-cubic: cubic-bezier(.65, 0, .35, 1);
+  --motion-enter: 340ms;
+  --motion-feedback: 150ms;
   --bg-primary: #f6f6f5;
   --bg-secondary: #ffffff;
   --bg-muted: #eeeeec;
@@ -220,4 +224,21 @@ code, .mono {
     transition-duration: 0.001s !important;
     scroll-behavior: auto !important;
   }
+}
+@keyframes content-arrive {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes logo-caret {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .logo-caret { animation: logo-caret 900ms ease-in-out 1.4s 3; }
+  :is(.footer-copy, .footer-cv, .footer-profiles a, .filter-btn, .filter-button, .project-action, .action-btn-mini):active { transform: scale(0.98); }
+  .footer-copy svg { transition: transform var(--motion-feedback) var(--ease-out-quint); }
+}
+.global-particles[data-paused="true"] .global-particle { animation-play-state: paused; }
+@media (hover: none) {
+  .skill-card:hover .skill-icon-wrapper { transform: none; }
 }

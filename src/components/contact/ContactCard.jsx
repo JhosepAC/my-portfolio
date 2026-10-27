@@ -1,4 +1,5 @@
-import {memo, useCallback, useState} from 'react';
+import {memo, useCallback, useEffect, useRef, useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import {motion} from 'motion/react';
 import PropTypes from 'prop-types';
 import './ContactCard.css';
@@ -11,7 +12,8 @@ const ActionButton = memo(({onClick, href, title, icon, className = ""}) => {
     };
 
     if (href) {
-        return (<a href={href} {...commonProps} target="_blank" rel="noopener noreferrer">
+        const isExternal = href.startsWith('http');
+        return (<a href={href} {...commonProps} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined}>
                 {icon}
             </a>);
     }
@@ -24,34 +26,41 @@ const ActionButton = memo(({onClick, href, title, icon, className = ""}) => {
 ActionButton.displayName = 'ActionButton';
 
 const ContactCard = ({method, index}) => {
+    const {t} = useTranslation();
     const [isCopied, setIsCopied] = useState(false);
+    const [copyError, setCopyError] = useState(false);
+    const copyTimer = useRef(null);
+    useEffect(() => () => clearTimeout(copyTimer.current), []);
 
     const {id, icon, title, value, action} = method;
 
     const handleCopy = useCallback(async (e) => {
         e.preventDefault();
         if (!value) return;
+        clearTimeout(copyTimer.current);
+        setIsCopied(false);
+        setCopyError(false);
 
         try {
             await navigator.clipboard.writeText(value);
             setIsCopied(true);
-            setTimeout(() => setIsCopied(false), 2000);
         } catch {
-            // Handle error if needed
+            setCopyError(true);
         }
+        copyTimer.current = setTimeout(() => { setIsCopied(false); setCopyError(false); }, 2000);
     }, [value]);
 
     const canCopy = id === 'email' || id === 'phone';
 
     return (<motion.div
             className="contact-card-compact"
-            initial={{opacity: 0, x: -24}}
+            initial={{opacity: 0, x: -12}}
             whileInView={{opacity: 1, x: 0}}
-            whileHover={{x: -2, y: -2}}
+            whileHover={{y: -2}}
             viewport={{once: true, amount: 0.3}}
-            transition={{duration: 0.45, ease: EASE, delay: index * 0.1}}
+            transition={{duration: 0.3, ease: EASE, delay: Math.min(index, 2) * 0.055}}
         >
-            <div className="card-icon-mini">
+            <div className="card-icon-mini" aria-hidden="true">
                 {icon}
             </div>
 
@@ -60,8 +69,8 @@ const ContactCard = ({method, index}) => {
                 <a
                     href={action?.href}
                     className="card-value-mini"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={action?.href?.startsWith('http') ? '_blank' : undefined}
+                    rel={action?.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
                 >
                     {value}
                 </a>
@@ -71,16 +80,19 @@ const ContactCard = ({method, index}) => {
                 {canCopy && (<ActionButton
                         onClick={handleCopy}
                         className={isCopied ? 'copied' : ''}
-                        title="Copy to clipboard"
+                        title={t('contact.copyValue', {value})}
                         icon={isCopied ? CONTACT_ICONS.CHECK : CONTACT_ICONS.COPY}
                     />)}
 
                 <ActionButton
                     href={action?.href}
-                    title="Open link"
+                    title={action?.label || title}
                     icon={CONTACT_ICONS.EXTERNAL_LINK}
                 />
             </div>
+            <span className="contact-sr-only" role="status" aria-live="polite">
+                {isCopied ? t('contact.copied') : copyError ? t('contact.copyFailed') : ''}
+            </span>
         </motion.div>);
 };
 

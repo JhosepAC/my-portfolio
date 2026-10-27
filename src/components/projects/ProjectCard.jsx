@@ -1,23 +1,27 @@
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { motion, useReducedMotion } from 'motion/react';
+import useListEntrance from '../../hooks/useListEntrance';
+import { EASE_SPRING } from '../../utils/motionVariants';
 import ProjectStatus from './ProjectStatus';
 import TechStack from './TechStack';
 import ProjectActions from './ProjectActions';
 import { projectPath } from '../../utils/projectUrls';
 import './ProjectCard.css';
 
-export default function ProjectCard({ project }) {
+const ProjectCard = forwardRef(function ProjectCard({ project, index = 0 }, ref) {
     const { t } = useTranslation();
     const reduceMotion = useReducedMotion();
+    const entrance = useListEntrance(ref, index, 14);
     const [imageFailed, setImageFailed] = useState(false);
     const visibleTechnologies = project.technologies.slice(0, 3);
     const additionalTechnologies = project.technologies.length - visibleTechnologies.length;
-    return <motion.div className="project-card" role="listitem" layout={!reduceMotion}
-        initial={false} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: reduceMotion ? 0 : 0.15 } }}
-        transition={{ duration: reduceMotion ? 0 : 0.25 }}>
+    return <motion.div className="project-card" role="listitem" layout={reduceMotion ? false : 'position'}
+        {...entrance}
+        exit={{ opacity: 0, transition: { duration: reduceMotion ? 0 : 0.12 } }}
+        transition={{ ...entrance.transition, layout: EASE_SPRING }}>
         <div className="card-image">
             {project.image && !imageFailed ? <img src={project.image}
                 srcSet={project.imageWidth > 480 ? `${project.imageSmall} 480w, ${project.image} ${project.imageWidth}w` : undefined}
@@ -42,4 +46,5 @@ export default function ProjectCard({ project }) {
             </div>
         </div>
     </motion.div>;
-}
+});
+export default ProjectCard;

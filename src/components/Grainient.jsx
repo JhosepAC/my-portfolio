@@ -105,6 +105,9 @@ void main(){
 const ctxMap = new WeakMap();
 
 const Grainient = ({
+  animate = true,
+  maxFps = 30,
+  pixelRatio = 1.25,
   timeSpeed = 0.25,
   colorBalance = 0.0,
   warpStrength = 1.0,
@@ -130,6 +133,7 @@ const Grainient = ({
   className = ''
 }) => {
   const containerRef = useRef(null);
+  const playbackRef = useRef({ animate, maxFps, pixelRatio });
 
   // Effect 1: build WebGL context once, pause when offscreen / tab hidden
   useEffect(() => {
@@ -140,7 +144,7 @@ const Grainient = ({
       webgl: 2,
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(window.devicePixelRatio || 1, playbackRef.current.pixelRatio)
     });
 
     const gl = renderer.gl;
@@ -182,7 +186,8 @@ const Grainient = ({
     });
 
     const mesh = new Mesh(gl, { geometry, program });
-    ctxMap.set(container, { renderer, program, mesh });
+    const context = { renderer, program, mesh };
+    ctxMap.set(container, context);
 
     const setSize = () => {
       const rect = container.getBoundingClientRect();
@@ -202,19 +207,34 @@ const Grainient = ({
     let raf = 0;
     let isVisible = true;
     let isPageVisible = !document.hidden;
-    const t0 = performance.now();
+    let elapsed = 0;
+    let lastFrame = 0;
+    let lastRender = 0;
 
     const loop = t => {
-      program.uniforms.iTime.value = (t - t0) * 0.001;
-      renderer.render({ scene: mesh });
+      elapsed += lastFrame ? t - lastFrame : 0;
+      lastFrame = t;
+      if (t - lastRender >= 1000 / Math.max(1, playbackRef.current.maxFps) - 0.5) {
+        program.uniforms.iTime.value = elapsed * 0.001;
+        renderer.render({ scene: mesh });
+        lastRender = t;
+      }
       raf = requestAnimationFrame(loop);
     };
 
     const tryStart = () => {
-      if (isVisible && isPageVisible && raf === 0) raf = requestAnimationFrame(loop);
+      if (isVisible && isPageVisible && playbackRef.current.animate && raf === 0) {
+        lastFrame = 0;
+        raf = requestAnimationFrame(loop);
+      }
     };
     const tryStop = () => {
       if (raf !== 0) { cancelAnimationFrame(raf); raf = 0; }
+    };
+    context.syncPlayback = () => {
+      renderer.dpr = Math.min(window.devicePixelRatio || 1, playbackRef.current.pixelRatio);
+      setSize();
+      playbackRef.current.animate ? tryStart() : tryStop();
     };
 
     const io = new IntersectionObserver(
@@ -237,6 +257,9 @@ const Grainient = ({
       io.disconnect();
       document.removeEventListener('visibilitychange', onVisibility);
       ctxMap.delete(container);
+      geometry.remove();
+      program.remove();
+      gl.getExtension('WEBGL_lose_context')?.loseContext();
       try { container.removeChild(canvas); } catch { /* ignore */ }
     };
   }, []); // renderer created once
@@ -271,7 +294,10 @@ const Grainient = ({
     u.uColor1.value         = new Float32Array(hexToRgb(color1));
     u.uColor2.value         = new Float32Array(hexToRgb(color2));
     u.uColor3.value         = new Float32Array(hexToRgb(color3));
+    playbackRef.current = { animate: animate && (timeSpeed !== 0 || grainAnimated), maxFps, pixelRatio };
+    ctx.syncPlayback();
   }, [
+    animate, maxFps, pixelRatio,
     timeSpeed, colorBalance, warpStrength, warpFrequency, warpSpeed,
     warpAmplitude, blendAngle, blendSoftness, rotationAmount, noiseScale,
     grainAmount, grainScale, grainAnimated, contrast, gamma, saturation,

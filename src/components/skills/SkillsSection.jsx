@@ -1,17 +1,18 @@
 import React, {useState, useMemo} from 'react';
-import {AnimatePresence, motion} from 'motion/react';
+import {AnimatePresence, motion, useReducedMotion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {SKILLS_DATA} from '../../utils/constants.js';
 import SkillCard from './SkillCard';
 import FilterButton from './FilterButton';
 import SectionHeader from '../common/section-header/SectionHeader';
-import {EASE} from '../../utils/motionVariants';
+import {EASE, EASE_SPRING} from '../../utils/motionVariants';
 import './SkillsSection.css';
 
 const INITIAL_VISIBLE = 16;
 
 const SkillsSection = () => {
     const {t} = useTranslation();
+    const reduceMotion = useReducedMotion();
     const [activeFilter, setActiveFilter] = useState('all');
     const [showAll, setShowAll] = useState(false);
 
@@ -67,7 +68,7 @@ const SkillsSection = () => {
                     initial={{opacity: 0, y: 20}}
                     whileInView={{opacity: 1, y: 0}}
                     viewport={{once: true, amount: 0.4}}
-                    transition={{duration: 0.5, ease: EASE}}
+                    transition={{duration: reduceMotion ? 0 : 0.3, ease: EASE}}
                 >
                     {filters.map((filter) => (
                         <FilterButton
@@ -79,8 +80,8 @@ const SkillsSection = () => {
                     ))}
                 </motion.nav>
 
-                <motion.div layout className="skills-grid" transition={{type: 'spring', stiffness: 220, damping: 30}}>
-                    <AnimatePresence mode="popLayout">
+                <motion.div layout={!reduceMotion} className="skills-grid" transition={EASE_SPRING}>
+                    <AnimatePresence mode="popLayout" initial={false}>
                         {filteredSkills.map((skill, index) => (
                             <SkillCard
                                 key={skill.id || skill.name}
@@ -97,13 +98,13 @@ const SkillsSection = () => {
                         initial={{opacity: 0, y: 16}}
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true, amount: 0.4}}
-                        transition={{duration: 0.5, ease: EASE}}
+                        transition={{duration: reduceMotion ? 0 : 0.3, ease: EASE}}
                     >
                         <motion.button
                             className="skills-show-more-btn"
                             onClick={() => setShowAll(!showAll)}
-                            whileHover={{x: -2, y: -2}}
-                            whileTap={{scale: 0.95}}
+                            whileHover={reduceMotion ? undefined : {y: -2}}
+                            whileTap={reduceMotion ? undefined : {scale: 0.98}}
                         >
                             {showAll ? t('skills.showLess') : t('skills.showMore')}
                         </motion.button>
