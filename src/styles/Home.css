@@ -198,7 +198,7 @@
 }
 
 .scroll-indicator-icon {
-    animation: scroll-bounce 1.6s ease-in-out infinite;
+    animation: scroll-bounce 1.6s ease-in-out 3;
 }
 
 @keyframes scroll-bounce {

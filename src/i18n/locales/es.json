@@ -95,20 +95,35 @@
     }
   },
   "education": {
+    "heading": "Educación",
     "badge": "Formación Académica",
     "title": "Certificaciones",
     "titleHighlight": "Educación &",
-    "subtitle": "Mi trayectoria académica y de formación continua en ingeniería de software, seguridad y tecnologías modernas.",
+    "subtitle": "Ingeniería de Software en la UPC, con formación complementaria en seguridad, datos y trabajo ágil.",
+    "archive": "Formación complementaria",
+    "archiveDescription": "Cursos y programas completados.",
+    "areas": { "security": "Seguridad", "data": "Datos", "agile": "Trabajo ágil" },
+    "close": "Cerrar certificado",
+    "openPdf": "Abrir PDF",
+    "download": "Descargar PDF",
+    "loading": "Cargando certificado…",
+    "loadError": "No se pudo cargar el PDF.",
+    "loadingPage": "Cargando página {{page}}…",
+    "zoomIn": "Ampliar documento",
+    "zoomOut": "Ajustar documento",
     "status": {
       "ongoing": "En Curso",
       "completed": "Completado"
     },
     "skills": "Habilidades",
     "viewCertificate": "Ver Certificado",
+    "certificate": "Certificado",
     "openAsModal": "Abrir como modal",
     "items": {
       "ubiobio-2025": {
-        "description": "Programa especializado en el Ciclo de Vida del Desarrollo de Software Seguro (SSDLC), enfocado en la integración de prácticas de seguridad desde el análisis de requisitos hasta el despliegue y mantenimiento, aplicando principios de DevSecOps.",
+        "title": "Desarrollo de software seguro",
+        "location": "Chile - Perú",
+        "description": "Integración de seguridad desde el análisis de requisitos hasta el despliegue y mantenimiento de software, aplicando principios de DevSecOps.",
         "skills": [
           "DevSecOps",
           "Seguridad de Software",
@@ -118,6 +133,7 @@
         ]
       },
       "mongodb-udemy-2024": {
+        "title": "Guía completa MongoDB",
         "description": "Curso completo sobre MongoDB orientado al diseño, consulta y optimización de bases de datos NoSQL, cubriendo desde conceptos fundamentales hasta operaciones avanzadas y modelado de datos.",
         "skills": [
           "MongoDB",
@@ -128,6 +144,7 @@
         ]
       },
       "mongodb-intro-2024": {
+        "title": "Introduction to MongoDB",
         "description": "Curso introductorio que proporciona los fundamentos de MongoDB, incluyendo estructura de documentos, colecciones, consultas básicas y conceptos esenciales de bases de datos NoSQL.",
         "skills": [
           "MongoDB Básico",
@@ -137,6 +154,7 @@
         ]
       },
       "scrum-2024": {
+        "title": "Scrum Fundamentals Certified",
         "description": "Certificación en fundamentos de Scrum enfocada en metodologías ágiles, roles, eventos y artefactos, orientada a la gestión eficiente de proyectos de desarrollo de software.",
         "skills": [
           "Scrum",
@@ -146,7 +164,9 @@
         ]
       },
       "upc-2023": {
-        "description": "Carrera universitaria de Ingeniería de Software orientada al diseño, desarrollo y mantenimiento de soluciones tecnológicas, con énfasis en arquitectura de software, desarrollo backend y aplicaciones móviles.",
+        "title": "Ingeniería de Software",
+        "location": "Lima, Perú",
+        "description": "Formación universitaria orientada a la arquitectura de software, el desarrollo backend y las aplicaciones móviles.",
         "skills": [
           "Ingeniería de Software",
           "Arquitectura de Software",
@@ -156,6 +176,7 @@
         ]
       },
       "hacking-2022": {
+        "title": "Hacking Ético",
         "description": "Curso de Hacking Ético enfocado en la identificación de vulnerabilidades, pruebas de penetración y fundamentos de ciberseguridad, aplicando técnicas ofensivas con enfoque defensivo.",
         "skills": [
           "Hacking Ético",
@@ -170,8 +191,12 @@
     "badge": "Trayectoria Profesional",
     "title": "Experiencia",
     "titleHighlight": "Laboral",
-    "subtitle": "Mi recorrido profesional en el desarrollo de software, donde he convertido desafíos en soluciones digitales.",
+    "subtitle": "Desarrollo web y full stack para plataformas educativas y sistemas de gestión empresarial entre enero y septiembre de 2026.",
     "current": "Actual",
+    "remote": "Remoto",
+    "selectEmployer": "Seleccionar experiencia laboral",
+    "workAreas": "Trabajo realizado",
+    "allResponsibilities": "Ver todas las responsabilidades",
     "type": {
       "fulltime": "Tiempo Completo",
       "freelance": "Freelance",
@@ -181,7 +206,13 @@
     "technologies": "Tecnologías",
     "items": {
       "tec-novedades": {
+        "role": "Desarrollador Web",
         "description": "Desarrollo e implementación de soluciones web para proyectos digitales, abarcando desde landing pages hasta plataformas educativas y sistemas de gestión empresarial.",
+        "focus": [
+          { "title": "Landing pages", "description": "Landing pages para proyectos digitales y una empresa de comercio exterior, con atención a la experiencia de usuario y el rendimiento." },
+          { "title": "Educación y capacitación", "description": "Plataforma para presentar cursos y contenido académico; participación en una aplicación para gestionar capacitaciones de Recursos Humanos." },
+          { "title": "Integración y mantenimiento", "description": "Funcionalidades frontend y backend, integración con bases de datos, mantenimiento y corrección de incidencias." }
+        ],
         "achievements": [
           "Desarrollé e implementé landing pages para diferentes proyectos digitales, optimizando la experiencia de usuario y el rendimiento",
           "Diseñé y desarrollé una plataforma educativa enfocada en la presentación de cursos y contenido académico",
@@ -195,7 +226,13 @@
         ]
       },
       "wya-soluciones": {
+        "role": "Desarrollador Full Stack",
         "description": "Desarrollo y mantenimiento de aplicaciones web para la gestión de procesos empresariales, trabajando con tecnologías modernas en un entorno colaborativo.",
+        "focus": [
+          { "title": "Operaciones empresariales", "description": "Funcionalidades para ventas, compras, productos, almacenes y administración de usuarios en un sistema de gestión." },
+          { "title": "Recursos Humanos", "description": "Desarrollo del módulo de Recursos Humanos de un sistema de gestión para el sector bancario." },
+          { "title": "Frontend, backend y datos", "description": "Integración entre frontend, backend y base de datos, junto con mantenimiento correctivo, pruebas y mejoras de rendimiento." }
+        ],
         "achievements": [
           "Desarrollé y mantuve aplicaciones web para la gestión de procesos empresariales",
           "Implementé funcionalidades para un sistema de gestión con módulos de ventas, compras, productos, almacenes y administración de usuarios",
@@ -254,8 +291,12 @@
         "subjectRequired": "El asunto es requerido",
         "messageRequired": "El mensaje es requerido",
         "messageMin": "El mensaje debe tener al menos 10 caracteres"
-      }
-    }
+      },
+      "validationSummary": "Revisa los campos marcados para enviar el mensaje."
+    },
+    "copyValue": "Copiar {{value}}",
+    "copied": "Copiado",
+    "copyFailed": "No se pudo copiar. Puedes seleccionar el texto."
   },
   "terminal": {
     "loading": {
@@ -286,6 +327,16 @@
     "exit": "Sesión interactiva finalizada. El intérprete se ha cerrado de forma segura.\nPuedes recargar la página para iniciar una nueva sesión."
   },
   "footer": {
+    "role": "Desarrollador Full Stack",
+    "location": "Lima, Perú",
+    "directContact": "Contacto directo",
+    "downloadCv": "Descargar CV",
+    "copyEmail": "Copiar correo electrónico",
+    "copied": "Correo copiado",
+    "copyFailed": "No se pudo copiar. Puedes seleccionar el correo.",
+    "navigationLabel": "Secciones del portafolio",
+    "profilesLabel": "Perfiles y redes sociales",
+    "backToTop": "Volver arriba",
     "tagline": "Desarrollador web y móvil apasionado por crear experiencias digitales excepcionales. Transformando ideas en código limpio y funcional.",
     "available": "Disponible para oportunidades",
     "navigation": "Navegación",

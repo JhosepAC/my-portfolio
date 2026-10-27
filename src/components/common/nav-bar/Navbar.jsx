@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { useScroll } from '../../../hooks/useScroll';
 import { EASE } from '../../../utils/motionVariants';
 import { useAppReady } from '../../../context/AppReadyContext';
@@ -12,69 +12,20 @@ import { useActiveSection } from '../../../hooks/useActiveSection';
 import { Link, useLocation } from 'react-router-dom';
 import useIsMobile from '../../../hooks/useIsMobile';
 
-const TerminalLogo = () => {
-    const [showUnderscore, setShowUnderscore] = useState(true);
-
-    useEffect(() => {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-        let flickerInterval = null;
-        let cycleInterval = null;
-        let firstTimeout = null;
-
-        const startFlickerBurst = () => {
-            let elapsed = 0;
-            if (flickerInterval) clearInterval(flickerInterval);
-            flickerInterval = setInterval(() => {
-                setShowUnderscore((prev) => !prev);
-                elapsed += 500;
-                if (elapsed >= 3000) {
-                    clearInterval(flickerInterval);
-                    flickerInterval = null;
-                    setShowUnderscore(true);
-                }
-            }, 500);
-        };
-
-        firstTimeout = setTimeout(() => {
-            startFlickerBurst();
-            cycleInterval = setInterval(startFlickerBurst, 8000);
-        }, 1800);
-
-        return () => {
-            clearTimeout(firstTimeout);
-            clearInterval(cycleInterval);
-            if (flickerInterval) clearInterval(flickerInterval);
-        };
-    }, []);
-
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 100 100"
-            className="logo-svg"
-            aria-hidden="true"
-            focusable="false"
-            width="45"
-            height="45"
-        >
-            <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12">
-                <path d="M 8 18 L 48 50 L 8 82" />
-                <motion.path
-                    d="M 58 82 L 92 82"
-                    initial={false}
-                    animate={{ opacity: showUnderscore ? 1 : 0 }}
-                    transition={{ duration: 0.2, ease: EASE }}
-                />
-            </g>
-        </svg>
-    );
-};
+const TerminalLogo = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="logo-svg" aria-hidden="true" focusable="false" width="45" height="45">
+        <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="12">
+            <path d="M 8 18 L 48 50 L 8 82" />
+            <path d="M 58 82 L 92 82" className="logo-caret" />
+        </g>
+    </svg>
+);
 
 const Navbar = () => {
     const { pathname } = useLocation();
     const isCasePage = pathname !== '/';
     const isMobile = useIsMobile(900);
+    const reduced = useReducedMotion();
     const menuButtonRef = useRef(null);
     const scrolled = useScroll(20);
     const ready = useAppReady();
@@ -176,14 +127,14 @@ const Navbar = () => {
                     </Link>
                 </div>
             </div>
-            <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''} ${isCasePage ? 'navbar--case' : ''}`} aria-label={t('footer.navigation')} onKeyDown={handleMenuKeyboard}>
+            <motion.nav layout={!reduced && !isMobile} layoutRoot transition={{ layout: { duration: 0.28, ease: EASE } }} className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''} ${isCasePage ? 'navbar--case' : ''}`} aria-label={t('footer.navigation')} onKeyDown={handleMenuKeyboard}>
 
             <div className="navbar-container">
                 <motion.div
                     className="navbar-logo"
-                    initial={{opacity: 0, x: -30}}
+                    initial={{opacity: 0, x: -12}}
                     animate={ready ? {opacity: 1, x: 0} : {}}
-                    transition={{duration: 0.6, ease: EASE}}
+                    transition={{duration: 0.32, ease: EASE}}
                     aria-label="Jhosep Logo"
                     role="img"
                 >
@@ -212,9 +163,9 @@ const Navbar = () => {
                         <motion.li
                             key={id}
                             className="navbar-item"
-                            initial={{opacity: 0, y: -20}}
+                            initial={{opacity: 0, y: -10}}
                             animate={ready ? {opacity: 1, y: 0} : {}}
-                            transition={{duration: 0.5, ease: EASE, delay: 0.1 + index * 0.08}}
+                            transition={{duration: 0.28, ease: EASE, delay: 0.03 + index * 0.045}}
                             onMouseEnter={() => setHoveredId(id)}
                         >
                             <Link
@@ -253,9 +204,9 @@ const Navbar = () => {
                         onClick={toggleTheme}
                         className="theme-button desktop-only"
                         aria-label={theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
-                        initial={{opacity: 0, x: 30}}
+                        initial={{opacity: 0, x: 12}}
                         animate={ready ? {opacity: 1, x: 0} : {}}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.35}}
+                        transition={{duration: 0.32, ease: EASE, delay: 0.12}}
                     >
                         {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
                     </motion.button>
@@ -263,9 +214,9 @@ const Navbar = () => {
                         onClick={toggleLanguage}
                         className="lang-button desktop-only"
                         aria-label="Language"
-                        initial={{opacity: 0, x: 30}}
+                        initial={{opacity: 0, x: 12}}
                         animate={ready ? {opacity: 1, x: 0} : {}}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.4}}
+                        transition={{duration: 0.32, ease: EASE, delay: 0.15}}
                     >
                         <Globe size={18}/>
                         <span className="lang-text">{i18n.language.toUpperCase()}</span>
@@ -280,13 +231,13 @@ const Navbar = () => {
                         aria-controls="portfolio-navigation"
                         initial={{opacity: 0}}
                         animate={ready ? {opacity: 1} : {}}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.5}}
+                        transition={{duration: 0.32, ease: EASE, delay: 0.08}}
                     >
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </motion.button>
                 </div>
             </div>
-        </nav>
+        </motion.nav>
         </>
     );
 };

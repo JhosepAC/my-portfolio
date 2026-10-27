@@ -67,7 +67,9 @@
     background: var(--ink);
     border-radius: 50%;
     opacity: 0.12;
-    animation: pulse-dot 2.4s ease-out infinite;
+    animation: pulse-dot 1.8s ease-out 2;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
 }
 
 @keyframes pulse-dot {
@@ -366,7 +368,7 @@
 .card-expanded {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: grid-template-rows 240ms var(--ease-out-quint);
 }
 
 .timeline-item.expanded .card-expanded {
@@ -380,7 +382,7 @@
 
 .expanded-content {
     padding: 0 1.15rem 1rem;
-    animation: fadeIn 0.35s ease-out;
+
 }
 
 @keyframes fadeIn {
@@ -515,4 +517,9 @@
     .timeline-dot { margin-top: 1rem; }
     .dot-inner { width: 12px; height: 12px; }
     .dot-pulse { width: 12px; height: 12px; }
+}
+
+.timeline-item[data-in-view="true"] .dot-pulse { animation-play-state: running; }
+@media (prefers-reduced-motion: no-preference) {
+    .timeline-item.expanded .expanded-content { animation: content-arrive 220ms var(--ease-out-quint) both; }
 }

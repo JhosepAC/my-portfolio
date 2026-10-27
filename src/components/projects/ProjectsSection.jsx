@@ -38,7 +38,7 @@ export default function ProjectsSection() {
             </div>
             <div className="projects-grid" role="list">
                 <AnimatePresence mode="popLayout" initial={false}>
-                    {filteredProjects.map(project => <ProjectCard key={project.id} project={project} />)}
+                    {filteredProjects.map((project, index) => <ProjectCard key={project.id} project={project} index={index} />)}
                 </AnimatePresence>
             </div>
             {!filteredProjects.length && <div className="no-results"><p>{t('projects.noResults')}</p><button className="filter-btn" onClick={() => setActiveFilter('all')}>{t('caseStudy.reset')}</button></div>}

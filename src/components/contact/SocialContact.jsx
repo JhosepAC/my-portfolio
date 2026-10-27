@@ -11,10 +11,10 @@ const SocialContact = () => {
 
     return (<motion.div
         className="social-contact"
-        initial={{opacity: 0, x: -24}}
+        initial={{opacity: 0, x: -12}}
         whileInView={{opacity: 1, x: 0}}
         viewport={{once: true, amount: 0.3}}
-        transition={{duration: 0.5, ease: EASE, delay: 0.2}}
+        transition={{duration: 0.3, ease: EASE, delay: 0.1}}
     >
         <h3 className="social-contact-title">{t('contact.social.title')}</h3>
         <div className="social-contact-links">
@@ -24,7 +24,8 @@ const SocialContact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-contact-link"
-                aria-label={social.name}
+                aria-label={social.handle ? `${social.name}: ${social.handle}` : social.name}
+                title={social.handle ? `${social.name}: ${social.handle}` : social.name}
             >
                         <span className="social-contact-icon">
                             <svg
@@ -32,6 +33,8 @@ const SocialContact = () => {
                                 fill="currentColor"
                                 width="20"
                                 height="20"
+                                aria-hidden="true"
+                                focusable="false"
                             >
                                 <path d={SOCIAL_ICONS[social.id]}/>
                             </svg>

@@ -42,7 +42,7 @@ export const SOCIAL_LINKS = [{
     id: 'github', name: 'GitHub', url: 'https://github.com/JhosepAC'
 }, {id: 'linkedin', name: 'LinkedIn', url: 'https://linkedin.com/in/jhosep-ac'}, {
     id: 'email', name: 'Email', url: 'mailto:jhosepjamil@gmail.com'
-}, {id: 'instagram', name: 'Instagram', url: 'https://instagram.com/jh_slin'}, {
+}, {id: 'instagram', name: 'Instagram', handle: '@jh_nub', url: 'https://instagram.com/jh_nub/'}, {
     id: 'whatsapp', name: 'WhatsApp', url: 'https://wa.me/+51978777386'
 }];
 

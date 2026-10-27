@@ -22,7 +22,7 @@ const CertificateImageViewer = ({ isOpen, onClose, imageSrc, title, onOpenModal 
                     onClick={onClose}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    exit={{ opacity: 0, transition: {duration: 0.15} }}
                     transition={{ duration: 0.22, ease: 'easeOut' }}
                 >
                     <motion.div
@@ -30,8 +30,8 @@ const CertificateImageViewer = ({ isOpen, onClose, imageSrc, title, onOpenModal 
                         onClick={(e) => e.stopPropagation()}
                         initial={{ opacity: 0, scale: 0.97, y: 12 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.97, y: 8 }}
-                        transition={{ duration: 0.28, ease: 'easeOut' }}
+                        exit={{ opacity: 0, scale: 0.985, y: 5, transition: {duration: 0.15} }}
+                        transition={{ duration: 0.24, ease: 'easeOut' }}
                     >
                         <div className="cert-image-header">
                             <h3>{title}</h3>

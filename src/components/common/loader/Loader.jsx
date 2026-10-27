@@ -10,7 +10,7 @@ const Loader = () => {
         <motion.div
             className="loader-overlay"
             initial={{opacity: 1}}
-            exit={{opacity: 0, transition: {duration: 0.4, ease: 'easeOut'}}}
+            exit={{opacity: 0, transition: {duration: 0.18, ease: 'easeOut'}}}
         >
             <div className="loader-content">
                 <div className="loader-ring">
