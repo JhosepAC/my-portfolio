@@ -95,20 +95,35 @@
     }
   },
   "education": {
+    "heading": "Education",
     "badge": "Academic Background",
     "title": "Certifications",
     "titleHighlight": "Education &",
-    "subtitle": "My academic journey and continuous training in software engineering, security, and modern technologies.",
+    "subtitle": "Software Engineering at UPC, alongside further study in security, data and agile practice.",
+    "archive": "Further learning",
+    "archiveDescription": "Completed courses and programs.",
+    "areas": { "security": "Security", "data": "Data", "agile": "Agile practice" },
+    "close": "Close certificate",
+    "openPdf": "Open PDF",
+    "download": "Download PDF",
+    "loading": "Loading certificate…",
+    "loadError": "The PDF could not be loaded.",
+    "loadingPage": "Loading page {{page}}…",
+    "zoomIn": "Enlarge document",
+    "zoomOut": "Fit document",
     "status": {
       "ongoing": "Ongoing",
       "completed": "Completed"
     },
     "skills": "Skills",
     "viewCertificate": "View Certificate",
+    "certificate": "Certificate",
     "openAsModal": "Open as modal",
     "items": {
       "ubiobio-2025": {
-        "description": "Specialized program in the Secure Software Development Life Cycle (SSDLC), focused on integrating security practices from requirements analysis to deployment and maintenance, applying DevSecOps principles.",
+        "title": "Secure software development",
+        "location": "Chile - Peru",
+        "description": "Integrating security from requirements analysis through software deployment and maintenance, applying DevSecOps principles.",
         "skills": [
           "DevSecOps",
           "Software Security",
@@ -118,6 +133,7 @@
         ]
       },
       "mongodb-udemy-2024": {
+        "title": "Complete MongoDB guide",
         "description": "Comprehensive MongoDB course focused on designing, querying, and optimizing NoSQL databases, covering fundamentals through advanced operations and data modeling.",
         "skills": [
           "MongoDB",
@@ -128,6 +144,7 @@
         ]
       },
       "mongodb-intro-2024": {
+        "title": "Introduction to MongoDB",
         "description": "Introductory course providing MongoDB fundamentals, including document structure, collections, basic queries, and essential NoSQL database concepts.",
         "skills": [
           "MongoDB Basics",
@@ -137,6 +154,7 @@
         ]
       },
       "scrum-2024": {
+        "title": "Scrum Fundamentals Certified",
         "description": "Certification in Scrum fundamentals focused on agile methodologies, roles, events, and artifacts, aimed at efficient software development project management.",
         "skills": [
           "Scrum",
@@ -146,7 +164,9 @@
         ]
       },
       "upc-2023": {
-        "description": "Software Engineering degree focused on the design, development, and maintenance of technological solutions, with emphasis on software architecture, backend development, and mobile applications.",
+        "title": "Software Engineering",
+        "location": "Lima, Peru",
+        "description": "University studies focused on software architecture, backend development and mobile applications.",
         "skills": [
           "Software Engineering",
           "Software Architecture",
@@ -156,6 +176,7 @@
         ]
       },
       "hacking-2022": {
+        "title": "Ethical Hacking",
         "description": "Ethical Hacking course focused on vulnerability identification, penetration testing, and cybersecurity fundamentals, applying offensive techniques with a defensive mindset.",
         "skills": [
           "Ethical Hacking",
@@ -170,8 +191,12 @@
     "badge": "Professional Experience",
     "title": "Work",
     "titleHighlight": "Experience",
-    "subtitle": "My professional journey in software development, turning challenges into digital solutions.",
+    "subtitle": "Web and full stack development for educational platforms and business management systems from January to September 2026.",
     "current": "Current",
+    "remote": "Remote",
+    "selectEmployer": "Select work experience",
+    "workAreas": "Work delivered",
+    "allResponsibilities": "View all responsibilities",
     "type": {
       "fulltime": "Full Time",
       "freelance": "Freelance",
@@ -181,7 +206,13 @@
     "technologies": "Technologies",
     "items": {
       "tec-novedades": {
+        "role": "Web Developer",
         "description": "Development and implementation of web solutions for digital projects, ranging from landing pages to educational platforms and business management systems.",
+        "focus": [
+          { "title": "Landing pages", "description": "Landing pages for digital projects and a foreign trade company, with attention to user experience and performance." },
+          { "title": "Education and training", "description": "A platform for presenting courses and academic content, plus work on an application for HR training management." },
+          { "title": "Integration and maintenance", "description": "Frontend and backend features, database integration, maintenance and issue fixes." }
+        ],
         "achievements": [
           "Developed and implemented landing pages for various digital projects, optimizing user experience and performance",
           "Designed and developed an educational platform focused on course and academic content presentation",
@@ -195,7 +226,13 @@
         ]
       },
       "wya-soluciones": {
+        "role": "Full Stack Developer",
         "description": "Development and maintenance of web applications for business process management, working with modern technologies in a collaborative environment.",
+        "focus": [
+          { "title": "Business operations", "description": "Features for sales, purchasing, products, warehouses and user administration in a management system." },
+          { "title": "Human Resources", "description": "Development of the HR module in a management system for the banking sector." },
+          { "title": "Frontend, backend and data", "description": "Frontend, backend and database integration, alongside corrective maintenance, testing and performance improvements." }
+        ],
         "achievements": [
           "Developed and maintained web applications for business process management",
           "Implemented functionalities for a management system with sales, purchasing, products, warehouses, and user administration modules",
@@ -254,8 +291,12 @@
         "subjectRequired": "Subject is required",
         "messageRequired": "Message is required",
         "messageMin": "Message must be at least 10 characters"
-      }
-    }
+      },
+      "validationSummary": "Check the marked fields to send your message."
+    },
+    "copyValue": "Copy {{value}}",
+    "copied": "Copied",
+    "copyFailed": "Could not copy. You can select the text."
   },
   "terminal": {
     "loading": {
@@ -286,6 +327,16 @@
     "exit": "Interactive session ended. The interpreter has been safely closed.\nYou can reload the page to start a new session."
   },
   "footer": {
+    "role": "Full Stack Developer",
+    "location": "Lima, Peru",
+    "directContact": "Direct contact",
+    "downloadCv": "Download CV",
+    "copyEmail": "Copy email address",
+    "copied": "Email copied",
+    "copyFailed": "Could not copy. You can select the email address.",
+    "navigationLabel": "Portfolio sections",
+    "profilesLabel": "Profiles and social links",
+    "backToTop": "Back to top",
     "tagline": "Web and mobile developer passionate about creating exceptional digital experiences. Transforming ideas into clean, functional code.",
     "available": "Available for opportunities",
     "navigation": "Navigation",

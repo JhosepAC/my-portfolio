@@ -18,11 +18,11 @@ const FormInput = ({
     return (<div className={`form-input-wrapper ${error ? 'has-error' : ''}`}>
             <label htmlFor={name} className="form-label">
                 {label}
-                {required && <span className="form-required">*</span>}
+                {required && <span className="form-required" aria-hidden="true">*</span>}
             </label>
 
             <div className={`form-input-container ${isFocused ? 'focused' : ''} ${value ? 'filled' : ''}`}>
-                {icon && (<div className="form-input-icon">
+                {icon && (<div className="form-input-icon" aria-hidden="true">
                         {icon}
                     </div>)}
 
@@ -36,13 +36,16 @@ const FormInput = ({
                     onBlur={() => setIsFocused(false)}
                     className="form-input"
                     required={required}
+                    aria-invalid={error ? true : undefined}
+                    aria-describedby={error ? `${name}-error` : undefined}
+                    spellCheck={type === 'email' ? false : undefined}
                     autoComplete={AUTOCOMPLETE_MAP[name] || 'off'}
                 />
 
                 <div className="form-input-border"></div>
             </div>
 
-            {error && (<div className="form-error">
+            {error && (<div className="form-error" id={`${name}-error`}>
                     {FORM_ICONS.ALERT}
                     <span>{error}</span>
                 </div>)}

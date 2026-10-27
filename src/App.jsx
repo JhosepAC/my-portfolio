@@ -12,6 +12,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
 import ProjectCaseStudy from './pages/ProjectCaseStudy';
 import NotFound from './pages/NotFound';
+import { EASE } from './utils/motionVariants';
 import RouteEffects from './components/common/RouteEffects';
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
     return (
         <ThemeProvider>
         <LazyMotion features={domMax} strict>
-            <MotionConfig reducedMotion="user">
+            <MotionConfig reducedMotion="user" transition={{duration: 0.24, ease: EASE}}>
                 <Router>
                     <div className="App">
                         <GlobalGrid />
@@ -41,7 +42,7 @@ function App() {
                             className={`app-content ${isLoading ? 'is-loading' : 'is-ready'}`}
                             initial={false}
                             animate={isLoading ? {opacity: 0} : {opacity: 1}}
-                            transition={{duration: 0.5, ease: 'easeOut'}}
+                            transition={{duration: 0.24, ease: 'easeOut'}}
                         >
                             <Navbar />
                             <Routes>

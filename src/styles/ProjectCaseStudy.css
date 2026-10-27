@@ -108,7 +108,7 @@
 @keyframes case-arrive { from { opacity: .5; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes case-dialog-arrive { from { opacity: 0; transform: scale(.98); } to { opacity: 1; transform: scale(1); } }
 @media (prefers-reduced-motion: no-preference) {
-    .case-hero h1, .case-summary, .case-context, .case-hero .project-actions, .case-visual .case-figure { animation: case-arrive 280ms var(--case-ease) both; }
+    .case-hero h1, .case-summary, .case-context, .case-hero .project-actions, .case-visual .case-figure { animation: case-arrive 320ms var(--case-ease) both; }
     .case-summary { animation-delay: 60ms; }
     .case-context { animation-delay: 90ms; }
     .case-hero .project-actions { animation-delay: 120ms; }

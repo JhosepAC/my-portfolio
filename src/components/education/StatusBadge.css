@@ -36,12 +36,12 @@
     height: 6px;
     background: #c9a227;
     border-radius: 50%;
-    animation: pulse-status 1.8s ease-in-out infinite;
+    animation: pulse-status 1.4s ease-out 2;
 }
 
 @keyframes pulse-status {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.35); }
-    50% { box-shadow: 0 0 0 5px rgba(201, 162, 39, 0); }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(1.25); }
 }
 
 .status-completed {

@@ -11,11 +11,11 @@ const FormTextarea = ({
     return (<div className={`form-textarea-wrapper ${error ? 'has-error' : ''}`}>
             <label htmlFor={name} className="form-label">
                 {label}
-                {required && <span className="form-required">*</span>}
+                {required && <span className="form-required" aria-hidden="true">*</span>}
             </label>
 
             <div className={`form-textarea-container ${isFocused ? 'focused' : ''} ${value ? 'filled' : ''}`}>
-                {icon && (<div className="form-textarea-icon">
+                {icon && (<div className="form-textarea-icon" aria-hidden="true">
                         {icon}
                     </div>)}
 
@@ -28,13 +28,15 @@ const FormTextarea = ({
                     onBlur={() => setIsFocused(false)}
                     className="form-textarea"
                     required={required}
+                    aria-invalid={error ? true : undefined}
+                    aria-describedby={error ? `${name}-error` : undefined}
                     rows={rows}
                 />
 
                 <div className="form-textarea-border"></div>
             </div>
 
-            {error && (<div className="form-error">
+            {error && (<div className="form-error" id={`${name}-error`}>
                     {FORM_ICONS.ALERT}
                     <span>{error}</span>
                 </div>)}

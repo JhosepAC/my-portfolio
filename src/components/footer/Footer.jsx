@@ -1,160 +1,94 @@
-import React from 'react';
-import {motion} from 'motion/react';
-import {useTranslation} from 'react-i18next';
-import {Icon} from '@iconify/react';
-import {ASSETS, NAV_LINKS} from '../../utils/constants';
-import { downloadFile } from '../../utils/helpers';
-import {EASE} from '../../utils/motionVariants';
-import FooterLink from './FooterLink';
-import SocialLinks from './SocialLinks';
-import ContactInfo from './ContactInfo';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
+import { ArrowUp, ArrowUpRight, Check, Copy, Download } from 'lucide-react';
+import { CONTACT_DATA, NAV_LINKS, SOCIAL_ICONS, SOCIAL_LINKS, getLocalizedCv } from '../../utils/constants';
+import { reveal } from '../../utils/motionVariants';
 import logo from '../../assets/logo/logo-dark.svg';
 import './Footer.css';
 
-const Footer = () => {
-    const {t, i18n} = useTranslation();
-    const currentYear = new Date().getFullYear();
+const email = CONTACT_DATA.find(item => item.id === 'email');
+const phone = CONTACT_DATA.find(item => item.id === 'phone');
+const profiles = SOCIAL_LINKS.filter(item => item.id !== 'email');
 
-    const handleDownloadCV = (e) => {
-        e.preventDefault();
-        const isEs = i18n.language?.startsWith('es');
-        const path = isEs ? ASSETS.CV_PATH_ES : ASSETS.CV_PATH_EN;
-        const name = isEs ? ASSETS.CV_NAME_ES : ASSETS.CV_NAME_EN;
-        downloadFile(path, name);
+export default function Footer() {
+    const { t, i18n } = useTranslation();
+    const reduceMotion = useReducedMotion();
+    const cv = getLocalizedCv(i18n.language);
+    const [copyStatus, setCopyStatus] = useState('');
+    const copyTimer = useRef(null);
+    useEffect(() => () => clearTimeout(copyTimer.current), []);
+
+    const copyEmail = async () => {
+        clearTimeout(copyTimer.current);
+        try {
+            await navigator.clipboard.writeText(email.value);
+            setCopyStatus('copied');
+        } catch {
+            setCopyStatus('copyFailed');
+        }
+        copyTimer.current = setTimeout(() => setCopyStatus(''), 3000);
     };
 
-    const cvSuffix = i18n.language?.startsWith('es') ? 'es' : 'en';
-    const quickLinks = [
-        {
-            id: 'resume',
-            label: `CV^${cvSuffix} (PDF)`,
-            onClick: handleDownloadCV,
-            href: '#'
-        },
-        {
-            id: 'cv-md',
-            label: 'CV (Markdown)',
-            href: '/cv.md',
-            target: '_blank',
-            rel: 'noopener noreferrer'
-        },
-        {
-            id: 'llms-txt',
-            label: 'llms.txt',
-            href: '/llms.txt',
-            target: '_blank',
-            rel: 'noopener noreferrer'
-        }
-    ];
-
-    const viewport = {once: true, amount: 0.2};
-
-    return (<footer className="footer">
-            <div className="footer-container">
-                <motion.div
-                    className="footer-content"
-                    initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={viewport}
-                    transition={{duration: 0.6, ease: EASE}}
-                >
-                    <motion.div
-                        className="footer-brand"
-                        initial={{opacity: 0, x: -30}}
-                        whileInView={{opacity: 1, x: 0}}
-                        viewport={viewport}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.1}}
-                    >
-                        <div className="footer-logo">
-                            <img src={logo} alt="Jhosep Logo" className="logo-image"/>
-                            <span className="footer-logo-text">Jhosep Argomedo</span>
-                        </div>
-                        <p className="footer-tagline">{t('footer.tagline')}</p>
-                        <div className="footer-status">
-                            <span className="footer-status-dot"></span>
-                            <span className="footer-status-text">{t('footer.available')}</span>
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        className="footer-section"
-                        initial={{opacity: 0, y: 24}}
-                        whileInView={{opacity: 1, y: 0}}
-                        viewport={viewport}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.15}}
-                    >
-                        <h3 className="footer-section-title">{t('footer.navigation')}</h3>
-                        <nav className="footer-nav">
-                            {NAV_LINKS.map((link) => (<FooterLink
-                                    key={link.id}
-                                    href={link.href}
-                                    label={t(link.key)}
-                                />))}
-                        </nav>
-                    </motion.div>
-
-                    <motion.div
-                        className="footer-section"
-                        initial={{opacity: 0, y: 24}}
-                        whileInView={{opacity: 1, y: 0}}
-                        viewport={viewport}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.25}}
-                    >
-                        <h3 className="footer-section-title">{t('footer.quickLinks')}</h3>
-                        <nav className="footer-nav">
-                            {quickLinks.map((link) => (<FooterLink
-                                    key={link.id}
-                                    href={link.href}
-                                    label={link.label}
-                                    onClick={link.onClick}
-                                    target={link.target}
-                                    rel={link.rel}
-                                />))}
-                        </nav>
-                    </motion.div>
-
-                    <motion.div
-                        className="footer-section"
-                        initial={{opacity: 0, y: 24}}
-                        whileInView={{opacity: 1, y: 0}}
-                        viewport={viewport}
-                        transition={{duration: 0.6, ease: EASE, delay: 0.35}}
-                    >
-                        <h3 className="footer-section-title">{t('footer.contact')}</h3>
-                        <ContactInfo/>
-                    </motion.div>
+    return <footer className="footer">
+        <div className="footer-container">
+            <div className="footer-main">
+                <motion.div className="footer-signature" {...reveal(reduceMotion, { distance: 12 })}>
+                    <a href="#home" className="footer-brand-link">
+                        <img src={logo} width="32" height="32" alt="" loading="lazy" />
+                        <span>Jhosep Argomedo</span>
+                    </a>
+                    <p className="footer-role">{t('footer.role')}</p>
+                    <p className="footer-location">{t('footer.location')}</p>
+                    <p className="footer-availability">{t('footer.available')}</p>
                 </motion.div>
 
-                <div className="footer-divider">
-                    <div className="footer-divider-line"></div>
-                </div>
+                <motion.div className="footer-direct" {...reveal(reduceMotion, { distance: 12, delay: 0.055 })}>
+                    <h2 className="footer-heading">{t('footer.directContact')}</h2>
+                    <div className="footer-email-row">
+                        <a className="footer-email" href={email.href}>{email.value}</a>
+                        <button type="button" className="footer-copy" onClick={copyEmail}
+                            aria-label={t('footer.copyEmail')} title={t('footer.copyEmail')}>
+                            {copyStatus === 'copied' ? <Check size={17} aria-hidden="true" /> : <Copy size={17} aria-hidden="true" />}
+                        </button>
+                    </div>
+                    <a className="footer-phone" href={phone.href}>{phone.value}</a>
+                    <p className="footer-copy-status" role="status">{copyStatus ? t('footer.' + copyStatus) : ''}</p>
+                </motion.div>
 
-                <motion.div
-                    className="footer-bottom"
-                    initial={{opacity: 0, y: 24}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={viewport}
-                    transition={{duration: 0.6, ease: EASE, delay: 0.4}}
-                >
-                    <div className="footer-bottom-content">
-                        <p className="footer-copyright">
-                            © {currentYear} Jhosep Argomedo. {t('footer.rights')}
-                        </p>
-                        <SocialLinks/>
+                <motion.div className="footer-resources" {...reveal(reduceMotion, { distance: 12, delay: 0.11 })}>
+                    <h2 className="footer-heading">{t('footer.resume')}</h2>
+                    <a className="footer-cv" href={cv.path} download={cv.name}>
+                        <span>{t('footer.downloadCv')} <span className="footer-cv-format">PDF / {i18n.language.startsWith('es') ? 'ES' : 'EN'}</span></span>
+                        <Download size={19} aria-hidden="true" />
+                    </a>
+                    <div className="footer-text-resources">
+                        <a href="/cv.md" target="_blank" rel="noopener noreferrer">CV Markdown <ArrowUpRight size={14} aria-hidden="true" /></a>
+                        <a href="/llms.txt" target="_blank" rel="noopener noreferrer">llms.txt <ArrowUpRight size={14} aria-hidden="true" /></a>
                     </div>
                 </motion.div>
-
-                <motion.button
-                    className="scroll-to-top"
-                    onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
-                    aria-label="Scroll to top"
-                    whileHover={{x: -2, y: -2}}
-                    whileTap={{scale: 0.9}}
-                >
-                    <Icon icon="mdi:chevron-up" width="24"/>
-                </motion.button>
             </div>
-        </footer>);
-};
 
-export default Footer;
+            <motion.div className="footer-navigation-row" {...reveal(reduceMotion, { distance: 8 })}>
+                <nav className="footer-navigation" aria-label={t('footer.navigationLabel')}>
+                    {NAV_LINKS.map(link => <a key={link.id} href={link.href}>{t(link.key)}</a>)}
+                </nav>
+                <button type="button" className="footer-back-top" onClick={() => window.scrollTo({ top: 0, behavior: reduceMotion ? 'instant' : 'smooth' })}>
+                    {t('footer.backToTop')} <ArrowUp size={16} aria-hidden="true" />
+                </button>
+            </motion.div>
+            <motion.div className="footer-bottom" {...reveal(reduceMotion, { distance: 0 })}>
+                <p className="footer-copyright">© {new Date().getFullYear()} Jhosep Argomedo</p>
+                <nav className="footer-profiles" aria-label={t('footer.profilesLabel')}>
+                    {profiles.map(profile => <a key={profile.id} href={profile.url} target="_blank" rel="noopener noreferrer"
+                        aria-label={profile.handle ? `${profile.name}: ${profile.handle}` : profile.name}
+                        title={profile.handle ? `${profile.name}: ${profile.handle}` : profile.name}>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false">
+                            <path d={SOCIAL_ICONS[profile.id]} />
+                        </svg>
+                    </a>)}
+                </nav>
+            </motion.div>
+        </div>
+    </footer>;
+}

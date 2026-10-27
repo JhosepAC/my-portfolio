@@ -37,7 +37,7 @@
     height: 3px;
     background: var(--ink);
     border-radius: 2px;
-    animation: pulse-indicator 2s ease-in-out infinite;
+    animation: pulse-indicator 450ms ease-out 1;
 }
 
 @keyframes pulse-indicator {

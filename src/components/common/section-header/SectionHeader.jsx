@@ -1,10 +1,11 @@
-import { motion } from 'motion/react';
-import { EASE } from '../../../utils/motionVariants';
+import { motion, useReducedMotion } from 'motion/react';
+import { reveal } from '../../../utils/motionVariants';
 import './SectionHeader.css';
 
-const STEP = 0.12;
+const STEP = 0.055;
 
 const SectionHeader = ({title, titleHighlight, subtitle, align = 'center', badge, stacked, highlightFirst, kicker}) => {
+    const reduced = useReducedMotion();
     const classes = [
         'section-header',
         `section-header--${align}`,
@@ -12,17 +13,13 @@ const SectionHeader = ({title, titleHighlight, subtitle, align = 'center', badge
         highlightFirst && 'section-header--highlight-first'
     ].filter(Boolean).join(' ');
 
-    const viewport = {once: true, amount: 0.4};
 
     return (
         <header className={classes}>
             {kicker && (
                 <motion.span
                     className="section-kicker"
-                    initial={{opacity: 0, y: 12}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={viewport}
-                    transition={{duration: 0.5, ease: EASE}}
+                    {...reveal(reduced, { distance: 12 })}
                 >
                     {kicker}
                 </motion.span>
@@ -30,10 +27,7 @@ const SectionHeader = ({title, titleHighlight, subtitle, align = 'center', badge
             {badge && (
                 <motion.div
                     className="section-badge"
-                    initial={{opacity: 0, y: 18}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={viewport}
-                    transition={{duration: 0.5, ease: EASE}}
+                    {...reveal(reduced, { distance: 12 })}
                 >
                     {badge.icon}
                     <span className="section-badge-text">{badge.text}</span>
@@ -41,10 +35,7 @@ const SectionHeader = ({title, titleHighlight, subtitle, align = 'center', badge
             )}
             <motion.h2
                 className="section-title"
-                initial={{opacity: 0, y: 22}}
-                whileInView={{opacity: 1, y: 0}}
-                viewport={viewport}
-                transition={{duration: 0.5, ease: EASE, delay: badge ? STEP : 0}}
+                {...reveal(reduced, { distance: 12, delay: badge ? STEP : 0 })}
             >
                 {highlightFirst ? (
                     <>
@@ -63,10 +54,7 @@ const SectionHeader = ({title, titleHighlight, subtitle, align = 'center', badge
             {subtitle && (
                 <motion.p
                     className="section-subtitle"
-                    initial={{opacity: 0, y: 18}}
-                    whileInView={{opacity: 1, y: 0}}
-                    viewport={viewport}
-                    transition={{duration: 0.5, ease: EASE, delay: (badge ? STEP : 0) + STEP}}
+                    {...reveal(reduced, { distance: 12, delay: (badge ? STEP : 0) + STEP })}
                 >
                     {subtitle}
                 </motion.p>

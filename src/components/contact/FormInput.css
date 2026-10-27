@@ -79,7 +79,7 @@
     color: var(--ink);
     font-size: 0.85rem;
     font-weight: 600;
-    animation: shake 0.4s ease;
+
 }
 
 @keyframes shake {
