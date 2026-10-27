@@ -6,6 +6,7 @@ import skillshareLandingImg from '../assets/projects/thinkup-skillshare-landing_
 import skillshareLandingImgSmall from '../assets/projects/thinkup-skillshare-landing_page-480.webp';
 import meetmeshImg from '../assets/projects/meet_mesh-800.webp';
 import meetmeshImgSmall from '../assets/projects/meet_mesh-480.webp';
+import meetmeshLandingImg from '../assets/projects/meetmesh-landing-1600.webp';
 import facialRecognitionImg from '../assets/projects/facial_recognition-800.webp';
 import facialRecognitionImgSmall from '../assets/projects/facial_recognition-480.webp';
 import React from "react";
@@ -13,6 +14,12 @@ import React from "react";
 export const PROJECTS_DATA = [
     {
         id: 1,
+        slug: 'skillshare',
+        name: 'SkillShare',
+        imageWidth: 800,
+        imageHeight: 450,
+        metadata: { type: 'landing', collaboration: 'team' },
+        gallery: [],
         category: 'web',
         statusKey: 'in_development',
         title: 'SkillShare - Collaborative Learning Platform',
@@ -31,6 +38,12 @@ export const PROJECTS_DATA = [
     },
     {
         id: 2,
+        slug: 'fym',
+        name: 'FyM',
+        imageWidth: 800,
+        imageHeight: 450,
+        metadata: { type: 'web' },
+        gallery: [],
         category: 'web',
         statusKey: 'production',
         title: 'FyM - Find Your Movie',
@@ -53,6 +66,12 @@ export const PROJECTS_DATA = [
     },
     {
         id: 3,
+        slug: 'meetmesh',
+        name: 'MeetMesh',
+        imageWidth: 420,
+        imageHeight: 200,
+        metadata: { type: 'web' },
+        gallery: [{ src: meetmeshLandingImg, width: 1600, height: 900, altKey: 'caseStudy.meetmeshLandingAlt', captionKey: 'caseStudy.meetmeshLandingCaption' }],
         category: 'web',
         statusKey: 'in_development',
         title: 'MeetMesh',
@@ -76,6 +95,12 @@ export const PROJECTS_DATA = [
     },
     {
         id: 4,
+        slug: 'biovision-suite',
+        name: 'BioVision Suite',
+        imageWidth: 800,
+        imageHeight: 378,
+        metadata: { type: 'desktop' },
+        gallery: [],
         category: 'desktop',
         statusKey: 'in_development',
         title: 'BioVision Suite — Facial Biometric Platform',
@@ -95,3 +120,21 @@ export const PROJECTS_DATA = [
         labelTranslate: 'biovision'
     }
 ];
+
+// Presentation and case studies share these records. Editorial copy lives in i18n.
+// Optional metadata: role, year, duration, collaboration. Only add confirmed facts.
+// Gallery entries: { src, width, height, altKey, captionKey? } (translation keys).
+export const getProjectBySlug = (slug) => PROJECTS_DATA.find(project => project.slug === slug);
+
+const TECHNOLOGY_GROUPS = {
+    interface: ['HTML5', 'CSS3', 'JavaScript', 'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'PySide6'],
+    realtime: ['Socket.IO', 'WebRTC', 'WebGL'],
+    data: ['TMDB API', 'Supabase', 'SQLite', 'SQLAlchemy'],
+    vision: ['Python', 'InsightFace', 'ONNX Runtime', 'OpenCV', 'FAISS'],
+    tools: ['Git', 'Figma'],
+};
+
+export const groupTechnologies = (technologies) => Object.entries(TECHNOLOGY_GROUPS)
+    .map(([key, names]) => ({ key, items: technologies.filter(tech => names.includes(tech.name)) }))
+    .concat({ key: 'other', items: technologies.filter(tech => !Object.values(TECHNOLOGY_GROUPS).flat().includes(tech.name)) })
+    .filter(group => group.items.length);
