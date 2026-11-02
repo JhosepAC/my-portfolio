@@ -572,6 +572,23 @@
     },
     "moreProjects": "More projects",
     "meetmeshLandingAlt": "MeetMesh public home page",
-    "meetmeshLandingCaption": "MeetMesh home page. Captured from the public website."
+    "meetmeshLandingCaption": "MeetMesh home page. Captured from the public website.",
+    "biovisionGalleryIntro": "A look through the local workflow: from organizing the collection to comparing, searching and reviewing activity.",
+    "bioVisionDashboardAlt": "BioVision Suite dashboard with shortcuts to enrollment and facial search.",
+    "bioVisionDashboardCaption": "Dashboard · activity overview and workflow shortcuts.",
+    "bioVisionComparatorAlt": "Biometric comparison view with two images, a result and matching metrics.",
+    "bioVisionComparatorCaption": "Comparator · 1:1 analysis with visible result metrics.",
+    "bioVisionPersonsAlt": "Person registration form with reference photographs.",
+    "bioVisionPersonsCaption": "People · enrollment with details and visual references.",
+    "bioVisionSearchAlt": "Person search with filters and matching results.",
+    "bioVisionSearchCaption": "Search · find identities within the local collection.",
+    "bioVisionWebcamAlt": "Real-time facial recognition from a webcam.",
+    "bioVisionWebcamCaption": "Camera · live recognition with confidence and session activity.",
+    "bioVisionVideosAlt": "Video analysis with facial detections and a results table.",
+    "bioVisionVideosCaption": "Video · playback, detections and results review.",
+    "bioVisionStatisticsAlt": "Statistics dashboard for people, activity and exports.",
+    "bioVisionStatisticsCaption": "Statistics · operational overview and recorded activity.",
+    "bioVisionAdministrationAlt": "Administration settings for facial analysis engines.",
+    "bioVisionAdministrationCaption": "Administration · engine settings and analysis parameters."
   }
 }
