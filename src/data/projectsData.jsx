@@ -6,9 +6,16 @@ import skillshareLandingImg from '../assets/projects/thinkup-skillshare-landing_
 import skillshareLandingImgSmall from '../assets/projects/thinkup-skillshare-landing_page-480.webp';
 import meetmeshImg from '../assets/projects/meet_mesh-800.webp';
 import meetmeshImgSmall from '../assets/projects/meet_mesh-480.webp';
-import meetmeshLandingImg from '../assets/projects/meetmesh-landing-1600.webp';
 import facialRecognitionImg from '../assets/projects/facial_recognition-800.webp';
 import facialRecognitionImgSmall from '../assets/projects/facial_recognition-480.webp';
+import faceScanDashboard from '../assets/projects/facial_recognition/FaceScan-Dashboard.png';
+import faceScanComparator from '../assets/projects/facial_recognition/FaceScan-Comparator.png';
+import faceScanSearch from '../assets/projects/facial_recognition/FaceScan-Search.png';
+import faceScanPersons from '../assets/projects/facial_recognition/FaceScan-Persons.png';
+import faceScanWebcam from '../assets/projects/facial_recognition/FaceScan-WebCam.png';
+import faceScanVideos from '../assets/projects/facial_recognition/FaceScan-Videos.png';
+import faceScanStatistics from '../assets/projects/facial_recognition/FaceScan-Statistics.png';
+import faceScanAdministration from '../assets/projects/facial_recognition/FaceScan-Administration.png';
 import React from "react";
 
 export const PROJECTS_DATA = [
@@ -19,7 +26,16 @@ export const PROJECTS_DATA = [
         imageWidth: 800,
         imageHeight: 378,
         metadata: { type: 'desktop' },
-        gallery: [],
+        gallery: [
+            { src: faceScanDashboard, width: 1800, height: 1054, altKey: 'caseStudy.bioVisionDashboardAlt', captionKey: 'caseStudy.bioVisionDashboardCaption' },
+            { src: faceScanComparator, width: 1792, height: 1035, altKey: 'caseStudy.bioVisionComparatorAlt', captionKey: 'caseStudy.bioVisionComparatorCaption' },
+            { src: faceScanPersons, width: 1797, height: 1052, altKey: 'caseStudy.bioVisionPersonsAlt', captionKey: 'caseStudy.bioVisionPersonsCaption' },
+            { src: faceScanSearch, width: 1786, height: 1057, altKey: 'caseStudy.bioVisionSearchAlt', captionKey: 'caseStudy.bioVisionSearchCaption' },
+            { src: faceScanWebcam, width: 1784, height: 1050, altKey: 'caseStudy.bioVisionWebcamAlt', captionKey: 'caseStudy.bioVisionWebcamCaption' },
+            { src: faceScanVideos, width: 1786, height: 1049, altKey: 'caseStudy.bioVisionVideosAlt', captionKey: 'caseStudy.bioVisionVideosCaption' },
+            { src: faceScanStatistics, width: 1798, height: 1049, altKey: 'caseStudy.bioVisionStatisticsAlt', captionKey: 'caseStudy.bioVisionStatisticsCaption' },
+            { src: faceScanAdministration, width: 1797, height: 1056, altKey: 'caseStudy.bioVisionAdministrationAlt', captionKey: 'caseStudy.bioVisionAdministrationCaption' },
+        ],
         category: 'desktop',
         statusKey: 'in_development',
         title: 'BioVision Suite — Facial Biometric Platform',
@@ -45,7 +61,7 @@ export const PROJECTS_DATA = [
         imageWidth: 420,
         imageHeight: 200,
         metadata: { type: 'web' },
-        gallery: [{ src: meetmeshLandingImg, width: 1600, height: 900, altKey: 'caseStudy.meetmeshLandingAlt', captionKey: 'caseStudy.meetmeshLandingCaption' }],
+        gallery: [],
         category: 'web',
         statusKey: 'in_development',
         title: 'MeetMesh',

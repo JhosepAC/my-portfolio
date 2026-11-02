@@ -572,6 +572,23 @@
     },
     "moreProjects": "Más proyectos",
     "meetmeshLandingAlt": "Página de inicio pública de MeetMesh",
-    "meetmeshLandingCaption": "Página de inicio de MeetMesh. Captura del sitio público."
+    "meetmeshLandingCaption": "Página de inicio de MeetMesh. Captura del sitio público.",
+    "biovisionGalleryIntro": "Un recorrido por el flujo local: desde organizar la colección hasta comparar, buscar y revisar actividad.",
+    "bioVisionDashboardAlt": "Panel principal de BioVision Suite con accesos a enrolamiento y búsqueda facial.",
+    "bioVisionDashboardCaption": "Panel principal · resumen de actividad y accesos al flujo de trabajo.",
+    "bioVisionComparatorAlt": "Vista de comparación biométrica entre dos imágenes con resultado y métricas.",
+    "bioVisionComparatorCaption": "Comparador · análisis 1:1 con métricas visibles del resultado.",
+    "bioVisionPersonsAlt": "Formulario de registro de personas y fotografías de referencia.",
+    "bioVisionPersonsCaption": "Personas · enrolamiento con datos y referencias visuales.",
+    "bioVisionSearchAlt": "Búsqueda de personas con filtros y resultados de coincidencia.",
+    "bioVisionSearchCaption": "Búsqueda · consulta de identidades dentro de la colección local.",
+    "bioVisionWebcamAlt": "Reconocimiento facial en tiempo real desde una cámara web.",
+    "bioVisionWebcamCaption": "Cámara · reconocimiento en vivo con confianza y actividad de sesión.",
+    "bioVisionVideosAlt": "Análisis de vídeo con detecciones faciales y tabla de resultados.",
+    "bioVisionVideosCaption": "Vídeo · reproducción, detecciones y revisión de resultados.",
+    "bioVisionStatisticsAlt": "Panel de estadísticas de personas, actividad y exportaciones.",
+    "bioVisionStatisticsCaption": "Estadísticas · resumen operativo y actividad registrada.",
+    "bioVisionAdministrationAlt": "Configuración de administración para los motores de análisis facial.",
+    "bioVisionAdministrationCaption": "Administración · ajustes de los motores y parámetros de análisis."
   }
 }

@@ -71,7 +71,9 @@ function CaseStudy({ project }) {
                 <div key={group.key}><dt>{t(`caseStudy.groups.${group.key}`)}</dt><dd>{group.items.map(tech => <span key={tech.name}>{tech.name}</span>)}</dd></div>
             ))}</dl>
         </ProjectSection>}
-        <ProjectGallery images={project.gallery} />
+        <ProjectGallery images={project.gallery}
+            variant={project.slug === 'biovision-suite' ? 'atlas' : undefined}
+            intro={project.slug === 'biovision-suite' ? t('caseStudy.biovisionGalleryIntro') : undefined} />
         {content.results && <ProjectSection id="results" title={t('caseStudy.results')} className="case-results">
             <div><p>{content.results}</p>
                 {isExternalProjectUrl(project.github) && <a className="case-source" href={`${project.github.replace(/\/$/, '')}#readme`} target="_blank" rel="noopener noreferrer">{t('caseStudy.source')}<ArrowUpRight size={16} aria-hidden="true" /></a>}
