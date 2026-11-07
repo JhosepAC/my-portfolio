@@ -65,7 +65,7 @@
 .case-stack dd span { white-space: nowrap; }
 .case-gallery-images { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
 .case-gallery-images > .case-figure:only-child { grid-column: 1 / -1; }
-.case-gallery--atlas .case-gallery-intro { max-width: 58ch; margin: -8px 0 28px; color: var(--ink-soft); font-size: 16px; }
+.case-gallery-intro { max-width: 58ch; margin: -8px 0 28px; color: var(--ink-soft); font-size: 16px; }
 .case-gallery--atlas .case-gallery-images { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 20px; }
 .case-gallery--atlas .case-gallery-images > .case-figure:nth-child(1) { grid-column: span 7; }
 .case-gallery--atlas .case-gallery-images > .case-figure:nth-child(2) { grid-column: span 5; }

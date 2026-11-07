@@ -47,6 +47,7 @@
     "numberLabel": "PROYECTO",
     "technologiesLabel": "Tecnologías Utilizadas",
     "seeCode": "Código Fuente",
+    "downloadRelease": "Descargar",
     "seeLive": "Ver Demo",
     "allFilter": "Todos",
     "techFilter": "Tecnologías",
@@ -64,6 +65,9 @@
       "badge": "EN DESARROLLO"
     },
     "items": {
+      "gitpilot": {
+        "description": "Aplicación de escritorio para gestionar identidades Git por carpeta y repositorio en Windows y Linux."
+      },
       "ecocrop": {
         "description": "Landing page que presenta y comunica las funcionalidades, objetivos y beneficios de EcoCrop como solución digital para el control de plagas y la agricultura sostenible.",
         "status": "EN PRODUCCIÓN"
@@ -409,6 +413,7 @@
       "production": "En producción"
     },
     "groups": {
+      "native": "Escritorio y sistema",
       "interface": "Interfaz",
       "realtime": "Comunicación y vídeo",
       "data": "Datos y servicios",
@@ -416,7 +421,51 @@
       "tools": "Diseño y herramientas",
       "other": "Otras tecnologías"
     },
+    "gitPilotHomeAlt": "Pantalla Inicio con la comprobación de Git y los pasos de configuración",
+    "gitPilotHomeCaption": "Inicio guía la configuración y comprueba la versión de Git.",
+    "gitPilotIdentitiesAlt": "Vista Identidades con perfiles Personal y Trabajo y los datos del autor",
+    "gitPilotIdentitiesCaption": "Identidades reúne perfiles y muestra el nombre y correo del autor.",
+    "gitPilotSettingsAlt": "Configuración con selector de idioma y acciones para archivos JSON",
+    "gitPilotSettingsCaption": "Configuración guarda el idioma y permite exportar e importar perfiles y preferencias.",
+    "gitPilotImportAlt": "Vista previa de importación con un perfil nuevo y un cambio de tiempo de escaneo",
+    "gitPilotImportCaption": "La revisión muestra los cambios del JSON antes de confirmar la importación.",
     "items": {
+      "gitpilot": {
+        "tagline": "Identidades de Git para proyectos personales y de trabajo.",
+        "summary": "GitPilot organiza perfiles de autor y aplica reglas de identidad por carpeta o repositorio en Windows y Linux. Puedes comparar lo que esperas con lo que Git usará en el próximo commit.",
+        "problem": "Alternar entre proyectos personales y de trabajo obliga a revisar qué nombre y correo usará Git. Un valor global o una regla local puede atribuir un commit a la identidad equivocada.",
+        "solution": "Creé un inventario local que relaciona directorios y repositorios con perfiles de autor. GitPilot consulta Git CLI para comprobar los valores efectivos y ofrece una vista previa antes de aplicar cambios.",
+        "highlights": [
+          {
+            "title": "Perfiles e inventario",
+            "text": "Guarda perfiles, escanea directorios, excluye rutas y define excepciones por repositorio."
+          },
+          {
+            "title": "Revisión y recuperación",
+            "text": "Confirma los cambios de configuración tras revisar su alcance. GitPilot guarda un respaldo cifrado y registra las operaciones para restaurarlas desde Actividad."
+          },
+          {
+            "title": "Portabilidad",
+            "text": "Exporta perfiles, asignaciones y preferencias a JSON. La importación muestra los cambios antes de guardarlos."
+          },
+          {
+            "title": "Inspector y GitHub",
+            "text": "Consulta por separado identidad, firma y acceso remoto. Vincula un repositorio local con su remoto autorizado en GitHub."
+          }
+        ],
+        "technicalDecisions": [
+          {
+            "title": "Git CLI como fuente de verdad",
+            "text": "El diagnóstico consulta a Git para determinar los valores efectivos. Rust controla el acceso a archivos y las operaciones de configuración."
+          },
+          {
+            "title": "Datos locales y credenciales separadas",
+            "text": "SQLite guarda los perfiles y el inventario. Las credenciales se guardan en Windows Credential Manager o Linux Secret Service."
+          }
+        ],
+        "galleryIntro": "Capturas reales de GitPilot v1.0.0 con datos de ejemplo. Selecciona una imagen para ampliarla.",
+        "results": "GitPilot v1.0.0 está disponible en GitHub Releases como instalador Windows x64 y paquete Debian amd64. Los archivos de distribución tienen un manifiesto SHA-256 firmado con OpenPGP."
+      },
       "skillshare": {
         "tagline": "Una puerta al aprendizaje colaborativo.",
         "summary": "Landing page de SkillShare, una plataforma de aprendizaje colaborativo y redes académicas. Presenta su propuesta y acerca la comunidad a los estudiantes.",

@@ -47,6 +47,7 @@
     "numberLabel": "PROJECT",
     "technologiesLabel": "Technologies Used",
     "seeCode": "Source Code",
+    "downloadRelease": "Download",
     "seeLive": "View Demo",
     "allFilter": "All",
     "techFilter": "Technologies",
@@ -64,6 +65,9 @@
       "badge": "IN DEVELOPMENT"
     },
     "items": {
+      "gitpilot": {
+        "description": "A desktop app for managing Git identities by folder and repository on Windows and Linux."
+      },
       "ecocrop": {
         "description": "Landing page that presents and communicates the features, goals, and benefits of EcoCrop as a digital solution for pest control and sustainable agriculture.",
         "status": "IN PRODUCTION"
@@ -409,6 +413,7 @@
       "production": "In production"
     },
     "groups": {
+      "native": "Desktop and system",
       "interface": "Interface",
       "realtime": "Communication and video",
       "data": "Data and services",
@@ -416,7 +421,51 @@
       "tools": "Design and tools",
       "other": "Other technologies"
     },
+    "gitPilotHomeAlt": "Home screen showing the Git check and setup steps",
+    "gitPilotHomeCaption": "Home guides setup and checks the Git version.",
+    "gitPilotIdentitiesAlt": "Identities view with Personal and Work profiles and author details",
+    "gitPilotIdentitiesCaption": "Identities lists profiles and shows the author name and email.",
+    "gitPilotSettingsAlt": "Settings showing a language selector and JSON file actions",
+    "gitPilotSettingsCaption": "Settings saves the language and lets you export and import profiles and preferences.",
+    "gitPilotImportAlt": "Import preview showing a new profile and a change to the scan time",
+    "gitPilotImportCaption": "The preview shows changes from the JSON file before import is confirmed.",
     "items": {
+      "gitpilot": {
+        "tagline": "Git identities for personal and work projects.",
+        "summary": "GitPilot organizes author profiles and applies identity rules by folder or repository on Windows and Linux. Compare your intended identity with the values Git will use for your next commit.",
+        "problem": "Switching between personal and work projects means checking which name and email Git will use. A global setting or local override can assign a commit to the wrong identity.",
+        "solution": "I built a local inventory that links directories and repositories to author profiles. GitPilot queries the Git CLI for effective values and previews changes before applying them.",
+        "highlights": [
+          {
+            "title": "Profiles and inventory",
+            "text": "Save profiles, scan directories, exclude paths, and set repository overrides."
+          },
+          {
+            "title": "Review and recovery",
+            "text": "Review the scope of configuration changes before confirming. GitPilot saves an encrypted backup and logs operations so you can restore them from Activity."
+          },
+          {
+            "title": "Portability",
+            "text": "Export profiles, assignments, and preferences to JSON. Review the proposed changes before saving an import."
+          },
+          {
+            "title": "Inspector and GitHub",
+            "text": "Check identity, signing, and remote access separately. Link a local repository to an authorized GitHub remote."
+          }
+        ],
+        "technicalDecisions": [
+          {
+            "title": "Git CLI as the source of truth",
+            "text": "The diagnosis queries Git for effective values. Rust controls file access and configuration operations."
+          },
+          {
+            "title": "Local data and separate credentials",
+            "text": "SQLite stores profiles and inventory. Credentials are stored in Windows Credential Manager or Linux Secret Service."
+          }
+        ],
+        "galleryIntro": "Actual screenshots of GitPilot v1.0.0 with sample data. Select an image to enlarge it.",
+        "results": "GitPilot v1.0.0 is available on GitHub Releases as a Windows x64 installer and a Debian amd64 package. An OpenPGP-signed SHA-256 manifest accompanies the distribution files."
+      },
       "skillshare": {
         "tagline": "A way into collaborative learning.",
         "summary": "The landing page for SkillShare, a collaborative learning and academic networking platform. It introduces the concept and connects students with the community.",

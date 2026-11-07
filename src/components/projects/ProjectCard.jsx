@@ -42,7 +42,7 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index = 0 }, ref)
                 <Link to={projectPath(project.slug)} className="case-study-link" aria-label={`${t('caseStudy.explore')}: ${project.name}`}>
                     {t('caseStudy.explore')}<ArrowUpRight size={20} aria-hidden="true" />
                 </Link>
-                <ProjectActions github={project.github} live={project.live} projectTitle={project.name} />
+                <ProjectActions github={project.github} live={project.live} release={project.release} projectTitle={project.name} />
             </div>
         </div>
     </motion.div>;
