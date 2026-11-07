@@ -22,7 +22,7 @@ function CaseStudy({ project }) {
     const sections = [
         ['problem', 'problem', content.problem], ['solution', 'solution', content.solution],
         ['features', 'highlights', content.highlights?.length], ['decisions', 'decisions', content.technicalDecisions?.length],
-        ['stack', 'stack', project.technologies?.length], ['results', 'results', content.results]
+        ['stack', 'stack', project.technologies?.length], ['gallery', 'gallery', project.gallery?.length], ['results', 'results', content.results]
     ].filter(([, , present]) => present);
 
     usePageMetadata({
@@ -73,12 +73,12 @@ function CaseStudy({ project }) {
         </ProjectSection>}
         <ProjectGallery images={project.gallery}
             variant={project.slug === 'biovision-suite' ? 'atlas' : undefined}
-            intro={project.slug === 'biovision-suite' ? t('caseStudy.biovisionGalleryIntro') : undefined} />
+            intro={content.galleryIntro || (project.slug === 'biovision-suite' ? t('caseStudy.biovisionGalleryIntro') : undefined)} />
         {content.results && <ProjectSection id="results" title={t('caseStudy.results')} className="case-results">
             <div><p>{content.results}</p>
                 {isExternalProjectUrl(project.github) && <a className="case-source" href={`${project.github.replace(/\/$/, '')}#readme`} target="_blank" rel="noopener noreferrer">{t('caseStudy.source')}<ArrowUpRight size={16} aria-hidden="true" /></a>}
             </div>
-            <ProjectActions github={project.github} live={project.live} projectTitle={project.name} />
+            <ProjectActions github={project.github} live={project.live} release={project.release} projectTitle={project.name} />
         </ProjectSection>}
         <nav className="case-related" aria-labelledby="related-title">
             <h2 id="related-title">{t('caseStudy.moreProjects')}</h2>

@@ -13,8 +13,8 @@ export default function ProjectHero({ project, content }) {
                 <span>{t(`caseStudy.types.${project.metadata.type}`)}</span>
                 <ProjectStatus status={project.statusKey} text={t(`caseStudy.status.${project.statusKey}`)} />
             </div>
-            <ProjectActions github={project.github} live={project.live} projectTitle={project.name} />
-            {project.category === 'desktop' && !isExternalProjectUrl(project.live) && <p className="case-resource-note">{t('caseStudy.noLive')}</p>}
+            <ProjectActions github={project.github} live={project.live} release={project.release} projectTitle={project.name} />
+            {project.category === 'desktop' && !isExternalProjectUrl(project.live) && !isExternalProjectUrl(project.release) && <p className="case-resource-note">{t('caseStudy.noLive')}</p>}
         </header>
     );
 }

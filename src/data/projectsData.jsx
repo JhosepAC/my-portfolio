@@ -18,7 +18,43 @@ import faceScanStatistics from '../assets/projects/facial_recognition/FaceScan-S
 import faceScanAdministration from '../assets/projects/facial_recognition/FaceScan-Administration.png';
 import React from "react";
 
+import gitPilotHome from '../assets/projects/gitpilot/inicio.webp';
+import gitPilotIdentities from '../assets/projects/gitpilot/identidades.webp';
+import gitPilotIdentitiesSmall from '../assets/projects/gitpilot/identidades-480.webp';
+import gitPilotSettings from '../assets/projects/gitpilot/configuracion.webp';
+import gitPilotImport from '../assets/projects/gitpilot/importacion.webp';
+
 export const PROJECTS_DATA = [
+    {
+        id: 5,
+        slug: 'gitpilot',
+        name: 'GitPilot',
+        title: 'GitPilot',
+        image: gitPilotIdentities,
+        imageSmall: gitPilotIdentitiesSmall,
+        imageWidth: 900,
+        imageHeight: 600,
+        metadata: { type: 'desktop', year: '2026' },
+        category: 'desktop',
+        statusKey: 'production',
+        gallery: [
+            { src: gitPilotHome, width: 900, height: 600, altKey: 'caseStudy.gitPilotHomeAlt', captionKey: 'caseStudy.gitPilotHomeCaption' },
+            { src: gitPilotIdentities, width: 900, height: 600, altKey: 'caseStudy.gitPilotIdentitiesAlt', captionKey: 'caseStudy.gitPilotIdentitiesCaption' },
+            { src: gitPilotSettings, width: 900, height: 600, altKey: 'caseStudy.gitPilotSettingsAlt', captionKey: 'caseStudy.gitPilotSettingsCaption' },
+            { src: gitPilotImport, width: 900, height: 600, altKey: 'caseStudy.gitPilotImportAlt', captionKey: 'caseStudy.gitPilotImportCaption' },
+        ],
+        technologies: [
+            {name: 'Rust', icon: <Icon icon="simple-icons:rust"/>},
+            {name: 'Tauri', icon: <Icon icon="simple-icons:tauri"/>},
+            {name: 'React', icon: <Icon icon="simple-icons:react"/>},
+            {name: 'TypeScript', icon: <Icon icon="simple-icons:typescript"/>},
+            {name: 'SQLite', icon: <Icon icon="simple-icons:sqlite"/>},
+            {name: 'Git', icon: <Icon icon="simple-icons:git"/>},
+        ],
+        github: 'https://github.com/JhosepAC/gitpilot',
+        release: 'https://github.com/JhosepAC/gitpilot/releases/tag/v1.0.0',
+        labelTranslate: 'gitpilot'
+    },
     {
         id: 4,
         slug: 'biovision-suite',
@@ -144,6 +180,7 @@ export const getProjectBySlug = (slug) => PROJECTS_DATA.find(project => project.
 
 const TECHNOLOGY_GROUPS = {
     interface: ['HTML5', 'CSS3', 'JavaScript', 'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'PySide6'],
+    native: ['Rust', 'Tauri'],
     realtime: ['Socket.IO', 'WebRTC', 'WebGL'],
     data: ['TMDB API', 'Supabase', 'SQLite', 'SQLAlchemy'],
     vision: ['Python', 'InsightFace', 'ONNX Runtime', 'OpenCV', 'FAISS'],
