@@ -2,8 +2,6 @@ import {Icon} from '@iconify/react';
 import fymImg from '../assets/projects/fym-800.webp';
 import fymImgSmall from '../assets/projects/fym-480.webp';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
-import skillshareLandingImg from '../assets/projects/thinkup-skillshare-landing_page-800.webp';
-import skillshareLandingImgSmall from '../assets/projects/thinkup-skillshare-landing_page-480.webp';
 import meetmeshImg from '../assets/projects/meet_mesh-800.webp';
 import meetmeshImgSmall from '../assets/projects/meet_mesh-480.webp';
 import facialRecognitionImg from '../assets/projects/facial_recognition-800.webp';
@@ -36,7 +34,7 @@ export const PROJECTS_DATA = [
         imageHeight: 600,
         metadata: { type: 'desktop', year: '2026' },
         category: 'desktop',
-        statusKey: 'production',
+        statusKey: 'in_development',
         gallery: [
             { src: gitPilotHome, width: 900, height: 600, altKey: 'caseStudy.gitPilotHomeAlt', captionKey: 'caseStudy.gitPilotHomeCaption' },
             { src: gitPilotIdentities, width: 900, height: 600, altKey: 'caseStudy.gitPilotIdentitiesAlt', captionKey: 'caseStudy.gitPilotIdentitiesCaption' },
@@ -146,30 +144,6 @@ export const PROJECTS_DATA = [
         github: 'https://github.com/JhosepAC/fym',
         live: 'https://fym-jac.vercel.app/',
         labelTranslate: 'fym'
-    },
-    {
-        id: 1,
-        slug: 'skillshare',
-        name: 'SkillShare',
-        imageWidth: 800,
-        imageHeight: 450,
-        metadata: { type: 'landing', collaboration: 'team' },
-        gallery: [],
-        category: 'web',
-        statusKey: 'in_development',
-        title: 'SkillShare - Collaborative Learning Platform',
-        image: skillshareLandingImg,
-        imageSmall: skillshareLandingImgSmall,
-        technologies: [
-            {name: 'HTML5', icon: <Icon icon="simple-icons:html5"/>},
-            {name: 'CSS3', icon: <Icon icon="simple-icons:css3"/>},
-            {name: 'JavaScript', icon: <Icon icon="simple-icons:javascript"/>},
-            {name: 'Git', icon: <Icon icon="simple-icons:git"/>},
-            {name: 'Figma', icon: <Icon icon="simple-icons:figma"/>},
-        ],
-        github: 'https://github.com/ThinkUp-SkillShare/skillshare.github.io',
-        live: 'https://thinkup-skillshare.github.io/skillshare.github.io/',
-        labelTranslate: 'skillshare_landing'
     }
 ];
 

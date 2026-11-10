@@ -80,10 +80,6 @@
         "description": "Tienda digital de libros que permite comprar ejemplares físicos, ebooks y audiolibros, integrando una comunidad de lectores donde los usuarios pueden interactuar, chatear y compartir recomendaciones.",
         "status": "EN DESARROLLO"
       },
-      "skillshare_landing": {
-        "description": "Landing page de SkillShare, una plataforma digital de aprendizaje colaborativo y redes académicas.",
-        "status": "EN DESARROLLO"
-      },
       "fym": {
         "description": "Aplicación web para explorar un catálogo de películas y series de televisión. Detalles, tráileres, información del reparto, escenas, distribuidores y mucho más.",
         "status": "EN PRODUCCIÓN"
@@ -465,46 +461,6 @@
         ],
         "galleryIntro": "Capturas reales de GitPilot v1.0.0 con datos de ejemplo. Selecciona una imagen para ampliarla.",
         "results": "GitPilot v1.0.0 está disponible en GitHub Releases como instalador Windows x64 y paquete Debian amd64. Los archivos de distribución tienen un manifiesto SHA-256 firmado con OpenPGP."
-      },
-      "skillshare": {
-        "tagline": "Una puerta al aprendizaje colaborativo.",
-        "summary": "Landing page de SkillShare, una plataforma de aprendizaje colaborativo y redes académicas. Presenta su propuesta y acerca la comunidad a los estudiantes.",
-        "problem": "La propuesta de SkillShare reúne aprendizaje colaborativo y conexiones académicas. El reto de esta landing es explicar qué ofrece la plataforma y cómo puede ayudar a los estudiantes a conectar.",
-        "objectives": [
-          "Presentar la propuesta de aprendizaje colaborativo.",
-          "Explicar los servicios de la plataforma.",
-          "Permitir la consulta desde distintos dispositivos."
-        ],
-        "solution": "Un sitio de presentación construido con HTML, CSS y JavaScript. El alcance de este caso es la landing: comunica la plataforma educativa y sus servicios.",
-        "highlights": [
-          {
-            "title": "Propuesta educativa",
-            "text": "Presentación de SkillShare y su enfoque en colaboración académica."
-          },
-          {
-            "title": "Español e inglés",
-            "text": "Contenido localizado con recursos de traducción y un gestor de idioma."
-          },
-          {
-            "title": "Diseño adaptable",
-            "text": "Una presentación accesible desde móvil y escritorio."
-          }
-        ],
-        "technicalDecisions": [
-          {
-            "title": "Web estática",
-            "text": "HTML estructura el contenido, CSS adapta la presentación y JavaScript incorpora la interacción."
-          },
-          {
-            "title": "Contenido localizado",
-            "text": "Los textos se organizan en archivos de idioma separados de los estilos y scripts."
-          },
-          {
-            "title": "Publicación con GitHub Pages",
-            "text": "La landing se distribuye como un sitio estático desde el repositorio."
-          }
-        ],
-        "results": "El catálogo del portafolio mantiene el proyecto en desarrollo. La landing tiene un enlace público y un repositorio; aquí puedes explorar ambos."
       },
       "fym": {
         "tagline": "Del catálogo a tu próxima película.",
