@@ -94,17 +94,12 @@ Status labels on the site: `EN PRODUCCIÓN` (in production) / `EN DESARROLLO` (i
    - Code: https://github.com/JhosepAC/videocall-app
    - Live: https://meet-mesh.vercel.app
    - Signaling server: https://github.com/JhosepAC/meetmesh-signaling
-3. SkillShare landing — Collaborative Learning Platform (Web, in development)
-   - Landing site for the SkillShare collaborative-learning platform.
-   - Stack: HTML5, CSS3, JavaScript, Git, Figma.
-   - Code: https://github.com/ThinkUp-SkillShare/skillshare.github.io
-   - Live: https://thinkup-skillshare.github.io/skillshare.github.io/
-4. BioVision Suite — Facial Biometric Platform (Desktop, in development)
+3. BioVision Suite — Facial Biometric Platform (Desktop, in development)
    - Offline high-performance facial biometrics: quality-gated enrollment, 1:1 comparison, 1:N FAISS search over 512D embeddings, webcam and forensic video analysis.
    - Stack: Python, PySide6, InsightFace, ONNX Runtime, OpenCV, FAISS, SQLite, SQLAlchemy.
    - Code: https://github.com/JhosepAC/facial_recognition_suite
 
-Note: the i18n catalog also defines entries for EcoCrop, SkillShare app, and Livria, but only the four projects above are currently rendered in the Projects section.
+Note: the i18n catalog also defines entries for EcoCrop, the SkillShare app, and Livria, but they are not currently rendered in the Projects section.
 
 ## Education & certifications
 
