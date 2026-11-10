@@ -80,10 +80,6 @@
         "description": "Digital bookstore that allows users to purchase physical books, ebooks, and audiobooks, integrating a reader community where users can interact, chat, and share recommendations.",
         "status": "IN DEVELOPMENT"
       },
-      "skillshare_landing": {
-        "description": "SkillShare landing page, a digital platform for collaborative learning and academic networking.",
-        "status": "IN DEVELOPMENT"
-      },
       "fym": {
         "description": "Web application for exploring a catalog of movies and TV series. Details, trailers, cast information, scenes, distributors, and much more.",
         "status": "IN PRODUCTION"
@@ -465,46 +461,6 @@
         ],
         "galleryIntro": "Actual screenshots of GitPilot v1.0.0 with sample data. Select an image to enlarge it.",
         "results": "GitPilot v1.0.0 is available on GitHub Releases as a Windows x64 installer and a Debian amd64 package. An OpenPGP-signed SHA-256 manifest accompanies the distribution files."
-      },
-      "skillshare": {
-        "tagline": "A way into collaborative learning.",
-        "summary": "The landing page for SkillShare, a collaborative learning and academic networking platform. It introduces the concept and connects students with the community.",
-        "problem": "SkillShare brings together collaborative learning and academic connections. This landing page needs to explain what the platform offers and how it can help students connect.",
-        "objectives": [
-          "Present the collaborative learning concept.",
-          "Explain the platform’s services.",
-          "Make the information available across devices."
-        ],
-        "solution": "A presentation website built with HTML, CSS and JavaScript. This case covers the landing page: it introduces the educational platform and its services.",
-        "highlights": [
-          {
-            "title": "Educational concept",
-            "text": "An introduction to SkillShare and its focus on academic collaboration."
-          },
-          {
-            "title": "Spanish and English",
-            "text": "Localized content with translation resources and a language manager."
-          },
-          {
-            "title": "Responsive design",
-            "text": "A presentation accessible on mobile and desktop."
-          }
-        ],
-        "technicalDecisions": [
-          {
-            "title": "Static website",
-            "text": "HTML structures the content, CSS adapts the presentation and JavaScript adds interaction."
-          },
-          {
-            "title": "Localized content",
-            "text": "Copy is organized in language files, separate from styles and scripts."
-          },
-          {
-            "title": "GitHub Pages deployment",
-            "text": "The landing page is distributed as a static website from its repository."
-          }
-        ],
-        "results": "The portfolio catalog lists this project as in development. The landing page has a public link and a repository; both are available here."
       },
       "fym": {
         "tagline": "From browsing to your next movie.",
