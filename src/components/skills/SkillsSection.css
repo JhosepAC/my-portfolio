@@ -18,7 +18,13 @@
     padding-top: 0.5rem;
 }
 
+.skills-grid-frame {
+    overflow: clip;
+    overflow-clip-margin: 8px;
+}
+
 .skills-grid {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
     gap: 1.1rem;
@@ -90,7 +96,7 @@
     }
 
     .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         gap: 0.65rem;
     }
 }

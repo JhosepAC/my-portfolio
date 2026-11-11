@@ -65,6 +65,9 @@
       "badge": "IN DEVELOPMENT"
     },
     "items": {
+      "joti": {
+        "description": "Personal organization through spaces: pages, notes, lists, calendar and gallery with configurable tools."
+      },
       "gitpilot": {
         "description": "A desktop app for managing Git identities by folder and repository on Windows and Linux."
       },
@@ -425,7 +428,72 @@
     "gitPilotSettingsCaption": "Settings saves the language and lets you export and import profiles and preferences.",
     "gitPilotImportAlt": "Import preview showing a new profile and a change to the scan time",
     "gitPilotImportCaption": "The preview shows changes from the JSON file before import is confirmed.",
+    "jotilistsAlt": "Shopping list with products, quantities, categories and checkboxes",
+    "jotilistsCaption": "Lists: typed properties, cell editing and views for organizing records.",
+    "jotipagesAlt": "Page editor with a project document, tasks and a reference table",
+    "jotipagesCaption": "Pages: documents with headings, tasks and tables in a visual editor.",
+    "jotinotesAlt": "Notes board with search, tags and idea cards",
+    "jotinotesCaption": "Notes: quick capture, search and tags within a space.",
+    "joticalendarAlt": "Monthly calendar with multi-day events and a timed review",
+    "joticalendarCaption": "Calendar: monthly view with all-day and timed events.",
     "items": {
+      "joti": {
+        "tagline": "A space for each part of your day.",
+        "summary": "Joti is a web application in development that brings documents, notes, lists, a calendar and a gallery into configurable private spaces.",
+        "problem": "Ideas, documents and tasks for the same project often end up scattered across tools. Joti aims to keep that context together and let each space show only the modules it needs.",
+        "objectives": [
+          "Organize content in spaces with tools that can be enabled and disabled.",
+          "Connect quick idea capture with documents and structured lists.",
+          "Preserve drafts and detect conflicts to protect work during editing."
+        ],
+        "solution": "I am developing a modular application with shared navigation across its tools. Each space retains its content and settings; disabling a module hides it without deleting its records. The current version supports private spaces with a single owner.",
+        "highlights": [
+          {
+            "title": "Configurable spaces",
+            "text": "Persistent names, icons, colors, favorites and ordering. Each space lets you choose its tools and re-enable them while retaining content."
+          },
+          {
+            "title": "Pages and notes",
+            "text": "Visual and Markdown editing with autosave and draft recovery. Notes add quick capture, tags, history and conversion to independent pages."
+          },
+          {
+            "title": "Structured lists",
+            "text": "Tables with typed properties, views, filters and sorting. They support CSV import and export, row reordering and keyboard cell editing."
+          },
+          {
+            "title": "Calendar",
+            "text": "Month, week and day views with search and filters. All-day events are handled separately from timed events with a timezone."
+          },
+          {
+            "title": "Private gallery",
+            "text": "Images organized into albums and tags, with multiple views and an expandable viewer. Originals are preserved while optimized versions support browsing."
+          }
+        ],
+        "technicalDecisions": [
+          {
+            "title": "Modules on a shared foundation",
+            "text": "Next.js and TypeScript organize the app by feature. A pnpm and Turborepo monorepo shares components and configuration between the web application and documentation."
+          },
+          {
+            "title": "Reactive data and permissions",
+            "text": "Convex handles data and subscriptions. Sessions use HttpOnly cookies, and the backend checks the session and space ownership for each protected operation."
+          },
+          {
+            "title": "Editing with recovery",
+            "text": "Local drafts help recover unsaved changes. Revisions detect stale writes, while operation identifiers prevent duplicate operations on retries."
+          },
+          {
+            "title": "Separate content and media",
+            "text": "Tiptap edits documents stored as Markdown. The gallery preserves originals in Convex Storage and uses Sharp to generate WebP derivatives with private access."
+          }
+        ],
+        "future": [
+          "Prepare the first public deployment and complete flow validation.",
+          "Extend the permission model to introduce collaboration between users."
+        ],
+        "galleryIntro": "Cropped tool screenshots from development, with sample data. Select a screenshot to enlarge it.",
+        "results": "Joti remains in development and has no public demo yet. The repository includes the tools described here and automated tests for its modules. Current spaces are private; shared permissions and simultaneous collaborative editing are not implemented yet."
+      },
       "gitpilot": {
         "tagline": "Git identities for personal and work projects.",
         "summary": "GitPilot organizes author profiles and applies identity rules by folder or repository on Windows and Linux. Compare your intended identity with the values Git will use for your next commit.",

@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useRef, useLayoutEffect} from 'react';
 import {AnimatePresence, m, useReducedMotion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {SKILLS_DATA} from '../../utils/constants.js';
@@ -10,11 +10,34 @@ import './SkillsSection.css';
 
 const INITIAL_VISIBLE = 16;
 
+// Swap a category as one surface instead of moving individual cards across it.
+function SkillResults({skills, onHeight, reduced}) {
+    const gridRef = useRef(null);
+
+    useLayoutEffect(() => {
+        const grid = gridRef.current;
+        const measure = () => onHeight(grid.offsetHeight);
+        measure();
+        const observer = new ResizeObserver(measure);
+        observer.observe(grid);
+        return () => observer.disconnect();
+    }, [onHeight]);
+
+    return <m.div className="skills-grid" ref={gridRef}
+        initial={reduced ? false : {opacity: 0, y: 6}}
+        animate={{opacity: 1, y: 0}}
+        exit={{opacity: 0, y: reduced ? 0 : -4, transition: {duration: reduced ? 0 : 0.1, ease: 'easeIn'}}}
+        transition={{duration: reduced ? 0 : 0.22, ease: EASE}}>
+        {skills.map(skill => <SkillCard key={skill.id || skill.name} skill={skill} />)}
+    </m.div>;
+}
+
 const SkillsSection = () => {
     const {t} = useTranslation();
     const reduceMotion = useReducedMotion();
     const [activeFilter, setActiveFilter] = useState('all');
     const [showAll, setShowAll] = useState(false);
+    const [gridHeight, setGridHeight] = useState(null);
 
     const filters = useMemo(() => [
         {id: 'all', label: t('skills.filters.all')},
@@ -80,15 +103,12 @@ const SkillsSection = () => {
                     ))}
                 </m.nav>
 
-                <m.div className="skills-grid">
-                    <AnimatePresence initial={false}>
-                        {filteredSkills.map((skill, index) => (
-                            <SkillCard
-                                key={skill.id || skill.name}
-                                skill={skill}
-                                index={index}
-                            />
-                        ))}
+                <m.div className="skills-grid-frame" initial={false}
+                    animate={{height: gridHeight ?? 'auto'}}
+                    transition={{duration: reduceMotion ? 0 : 0.22, ease: EASE}}>
+                    <AnimatePresence initial={false} mode={reduceMotion ? 'sync' : 'wait'}>
+                        <SkillResults key={`${activeFilter}:${showAll}`} skills={filteredSkills}
+                            onHeight={setGridHeight} reduced={reduceMotion} />
                     </AnimatePresence>
                 </m.div>
 

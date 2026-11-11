@@ -28,8 +28,50 @@ import gitPilotIdentitiesSmall from '../assets/projects/gitpilot/identidades-480
 import gitPilotIdentitiesSmaller from '../assets/projects/gitpilot/identidades-360.webp';
 import gitPilotSettings from '../assets/projects/gitpilot/configuracion.webp';
 import gitPilotImport from '../assets/projects/gitpilot/importacion.webp';
+import jotiImg from '../assets/projects/joti/joti-800.webp';
+import jotiImgSmall from '../assets/projects/joti/joti-480.webp';
+import jotiImgSmaller from '../assets/projects/joti/joti-360.webp';
+import jotiLists from '../assets/projects/joti/lists.webp';
+import jotiPages from '../assets/projects/joti/pages.webp';
+import jotiNotes from '../assets/projects/joti/notes.webp';
+import jotiCalendar from '../assets/projects/joti/calendar.webp';
 
 export const PROJECTS_DATA = [
+    {
+        id: 6,
+        slug: 'joti',
+        name: 'Joti',
+        title: 'Joti',
+        image: jotiImg,
+        imageSmall: jotiImgSmall,
+        imageSmaller: jotiImgSmaller,
+        imageLarge: jotiLists,
+        imageWidth: 800,
+        imageHeight: 638,
+        imageLargeWidth: 1108,
+        imageLargeHeight: 884,
+        metadata: { type: 'web', year: '2026' },
+        category: 'web',
+        statusKey: 'in_development',
+        gallery: [
+            { src: jotiLists, width: 1108, height: 884, altKey: 'caseStudy.jotilistsAlt', captionKey: 'caseStudy.jotilistsCaption' },
+            { src: jotiPages, width: 1108, height: 884, altKey: 'caseStudy.jotipagesAlt', captionKey: 'caseStudy.jotipagesCaption' },
+            { src: jotiNotes, width: 1108, height: 884, altKey: 'caseStudy.jotinotesAlt', captionKey: 'caseStudy.jotinotesCaption' },
+            { src: jotiCalendar, width: 1108, height: 884, altKey: 'caseStudy.joticalendarAlt', captionKey: 'caseStudy.joticalendarCaption' },
+        ],
+        technologies: [
+            {name: 'Next.js', icon: <Icon icon="simple-icons:nextdotjs"/>},
+            {name: 'React', icon: <Icon icon="simple-icons:react"/>},
+            {name: 'TypeScript', icon: <Icon icon="simple-icons:typescript"/>},
+            {name: 'Tailwind CSS', icon: <Icon icon="simple-icons:tailwindcss"/>},
+            {name: 'Convex', icon: <Icon icon="mdi:sync"/>},
+            {name: 'Tiptap', icon: <Icon icon="mdi:clipboard-text-outline"/>},
+            {name: 'Sharp', icon: <Icon icon="mdi:palette-outline"/>},
+            {name: 'Turborepo', icon: <Icon icon="mdi:cached"/>},
+        ],
+        github: 'https://github.com/JhosepAC/joti',
+        labelTranslate: 'joti'
+    },
     {
         id: 5,
         slug: 'gitpilot',
@@ -173,12 +215,12 @@ export const PROJECTS_DATA = [
 export const getProjectBySlug = (slug) => PROJECTS_DATA.find(project => project.slug === slug);
 
 const TECHNOLOGY_GROUPS = {
-    interface: ['HTML5', 'CSS3', 'JavaScript', 'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'PySide6'],
+    interface: ['HTML5', 'CSS3', 'JavaScript', 'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'PySide6', 'Tiptap'],
     native: ['Rust', 'Tauri'],
     realtime: ['Socket.IO', 'WebRTC', 'WebGL'],
-    data: ['TMDB API', 'Supabase', 'SQLite', 'SQLAlchemy'],
+    data: ['TMDB API', 'Supabase', 'SQLite', 'SQLAlchemy', 'Convex'],
     vision: ['Python', 'InsightFace', 'ONNX Runtime', 'OpenCV', 'FAISS'],
-    tools: ['Git', 'Figma'],
+    tools: ['Git', 'Figma', 'Sharp', 'Turborepo'],
 };
 
 export const groupTechnologies = (technologies) => Object.entries(TECHNOLOGY_GROUPS)

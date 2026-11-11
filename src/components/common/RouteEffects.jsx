@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAppReady } from '../../context/AppReadyContext';
@@ -7,6 +7,7 @@ export default function RouteEffects() {
     const { pathname, hash, key } = useLocation();
     const { i18n } = useTranslation();
     const ready = useAppReady();
+    const previousPath = useRef(null);
 
     useEffect(() => {
         document.documentElement.lang = i18n.resolvedLanguage || 'es';
@@ -15,12 +16,16 @@ export default function RouteEffects() {
     useEffect(() => {
         if (!ready) return;
         const frame = requestAnimationFrame(() => {
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            // Animate section navigation; position a new page before its entrance.
+            const behavior = previousPath.current === pathname && !reducedMotion ? 'smooth' : 'instant';
+            previousPath.current = pathname;
             const id = hash.slice(1);
             const target = id ? document.getElementById(id) : null;
             if (target) {
-                target.scrollIntoView({ behavior: 'instant', block: 'start' });
+                target.scrollIntoView({ behavior, block: 'start' });
             } else {
-                window.scrollTo({ top: 0, behavior: 'instant' });
+                window.scrollTo({ top: 0, behavior });
             }
             const focusTarget = target?.querySelector('h1, h2') || document.querySelector('[data-page-title]');
             if (focusTarget) {
