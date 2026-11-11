@@ -33,7 +33,7 @@ All sections live on one page; use these anchors:
 - [Education](https://jhosep-ac.pages.dev/#education): degree plus courses and certifications with credentials
 - [Experience](https://jhosep-ac.pages.dev/#experience): work history with achievements and technologies
 - [Contact](https://jhosep-ac.pages.dev/#contact): email, phone, location, socials, and message form
-- [Sitemap](https://jhosep-ac.pages.dev/sitemap.xml): machine-readable site index (lastmod per file: 2026-04-09)
+- [Sitemap](https://jhosep-ac.pages.dev/sitemap.xml): machine-readable site index (lastmod per file: 2026-11-07)
 
 ## Professional summary (hero statement)
 
@@ -83,23 +83,26 @@ Grouped as shown in the Skills section (filter categories: languages, frameworks
 
 Status labels on the site: `EN PRODUCCIÓN` (in production) / `EN DESARROLLO` (in development).
 
-1. FyM — Find Your Movie (Web, in production)
+1. GitPilot — Git identity and repository client (Desktop, in development)
+   - Git client for reviewing and managing repository identities, with import and configuration workflows.
+   - Stack: Rust, Tauri, React, TypeScript, SQLite, Git.
+   - Code: https://github.com/JhosepAC/gitpilot
+   - Release: https://github.com/JhosepAC/gitpilot/releases/tag/v1.0.0
+2. FyM — Find Your Movie (Web, in production)
    - Movie and TV discovery platform powered by the TMDB API.
    - Stack: Next.js, React, TypeScript, Tailwind CSS, TMDB API, Git.
    - Code: https://github.com/JhosepAC/fym
    - Live: https://fym-jac.vercel.app/
-2. MeetMesh — Real-time Video & Mesh Collaboration (Web, in development)
+3. MeetMesh — Real-time Video & Mesh Collaboration (Web, in development)
    - Video-call and collaboration app with realtime channels and WebGL visuals.
    - Stack: Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, Supabase, Socket.IO, WebRTC, WebGL, Git.
    - Code: https://github.com/JhosepAC/videocall-app
    - Live: https://meet-mesh.vercel.app
    - Signaling server: https://github.com/JhosepAC/meetmesh-signaling
-3. BioVision Suite — Facial Biometric Platform (Desktop, in development)
+4. BioVision Suite — Facial Biometric Platform (Desktop, in development)
    - Offline high-performance facial biometrics: quality-gated enrollment, 1:1 comparison, 1:N FAISS search over 512D embeddings, webcam and forensic video analysis.
    - Stack: Python, PySide6, InsightFace, ONNX Runtime, OpenCV, FAISS, SQLite, SQLAlchemy.
    - Code: https://github.com/JhosepAC/facial_recognition_suite
-
-Note: the i18n catalog also defines entries for EcoCrop, the SkillShare app, and Livria, but they are not currently rendered in the Projects section.
 
 ## Education & certifications
 
@@ -119,7 +122,7 @@ Note: the i18n catalog also defines entries for EcoCrop, the SkillShare app, and
 - Interactive terminal in the hero simulating a CLI (`whoami`, `status`, `skills`, `projects`, `help`, and more)
 - Fully responsive layout; permanent fixed availability banner on top
 - CV preview and download via react-pdf / pdfjs-dist
-- Built with React 19 + Vite 7; client-side routing via React Router; icons via Lucide and Iconify
+- Built with React 19 + Vite 7; client-side routing via React Router; icons via Lucide and a locally bundled Iconify subset (no third-party icon API)
 
 ## Documents
 
