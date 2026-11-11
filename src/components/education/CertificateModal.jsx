@@ -1,6 +1,6 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, m } from 'motion/react';
 import { X, Download, ExternalLink } from 'lucide-react';
 import useIsMobile from '../../hooks/useIsMobile';
 import './CertificateModal.css';
@@ -21,7 +21,7 @@ const CertificateModal = ({ isOpen, onClose, certificateUrl, title }) => {
     return createPortal(
         <AnimatePresence>
             {isOpen && (
-                <motion.div
+                <m.div
                     className="modal-overlay"
                     onClick={onClose}
                     initial={{opacity: 0}}
@@ -29,7 +29,7 @@ const CertificateModal = ({ isOpen, onClose, certificateUrl, title }) => {
                     exit={{opacity: 0, transition: {duration: 0.15}}}
                     transition={{duration: 0.25, ease: 'easeOut'}}
                 >
-                    <motion.div
+                    <m.div
                         className="modal-content"
                         onClick={(e) => e.stopPropagation()}
                         initial={{opacity: 0, scale: 0.98, y: 12}}
@@ -79,8 +79,8 @@ const CertificateModal = ({ isOpen, onClose, certificateUrl, title }) => {
                                 />
                             )}
                         </div>
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
             )}
         </AnimatePresence>,
         document.body

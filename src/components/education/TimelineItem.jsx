@@ -1,5 +1,5 @@
 import {memo, useState, lazy, Suspense, useEffect, useRef} from 'react';
-import {motion, AnimatePresence, useInView, useReducedMotion} from 'motion/react';
+import {m, AnimatePresence, useInView, useReducedMotion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {EDUCATION_ICONS, TIMELINE_ICONS} from '../../utils/Icons';
 import StatusBadge from './StatusBadge';
@@ -52,7 +52,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
         return () => { clearTimeout(show); clearTimeout(hide); };
     }, [hintActive, inView]);
 
-    return (<motion.div
+    return (<m.div
         className={`timeline-item ${item.type === 'university' ? 'timeline-item-important' : ''} ${isExpanded ? 'expanded' : ''}`}
         ref={cardRef} data-in-view={inView}
         {...reveal(reduced, { distance: 16, delay: Math.min(index, 2) * 0.045 })}
@@ -67,7 +67,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
         <div className="timeline-card" onClick={handleCardClick} role="button" tabIndex={0} onKeyDown={(e) => { if (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); handleCardClick(e); } }} aria-expanded={isExpanded}>
             <AnimatePresence>
                 {hintActive && hintPulse && (
-                    <motion.div
+                    <m.div
                         className="expand-hint expand-hint--touch"
                         initial={{ opacity: 0, scale: 0.85 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -82,7 +82,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
                                 <path d="M5 13V9a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v4a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-2" />
                             </svg>
                         </span>
-                    </motion.div>
+                    </m.div>
                 )}
             </AnimatePresence>
             <div className="card-header">
@@ -135,7 +135,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
 
                         {item.status === 'completed' && item.certificate && (
                             <div className="certificate-wrapper">
-                                <motion.button
+                                <m.button
                                     type="button"
                                     onClick={(e) => {
                                         e.stopPropagation();
@@ -151,7 +151,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
                                 >
                                     {TIMELINE_ICONS.CERT_FILE}
                                     <span>{t('education.viewCertificate')}</span>
-                                </motion.button>
+                                </m.button>
 
                                 <Suspense fallback={null}>
                                     <CertificateModal
@@ -177,7 +177,7 @@ const TimelineItem = ({item, index, isExpanded, onToggle, hasOpenedAny}) => {
                 </div>
             </div>
         </div>
-    </motion.div>);
+    </m.div>);
 };
 
 export default memo(TimelineItem);

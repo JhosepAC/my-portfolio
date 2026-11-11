@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import { EASE_SPRING, reveal } from '../../utils/motionVariants';
+import { AnimatePresence, m, useReducedMotion } from 'motion/react';
+import { reveal } from '../../utils/motionVariants';
 import { ChevronDown } from 'lucide-react';
 import { EXPERIENCE_DATA } from '../../utils/constants.js';
 import './ExperienceSection.css';
@@ -45,12 +45,12 @@ export default function ExperienceSection() {
 
     return <section id="experience" className="experience-section" aria-labelledby="experience-title">
         <div className="experience-container">
-            <motion.header className="experience-intro" {...reveal(reduceMotion, { distance: 14 })}>
+            <m.header className="experience-intro" {...reveal(reduceMotion, { distance: 14 })}>
                 <h2 id="experience-title">{t('experience.title')} {t('experience.titleHighlight')}</h2>
                 <p>{t('experience.subtitle')}</p>
-            </motion.header>
+            </m.header>
 
-            <motion.div {...reveal(reduceMotion, { distance: 10, delay: 0.055 })} className="experience-employers" role="tablist" aria-label={t('experience.selectEmployer')}>
+            <m.div {...reveal(reduceMotion, { distance: 10, delay: 0.055 })} className="experience-employers" role="tablist" aria-label={t('experience.selectEmployer')}>
                 {experiences.map((item, index) => <button
                     key={item.id}
                     ref={node => { tabs.current[index] = node; }}
@@ -64,7 +64,7 @@ export default function ExperienceSection() {
                     onClick={() => setSelectedId(item.id)}
                     onKeyDown={event => onTabKeyDown(event, index)}
                 >
-                    {selected.id === item.id && <motion.span className="experience-active-surface" aria-hidden="true" layoutId={reduceMotion ? undefined : "experience-selection"} transition={EASE_SPRING} />}
+                    {selected.id === item.id && <m.span className="experience-active-surface" aria-hidden="true" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: reduceMotion ? 0 : 0.18 }} />}
                     <span className="experience-employer-mark">
                         {item.logo && <img src={item.logo} alt="" loading="lazy" />}
                     </span>
@@ -74,11 +74,11 @@ export default function ExperienceSection() {
                     </span>
                     <Period item={item} />
                 </button>)}
-            </motion.div>
+            </m.div>
 
-            <motion.div {...reveal(reduceMotion, { distance: 12, delay: 0.1 })} id="experience-panel" className="experience-panel" role="tabpanel" aria-labelledby={`experience-tab-${selected.id}`} tabIndex={0}>
+            <m.div {...reveal(reduceMotion, { distance: 12, delay: 0.1 })} id="experience-panel" className="experience-panel" role="tabpanel" aria-labelledby={`experience-tab-${selected.id}`} tabIndex={0}>
                 <AnimatePresence mode="wait" initial={false}>
-                    <motion.div key={selected.id} className="experience-panel-inner"
+                    <m.div key={selected.id} className="experience-panel-inner"
                         initial={reduceMotion ? false : { opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={reduceMotion ? undefined : { opacity: 0, y: -5, transition: { duration: 0.12 } }}
@@ -114,9 +114,9 @@ export default function ExperienceSection() {
                             <h4>{t('experience.technologies')}</h4>
                             <ul>{selected.technologies.map(technology => <li key={technology}>{technology}</li>)}</ul>
                         </div>
-                    </motion.div>
+                    </m.div>
                 </AnimatePresence>
-            </motion.div>
+            </m.div>
         </div>
     </section>;
 }

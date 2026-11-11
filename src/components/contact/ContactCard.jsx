@@ -1,6 +1,6 @@
 import {memo, useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {motion} from 'motion/react';
+import {m} from 'motion/react';
 import PropTypes from 'prop-types';
 import './ContactCard.css';
 import {CONTACT_ICONS} from "../../utils/Icons.jsx";
@@ -52,7 +52,7 @@ const ContactCard = ({method, index}) => {
 
     const canCopy = id === 'email' || id === 'phone';
 
-    return (<motion.div
+    return (<m.div
             className="contact-card-compact"
             initial={{opacity: 0, x: -12}}
             whileInView={{opacity: 1, x: 0}}
@@ -93,7 +93,7 @@ const ContactCard = ({method, index}) => {
             <span className="contact-sr-only" role="status" aria-live="polite">
                 {isCopied ? t('contact.copied') : copyError ? t('contact.copyFailed') : ''}
             </span>
-        </motion.div>);
+        </m.div>);
 };
 
 ContactCard.propTypes = {

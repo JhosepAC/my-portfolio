@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import { reveal } from '../../../utils/motionVariants';
 import './SectionHeader.css';
 
@@ -17,23 +17,23 @@ const SectionHeader = ({title, titleHighlight, subtitle, align = 'center', badge
     return (
         <header className={classes}>
             {kicker && (
-                <motion.span
+                <m.span
                     className="section-kicker"
                     {...reveal(reduced, { distance: 12 })}
                 >
                     {kicker}
-                </motion.span>
+                </m.span>
             )}
             {badge && (
-                <motion.div
+                <m.div
                     className="section-badge"
                     {...reveal(reduced, { distance: 12 })}
                 >
                     {badge.icon}
                     <span className="section-badge-text">{badge.text}</span>
-                </motion.div>
+                </m.div>
             )}
-            <motion.h2
+            <m.h2
                 className="section-title"
                 {...reveal(reduced, { distance: 12, delay: badge ? STEP : 0 })}
             >
@@ -50,14 +50,14 @@ const SectionHeader = ({title, titleHighlight, subtitle, align = 'center', badge
                         )}
                     </>
                 )}
-            </motion.h2>
+            </m.h2>
             {subtitle && (
-                <motion.p
+                <m.p
                     className="section-subtitle"
                     {...reveal(reduced, { distance: 12, delay: (badge ? STEP : 0) + STEP })}
                 >
                     {subtitle}
-                </motion.p>
+                </m.p>
             )}
         </header>
     );

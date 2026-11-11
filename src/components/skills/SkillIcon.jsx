@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon} from '@iconify/react';
+import Icon from '../common/Icon';
 
 const ICONIFY_MAP = {
     css: 'devicon:css3',
@@ -19,7 +19,7 @@ const ICONIFY_MAP = {
     github: 'devicon:github',
     figma: 'devicon:figma',
     headlessui: 'devicon:tailwindcss',
-    linux: 'devicon:linux',
+    linux: 'mdi:linux',
     mongodb: 'devicon:mongodb',
     androidstudio: 'devicon:androidstudio',
     react: 'devicon:react',

@@ -1,5 +1,5 @@
 import {memo, useCallback, useRef, useState} from 'react';
-import {AnimatePresence, motion} from 'motion/react';
+import {AnimatePresence, m} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import FormInput from './FormInput.jsx';
 import FormTextarea from './FormTextarea';
@@ -90,7 +90,7 @@ const ContactForm = ({isSubmitting, setIsSubmitting}) => {
         }
     };
 
-    return (<motion.div
+    return (<m.div
         className="contact-form-wrapper"
         initial={{opacity: 0, x: 12}}
         whileInView={{opacity: 1, x: 0}}
@@ -153,7 +153,7 @@ const ContactForm = ({isSubmitting, setIsSubmitting}) => {
             />
 
             <AnimatePresence mode="wait">
-                {submitStatus === 'success' && (<motion.div
+                {submitStatus === 'success' && (<m.div
                     className="form-message form-message-success"
                     initial={{opacity: 0, y: -4}}
                     animate={{opacity: 1, y: 0}}
@@ -162,9 +162,9 @@ const ContactForm = ({isSubmitting, setIsSubmitting}) => {
                 >
                     {FORM_ICONS.SUCCESS}
                     <span>{t('contact.form.success')}</span>
-                </motion.div>)}
+                </m.div>)}
 
-                {submitStatus === 'error' && (<motion.div
+                {submitStatus === 'error' && (<m.div
                     className="form-message form-message-error"
                     initial={{opacity: 0, y: -10}}
                     animate={{opacity: 1, y: 0}}
@@ -173,10 +173,10 @@ const ContactForm = ({isSubmitting, setIsSubmitting}) => {
                 >
                     {FORM_ICONS.ERROR}
                     <span>{t('contact.form.error')}</span>
-                </motion.div>)}
+                </m.div>)}
             </AnimatePresence>
 
-            <motion.button
+            <m.button
                 type="submit"
                 className="form-submit-btn"
                 disabled={isSubmitting}
@@ -190,9 +190,9 @@ const ContactForm = ({isSubmitting, setIsSubmitting}) => {
                     <span>{t('contact.form.submit')}</span>
                     {FORM_ICONS.SEND}
                 </>)}
-            </motion.button>
+            </m.button>
         </form>
-    </motion.div>);
+    </m.div>);
 };
 
 export default memo(ContactForm);

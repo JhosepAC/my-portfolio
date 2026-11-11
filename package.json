@@ -6,14 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "icons:generate": "node scripts/generate-iconify-subset.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@iconify-json/devicon": "^1.2.62",
-    "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.90",
-    "@iconify/react": "^6.0.2",
     "i18next": "^25.7.3",
     "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "^0.562.0",
@@ -29,6 +26,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@iconify-json/devicon": "^1.2.79",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.102",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",

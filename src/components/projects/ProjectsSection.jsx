@@ -37,7 +37,7 @@ export default function ProjectsSection() {
                 <p className="project-count" role="status">{t('caseStudy.count', { count: filteredProjects.length })}</p>
             </div>
             <div className="projects-grid" role="list">
-                <AnimatePresence mode="popLayout" initial={false}>
+                <AnimatePresence initial={false}>
                     {filteredProjects.map((project, index) => <ProjectCard key={project.id} project={project} index={index} />)}
                 </AnimatePresence>
             </div>

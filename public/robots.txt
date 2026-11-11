@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://jhosep-ac.pages.dev/sitemap.xml
+Agentmap: https://jhosep-ac.pages.dev/.well-known/ai-catalog.json

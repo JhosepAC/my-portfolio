@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'motion/react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
+import { m, useMotionValue, useSpring, useTransform, useScroll } from 'motion/react';
 import { useThemeContext } from '../../../context/ThemeContext';
 import useMediaQuery from '../../../hooks/useMediaQuery';
-import Grainient from '../../Grainient';
+
+const Grainient = lazy(() => import('../../Grainient'));
 
 export default function GlobalGrid() {
     const { theme } = useThemeContext();
@@ -20,8 +21,17 @@ export default function GlobalGrid() {
     const dotX = useTransform(x, value => value - 3);
     const dotY = useTransform(y, value => value - 3);
     const { scrollY } = useScroll();
-    const gridX = useTransform(x, value => desktop && !reduced ? (value / window.innerWidth - 0.5) * 20 : 0);
-    const gridY = useTransform([y, scrollY], ([pointer, scroll]) => desktop && !reduced ? ((pointer + scroll) / window.innerHeight - 0.5) * 20 : 0);
+    const viewport = useRef({ width: window.innerWidth, height: window.innerHeight });
+    const gridX = useTransform(x, value => desktop && !reduced ? (value / viewport.current.width - 0.5) * 20 : 0);
+    const gridY = useTransform([y, scrollY], ([pointer, scroll]) => desktop && !reduced ? ((pointer + scroll) / viewport.current.height - 0.5) * 20 : 0);
+
+    useEffect(() => {
+        const updateViewport = () => {
+            viewport.current = { width: window.innerWidth, height: window.innerHeight };
+        };
+        window.addEventListener('resize', updateViewport, { passive: true });
+        return () => window.removeEventListener('resize', updateViewport);
+    }, []);
 
     useEffect(() => {
         if (!desktop || reduced) return;
@@ -46,24 +56,26 @@ export default function GlobalGrid() {
 
     return <>
         {isDark ? <div aria-hidden="true" style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
-            <Grainient color1="#0a0a0b" color2="#0a0a0b" color3="#444444"
-                timeSpeed={reduced ? 0 : 1.4} animate={!reduced} maxFps={desktop ? 30 : 24} pixelRatio={desktop ? 1.25 : 1}
-                colorBalance={-0.01} warpStrength={2.2} warpFrequency={4.2} warpSpeed={2} warpAmplitude={50}
-                blendAngle={0} blendSoftness={0.05} rotationAmount={500} noiseScale={2}
-                grainAmount={0.1} grainScale={2} grainAnimated={false} contrast={1.5} gamma={1}
-                saturation={1} centerX={0} centerY={0} zoom={0.9} />
-        </div> : <motion.div aria-hidden="true" className="global-grid" style={{
+            <Suspense fallback={null}>
+                <Grainient color1="#0a0a0b" color2="#0a0a0b" color3="#444444"
+                    timeSpeed={reduced ? 0 : 1.4} animate={!reduced} maxFps={desktop ? 30 : 24} pixelRatio={desktop ? 1.25 : 1}
+                    colorBalance={-0.01} warpStrength={2.2} warpFrequency={4.2} warpSpeed={2} warpAmplitude={50}
+                    blendAngle={0} blendSoftness={0.05} rotationAmount={500} noiseScale={2}
+                    grainAmount={0.1} grainScale={2} grainAnimated={false} contrast={1.5} gamma={1}
+                    saturation={1} centerX={0} centerY={0} zoom={0.9} />
+            </Suspense>
+        </div> : <m.div aria-hidden="true" className="global-grid" style={{
             position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 1,
             backgroundImage: 'linear-gradient(rgba(20,20,20,0.12) 1px,transparent 1px),linear-gradient(90deg,rgba(20,20,20,0.12) 1px,transparent 1px)',
             backgroundSize: '80px 80px', x: gridX, y: gridY,
         }} />}
         {desktop && !reduced && <>
-            <motion.div aria-hidden="true" className="cursor-circle" style={{
+            <m.div aria-hidden="true" className="cursor-circle" style={{
                 position: 'fixed', top: 0, left: 0, pointerEvents: 'none', zIndex: 99999, width: 40, height: 40,
                 borderRadius: '50%', border: isDark ? '1px solid rgba(232,232,232,0.35)' : '1px solid rgba(20,20,20,0.6)',
                 x: circleX, y: circleY, opacity: cursorOpacity,
             }} />
-            <motion.div aria-hidden="true" className="cursor-dot" style={{
+            <m.div aria-hidden="true" className="cursor-dot" style={{
                 position: 'fixed', top: 0, left: 0, pointerEvents: 'none', zIndex: 99999, width: 6, height: 6,
                 borderRadius: '50%', background: isDark ? 'rgba(232,232,232,0.85)' : 'rgba(20,20,20,1)',
                 x: dotX, y: dotY, opacity: cursorOpacity,
