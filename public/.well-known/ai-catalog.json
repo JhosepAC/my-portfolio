@@ -1,0 +1,41 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Jhosep Argomedo — Portfolio",
+    "identifier": "did:web:jhosep-ac.pages.dev",
+    "documentationUrl": "https://jhosep-ac.pages.dev/llms.txt",
+    "logoUrl": "https://jhosep-ac.pages.dev/favicon.svg"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:jhosep-ac.pages.dev:knowledge:portfolio",
+      "displayName": "Jhosep Argomedo portfolio context",
+      "type": "text/markdown",
+      "url": "https://jhosep-ac.pages.dev/llms.txt",
+      "description": "Structured profile, experience, projects, skills and contact information for AI assistants.",
+      "tags": ["portfolio", "profile", "developer", "full-stack"],
+      "representativeQueries": [
+        "Who is Jhosep Argomedo?",
+        "What projects has Jhosep Argomedo built?",
+        "What technologies does Jhosep Argomedo work with?"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-10T00:00:00.000Z"
+    },
+    {
+      "identifier": "urn:air:jhosep-ac.pages.dev:knowledge:cv",
+      "displayName": "Jhosep Argomedo CV",
+      "type": "text/markdown",
+      "url": "https://jhosep-ac.pages.dev/cv.md",
+      "description": "Full résumé in Markdown with experience, education, skills and featured projects.",
+      "tags": ["cv", "resume", "experience", "education"],
+      "representativeQueries": [
+        "Show me Jhosep Argomedo's CV",
+        "What is Jhosep Argomedo's work experience?",
+        "Where did Jhosep Argomedo study?"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-10T00:00:00.000Z"
+    }
+  ]
+}
