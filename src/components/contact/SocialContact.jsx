@@ -1,5 +1,5 @@
 import {memo} from 'react';
-import {motion} from 'motion/react';
+import {m} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {SOCIAL_ICONS, SOCIAL_LINKS} from "../../utils/constants.js";
 import {EASE} from '../../utils/motionVariants';
@@ -9,7 +9,7 @@ const SocialContact = () => {
     const {t} = useTranslation();
     const filteredLinks = SOCIAL_LINKS.filter(link => link.id !== 'email');
 
-    return (<motion.div
+    return (<m.div
         className="social-contact"
         initial={{opacity: 0, x: -12}}
         whileInView={{opacity: 1, x: 0}}
@@ -42,7 +42,7 @@ const SocialContact = () => {
                 <span className="social-contact-label">{social.name}</span>
             </a>))}
         </div>
-    </motion.div>);
+    </m.div>);
 };
 
 export default memo(SocialContact);

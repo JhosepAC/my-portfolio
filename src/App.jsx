@@ -1,6 +1,6 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { LazyMotion, domMax, MotionConfig, AnimatePresence, motion } from 'motion/react';
+import { LazyMotion, domAnimation, MotionConfig, AnimatePresence, m } from 'motion/react';
 import Navbar from './components/common/nav-bar/Navbar';
 import Home from './pages/Home';
 import Loader from './components/common/loader/Loader.jsx';
@@ -27,7 +27,7 @@ function App() {
 
     return (
         <ThemeProvider>
-        <LazyMotion features={domMax} strict>
+        <LazyMotion features={domAnimation} strict>
             <MotionConfig reducedMotion="user" transition={{duration: 0.24, ease: EASE}}>
                 <Router>
                     <div className="App">
@@ -39,7 +39,7 @@ function App() {
 
                         <AppReadyContext.Provider value={!isLoading}>
                         <RouteEffects />
-                        <motion.main
+                        <m.main
                             className={`app-content ${isLoading ? 'is-loading' : 'is-ready'}`}
                             initial={false}
                             animate={isLoading ? {opacity: 0} : {opacity: 1}}
@@ -53,7 +53,7 @@ function App() {
                                     <Route path="*" element={<NotFound />} />
                                 </Routes>
                             </Suspense>
-                        </motion.main>
+                        </m.main>
                     </AppReadyContext.Provider>
                     </div>
                 </Router>

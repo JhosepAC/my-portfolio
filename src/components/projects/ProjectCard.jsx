@@ -1,10 +1,9 @@
-﻿import { forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { motion, useReducedMotion } from 'motion/react';
+import { m, useReducedMotion } from 'motion/react';
 import useListEntrance from '../../hooks/useListEntrance';
-import { EASE_SPRING } from '../../utils/motionVariants';
 import ProjectStatus from './ProjectStatus';
 import TechStack from './TechStack';
 import ProjectActions from './ProjectActions';
@@ -18,10 +17,10 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index = 0 }, ref)
     const [imageFailed, setImageFailed] = useState(false);
     const visibleTechnologies = project.technologies.slice(0, 3);
     const additionalTechnologies = project.technologies.length - visibleTechnologies.length;
-    return <motion.div className="project-card" role="listitem" layout={reduceMotion ? false : 'position'}
+    return <m.div className="project-card" role="listitem"
         {...entrance}
         exit={{ opacity: 0, transition: { duration: reduceMotion ? 0 : 0.12 } }}
-        transition={{ ...entrance.transition, layout: EASE_SPRING }}>
+        transition={entrance.transition}>
         <div className="card-image">
             {project.image && !imageFailed ? <img src={project.image}
                 srcSet={project.imageWidth > 480 ? [
@@ -49,6 +48,6 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index = 0 }, ref)
                 <ProjectActions github={project.github} live={project.live} release={project.release} projectTitle={project.name} />
             </div>
         </div>
-    </motion.div>;
+    </m.div>;
 });
 export default ProjectCard;

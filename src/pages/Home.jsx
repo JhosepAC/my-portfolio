@@ -1,6 +1,6 @@
 import {useEffect, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
-import {motion, useScroll, useTransform, useSpring, useReducedMotion} from 'motion/react';
+import {m, useScroll, useTransform, useSpring, useReducedMotion} from 'motion/react';
 import {Rocket, ChevronDown, Mail} from 'lucide-react';
 import useMediaQuery from '../hooks/useMediaQuery';
 import {EASE} from '../utils/motionVariants';
@@ -94,9 +94,9 @@ const Home = () => {
     return (<>
         <div className="home-container">
             <section id="home" className="hero-section" ref={heroRef}>
-                <motion.div className="hero-content">
-                    <motion.div style={{y: titleY}}>
-                        <motion.header
+                <m.div className="hero-content">
+                    <m.div style={{y: titleY}}>
+                        <m.header
                             className="hero-title"
                             initial={{opacity: 0, y: 16}}
                             animate={ready ? {opacity: 1, y: 0} : {}}
@@ -104,10 +104,10 @@ const Home = () => {
                         >
                             <span className="title-line">{t('hero.greeting')}</span>
                             <span className="title-name">Jhosep Argomedo</span>
-                        </motion.header>
-                    </motion.div>
+                        </m.header>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         className="hero-subtitle"
                         initial={{opacity: 0, y: 16}}
                         animate={ready ? {opacity: 1, y: 0} : {}}
@@ -115,9 +115,9 @@ const Home = () => {
                     >
                         <p className="subtitle-line">{highlightPhrases(t('hero.subtitle1'), i18n.language.startsWith('es') ? ['full-stack'] : ['Full-stack', 'full-stack'])}</p>
                         <p className="subtitle-line">{highlightPhrases(t('hero.subtitle2'), i18n.language.startsWith('es') ? ['web y móviles', 'agentes de IA'] : ['web and mobile', 'AI agents'])}</p>
-                    </motion.div>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         className="hero-actions"
                         initial={{opacity: 0, y: 16}}
                         animate={ready ? {opacity: 1, y: 0} : {}}
@@ -142,21 +142,21 @@ const Home = () => {
                                 <DownloadButton label="CV" variant="secondary" />
                             </MagneticButton>
                         </div>
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
 
-                <motion.div
+                <m.div
                     className="hero-visual"
                     initial={{opacity: 0, x: 18}}
                     animate={ready ? {opacity: 1, x: 0} : {}}
                     transition={{duration: 0.42, ease: EASE, delay: 0.12}}
                 >
-                    <motion.div style={{y: visualY}}>
+                    <m.div style={{y: visualY}}>
                         {hasTerminal && <Terminal key={i18n.language} />}
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
 
-                <motion.a
+                <m.a
                     href="#skills"
                     className="scroll-indicator"
                     aria-label="Scroll down"
@@ -164,7 +164,7 @@ const Home = () => {
                 >
                     <span>Scroll</span>
                     <ChevronDown size={16} className="scroll-indicator-icon" aria-hidden="true" />
-                </motion.a>
+                </m.a>
             </section>
 
             <SkillsSection/>

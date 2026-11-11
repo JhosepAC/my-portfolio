@@ -1,5 +1,5 @@
 import React from 'react';
-import {motion} from 'motion/react';
+import {m} from 'motion/react';
 import {EASE} from '../../../utils/motionVariants';
 
 const Reveal = ({
@@ -23,7 +23,7 @@ const Reveal = ({
     };
 
     return (
-        <motion.div
+        <m.div
             className={className}
             style={style}
             initial={{opacity: 0, x: 0, y: 0, scale: 1, ...offsets[direction]}}
@@ -32,7 +32,7 @@ const Reveal = ({
             transition={{duration, ease: EASE, delay}}
         >
             {children}
-        </motion.div>
+        </m.div>
     );
 };
 

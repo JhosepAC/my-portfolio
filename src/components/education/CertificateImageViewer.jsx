@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, m } from 'motion/react';
 import { X, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import './CertificateImageViewer.css';
@@ -17,7 +17,7 @@ const CertificateImageViewer = ({ isOpen, onClose, imageSrc, title, onOpenModal 
     return createPortal(
         <AnimatePresence>
             {isOpen && (
-                <motion.div
+                <m.div
                     className="cert-image-overlay"
                     onClick={onClose}
                     initial={{ opacity: 0 }}
@@ -25,7 +25,7 @@ const CertificateImageViewer = ({ isOpen, onClose, imageSrc, title, onOpenModal 
                     exit={{ opacity: 0, transition: {duration: 0.15} }}
                     transition={{ duration: 0.22, ease: 'easeOut' }}
                 >
-                    <motion.div
+                    <m.div
                         className="cert-image-content"
                         onClick={(e) => e.stopPropagation()}
                         initial={{ opacity: 0, scale: 0.97, y: 12 }}
@@ -57,8 +57,8 @@ const CertificateImageViewer = ({ isOpen, onClose, imageSrc, title, onOpenModal 
                                 <span>{t('education.openAsModal', 'Abrir como modal')}</span>
                             </button>
                         </div>
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
             )}
         </AnimatePresence>,
         document.body

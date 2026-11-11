@@ -1,11 +1,11 @@
 import React, {useState, useMemo} from 'react';
-import {AnimatePresence, motion, useReducedMotion} from 'motion/react';
+import {AnimatePresence, m, useReducedMotion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {SKILLS_DATA} from '../../utils/constants.js';
 import SkillCard from './SkillCard';
 import FilterButton from './FilterButton';
 import SectionHeader from '../common/section-header/SectionHeader';
-import {EASE, EASE_SPRING} from '../../utils/motionVariants';
+import {EASE} from '../../utils/motionVariants';
 import './SkillsSection.css';
 
 const INITIAL_VISIBLE = 16;
@@ -62,7 +62,7 @@ const SkillsSection = () => {
                     subtitle={t('skills.subtitle')}
                 />
 
-                <motion.nav
+                <m.nav
                     className="filters-container"
                     aria-label="Skills filtering"
                     initial={{opacity: 0, y: 20}}
@@ -78,10 +78,10 @@ const SkillsSection = () => {
                             onClick={() => handleFilterChange(filter.id)}
                         />
                     ))}
-                </motion.nav>
+                </m.nav>
 
-                <motion.div layout={!reduceMotion} className="skills-grid" transition={EASE_SPRING}>
-                    <AnimatePresence mode="popLayout" initial={false}>
+                <m.div className="skills-grid">
+                    <AnimatePresence initial={false}>
                         {filteredSkills.map((skill, index) => (
                             <SkillCard
                                 key={skill.id || skill.name}
@@ -90,25 +90,25 @@ const SkillsSection = () => {
                             />
                         ))}
                     </AnimatePresence>
-                </motion.div>
+                </m.div>
 
                 {activeFilter === 'all' && filteredSkills.length >= INITIAL_VISIBLE && (
-                    <motion.div
+                    <m.div
                         className="skills-show-more"
                         initial={{opacity: 0, y: 16}}
                         whileInView={{opacity: 1, y: 0}}
                         viewport={{once: true, amount: 0.4}}
                         transition={{duration: reduceMotion ? 0 : 0.3, ease: EASE}}
                     >
-                        <motion.button
+                        <m.button
                             className="skills-show-more-btn"
                             onClick={() => setShowAll(!showAll)}
                             whileHover={reduceMotion ? undefined : {y: -2}}
                             whileTap={reduceMotion ? undefined : {scale: 0.98}}
                         >
                             {showAll ? t('skills.showLess') : t('skills.showMore')}
-                        </motion.button>
-                    </motion.div>
+                        </m.button>
+                    </m.div>
                 )}
             </div>
         </section>

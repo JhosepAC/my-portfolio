@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { m, AnimatePresence } from 'motion/react';
 import { useScroll } from '../../../hooks/useScroll';
 import { EASE } from '../../../utils/motionVariants';
 import { useAppReady } from '../../../context/AppReadyContext';
@@ -25,7 +25,6 @@ const Navbar = () => {
     const { pathname } = useLocation();
     const isCasePage = pathname !== '/';
     const isMobile = useIsMobile(900);
-    const reduced = useReducedMotion();
     const menuButtonRef = useRef(null);
     const scrolled = useScroll(20);
     const ready = useAppReady();
@@ -127,10 +126,10 @@ const Navbar = () => {
                     </Link>
                 </div>
             </div>
-            <motion.nav layout={!reduced && !isMobile} layoutRoot transition={{ layout: { duration: 0.28, ease: EASE } }} className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''} ${isCasePage ? 'navbar--case' : ''}`} aria-label={t('footer.navigation')} onKeyDown={handleMenuKeyboard}>
+            <m.nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''} ${isCasePage ? 'navbar--case' : ''}`} aria-label={t('footer.navigation')} onKeyDown={handleMenuKeyboard}>
 
             <div className="navbar-container">
-                <motion.div
+                <m.div
                     className="navbar-logo"
                     initial={{opacity: 0, x: -12}}
                     animate={ready ? {opacity: 1, x: 0} : {}}
@@ -139,11 +138,11 @@ const Navbar = () => {
                     role="img"
                 >
                     <Link to="/" aria-label={t('nav.home')} onClick={closeMenu} style={{ color: 'inherit' }}><TerminalLogo /></Link>
-                </motion.div>
+                </m.div>
 
                 <AnimatePresence>
                     {isMenuOpen && (
-                        <motion.div
+                        <m.div
                             className="menu-overlay"
                             onClick={closeMenu}
                             initial={{opacity: 0}}
@@ -160,7 +159,7 @@ const Navbar = () => {
                         const isHovered = hoveredId === id;
                         const showIndicator = hoveredId ? isHovered : isActive;
                         return (
-                        <motion.li
+                        <m.li
                             key={id}
                             className="navbar-item"
                             initial={{opacity: 0, y: -10}}
@@ -175,14 +174,15 @@ const Navbar = () => {
                             >
                                 {t(key)}
                                 {showIndicator && (
-                                    <motion.span
+                                    <m.span
                                         className="navbar-indicator"
-                                        layoutId="nav-indicator"
-                                        transition={{type: 'spring', stiffness: 400, damping: 30}}
+                                        initial={{opacity: 0}}
+                                        animate={{opacity: 1}}
+                                        transition={{duration: 0.15, ease: EASE}}
                                     />
                                 )}
                             </Link>
-                        </motion.li>
+                        </m.li>
                         );
                     })}
 
@@ -200,7 +200,7 @@ const Navbar = () => {
                 </ul>
 
                 <div className="navbar-actions">
-                    <motion.button
+                    <m.button
                         onClick={toggleTheme}
                         className="theme-button desktop-only"
                         aria-label={theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
@@ -209,8 +209,8 @@ const Navbar = () => {
                         transition={{duration: 0.32, ease: EASE, delay: 0.12}}
                     >
                         {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
-                    </motion.button>
-                    <motion.button
+                    </m.button>
+                    <m.button
                         onClick={toggleLanguage}
                         className="lang-button desktop-only"
                         aria-label="Language"
@@ -220,9 +220,9 @@ const Navbar = () => {
                     >
                         <Globe size={18}/>
                         <span className="lang-text">{i18n.language.toUpperCase()}</span>
-                    </motion.button>
+                    </m.button>
 
-                    <motion.button
+                    <m.button
                         className="menu-toggle"
                         ref={menuButtonRef}
                         onClick={toggleMenu}
@@ -234,10 +234,10 @@ const Navbar = () => {
                         transition={{duration: 0.32, ease: EASE, delay: 0.08}}
                     >
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </motion.button>
+                    </m.button>
                 </div>
             </div>
-        </motion.nav>
+        </m.nav>
         </>
     );
 };
