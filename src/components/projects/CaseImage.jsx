@@ -37,16 +37,20 @@ function ImageDialog({ image, onClose }) {
                     <p>{image.alt}</p>
                     <button autoFocus onClick={onClose} aria-label={t('caseStudy.close')}><X size={22} /></button>
                 </div>
-                <img src={image.src} alt={image.alt} width={image.width} height={image.height} />
+                <img src={image.src} alt={image.alt} width={image.width} height={image.height}
+                    style={{ maxWidth: image.width }} />
             </div>
         </dialog>
     );
 }
 
-export default function CaseImage({ src, small, alt, width = 800, height = 450, priority = false, caption }) {
+export default function CaseImage({ src, small, large, alt, width = 800, height = 450, largeWidth, largeHeight, priority = false, caption }) {
     const { t } = useTranslation();
     const [failed, setFailed] = useState(false);
     const [expanded, setExpanded] = useState(false);
+    const dialogImage = large
+        ? { src: large, alt, width: largeWidth || width, height: largeHeight || height }
+        : { src, alt, width, height };
     return (
         <figure className="case-figure">
             {src && !failed ? (
@@ -59,7 +63,7 @@ export default function CaseImage({ src, small, alt, width = 800, height = 450, 
                 </button>
             ) : <div className="case-image-missing" role="img" aria-label={alt}>{t('caseStudy.imageMissing')}</div>}
             {caption && <figcaption>{caption}</figcaption>}
-            {expanded && <ImageDialog image={{ src, alt, width, height }} onClose={() => setExpanded(false)} />}
+            {expanded && <ImageDialog image={dialogImage} onClose={() => setExpanded(false)} />}
         </figure>
     );
 }

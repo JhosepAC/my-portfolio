@@ -58,6 +58,7 @@ function CaseStudy({ project }) {
             <aside className="case-visual" aria-label={t('caseStudy.preview')}>
                 <div className="case-visual-sticky">
                     <CaseImage key={project.image} src={project.image} small={project.imageWidth > 480 ? project.imageSmall : undefined}
+                        large={project.imageLarge} largeWidth={project.imageLargeWidth} largeHeight={project.imageLargeHeight}
                         alt={t('caseStudy.previewAlt', { name: project.name })} width={project.imageWidth} height={project.imageHeight} priority />
                     <p className="case-visual-caption">{content.tagline}</p>
                     <nav className="case-contents" aria-label={t('caseStudy.contents')}>

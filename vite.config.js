@@ -18,6 +18,9 @@ export default defineConfig({
   plugins: [react(), cssNonBlocking()],
   base: '/',
   build: {
+    // Never inline WebP covers: keeping them as files preserves caching and avoids
+    // bloating the entry bundle when a variant falls under the default 4 kB limit.
+    assetsInlineLimit: (filePath) => (filePath.endsWith('.webp') ? false : undefined),
     rollupOptions: {
       output: {
         manualChunks: {
