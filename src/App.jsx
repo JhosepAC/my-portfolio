@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LazyMotion, domMax, MotionConfig, AnimatePresence, motion } from 'motion/react';
 import Navbar from './components/common/nav-bar/Navbar';
@@ -10,10 +10,11 @@ import { useLoading } from './hooks/useLoading';
 import { AppReadyContext } from './context/AppReadyContext';
 import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
-import ProjectCaseStudy from './pages/ProjectCaseStudy';
-import NotFound from './pages/NotFound';
 import { EASE } from './utils/motionVariants';
 import RouteEffects from './components/common/RouteEffects';
+
+const ProjectCaseStudy = lazy(() => import('./pages/ProjectCaseStudy'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
     const isLoading = useLoading();
@@ -45,11 +46,13 @@ function App() {
                             transition={{duration: 0.24, ease: 'easeOut'}}
                         >
                             <Navbar />
-                            <Routes>
-                                <Route path="/" element={<Home />} />
-                                <Route path="/proyectos/:slug" element={<ProjectCaseStudy />} />
-                                <Route path="*" element={<NotFound />} />
-                            </Routes>
+                            <Suspense fallback={null}>
+                                <Routes>
+                                    <Route path="/" element={<Home />} />
+                                    <Route path="/proyectos/:slug" element={<ProjectCaseStudy />} />
+                                    <Route path="*" element={<NotFound />} />
+                                </Routes>
+                            </Suspense>
                         </motion.main>
                     </AppReadyContext.Provider>
                     </div>
