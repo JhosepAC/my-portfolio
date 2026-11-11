@@ -1,11 +1,13 @@
 import Icon from '../components/common/Icon';
 import fymImg from '../assets/projects/fym-800.webp';
 import fymImgSmall from '../assets/projects/fym-480.webp';
+import fymImgSmaller from '../assets/projects/fym-360.webp';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
 import meetmeshImg from '../assets/projects/meet_mesh-800.webp';
 import meetmeshImgSmall from '../assets/projects/meet_mesh-480.webp';
 import facialRecognitionImg from '../assets/projects/facial_recognition-800.webp';
 import facialRecognitionImgSmall from '../assets/projects/facial_recognition-480.webp';
+import facialRecognitionImgSmaller from '../assets/projects/facial_recognition-360.webp';
 import faceScanDashboard from '../assets/projects/facial_recognition/FaceScan-Dashboard.png';
 import faceScanComparator from '../assets/projects/facial_recognition/FaceScan-Comparator.png';
 import faceScanSearch from '../assets/projects/facial_recognition/FaceScan-Search.png';
@@ -19,6 +21,7 @@ import React from "react";
 import gitPilotHome from '../assets/projects/gitpilot/inicio.webp';
 import gitPilotIdentities from '../assets/projects/gitpilot/identidades.webp';
 import gitPilotIdentitiesSmall from '../assets/projects/gitpilot/identidades-480.webp';
+import gitPilotIdentitiesSmaller from '../assets/projects/gitpilot/identidades-360.webp';
 import gitPilotSettings from '../assets/projects/gitpilot/configuracion.webp';
 import gitPilotImport from '../assets/projects/gitpilot/importacion.webp';
 
@@ -30,6 +33,7 @@ export const PROJECTS_DATA = [
         title: 'GitPilot',
         image: gitPilotIdentities,
         imageSmall: gitPilotIdentitiesSmall,
+        imageSmaller: gitPilotIdentitiesSmaller,
         imageWidth: 900,
         imageHeight: 600,
         metadata: { type: 'desktop', year: '2026' },
@@ -75,6 +79,7 @@ export const PROJECTS_DATA = [
         title: 'BioVision Suite — Facial Biometric Platform',
         image: facialRecognitionImg,
         imageSmall: facialRecognitionImgSmall,
+        imageSmaller: facialRecognitionImgSmaller,
         technologies: [
             {name: 'Python', icon: <Icon icon="simple-icons:python"/>},
             {name: 'PySide6', icon: <Icon icon="simple-icons:qt"/>},
@@ -130,6 +135,7 @@ export const PROJECTS_DATA = [
         title: 'FyM - Find Your Movie',
         image: fymImg,
         imageSmall: fymImgSmall,
+        imageSmaller: fymImgSmaller,
         technologies: [
             {name: 'Next.js', icon: <Icon icon="simple-icons:nextdotjs"/>},
             {name: 'React', icon: <Icon icon="simple-icons:react"/>},

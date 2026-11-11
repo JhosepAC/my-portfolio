@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+﻿import { forwardRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -24,8 +24,12 @@ const ProjectCard = forwardRef(function ProjectCard({ project, index = 0 }, ref)
         transition={{ ...entrance.transition, layout: EASE_SPRING }}>
         <div className="card-image">
             {project.image && !imageFailed ? <img src={project.image}
-                srcSet={project.imageWidth > 480 ? `${project.imageSmall} 480w, ${project.image} ${project.imageWidth}w` : undefined}
-                sizes="(max-width: 700px) calc(100vw - 32px), (max-width: 1300px) 48vw, 620px"
+                srcSet={project.imageWidth > 480 ? [
+                    project.imageSmaller && `${project.imageSmaller} 360w`,
+                    project.imageSmall && `${project.imageSmall} 480w`,
+                    `${project.image} ${project.imageWidth}w`,
+                ].filter(Boolean).join(', ') : undefined}
+                sizes="(max-width: 700px) 112px, (max-width: 1264px) 30vw, 354px"
                 width={project.imageWidth} height={project.imageHeight}
                 alt={t('caseStudy.previewAlt', { name: project.name })} loading="lazy" decoding="async" onError={() => setImageFailed(true)} />
                 : <p>{t('caseStudy.imageMissing')}</p>}
