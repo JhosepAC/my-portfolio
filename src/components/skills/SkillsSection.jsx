@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useRef, useLayoutEffect} from 'react';
 import {AnimatePresence, m, useReducedMotion} from 'motion/react';
 import {useTranslation} from 'react-i18next';
 import {SKILLS_DATA} from '../../utils/constants.js';
@@ -15,6 +15,18 @@ const SkillsSection = () => {
     const reduceMotion = useReducedMotion();
     const [activeFilter, setActiveFilter] = useState('all');
     const [showAll, setShowAll] = useState(false);
+    const gridRef = useRef(null);
+    const [gridHeight, setGridHeight] = useState(null);
+
+    useLayoutEffect(() => {
+        const grid = gridRef.current;
+        if (!grid) return;
+        const measure = () => setGridHeight(grid.getBoundingClientRect().height);
+        measure();
+        const observer = new ResizeObserver(measure);
+        observer.observe(grid);
+        return () => observer.disconnect();
+    }, []);
 
     const filters = useMemo(() => [
         {id: 'all', label: t('skills.filters.all')},
@@ -80,8 +92,11 @@ const SkillsSection = () => {
                     ))}
                 </m.nav>
 
-                <m.div className="skills-grid">
-                    <AnimatePresence initial={false}>
+                <m.div className="skills-grid-frame" initial={false}
+                    animate={{height: gridHeight ?? 'auto'}}
+                    transition={{duration: reduceMotion ? 0 : 0.28, ease: EASE}}>
+                <div className="skills-grid" ref={gridRef}>
+                    <AnimatePresence initial={false} mode="popLayout">
                         {filteredSkills.map((skill, index) => (
                             <SkillCard
                                 key={skill.id || skill.name}
@@ -90,6 +105,7 @@ const SkillsSection = () => {
                             />
                         ))}
                     </AnimatePresence>
+                </div>
                 </m.div>
 
                 {activeFilter === 'all' && filteredSkills.length >= INITIAL_VISIBLE && (
