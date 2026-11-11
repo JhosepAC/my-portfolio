@@ -1,13 +1,14 @@
 import Icon from '../components/common/Icon';
-import fymImg from '../assets/projects/fym-800.webp';
-import fymImgSmall from '../assets/projects/fym-480.webp';
-import fymImgSmaller from '../assets/projects/fym-360.webp';
+import fymImg from '../assets/projects/fym/fym-800.webp';
+import fymImgSmall from '../assets/projects/fym/fym-480.webp';
+import fymImgSmaller from '../assets/projects/fym/fym-360.webp';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
-import meetmeshImg from '../assets/projects/meet_mesh-800.webp';
-import meetmeshImgSmall from '../assets/projects/meet_mesh-480.webp';
-import facialRecognitionImg from '../assets/projects/facial_recognition-800.webp';
-import facialRecognitionImgSmall from '../assets/projects/facial_recognition-480.webp';
-import facialRecognitionImgSmaller from '../assets/projects/facial_recognition-360.webp';
+import meetmeshImg from '../assets/projects/meetmesh/meetmesh-800.webp';
+import meetmeshImgSmall from '../assets/projects/meetmesh/meetmesh-480.webp';
+import meetmeshImgSmaller from '../assets/projects/meetmesh/meetmesh-360.webp';
+import biovisionImg from '../assets/projects/facial_recognition/biovision-800.webp';
+import biovisionImgSmall from '../assets/projects/facial_recognition/biovision-480.webp';
+import biovisionImgSmaller from '../assets/projects/facial_recognition/biovision-360.webp';
 import faceScanDashboard from '../assets/projects/facial_recognition/FaceScan-Dashboard.png';
 import faceScanComparator from '../assets/projects/facial_recognition/FaceScan-Comparator.png';
 import faceScanSearch from '../assets/projects/facial_recognition/FaceScan-Search.png';
@@ -62,7 +63,7 @@ export const PROJECTS_DATA = [
         slug: 'biovision-suite',
         name: 'BioVision Suite',
         imageWidth: 800,
-        imageHeight: 378,
+        imageHeight: 462,
         metadata: { type: 'desktop' },
         gallery: [
             { src: faceScanDashboard, width: 1800, height: 1054, altKey: 'caseStudy.bioVisionDashboardAlt', captionKey: 'caseStudy.bioVisionDashboardCaption' },
@@ -77,9 +78,9 @@ export const PROJECTS_DATA = [
         category: 'desktop',
         statusKey: 'in_development',
         title: 'BioVision Suite — Facial Biometric Platform',
-        image: facialRecognitionImg,
-        imageSmall: facialRecognitionImgSmall,
-        imageSmaller: facialRecognitionImgSmaller,
+        image: biovisionImg,
+        imageSmall: biovisionImgSmall,
+        imageSmaller: biovisionImgSmaller,
         technologies: [
             {name: 'Python', icon: <Icon icon="simple-icons:python"/>},
             {name: 'PySide6', icon: <Icon icon="simple-icons:qt"/>},
@@ -97,8 +98,8 @@ export const PROJECTS_DATA = [
         id: 3,
         slug: 'meetmesh',
         name: 'MeetMesh',
-        imageWidth: 420,
-        imageHeight: 200,
+        imageWidth: 800,
+        imageHeight: 439,
         metadata: { type: 'web' },
         gallery: [],
         category: 'web',
@@ -106,6 +107,7 @@ export const PROJECTS_DATA = [
         title: 'MeetMesh',
         image: meetmeshImg,
         imageSmall: meetmeshImgSmall,
+        imageSmaller: meetmeshImgSmaller,
         technologies: [
             {name: 'Next.js', icon: <Icon icon="simple-icons:nextdotjs"/>},
             {name: 'React', icon: <Icon icon="simple-icons:react"/>},
@@ -127,7 +129,7 @@ export const PROJECTS_DATA = [
         slug: 'fym',
         name: 'FyM',
         imageWidth: 800,
-        imageHeight: 450,
+        imageHeight: 409,
         metadata: { type: 'web' },
         gallery: [],
         category: 'web',
