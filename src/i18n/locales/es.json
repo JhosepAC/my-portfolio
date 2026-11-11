@@ -65,6 +65,9 @@
       "badge": "EN DESARROLLO"
     },
     "items": {
+      "joti": {
+        "description": "Organización personal por espacios: páginas, notas, listas, calendario y galería con herramientas configurables."
+      },
       "gitpilot": {
         "description": "Aplicación de escritorio para gestionar identidades Git por carpeta y repositorio en Windows y Linux."
       },
@@ -425,7 +428,72 @@
     "gitPilotSettingsCaption": "Configuración guarda el idioma y permite exportar e importar perfiles y preferencias.",
     "gitPilotImportAlt": "Vista previa de importación con un perfil nuevo y un cambio de tiempo de escaneo",
     "gitPilotImportCaption": "La revisión muestra los cambios del JSON antes de confirmar la importación.",
+    "jotilistsAlt": "Lista de la compra con productos, cantidades, categorías y casillas de verificación",
+    "jotilistsCaption": "Listas: propiedades tipadas, edición de celdas y vistas para organizar registros.",
+    "jotipagesAlt": "Editor de páginas con un documento de proyecto, tareas y una tabla de referencias",
+    "jotipagesCaption": "Páginas: documentos con títulos, tareas y tablas en un editor visual.",
+    "jotinotesAlt": "Panel de notas con buscador, etiquetas y tarjetas de ideas",
+    "jotinotesCaption": "Notas: captura rápida, búsqueda y etiquetas dentro del espacio.",
+    "joticalendarAlt": "Calendario mensual con eventos de varios días y una revisión con hora",
+    "joticalendarCaption": "Calendario: vista mensual con eventos de día completo y eventos con hora.",
     "items": {
+      "joti": {
+        "tagline": "Un espacio para cada parte de tu día.",
+        "summary": "Joti es una aplicación web en desarrollo que reúne documentos, notas, listas, calendario y galería en espacios privados configurables.",
+        "problem": "Las ideas, los documentos y los pendientes de un mismo proyecto suelen quedar repartidos entre herramientas. Joti busca mantener ese contexto unido y permitir que cada espacio muestre solo los módulos que necesita.",
+        "objectives": [
+          "Organizar contenido por espacios con herramientas que se pueden activar y desactivar.",
+          "Conectar la captura rápida de ideas con documentos y listas estructuradas.",
+          "Conservar borradores y detectar conflictos para proteger el trabajo durante la edición."
+        ],
+        "solution": "Desarrollo una aplicación modular con una navegación compartida para todas las herramientas. Cada espacio conserva su contenido y configuración; desactivar un módulo lo oculta sin borrar sus registros. La versión actual permite trabajar con espacios privados de un único propietario.",
+        "highlights": [
+          {
+            "title": "Espacios configurables",
+            "text": "Nombre, icono, color, favoritos y orden persistentes. Cada espacio permite elegir sus herramientas y volver a activarlas conservando el contenido."
+          },
+          {
+            "title": "Páginas y notas",
+            "text": "Editor visual y Markdown con guardado automático y recuperación de borradores. Las notas añaden captura rápida, etiquetas, historial y conversión a páginas independientes."
+          },
+          {
+            "title": "Listas con estructura",
+            "text": "Tablas con propiedades tipadas, vistas, filtros y ordenación. Permiten importar y exportar CSV, reorganizar filas y editar celdas desde el teclado."
+          },
+          {
+            "title": "Calendario",
+            "text": "Vistas de mes, semana y día con búsqueda y filtros. Distingue eventos de día completo y eventos con hora y zona horaria."
+          },
+          {
+            "title": "Galería privada",
+            "text": "Imágenes organizadas en álbumes y etiquetas, con distintas vistas y un visor ampliable. Conserva los originales y genera versiones optimizadas para navegar."
+          }
+        ],
+        "technicalDecisions": [
+          {
+            "title": "Módulos con una base común",
+            "text": "Next.js y TypeScript organizan la aplicación por funcionalidades. El monorepo con pnpm y Turborepo comparte componentes y configuración entre la aplicación web y la documentación."
+          },
+          {
+            "title": "Datos reactivos y permisos",
+            "text": "Convex mantiene los datos y las suscripciones. Las sesiones usan cookies HttpOnly y el backend comprueba la sesión y la propiedad del espacio en cada operación protegida."
+          },
+          {
+            "title": "Edición con recuperación",
+            "text": "Los borradores locales ayudan a recuperar cambios sin guardar. Las revisiones detectan escrituras desactualizadas y los identificadores de operación evitan duplicar operaciones al reintentarlas."
+          },
+          {
+            "title": "Contenido y medios separados",
+            "text": "Tiptap permite editar documentos almacenados en Markdown. La galería guarda originales en Convex Storage y usa Sharp para generar derivados WebP con acceso privado."
+          }
+        ],
+        "future": [
+          "Preparar el primer despliegue público y completar la validación de los flujos.",
+          "Ampliar el modelo de permisos para incorporar colaboración entre usuarios."
+        ],
+        "galleryIntro": "Recortes de las herramientas durante el desarrollo, con datos de ejemplo. Selecciona una captura para ampliarla.",
+        "results": "Joti continúa en desarrollo y todavía no cuenta con una demo pública. El repositorio incluye las herramientas descritas y pruebas automatizadas de sus módulos. Los espacios actuales son privados; los permisos compartidos y la edición colaborativa simultánea aún no están implementados."
+      },
       "gitpilot": {
         "tagline": "Identidades de Git para proyectos personales y de trabajo.",
         "summary": "GitPilot organiza perfiles de autor y aplica reglas de identidad por carpeta o repositorio en Windows y Linux. Puedes comparar lo que esperas con lo que Git usará en el próximo commit.",
