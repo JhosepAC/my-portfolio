@@ -1,4 +1,4 @@
-import {Icon} from '@iconify/react';
+import Icon from '../components/common/Icon';
 import fymImg from '../assets/projects/fym-800.webp';
 import fymImgSmall from '../assets/projects/fym-480.webp';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';

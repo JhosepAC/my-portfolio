@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Icon} from '@iconify/react';
+import Icon from '../common/Icon';
 import './ProjectActions.css'
 import { isExternalProjectUrl } from '../../utils/projectUrls';
 
