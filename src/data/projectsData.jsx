@@ -2,6 +2,7 @@ import Icon from '../components/common/Icon';
 import fymImg from '../assets/projects/fym/fym-800.webp';
 import fymImgSmall from '../assets/projects/fym/fym-480.webp';
 import fymImgSmaller from '../assets/projects/fym/fym-360.webp';
+import fymImgLarge from '../assets/projects/fym/fym-1600.webp';
 import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
 import meetmeshImg from '../assets/projects/meetmesh/meetmesh-800.webp';
 import meetmeshImgSmall from '../assets/projects/meetmesh/meetmesh-480.webp';
@@ -9,6 +10,7 @@ import meetmeshImgSmaller from '../assets/projects/meetmesh/meetmesh-360.webp';
 import biovisionImg from '../assets/projects/facial_recognition/biovision-800.webp';
 import biovisionImgSmall from '../assets/projects/facial_recognition/biovision-480.webp';
 import biovisionImgSmaller from '../assets/projects/facial_recognition/biovision-360.webp';
+import biovisionImgLarge from '../assets/projects/facial_recognition/biovision-1600.webp';
 import faceScanDashboard from '../assets/projects/facial_recognition/FaceScan-Dashboard.png';
 import faceScanComparator from '../assets/projects/facial_recognition/FaceScan-Comparator.png';
 import faceScanSearch from '../assets/projects/facial_recognition/FaceScan-Search.png';
@@ -81,6 +83,9 @@ export const PROJECTS_DATA = [
         image: biovisionImg,
         imageSmall: biovisionImgSmall,
         imageSmaller: biovisionImgSmaller,
+        imageLarge: biovisionImgLarge,
+        imageLargeWidth: 1600,
+        imageLargeHeight: 924,
         technologies: [
             {name: 'Python', icon: <Icon icon="simple-icons:python"/>},
             {name: 'PySide6', icon: <Icon icon="simple-icons:qt"/>},
@@ -138,6 +143,9 @@ export const PROJECTS_DATA = [
         image: fymImg,
         imageSmall: fymImgSmall,
         imageSmaller: fymImgSmaller,
+        imageLarge: fymImgLarge,
+        imageLargeWidth: 1600,
+        imageLargeHeight: 818,
         technologies: [
             {name: 'Next.js', icon: <Icon icon="simple-icons:nextdotjs"/>},
             {name: 'React', icon: <Icon icon="simple-icons:react"/>},
