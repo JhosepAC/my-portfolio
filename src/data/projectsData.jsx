@@ -7,6 +7,7 @@ import tmdbLogo from '../assets/projects/external_logos/tmdb_api.svg';
 import meetmeshImg from '../assets/projects/meetmesh/meetmesh-800.webp';
 import meetmeshImgSmall from '../assets/projects/meetmesh/meetmesh-480.webp';
 import meetmeshImgSmaller from '../assets/projects/meetmesh/meetmesh-360.webp';
+import meetmeshImgLarge from '../assets/projects/meetmesh/meetmesh-1600.webp';
 import biovisionImg from '../assets/projects/facial_recognition/biovision-800.webp';
 import biovisionImgSmall from '../assets/projects/facial_recognition/biovision-480.webp';
 import biovisionImgSmaller from '../assets/projects/facial_recognition/biovision-360.webp';
@@ -113,6 +114,9 @@ export const PROJECTS_DATA = [
         image: meetmeshImg,
         imageSmall: meetmeshImgSmall,
         imageSmaller: meetmeshImgSmaller,
+        imageLarge: meetmeshImgLarge,
+        imageLargeWidth: 1600,
+        imageLargeHeight: 878,
         technologies: [
             {name: 'Next.js', icon: <Icon icon="simple-icons:nextdotjs"/>},
             {name: 'React', icon: <Icon icon="simple-icons:react"/>},

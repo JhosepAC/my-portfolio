@@ -97,7 +97,7 @@
 .case-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 24px; font-size: 16px; }
 .case-dialog-header button { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 0; background: var(--bg-muted); color: inherit; }
 .case-dialog-header button:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
-.case-dialog img { display: block; width: 100%; height: auto; max-height: calc(100svh - 180px); object-fit: contain; }
+.case-dialog img { display: block; width: 100%; height: auto; margin-inline: auto; max-height: calc(100svh - 180px); object-fit: contain; }
 .case-not-found { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 28px; }
 .case-error-code { font-size: var(--case-display); line-height: 1; letter-spacing: -.05em; }
 .case-not-found h1 { font-size: var(--case-heading); line-height: 1.1; letter-spacing: -.03em; }
