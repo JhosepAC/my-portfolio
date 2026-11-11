@@ -1,5 +1,5 @@
 import { useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { LazyMotion, domAnimation, MotionConfig, AnimatePresence, m } from 'motion/react';
 import Navbar from './components/common/nav-bar/Navbar';
 import Home from './pages/Home';
@@ -15,6 +15,20 @@ import RouteEffects from './components/common/RouteEffects';
 
 const ProjectCaseStudy = lazy(() => import('./pages/ProjectCaseStudy'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+
+function PageRoutes() {
+    const { pathname } = useLocation();
+    return <Suspense fallback={null}>
+        <RouteEffects />
+        <div key={pathname} className="route-content">
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/proyectos/:slug" element={<ProjectCaseStudy />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </div>
+    </Suspense>;
+}
 
 function App() {
     const isLoading = useLoading();
@@ -38,7 +52,6 @@ function App() {
                         </AnimatePresence>
 
                         <AppReadyContext.Provider value={!isLoading}>
-                        <RouteEffects />
                         <m.main
                             className={`app-content ${isLoading ? 'is-loading' : 'is-ready'}`}
                             initial={false}
@@ -46,13 +59,7 @@ function App() {
                             transition={{duration: 0.24, ease: 'easeOut'}}
                         >
                             <Navbar />
-                            <Suspense fallback={null}>
-                                <Routes>
-                                    <Route path="/" element={<Home />} />
-                                    <Route path="/proyectos/:slug" element={<ProjectCaseStudy />} />
-                                    <Route path="*" element={<NotFound />} />
-                                </Routes>
-                            </Suspense>
+                            <PageRoutes />
                         </m.main>
                     </AppReadyContext.Provider>
                     </div>

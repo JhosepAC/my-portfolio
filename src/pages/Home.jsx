@@ -1,4 +1,4 @@
-import {useEffect, useRef} from 'react';
+import {useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import {m, useScroll, useTransform, useSpring, useReducedMotion} from 'motion/react';
 import {Rocket, ChevronDown, Mail} from 'lucide-react';
@@ -56,40 +56,6 @@ const Home = () => {
         {stiffness: 120, damping: 28}
     );
     const indicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
-
-    useEffect(() => {
-        if (!window.location.hash) {
-            window.scrollTo(0, 0);
-        }
-    }, []);
-
-    useEffect(() => {
-        // Smooth scroll handler
-        const handleSmoothScroll = (e) => {
-            const href = e.currentTarget.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                const targetElement = document.querySelector(href);
-
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth', block: 'start'
-                    });
-                }
-            }
-        };
-
-        const links = document.querySelectorAll('a[href^="#"]');
-        links.forEach(link => {
-            link.addEventListener('click', handleSmoothScroll);
-        });
-
-        return () => {
-            links.forEach(link => {
-                link.removeEventListener('click', handleSmoothScroll);
-            });
-        };
-    }, []);
 
     return (<>
         <div className="home-container">
