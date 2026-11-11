@@ -12,7 +12,7 @@ const ICONS = {
     'react', 'supabase', 'tailwindcss', 'typescript', 'vuejs',
   ],
   'simple-icons': [
-    'css3', 'figma', 'git', 'github', 'html5', 'javascript', 'meta', 'nextdotjs',
+    'css3', 'figma', 'git', 'github', 'html5', 'javascript', 'linux', 'meta', 'nextdotjs',
     'onnx', 'opencv', 'python', 'qt', 'react', 'rust', 'scrumalliance',
     'shadcnui', 'socketdotio', 'sqlalchemy', 'sqlite', 'supabase', 'tailwindcss',
     'tauri', 'typescript', 'webrtc', 'webgl',
