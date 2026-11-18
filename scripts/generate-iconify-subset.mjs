@@ -9,13 +9,13 @@ const ICONS = {
     'androidstudio', 'azure', 'csharp', 'css3', 'figma', 'firebase', 'flutter',
     'git', 'github', 'html5', 'java', 'javascript', 'mariadb',
     'microsoftsqlserver', 'mongodb', 'mysql', 'nextjs', 'nodejs', 'python',
-    'react', 'supabase', 'tailwindcss', 'typescript', 'vuejs',
+    'react', 'supabase', 'tailwindcss', 'typescript', 'vuejs', 'postgresql',
   ],
   'simple-icons': [
     'css3', 'figma', 'git', 'github', 'html5', 'javascript', 'linux', 'meta', 'nextdotjs',
     'onnx', 'opencv', 'python', 'qt', 'react', 'rust', 'scrumalliance',
     'shadcnui', 'socketdotio', 'sqlalchemy', 'sqlite', 'supabase', 'tailwindcss',
-    'tauri', 'typescript', 'webrtc', 'webgl',
+    'tauri', 'typescript', 'webrtc', 'webgl', 'cloudflare', 'vercel', 'telegram',
   ],
   mdi: [
     'account-group-outline', 'cached', 'chat-processing-outline', 'check',

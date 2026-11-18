@@ -45,6 +45,15 @@
 .case-features dt { font-size: 22px; line-height: 1.2; font-weight: 500; letter-spacing: -.02em; margin-bottom: 8px; }
 .case-features dd { margin: 0; }
 .case-decisions { display: grid; gap: 32px; }
+.case-integration-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; }
+#telegram-title { display: flex; align-items: center; gap: 16px; }
+#telegram-title > span:first-child { flex-shrink: 0; }
+.case-integration-copy { display: grid; gap: 32px; min-width: 0; }
+.case-integration-copy .case-source { margin-top: 0; justify-self: start; }
+@media (max-width: 900px) {
+    .case-integration-grid { grid-template-columns: 1fr; gap: 40px; }
+    .case-integration-grid > .case-figure { width: 100%; max-width: 560px; justify-self: center; }
+}
 .case-visual { min-width: 0; }
 .case-visual-sticky { position: sticky; top: calc(var(--banner-height, 34px) + 124px); }
 .case-figure { margin: 0; }

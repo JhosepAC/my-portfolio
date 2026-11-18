@@ -65,6 +65,9 @@
       "badge": "EN DESARROLLO"
     },
     "items": {
+      "finzi": {
+        "description": "Finanzas personales en PEN y USD: cuentas, movimientos, deudas y gastos fijos, con reportes y Telegram opcional."
+      },
       "joti": {
         "description": "Organización personal por espacios: páginas, notas, listas, calendario y galería con herramientas configurables."
       },
@@ -437,6 +440,72 @@
     "joticalendarAlt": "Calendario mensual con eventos de varios días y una revisión con hora",
     "joticalendarCaption": "Calendario: vista mensual con eventos de día completo y eventos con hora.",
     "items": {
+      "finzi": {
+        "telegram": {
+          "title": "Finzi en Telegram",
+          "intro": "Finny, el bot opcional de Finzi, permite registrar movimientos y consultar tus finanzas desde un chat privado, conectado a tu cuenta de la web.",
+          "features": [
+            {
+              "title": "Vinculación desde tu perfil",
+              "text": "Genera el enlace en Mi perfil, abre Telegram y confirma en la web la identidad que solicita acceso. Puedes revocar el vínculo y gestionar por separado los permisos de registro y consulta."
+            },
+            {
+              "title": "Del mensaje al movimiento",
+              "text": "Escribe, por ejemplo, «Gasté 25 soles en almuerzo». El bot prepara un borrador y solicita la cuenta, categoría u otros datos que falten. Puedes revisar, corregir o cancelar; el movimiento solo se registra tras tu confirmación."
+            },
+            {
+              "title": "Saldos y reportes",
+              "text": "Consulta saldos e información de ingresos y gastos por período sin abrir el dashboard. Las consultas respetan los permisos de la cuenta y mantienen PEN y USD separados."
+            }
+          ],
+          "deploymentTitle": "Despliegue del bot",
+          "deployment": "La web corre en Vercel y los datos en Supabase/PostgreSQL. Un Worker de Cloudflare recibe los mensajes mediante webhook y los guarda en una bandeja persistente. Un Cron procesa los eventos y entrega las respuestas, con reintentos e idempotencia para evitar registros duplicados. El bot funciona sin mantener encendido el equipo personal.",
+          "imageAlt": "Chat de Finny en Telegram con un borrador de gasto de 25 soles y botones para elegir la cuenta",
+          "caption": "El bot solicita la cuenta antes de confirmar el gasto; el borrador de esta captura termina cancelado.",
+          "linkLabel": "Abrir Finny en Telegram"
+        },
+        "tagline": "Tus cuentas y compromisos, en contexto.",
+        "summary": "Finzi es una aplicación web gratuita de finanzas personales para registrar ingresos y gastos, consultar saldos y organizar deudas y pagos recurrentes.",
+        "problem": "Llevar cuentas, movimientos y compromisos en registros separados dificulta entender cuánto dinero queda y qué pagos están pendientes. Además, mezclar monedas o registrar un mismo pago dos veces distorsiona el saldo.",
+        "solution": "Un espacio personal que reúne cuentas, categorías, movimientos y compromisos. Los reportes separan soles peruanos y dólares, y los pagos de deudas o gastos fijos pueden vincularse con un movimiento existente para evitar descontar el dinero dos veces.",
+        "highlights": [
+          {
+            "title": "Cuentas y movimientos",
+            "text": "Registra ingresos, gastos y transferencias entre cuentas de la misma moneda. Consulta el historial con búsqueda y filtros, y corrige movimientos conservando su trazabilidad."
+          },
+          {
+            "title": "Deudas y gastos fijos",
+            "text": "Organiza abonos, vencimientos y pagos recurrentes en tarjetas, lista o calendario. La recurrencia prepara los próximos vencimientos; no realiza cargos bancarios automáticos."
+          },
+          {
+            "title": "Reportes por moneda",
+            "text": "Consulta saldos, ingresos, gastos y flujo del período. Compara períodos y explora la evolución y distribución por categoría, con PEN y USD siempre separados."
+          },
+          {
+            "title": "Telegram y exportación",
+            "text": "Vincula un chat privado para registrar movimientos con confirmación y consultar saldos o reportes. Descarga tus datos en JSON o los movimientos filtrados en CSV."
+          }
+        ],
+        "technicalDecisions": [
+          {
+            "title": "Monolito modular",
+            "text": "Next.js, React y TypeScript integran la web y los endpoints HTTP. Cada dominio separa presentación, casos de uso e infraestructura, manteniendo los cálculos financieros fuera de las vistas."
+          },
+          {
+            "title": "Integridad en PostgreSQL",
+            "text": "Supabase aporta autenticación, PostgreSQL y almacenamiento privado. Las políticas RLS aíslan los datos y las funciones RPC aplican operaciones financieras atómicas con migraciones SQL versionadas."
+          },
+          {
+            "title": "Dinero sin coma flotante",
+            "text": "Los importes se representan en unidades menores enteras. Las transferencias y aperturas se distinguen de ingresos y gastos para mantener consistentes los saldos y reportes."
+          },
+          {
+            "title": "Operación independiente",
+            "text": "La web está publicada en Vercel y el backend en Supabase. La integración Telegram se ejecuta en Cloudflare, con persistencia y reintentos para no depender del equipo personal."
+          }
+        ],
+        "results": "El despliegue para uso personal y de portafolio está completado. La web publicada requiere registro e inicio de sesión; no incluye saldos de demostración. El procesamiento automático de eliminaciones en la nube permanece deshabilitado por decisión operacional."
+      },
       "joti": {
         "tagline": "Un espacio para cada parte de tu día.",
         "summary": "Joti es una aplicación web en desarrollo que reúne documentos, notas, listas, calendario y galería en espacios privados configurables.",
