@@ -4,8 +4,9 @@
     gap: clamp(20px, 3vw, 40px);
     align-items: center;
     min-width: 0;
-    padding: 22px 0;
-    border-top: 1px solid var(--line-strong); /* taste-skill-ignore: A row rule separates real entries in this compact project index. */
+    padding: 22px;
+    border-top: 1px solid var(--line-strong);
+    backdrop-filter: blur(3px);
 }
 
 .project-card:last-child { border-bottom: 1px solid var(--line-strong); /* taste-skill-ignore: Closes the same project index. */ }
