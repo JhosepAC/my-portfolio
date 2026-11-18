@@ -35,8 +35,41 @@ import jotiLists from '../assets/projects/joti/lists.webp';
 import jotiPages from '../assets/projects/joti/pages.webp';
 import jotiNotes from '../assets/projects/joti/notes.webp';
 import jotiCalendar from '../assets/projects/joti/calendar.webp';
+import finziImg from '../assets/projects/finzi/finzi-800.webp';
+import finziImgSmall from '../assets/projects/finzi/finzi-480.webp';
+import finziImgSmaller from '../assets/projects/finzi/finzi-360.webp';
+import finziImgLarge from '../assets/projects/finzi/finzi-1600.webp';
 
 export const PROJECTS_DATA = [
+    {
+        id: 7,
+        slug: 'finzi',
+        name: 'Finzi',
+        title: 'Finzi',
+        image: finziImg,
+        imageSmall: finziImgSmall,
+        imageSmaller: finziImgSmaller,
+        imageLarge: finziImgLarge,
+        imageWidth: 800,
+        imageHeight: 450,
+        imageLargeWidth: 1600,
+        imageLargeHeight: 901,
+        metadata: { type: 'web', year: '2026' },
+        category: 'web',
+        statusKey: 'production',
+        gallery: [],
+        technologies: [
+            {name: 'Next.js', icon: <Icon icon="simple-icons:nextdotjs"/>},
+            {name: 'React', icon: <Icon icon="simple-icons:react"/>},
+            {name: 'TypeScript', icon: <Icon icon="simple-icons:typescript"/>},
+            {name: 'Supabase', icon: <Icon icon="simple-icons:supabase"/>},
+            {name: 'PostgreSQL', icon: <Icon icon="devicon:postgresql"/>},
+            {name: 'Cloudflare', icon: <Icon icon="simple-icons:cloudflare"/>},
+            {name: 'Vercel', icon: <Icon icon="simple-icons:vercel"/>},
+        ],
+        live: 'https://finzi-beta.vercel.app',
+        labelTranslate: 'finzi'
+    },
     {
         id: 6,
         slug: 'joti',
@@ -218,9 +251,9 @@ const TECHNOLOGY_GROUPS = {
     interface: ['HTML5', 'CSS3', 'JavaScript', 'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'PySide6', 'Tiptap'],
     native: ['Rust', 'Tauri'],
     realtime: ['Socket.IO', 'WebRTC', 'WebGL'],
-    data: ['TMDB API', 'Supabase', 'SQLite', 'SQLAlchemy', 'Convex'],
+    data: ['TMDB API', 'Supabase', 'SQLite', 'SQLAlchemy', 'Convex', 'PostgreSQL'],
     vision: ['Python', 'InsightFace', 'ONNX Runtime', 'OpenCV', 'FAISS'],
-    tools: ['Git', 'Figma', 'Sharp', 'Turborepo'],
+    tools: ['Git', 'Figma', 'Sharp', 'Turborepo', 'Cloudflare', 'Vercel'],
 };
 
 export const groupTechnologies = (technologies) => Object.entries(TECHNOLOGY_GROUPS)

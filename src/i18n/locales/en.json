@@ -65,6 +65,9 @@
       "badge": "IN DEVELOPMENT"
     },
     "items": {
+      "finzi": {
+        "description": "Personal finances in PEN and USD: accounts, transactions, debts and recurring expenses, with reports and optional Telegram access."
+      },
       "joti": {
         "description": "Personal organization through spaces: pages, notes, lists, calendar and gallery with configurable tools."
       },
@@ -437,6 +440,49 @@
     "joticalendarAlt": "Monthly calendar with multi-day events and a timed review",
     "joticalendarCaption": "Calendar: monthly view with all-day and timed events.",
     "items": {
+      "finzi": {
+        "tagline": "Your accounts and commitments in context.",
+        "summary": "Finzi is a free personal finance web application for recording income and expenses, checking balances and organizing debts and recurring payments.",
+        "problem": "Keeping accounts, transactions and commitments in separate records makes it harder to understand available money and pending payments. Mixing currencies or recording a payment twice also distorts the balance.",
+        "solution": "A personal workspace combining accounts, categories, transactions and commitments. Reports keep Peruvian soles and US dollars separate, while debt and recurring payments can link to an existing transaction to avoid deducting money twice.",
+        "highlights": [
+          {
+            "title": "Accounts and transactions",
+            "text": "Record income, expenses and transfers between accounts in the same currency. Search and filter transaction history, and correct entries while retaining traceability."
+          },
+          {
+            "title": "Debts and recurring expenses",
+            "text": "Organize installments, due dates and recurring payments in cards, lists or a calendar. Recurrence prepares upcoming due dates; it does not charge bank accounts automatically."
+          },
+          {
+            "title": "Reports by currency",
+            "text": "Review balances, income, expenses and cash flow for a period. Compare periods and explore trends and category distributions, with PEN and USD always kept separate."
+          },
+          {
+            "title": "Telegram and exports",
+            "text": "Link a private chat to record transactions with confirmation and check balances or reports. Download personal data as JSON or filtered transactions as CSV."
+          }
+        ],
+        "technicalDecisions": [
+          {
+            "title": "Modular monolith",
+            "text": "Next.js, React and TypeScript integrate the web interface and HTTP endpoints. Each domain separates presentation, use cases and infrastructure, keeping financial calculations out of views."
+          },
+          {
+            "title": "PostgreSQL integrity",
+            "text": "Supabase provides authentication, PostgreSQL and private storage. RLS policies isolate data, and RPC functions apply atomic financial operations through versioned SQL migrations."
+          },
+          {
+            "title": "Integer monetary values",
+            "text": "Amounts use integer minor units. Transfers and opening balances are distinguished from income and expenses to keep balances and reports consistent."
+          },
+          {
+            "title": "Independent operation",
+            "text": "The web application runs on Vercel and the backend on Supabase. The Telegram integration runs on Cloudflare, with persistence and retries to operate independently of a personal computer."
+          }
+        ],
+        "results": "Deployment for personal and portfolio use is complete. The published website requires registration and sign-in; it has no demonstration balances. Automatic cloud deletion processing remains disabled by an operational decision."
+      },
       "joti": {
         "tagline": "A space for each part of your day.",
         "summary": "Joti is a web application in development that brings documents, notes, lists, a calendar and a gallery into configurable private spaces.",
