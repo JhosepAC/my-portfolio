@@ -10,6 +10,7 @@ import ProjectSection from '../components/projects/ProjectSection';
 import ProjectGallery from '../components/projects/ProjectGallery';
 import ProjectActions from '../components/projects/ProjectActions';
 import CaseImage from '../components/projects/CaseImage';
+import Icon from '../components/common/Icon';
 import NotFound from './NotFound';
 import '../styles/ProjectCaseStudy.css';
 
@@ -22,7 +23,8 @@ function CaseStudy({ project }) {
     const sections = [
         ['problem', 'problem', content.problem], ['solution', 'solution', content.solution],
         ['features', 'highlights', content.highlights?.length], ['decisions', 'decisions', content.technicalDecisions?.length],
-        ['stack', 'stack', project.technologies?.length], ['gallery', 'gallery', project.gallery?.length], ['results', 'results', content.results]
+        ['stack', 'stack', project.technologies?.length], ['telegram', 'telegram', project.telegram && content.telegram],
+        ['gallery', 'gallery', project.gallery?.length], ['results', 'results', content.results]
     ].filter(([, , present]) => present);
 
     usePageMetadata({
@@ -62,7 +64,7 @@ function CaseStudy({ project }) {
                         alt={t('caseStudy.previewAlt', { name: project.name })} width={project.imageWidth} height={project.imageHeight} priority />
                     <p className="case-visual-caption">{content.tagline}</p>
                     <nav className="case-contents" aria-label={t('caseStudy.contents')}>
-                        {sections.map(([id, label]) => <a key={id} href={`#${id}`}>{t(`caseStudy.${label}`)}</a>)}
+                        {sections.map(([id, label]) => <a key={id} href={`#${id}`}>{id === 'telegram' ? content.telegram.title : t(`caseStudy.${label}`)}</a>)}
                     </nav>
                 </div>
             </aside>
@@ -71,6 +73,24 @@ function CaseStudy({ project }) {
             <dl className="case-stack">{groupTechnologies(project.technologies).map(group => (
                 <div key={group.key}><dt>{t(`caseStudy.groups.${group.key}`)}</dt><dd>{group.items.map(tech => <span key={tech.name}>{tech.name}</span>)}</dd></div>
             ))}</dl>
+        </ProjectSection>}
+        {project.telegram && content.telegram && <ProjectSection id="telegram" title={<><Icon icon="simple-icons:telegram" /><span>{content.telegram.title}</span></>}>
+            <div className="case-integration-grid">
+                <div className="case-integration-copy">
+                    <p>{content.telegram.intro}</p>
+                    <dl className="case-features">{content.telegram.features.map(item => <div key={item.title}>
+                        <dt>{item.title}</dt><dd>{item.text}</dd>
+                    </div>)}</dl>
+                    <div><h3>{content.telegram.deploymentTitle}</h3><p>{content.telegram.deployment}</p></div>
+                    {isExternalProjectUrl(project.telegram.url) && <a className="case-source" href={project.telegram.url} target="_blank" rel="noopener noreferrer">
+                        {content.telegram.linkLabel}<ArrowUpRight size={18} aria-hidden="true" />
+                    </a>}
+                </div>
+                <CaseImage src={project.telegram.image} small={project.telegram.imageSmall}
+                    width={project.telegram.width} height={project.telegram.height}
+                    large={project.telegram.imageOriginal} largeWidth={project.telegram.originalWidth} largeHeight={project.telegram.originalHeight}
+                    alt={content.telegram.imageAlt} caption={content.telegram.caption} />
+            </div>
         </ProjectSection>}
         <ProjectGallery images={project.gallery}
             variant={project.slug === 'biovision-suite' ? 'atlas' : undefined}

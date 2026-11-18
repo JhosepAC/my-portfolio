@@ -38,7 +38,10 @@ import jotiCalendar from '../assets/projects/joti/calendar.webp';
 import finziImg from '../assets/projects/finzi/finzi-800.webp';
 import finziImgSmall from '../assets/projects/finzi/finzi-480.webp';
 import finziImgSmaller from '../assets/projects/finzi/finzi-360.webp';
-import finziImgLarge from '../assets/projects/finzi/finzi-1600.webp';
+import finziImgLarge from '../assets/projects/finzi/Captura de pantalla 2026-11-18 145108.png';
+import finziTelegram from '../assets/projects/finzi/telegram-800.webp';
+import finziTelegramSmall from '../assets/projects/finzi/telegram-480.webp';
+import finziTelegramOriginal from '../assets/projects/finzi/Captura de pantalla 2026-11-18 145625.png';
 
 export const PROJECTS_DATA = [
     {
@@ -51,13 +54,21 @@ export const PROJECTS_DATA = [
         imageSmaller: finziImgSmaller,
         imageLarge: finziImgLarge,
         imageWidth: 800,
-        imageHeight: 450,
-        imageLargeWidth: 1600,
-        imageLargeHeight: 901,
+        imageHeight: 408,
+        imageLargeWidth: 2521,
+        imageLargeHeight: 1285,
         metadata: { type: 'web', year: '2026' },
         category: 'web',
         statusKey: 'production',
         gallery: [],
+        telegram: {
+            image: finziTelegram,
+            imageSmall: finziTelegramSmall,
+            imageOriginal: finziTelegramOriginal,
+            width: 800, height: 807,
+            originalWidth: 889, originalHeight: 897,
+            url: 'https://t.me/FinziAssistantBot',
+        },
         technologies: [
             {name: 'Next.js', icon: <Icon icon="simple-icons:nextdotjs"/>},
             {name: 'React', icon: <Icon icon="simple-icons:react"/>},

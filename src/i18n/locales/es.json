@@ -441,6 +441,29 @@
     "joticalendarCaption": "Calendario: vista mensual con eventos de día completo y eventos con hora.",
     "items": {
       "finzi": {
+        "telegram": {
+          "title": "Finzi en Telegram",
+          "intro": "Finny, el bot opcional de Finzi, permite registrar movimientos y consultar tus finanzas desde un chat privado, conectado a tu cuenta de la web.",
+          "features": [
+            {
+              "title": "Vinculación desde tu perfil",
+              "text": "Genera el enlace en Mi perfil, abre Telegram y confirma en la web la identidad que solicita acceso. Puedes revocar el vínculo y gestionar por separado los permisos de registro y consulta."
+            },
+            {
+              "title": "Del mensaje al movimiento",
+              "text": "Escribe, por ejemplo, «Gasté 25 soles en almuerzo». El bot prepara un borrador y solicita la cuenta, categoría u otros datos que falten. Puedes revisar, corregir o cancelar; el movimiento solo se registra tras tu confirmación."
+            },
+            {
+              "title": "Saldos y reportes",
+              "text": "Consulta saldos e información de ingresos y gastos por período sin abrir el dashboard. Las consultas respetan los permisos de la cuenta y mantienen PEN y USD separados."
+            }
+          ],
+          "deploymentTitle": "Despliegue del bot",
+          "deployment": "La web corre en Vercel y los datos en Supabase/PostgreSQL. Un Worker de Cloudflare recibe los mensajes mediante webhook y los guarda en una bandeja persistente. Un Cron procesa los eventos y entrega las respuestas, con reintentos e idempotencia para evitar registros duplicados. El bot funciona sin mantener encendido el equipo personal.",
+          "imageAlt": "Chat de Finny en Telegram con un borrador de gasto de 25 soles y botones para elegir la cuenta",
+          "caption": "El bot solicita la cuenta antes de confirmar el gasto; el borrador de esta captura termina cancelado.",
+          "linkLabel": "Abrir Finny en Telegram"
+        },
         "tagline": "Tus cuentas y compromisos, en contexto.",
         "summary": "Finzi es una aplicación web gratuita de finanzas personales para registrar ingresos y gastos, consultar saldos y organizar deudas y pagos recurrentes.",
         "problem": "Llevar cuentas, movimientos y compromisos en registros separados dificulta entender cuánto dinero queda y qué pagos están pendientes. Además, mezclar monedas o registrar un mismo pago dos veces distorsiona el saldo.",

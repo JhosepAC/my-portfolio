@@ -15,7 +15,7 @@ const ICONS = {
     'css3', 'figma', 'git', 'github', 'html5', 'javascript', 'linux', 'meta', 'nextdotjs',
     'onnx', 'opencv', 'python', 'qt', 'react', 'rust', 'scrumalliance',
     'shadcnui', 'socketdotio', 'sqlalchemy', 'sqlite', 'supabase', 'tailwindcss',
-    'tauri', 'typescript', 'webrtc', 'webgl', 'cloudflare', 'vercel',
+    'tauri', 'typescript', 'webrtc', 'webgl', 'cloudflare', 'vercel', 'telegram',
   ],
   mdi: [
     'account-group-outline', 'cached', 'chat-processing-outline', 'check',

@@ -441,6 +441,29 @@
     "joticalendarCaption": "Calendar: monthly view with all-day and timed events.",
     "items": {
       "finzi": {
+        "telegram": {
+          "title": "Finzi on Telegram",
+          "intro": "Finny, Finzi’s optional bot, lets you record transactions and check your finances in a private chat connected to your web account.",
+          "features": [
+            {
+              "title": "Link from your profile",
+              "text": "Generate the link in My profile, open Telegram and confirm the requesting identity on the website. You can revoke the link and manage recording and reporting permissions separately."
+            },
+            {
+              "title": "From message to transaction",
+              "text": "Write, for example, “Gasté 25 soles en almuerzo” (I spent 25 soles on lunch). The bot prepares a draft and asks for the account, category or other missing details. Review, correct or cancel it; a transaction is recorded only after your confirmation."
+            },
+            {
+              "title": "Balances and reports",
+              "text": "Check balances and period-based income and expense information without opening the dashboard. Queries respect account permissions and keep PEN and USD separate."
+            }
+          ],
+          "deploymentTitle": "Bot deployment",
+          "deployment": "The web application runs on Vercel and data lives in Supabase/PostgreSQL. A Cloudflare Worker receives messages through a webhook and saves them to a persistent inbox. A Cron processes events and delivers responses, with retries and idempotency to prevent duplicate transactions. The bot runs independently of a personal computer.",
+          "imageAlt": "Finny Telegram chat showing a draft expense of 25 soles and buttons to choose an account",
+          "caption": "The bot asks for an account before confirming the expense; the draft in this screenshot is ultimately cancelled.",
+          "linkLabel": "Open Finny on Telegram"
+        },
         "tagline": "Your accounts and commitments in context.",
         "summary": "Finzi is a free personal finance web application for recording income and expenses, checking balances and organizing debts and recurring payments.",
         "problem": "Keeping accounts, transactions and commitments in separate records makes it harder to understand available money and pending payments. Mixing currencies or recording a payment twice also distorts the balance.",
