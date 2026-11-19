@@ -124,6 +124,20 @@ Sigue estos pasos para clonar y ejecutar el proyecto en tu entorno local:
 
 ---
 
+## Analítica con Microsoft Clarity
+
+El portafolio integra [`@microsoft/clarity`](https://www.npmjs.com/package/@microsoft/clarity)
+con el ID de proyecto `zg7b13vti7`. Se inicializa una sola vez en `src/main.jsx`,
+fuera del ciclo de renderizado de React y únicamente en compilaciones de producción
+(`import.meta.env.PROD`). No requiere variables de entorno adicionales.
+
+Para comprobar la integración, ejecuta `npm run build` y `npm run preview`.
+En las herramientas de desarrollo del navegador, verifica en la pestaña Network
+la carga de `https://www.clarity.ms/tag/zg7b13vti7` y revisa las visitas en el panel
+del proyecto de Microsoft Clarity. `npm run dev` no carga el seguimiento.
+
+---
+
 ## 📬 Contacto
 
 - **Nombre**: Jhosep Argomedo
