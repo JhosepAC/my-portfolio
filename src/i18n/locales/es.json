@@ -354,7 +354,9 @@
       "location": "Ubicación",
       "phone": "Teléfono"
     },
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos los derechos reservados.",
+    "analyticsNotice": "Uso analíticas anónimas",
+    "analyticsSuffix": "para mejorar la experiencia de este portafolio."
   },
   "caseStudy": {
     "back": "Volver a proyectos",

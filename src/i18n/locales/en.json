@@ -354,7 +354,9 @@
       "location": "Location",
       "phone": "Phone"
     },
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "analyticsNotice": "Uses anonymous analytics",
+    "analyticsSuffix": "to improve the experience of this portfolio."
   },
   "caseStudy": {
     "back": "Back to projects",

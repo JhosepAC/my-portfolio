@@ -74,6 +74,7 @@
 .footer-back-top { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; padding: 0; border: 0; background: none; font-size: 0.875rem; white-space: nowrap; }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: var(--text-secondary); }
 .footer-copyright { font-size: 0.8125rem; }
+.footer-analytics { padding-top: 0.75rem; font-size: 0.75rem; text-align: center; line-height: 1.5; color: var(--text-secondary); }
 @media (hover: hover) {
     .footer a:hover { text-decoration: underline; text-underline-offset: 5px; }
     .footer-brand-link:hover, .footer .footer-cv:hover { text-decoration: none; }
