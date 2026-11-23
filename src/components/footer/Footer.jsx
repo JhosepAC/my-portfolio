@@ -89,6 +89,9 @@ export default function Footer() {
                     </a>)}
                 </nav>
             </m.div>
+            <m.p className="footer-analytics" {...reveal(reduceMotion, { distance: 0 })}>
+                {t('footer.analyticsNotice')} (<a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft Clarity</a>) {t('footer.analyticsSuffix')}
+            </m.p>
         </div>
     </footer>;
 }
