@@ -2,7 +2,6 @@ import {memo, useMemo, useState, useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import TimelineItem from './TimelineItem';
 import {EDUCATION_DATA} from "../../utils/constants.js";
-import {EDUCATION_ICONS} from "../../utils/Icons.jsx";
 import SectionHeader from '../common/section-header/SectionHeader';
 import './EducationSection.css';
 
@@ -38,7 +37,6 @@ const EducationSection = () => {
                     title={t('education.title')}
                     titleHighlight={t('education.titleHighlight')}
                     subtitle={t('education.subtitle')}
-                    badge={{icon: EDUCATION_ICONS.BADGE, text: t('education.badge')}}
                     highlightFirst
                     stacked
                 />
