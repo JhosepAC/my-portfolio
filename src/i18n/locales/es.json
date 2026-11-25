@@ -44,6 +44,12 @@
   "projects": {
     "title": "Proyectos",
     "subtitle": "Interfaces, decisiones y código detrás de cada proyecto.",
+    "archive": {
+      "title": "Más allá de estos cinco.",
+      "text": "La colección completa reúne los {{count}} proyectos que he construido, con sus capturas y casos de estudio.",
+      "hint": "Cada captura abre su caso de estudio.",
+      "action": "Explorar todos los proyectos"
+    },
     "numberLabel": "PROYECTO",
     "technologiesLabel": "Tecnologías Utilizadas",
     "seeCode": "Código Fuente",
@@ -100,9 +106,18 @@
       }
     }
   },
+  "projectsPage": {
+    "title": "Todos los proyectos",
+    "subtitle": "La colección completa de lo que he construido, más allá de la selección destacada.",
+    "count": "{{count}} proyecto",
+    "count_other": "{{count}} proyectos",
+    "back": "Volver a la selección",
+    "backToSelection": "Volver a los destacados",
+    "pendingTitle": "El catálogo completo está en preparación.",
+    "pendingText": "Estoy reuniendo aquí los {{count}} proyectos con sus capturas y casos de estudio. Mientras tanto, la selección destacada sigue disponible en la página principal."
+  },
   "education": {
     "heading": "Educación",
-    "badge": "Formación Académica",
     "title": "Certificaciones",
     "titleHighlight": "Educación &",
     "subtitle": "Ingeniería de Software en la UPC, con formación complementaria en seguridad, datos y trabajo ágil.",

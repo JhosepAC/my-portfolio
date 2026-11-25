@@ -14,6 +14,7 @@ import { EASE } from './utils/motionVariants';
 import RouteEffects from './components/common/RouteEffects';
 
 const ProjectCaseStudy = lazy(() => import('./pages/ProjectCaseStudy'));
+const Projects = lazy(() => import('./pages/Projects'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function PageRoutes() {
@@ -23,6 +24,7 @@ function PageRoutes() {
         <div key={pathname} className="route-content">
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/proyectos" element={<Projects />} />
                 <Route path="/proyectos/:slug" element={<ProjectCaseStudy />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>

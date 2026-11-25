@@ -44,6 +44,12 @@
   "projects": {
     "title": "Projects",
     "subtitle": "Interfaces, decisions and code behind each project.",
+    "archive": {
+      "title": "Beyond these five.",
+      "text": "The complete collection gathers all {{count}} projects I have built, with their screenshots and case studies.",
+      "hint": "Every frame opens its case study.",
+      "action": "Explore all projects"
+    },
     "numberLabel": "PROJECT",
     "technologiesLabel": "Technologies Used",
     "seeCode": "Source Code",
@@ -100,9 +106,18 @@
       }
     }
   },
+  "projectsPage": {
+    "title": "All projects",
+    "subtitle": "The complete collection of what I have built, beyond the featured selection.",
+    "count": "{{count}} project",
+    "count_other": "{{count}} projects",
+    "back": "Back to the selection",
+    "backToSelection": "Back to featured projects",
+    "pendingTitle": "The full catalog is being prepared.",
+    "pendingText": "I am gathering all {{count}} projects here with their screenshots and case studies. In the meantime, the featured selection is still on the home page."
+  },
   "education": {
     "heading": "Education",
-    "badge": "Academic Background",
     "title": "Certifications",
     "titleHighlight": "Education &",
     "subtitle": "Software Engineering at UPC, alongside further study in security, data and agile practice.",
