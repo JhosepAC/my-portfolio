@@ -60,6 +60,7 @@ export const PROJECTS_DATA = [
         metadata: { type: 'web', year: '2026' },
         category: 'web',
         statusKey: 'production',
+        featured: true,
         gallery: [],
         telegram: {
             image: finziTelegram,
@@ -97,6 +98,7 @@ export const PROJECTS_DATA = [
         metadata: { type: 'web', year: '2026' },
         category: 'web',
         statusKey: 'in_development',
+        featured: true,
         gallery: [
             { src: jotiLists, width: 1108, height: 884, altKey: 'caseStudy.jotilistsAlt', captionKey: 'caseStudy.jotilistsCaption' },
             { src: jotiPages, width: 1108, height: 884, altKey: 'caseStudy.jotipagesAlt', captionKey: 'caseStudy.jotipagesCaption' },
@@ -129,6 +131,7 @@ export const PROJECTS_DATA = [
         metadata: { type: 'desktop', year: '2026' },
         category: 'desktop',
         statusKey: 'in_development',
+        featured: true,
         gallery: [
             { src: gitPilotHome, width: 900, height: 600, altKey: 'caseStudy.gitPilotHomeAlt', captionKey: 'caseStudy.gitPilotHomeCaption' },
             { src: gitPilotIdentities, width: 900, height: 600, altKey: 'caseStudy.gitPilotIdentitiesAlt', captionKey: 'caseStudy.gitPilotIdentitiesCaption' },
@@ -166,6 +169,7 @@ export const PROJECTS_DATA = [
         ],
         category: 'desktop',
         statusKey: 'in_development',
+        featured: true,
         title: 'BioVision Suite — Facial Biometric Platform',
         image: biovisionImg,
         imageSmall: biovisionImgSmall,
@@ -196,6 +200,7 @@ export const PROJECTS_DATA = [
         gallery: [],
         category: 'web',
         statusKey: 'in_development',
+        featured: true,
         title: 'MeetMesh',
         image: meetmeshImg,
         imageSmall: meetmeshImgSmall,

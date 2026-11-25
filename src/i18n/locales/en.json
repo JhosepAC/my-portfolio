@@ -44,6 +44,11 @@
   "projects": {
     "title": "Projects",
     "subtitle": "Interfaces, decisions and code behind each project.",
+    "archive": {
+      "title": "Beyond these five.",
+      "text": "The complete collection gathers all {{count}} projects I have built, with their screenshots and case studies.",
+      "action": "Explore all projects"
+    },
     "numberLabel": "PROJECT",
     "technologiesLabel": "Technologies Used",
     "seeCode": "Source Code",
@@ -99,6 +104,16 @@
         "status": "IN DEVELOPMENT"
       }
     }
+  },
+  "projectsPage": {
+    "title": "All projects",
+    "subtitle": "The complete collection of what I have built, beyond the featured selection.",
+    "count": "{{count}} project",
+    "count_other": "{{count}} projects",
+    "back": "Back to the selection",
+    "backToSelection": "Back to featured projects",
+    "pendingTitle": "The full catalog is being prepared.",
+    "pendingText": "I am gathering all {{count}} projects here with their screenshots and case studies. In the meantime, the featured selection is still on the home page."
   },
   "education": {
     "heading": "Education",

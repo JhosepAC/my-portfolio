@@ -1,16 +1,6 @@
 .projects-section { width: 100%; padding: 5rem 2.5rem; position: relative; background: var(--bg-primary); scroll-margin-top: 120px; }
 .projects-container { max-width: 1180px; margin-inline: auto; position: relative; z-index: 1; }
-.project-catalog-tools { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
-.filter-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.filter-btn, .project-tech-filter select { min-height: 44px; padding: 10px 18px; border-radius: var(--radius-pill); border: 1px solid var(--line-strong); background: var(--bg-secondary); color: var(--ink); font: inherit; font-size: 14px; }
-.filter-btn.active { background: var(--ink); color: var(--bg-primary); }
-.filter-btn:active { transform: scale(.97); }
-.project-tech-filter select { max-width: 210px; cursor: pointer; }
-.project-count { color: var(--ink-soft); font-size: 14px; white-space: nowrap; }
 .projects-grid { display: grid; grid-template-columns: minmax(0, 1fr); }
-.no-results { padding: 48px 0; color: var(--ink); }
-.no-results button { margin-top: 16px; }
-.project-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .projects-section :is(a, button, select):focus-visible { outline: 3px solid var(--ink); outline-offset: 5px; }
 @media (max-width: 1024px) { .projects-section { padding: 4.5rem 24px; } }
-@media (max-width: 700px) { .projects-section { padding: 3.5rem 16px; } .project-catalog-tools { align-items: flex-start; flex-direction: column; gap: 16px; } .filter-btn, .project-tech-filter select { padding-inline: 14px; } }
+@media (max-width: 700px) { .projects-section { padding: 3.5rem 16px; } }
