@@ -47,6 +47,7 @@
     "archive": {
       "title": "Beyond these five.",
       "text": "The complete collection gathers all {{count}} projects I have built, with their screenshots and case studies.",
+      "hint": "Every frame opens its case study.",
       "action": "Explore all projects"
     },
     "numberLabel": "PROJECT",

@@ -47,6 +47,7 @@
     "archive": {
       "title": "Más allá de estos cinco.",
       "text": "La colección completa reúne los {{count}} proyectos que he construido, con sus capturas y casos de estudio.",
+      "hint": "Cada captura abre su caso de estudio.",
       "action": "Explorar todos los proyectos"
     },
     "numberLabel": "PROYECTO",
